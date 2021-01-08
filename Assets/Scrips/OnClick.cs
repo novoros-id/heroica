@@ -87,6 +87,8 @@ public class OnClick : MonoBehaviour
             foreach (var collider in colliders)
             {
                 //Тут проверка можно ли суда идти
+                //Debug.Log(collider);
+                //Debug.Log(collider.transform.position);
 
                 step_true = true;
 
