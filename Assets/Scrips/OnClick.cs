@@ -8,21 +8,17 @@ public class OnClick : MonoBehaviour
     public Instantiant massive;
     public bool clicked = false;
     public Vector3 pos;
-    public int steps = 3;
     public string CurFloorName;
+    public GameObject[] Blue;
 
 
-    
-    
     void Update()
     {
-        pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        //pos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
     
     void OnMouseDown()
 	{
-        GameObject[] Blue;
-        //clicked = true;
 
         // получим количество шагов (сколько вышло на кубике)
         // получим floor на котором стоит человек - Поле_расчета
@@ -32,20 +28,28 @@ public class OnClick : MonoBehaviour
         // подсветим их синим - это новые поля расчета
         // для каждого поля расчета расчитаем следующий шаг
 
-        Return_floor_player(pos);
-        Get_Steps(steps,CurFloorName);
+        Blue = GameObject.FindGameObjectsWithTag("Blue");
+ 
 
-        //Blue = GameObject.FindGameObjectsWithTag("Blue");
-        //Debug.Log(Blue.Length);
+        if (Blue.Length > 0)
+        {
+            for (int b = 0; b < Blue.Length; b++)
+            {
+                Destroy(Blue[b]);
+            }
+        }
+        else
+        {
+        
+            Return_floor_player(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+            Get_Steps(2, CurFloorName);
 
-        //for (int b = 0; b < Blue.Length; b++)
-        //{
-        //    Debug.Log(b);
-        //}
-
+        }
+        
     }
 
-    void Return_floor_player(Vector3 pos)
+
+    private void Return_floor_player(Vector3 pos)
     {
             GameObject[] Floors;
             float x_f = pos.x - bs.pl_fl_x;
@@ -66,54 +70,39 @@ public class OnClick : MonoBehaviour
     }
 
 
-    
-
     void Get_Steps(int steps_, string CurFloorName_)
     {
-
-        Vector3 ForwardFloorPos;
-        Vector3 CurFloorPos;
         GameObject CurFloor;
-        string forwardFloorName = "";
-        GameObject[] Floors;
-        GameObject[] Blues;
+        Vector3 CurFloorPos;
+        Collider[] colliders;
+        bool step_true;
 
-
-
-        steps_ = steps_ - 1;
-        //Debug.Log(steps_);
-
+        steps_ -= 1;
 
         CurFloor = GameObject.Find(CurFloorName_);
         CurFloorPos = new Vector3(CurFloor.transform.position.x, CurFloor.transform.position.y, CurFloor.transform.position.z);
 
-        // Обработка Forward
-
-        ForwardFloorPos = new Vector3(CurFloor.transform.position.x+0.8f, CurFloor.transform.position.y, CurFloor.transform.position.z);
-
-        Floors = GameObject.FindGameObjectsWithTag("Floor");
-        Blues = GameObject.FindGameObjectsWithTag("Blue");
-
-        for (int i = 0; i < Floors.Length; i++)
+        if ((colliders = Physics.OverlapSphere(CurFloorPos, 2)).Length > 0)
         {
-            if (Floors[i].transform.position.x == ForwardFloorPos.x && Floors[i].transform.position.z == ForwardFloorPos.z)
+            foreach (var collider in colliders)
             {
-                forwardFloorName = Floors[i].name;
-                Instantiate(massive.selected, new Vector3(Floors[i].transform.position.x, 1.9f, Floors[i].transform.position.z), Quaternion.identity);
-                //Blues[i].SetActive(true);
-                //Debug.Log(Floors[i].name);
-                break;
+                //Тут проверка можно ли суда идти
+
+                step_true = true;
+
+                if (step_true == true && steps_ >= 0 && collider.name != CurFloorName_)
+                {
+                    Debug.Log("шаг " + steps_ + " из точки " + CurFloorName_ + " в точку " + collider.name);
+                    Instantiate(massive.selected, new Vector3(collider.transform.position.x, 1.9f, collider.transform.position.z), Quaternion.identity);
+                    Get_Steps(steps_, collider.name);
+                    
+                }
+
+
             }
         }
 
-        if(forwardFloorName != "" && steps_>=0)
-        {
-            //Debug.Log(steps_);
-            //Debug.Log(forwardFloorName);
-            
-            Get_Steps(steps_, forwardFloorName);
-        }
-
     }
+
 
 }

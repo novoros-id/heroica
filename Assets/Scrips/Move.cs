@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
     
     void OnMouseDown()
     {      
-        if (Cs.clicked = true)
+        if (Cs.clicked == true)
         {
             //Debug.Log("as");
             Player.transform.position = new Vector3(transform.position.x+0.7f,1.3f, transform.position.z-1.199f);
