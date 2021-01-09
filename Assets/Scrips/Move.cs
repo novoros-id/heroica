@@ -6,7 +6,8 @@ public class Move : MonoBehaviour
 {
     public OnClick Cs;
     public GameObject Player;
-    
+    public GameObject[] Blue;
+
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -14,11 +15,16 @@ public class Move : MonoBehaviour
     
     void OnMouseDown()
     {      
-        if (Cs.clicked == true)
+
+        Player.transform.position = new Vector3(transform.position.x,0.55f, transform.position.z);
+        Blue = GameObject.FindGameObjectsWithTag("Blue");
+
+
+        for (int b = 0; b < Blue.Length; b++)
         {
-            //Debug.Log("as");
-            Player.transform.position = new Vector3(transform.position.x+0.7f,1.3f, transform.position.z-1.199f);
-            //Cs.clicked = false;
+                Destroy(Blue[b]);
         }
+        
+
     }
 }

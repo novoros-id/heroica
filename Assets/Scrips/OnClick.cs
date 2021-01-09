@@ -32,24 +32,24 @@ public class OnClick : MonoBehaviour
         // подсветим их синим - это новые поля расчета
         // для каждого поля расчета расчитаем следующий шаг
 
-        Blue = GameObject.FindGameObjectsWithTag("Blue");
+        //Blue = GameObject.FindGameObjectsWithTag("Blue");
 
 
 
-        if (Blue.Length > 0)
-        {
-            for (int b = 0; b < Blue.Length; b++)
-            {
-                Destroy(Blue[b]);
-            }
-        }
-        else
-        {
+        //if (Blue.Length > 0)
+        //{
+        //    for (int b = 0; b < Blue.Length; b++)
+        //    {
+        //        Destroy(Blue[b]);
+        //    }
+        //}
+        //else
+        //{
 
-            Return_floor_player(new Vector3(transform.position.x, transform.position.y, transform.position.z));
-            Get_Steps(3, CurFloorName);
+        //    Return_floor_player(new Vector3(transform.position.x, transform.position.y, transform.position.z));
+        //    Get_Steps(3, CurFloorName);
 
-        }
+        //}
 
     }
 

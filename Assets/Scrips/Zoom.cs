@@ -19,6 +19,13 @@ public class Zoom : MonoBehaviour
 		if (limit > 90) limit = 90;
 		offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
 		transform.position = target.position + offset;
+
+		X = transform.localEulerAngles.y + 1 * sensitivity;
+		Y += - 10 * sensitivity;
+		Y = Mathf.Clamp(Y, -limit, limit);
+		transform.localEulerAngles = new Vector3(-Y, X, 0);
+		transform.position = transform.localRotation * offset + target.position;
+
 	}
 
 	void Update()
