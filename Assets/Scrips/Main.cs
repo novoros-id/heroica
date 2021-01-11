@@ -6,4 +6,5 @@ public class Main : MonoBehaviour
 {
     public float pl_fl_x = 1.2f;
     public float pl_fl_z = 0.8f;
+    public int current_move;
 }
