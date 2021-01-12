@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ClickOnCube : MonoBehaviour
 {
 
@@ -11,15 +12,14 @@ public class ClickOnCube : MonoBehaviour
     public int cube_step;
 
 
-    public Main bs;
     public Instantiant massive;
     public bool clicked = false;
     public Vector3 pos;
     public string CurFloorName;
     public GameObject[] Blue;
     public GameObject selected1;
-
     public GameObject[] player;
+
 
     void Start()
     {
@@ -91,6 +91,9 @@ public class ClickOnCube : MonoBehaviour
         // подсветим их синим - это новые поля расчета
         // для каждого поля расчета расчитаем следующий шаг
 
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
         Blue = GameObject.FindGameObjectsWithTag("Blue");
 
         for (int b = 0; b < Blue.Length; b++)
@@ -103,9 +106,16 @@ public class ClickOnCube : MonoBehaviour
 
         for (int i = 0; i < player.Length; i++)
             {
+
+            Player_ pl_script = player[i].GetComponent<Player_>();
+
+            if (pl_script.step_move == mScript.get_current_move())
+            {
                 Return_floor_player(new Vector3(player[i].transform.position.x, player[i].transform.position.y, player[i].transform.position.z));
-                Get_Steps(cube_step, CurFloorName);
+                     Get_Steps(cube_step, CurFloorName);
             }
+
+        }
 
   
     }
@@ -128,6 +138,11 @@ public class ClickOnCube : MonoBehaviour
             }
         }
 
+        if (CurFloorName == "")
+        {
+            CurFloorName = GameObject.Find("StartFloor").name;
+        }
+
     }
 
     void Get_Steps(int steps_, string CurFloorName_)
@@ -135,6 +150,7 @@ public class ClickOnCube : MonoBehaviour
         GameObject CurFloor;
         Vector3 CurFloorPos;
         Collider[] colliders;
+        string [] m_step_tag = new string [5] { "Player", "Floor", "Enemy", "Item" , "Door"};
 
         steps_ -= 1;
 
@@ -156,57 +172,41 @@ public class ClickOnCube : MonoBehaviour
 
             foreach (var collider in colliders)
             {
+                if (collider.tag == "Player" || collider.tag == "Floor" || collider.tag == "Enemy" ||  collider.tag == "Item" || collider.tag == "Door")
 
-                pos1 = collider.transform.position - CurFloorPos;
-
-                //  Заполняем массивы направлений;
-
-                if (pos1.x > 0 && pos1.z == 0)
                 {
-                    forward.Add(collider);
+
+                    pos1 = collider.transform.position - CurFloorPos;
+
+                    //  Заполняем массивы направлений;
+
+                    if (pos1.x > 0 && pos1.z == 0)
+                    {
+                        forward.Add(collider);
+                    }
+
+                    if (pos1.x == 0 && pos1.z == 0)
+                    {
+                        center.Add(collider);
+                    }
+
+                    if (pos1.x < 0 && pos1.z == 0)
+                    {
+                        back.Add(collider);
+                    }
+
+                    if (pos1.z > 0 && pos1.x == 0)
+                    {
+                        left.Add(collider);
+                    }
+
+                    if (pos1.z < 0 && pos1.x == 0)
+                    {
+                        right.Add(collider);
+                    }
+
+
                 }
-
-                if (pos1.x == 0 && pos1.z == 0)
-                {
-                    center.Add(collider);
-                }
-
-                if (pos1.x < 0 && pos1.z == 0)
-                {
-                    back.Add(collider);
-                }
-
-                if (pos1.z > 0 && pos1.x == 0)
-                {
-                    left.Add(collider);
-                }
-
-                if (pos1.z < 0 && pos1.x == 0)
-                {
-                    right.Add(collider);
-                }
-
-
-
-
-                //Тут проверка можно ли суда идти
-                //Debug.Log(collider);
-                //Debug.Log(collider.transform.position);
-
-                //Debug.Log(collider);
-                //Debug.Log(collider.transform.position);
-                //Debug.Log(Vector3.Distance(CurFloorPos, collider.transform.position));
-                //step_true = true;
-
-                //if (step_true == true && steps_ >= 0 && collider.name != CurFloorName_ && collider.name != Blue && collider.name != "player")
-                //{
-                //    Debug.Log("шаг " + steps_ + " из точки " + CurFloorName_ + " в точку " + collider.name);
-                //    Instantiate(selected1, new Vector3(collider.transform.position.x, 0.05f, collider.transform.position.z), Quaternion.identity);
-                //    Get_Steps(steps_, collider.name);
-
-                //}
-
-
 
             }
 
@@ -252,7 +252,7 @@ public class ClickOnCube : MonoBehaviour
 
         Collider FloorList = null;
         Collider ItemList;
-        string Blue = "Blue1(Clone)";
+        // string Blue = "Blue1(Clone)";
 
         if (NextStep.Count == 0)
         {

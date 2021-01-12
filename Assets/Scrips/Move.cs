@@ -4,27 +4,45 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public OnClick Cs;
-    public GameObject Player;
+    public Player_ Cs;
     public GameObject[] Blue;
+    public GameObject[] player;
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        
     }
     
     void OnMouseDown()
-    {      
+    {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
 
-        Player.transform.position = new Vector3(transform.position.x,0.55f, transform.position.z);
-        Blue = GameObject.FindGameObjectsWithTag("Blue");
+        player = GameObject.FindGameObjectsWithTag("Player");
 
-
-        for (int b = 0; b < Blue.Length; b++)
+        for (int i = 0; i < player.Length; i++)
         {
-                Destroy(Blue[b]);
+
+            Player_ pl_script = player[i].GetComponent<Player_>();
+
+            if (pl_script.step_move == mScript.get_current_move())
+            {
+
+
+                player[i].transform.position = new Vector3(transform.position.x, 0.55f, transform.position.z);
+
+                Blue = GameObject.FindGameObjectsWithTag("Blue");
+
+                for (int b = 0; b < Blue.Length; b++)
+                {
+                    Destroy(Blue[b]);
+                }
+
+                mScript.set_current_move();
+                break;
+            }
+
         }
-        
 
     }
 }
