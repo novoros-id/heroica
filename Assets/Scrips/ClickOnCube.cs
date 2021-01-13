@@ -29,12 +29,12 @@ public class ClickOnCube : MonoBehaviour
     void OnMouseDown()
     {
 
-        throw_a_bone();
+        cube_step = throw_a_bone();
         show_where_to_go();
 
     }
 
-    void throw_a_bone()
+    int throw_a_bone()
     {
         transform.Rotate(0, Random.Range(1, 100) * 90, 0);
         transform.Rotate(Random.Range(1, 100) * 90, 0, 0);
@@ -60,23 +60,29 @@ public class ClickOnCube : MonoBehaviour
 
         if (max_name == "gold")
         {
-            cube_step = 4;
+            //cube_step = 4;
+            return 4;
         }
 
         if (max_name == "One")
         {
-            cube_step = 1;
+            //cube_step = 1;
+            return 1;
         }
 
         if (max_name == "Two11" || max_name == "Two12" || max_name == "Two21" || max_name == "Two22")
         {
-            cube_step = 2;
+            //cube_step = 2;
+            return 2;
         }
 
         if (max_name == "Three11" || max_name == "Three12" || max_name == "Three13" || max_name == "Three21" || max_name == "Three22" || max_name == "Three23")
         {
-            cube_step = 3;
+            //cube_step = 3;
+            return 3;
         }
+
+        return 0;
 
         // Debug.Log(cube_step);
     }
@@ -249,9 +255,8 @@ public class ClickOnCube : MonoBehaviour
         // Если на floor стоит игрок и это последний шаг - идешь на след floor
         // Если рядом с полем монстр - останавливаешься на этом поле
         // 
-
         Collider FloorList = null;
-        Collider ItemList;
+        Collider ItemList = null;
         // string Blue = "Blue1(Clone)";
 
         if (NextStep.Count == 0)
@@ -262,6 +267,8 @@ public class ClickOnCube : MonoBehaviour
         {
             if (NextStep[0].name != CurFloorName)
             {
+        
+                FloorList = NextStep[0];
                 Instantiate(selected1, new Vector3(NextStep[0].transform.position.x, 0.05f, NextStep[0].transform.position.z), Quaternion.identity);
                 return NextStep[0];
             }
@@ -279,6 +286,11 @@ public class ClickOnCube : MonoBehaviour
                 {
                     ItemList = l;
                 }
+            }
+
+            if (ItemList.tag == "Player")
+            {
+                return FloorList;
             }
 
             if (FloorList.name != CurFloorName)
