@@ -43,15 +43,20 @@ public class Zoom : MonoBehaviour
 		{
 			GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView + 5;
 		}
-		
-		if (Input.GetMouseButton(1)) 
-		{
-			X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
+
+        if (Input.GetMouseButton(1))
+        {
+            X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
 			Y += Input.GetAxis("Mouse Y") * sensitivity;
 			Y = Mathf.Clamp(Y, -limit, limit);
 			transform.localEulerAngles = new Vector3(-Y, X, 0);
 			transform.position = transform.localRotation * offset + target.position;
-		}
+        }
+        else
+        {
+            transform.position = transform.position;
 
-	}
+        }
+
+    }
 }

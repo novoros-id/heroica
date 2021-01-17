@@ -10,6 +10,7 @@ public class Main : MonoBehaviour
     public GameObject[] player;
     public GameObject[] pr_hod;
     public GameObject selected1;
+    public GameObject cam_focus;
 
     public void Start()
     {
@@ -48,6 +49,7 @@ public class Main : MonoBehaviour
     {
    
         player = GameObject.FindGameObjectsWithTag("Player");
+        cam_focus = GameObject.Find("CameraFocus");
 
         for (int i = 0; i < player.Length; i++)
         {
@@ -57,7 +59,7 @@ public class Main : MonoBehaviour
             if (pl_script.step_move == current_move)
             {
                 Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.4f, player[i].transform.position.z), Quaternion.identity);
-
+                cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
             }
 
         }

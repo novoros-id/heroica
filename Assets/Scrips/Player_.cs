@@ -5,12 +5,27 @@ using UnityEngine;
 public class Player_ : MonoBehaviour
 {
     public int step_move;
-    public GameObject selected1;
+    private bool key = false;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    public bool get_key()
+    {
+        return key;
+    }
+
+    public void set_key()
+    {
+        key = true;
+    }
+
+    public void clear_key()
+    {
+        key = false;
     }
 
     // Update is called once per frame
