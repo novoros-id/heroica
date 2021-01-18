@@ -15,18 +15,18 @@ public class Zoom : MonoBehaviour
 
 	void Start()
 	{
-		limit = Mathf.Abs(limit);
-		if (limit > 90) limit = 90;
-		offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
-		transform.position = target.position + offset;
+        limit = Mathf.Abs(limit);
+        if (limit > 90) limit = 90;
+        offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
+        transform.position = target.position + offset;
 
-		X = transform.localEulerAngles.y + 1 * sensitivity;
-		Y += - 10 * sensitivity;
-		Y = Mathf.Clamp(Y, -limit, limit);
-		transform.localEulerAngles = new Vector3(-Y, X, 0);
-		transform.position = transform.localRotation * offset + target.position;
+        X = transform.localEulerAngles.y + 0 * sensitivity;
+        Y += -13 * sensitivity;
+        Y = Mathf.Clamp(Y, -limit, limit);
+        transform.localEulerAngles = new Vector3(-Y, X, 0);
+        transform.position = transform.localRotation * offset + target.position;
 
-	}
+    }
 
 	void Update()
 	{
@@ -52,11 +52,26 @@ public class Zoom : MonoBehaviour
 			transform.localEulerAngles = new Vector3(-Y, X, 0);
 			transform.position = transform.localRotation * offset + target.position;
         }
-        else
-        {
-            transform.position = transform.position;
 
-        }
+		if (Input.GetKeyDown("a"))
+		{
+			transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+		}
 
-    }
+		if (Input.GetKeyDown("d"))
+		{
+			transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+		}
+
+		if (Input.GetKeyDown("w"))
+		{
+			transform.position = new Vector3(transform.position.x, transform.position.y , transform.position.z - 1);
+		}
+
+		if (Input.GetKeyDown("s"))
+		{
+			transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 1);
+		}
+
+	}
 }

@@ -48,7 +48,7 @@ public class ClickOnCube : MonoBehaviour
              // подсветили синими квадратиками
             if (CurFloorName != null)
             {
-                Get_Steps(cube_step, CurFloorName);
+                Get_Steps(cube_step, CurFloorName,false);
             }
            
         }
@@ -171,7 +171,7 @@ public class ClickOnCube : MonoBehaviour
 
     }
 
-    void Get_Steps(int steps_, string CurFloorName_)
+    void Get_Steps(int steps_, string CurFloorName_,bool local_step)
     {
         GameObject CurFloor;
         Vector3 CurFloorPos;
@@ -179,7 +179,7 @@ public class ClickOnCube : MonoBehaviour
         Collider[] s_step;
 
         steps_ -= 1; // уменьшим шаг на 1
-         
+ 
         CurFloor = GameObject.Find(CurFloorName_);
         CurFloorPos = new Vector3(CurFloor.transform.position.x, CurFloor.transform.position.y, CurFloor.transform.position.z);
 
@@ -200,7 +200,7 @@ public class ClickOnCube : MonoBehaviour
             {
                 // обрабатываем только некоторые тэги
 
-                if (collider.tag == "Player" || collider.tag == "Floor" || collider.tag == "Enemy" ||  collider.tag == "Item" || collider.tag == "Door")
+                if (collider.tag == "Player" || collider.tag == "Floor" || collider.tag == "Enemy" ||  collider.tag == "Key" || collider.tag == "Door")
 
                 {
 
@@ -248,17 +248,19 @@ public class ClickOnCube : MonoBehaviour
 
                 // проверим, а есть ли куда наступать, что там на каждом направлениия
 
-                s_step = Checking_Step(l_n, steps_);
+                s_step = Checking_Step(
+                    l_n, steps_);
 
                 // вот тут проверка можно ли по этому направлению рассчитывать следующий ход
                 // .................................
 
-
-                if ((s_step[0] != null && steps_ > 0) ||                                            // есть куда ходить и есть шаги
-                    (steps_ <= 0 && steps_ > -3 && s_step[1] != null && s_step[1].tag == "Player")) // если шаги закончились и на последнем ходе стоит игрок
+                if ((s_step[0] != null && steps_ > 0) ||   // есть куда ходить и есть шаги
+                    (s_step[0] != null && steps_ <= 0 && steps_ > -3 && s_step[1] != null && s_step[1].tag == "Player") || // если шаги закончились и на последнем ходе стоит игрок
+                    (s_step[0] != null && steps_ <= 0 && steps_ > -1 && s_step[1] != null && s_step[1].tag == "Door")) // если шаги закончились и на последнем ходе стоит дверь
 
                 {
-                    Get_Steps(steps_, s_step[0].name);
+
+                    Get_Steps(steps_, s_step[0].name,false);
                 }
 
             }
@@ -357,7 +359,7 @@ public class ClickOnCube : MonoBehaviour
                     else // ключ есть
                     {
                         list_steps.Add(FloorList.name);
-                        pl_script.clear_key();
+                        // pl_script.clear_key();
                         Debug.Log("in step " + steps_ + "tag = door in floor " + FloorList.name + " in item " + ItemList.name);
                         return mas_return;
                     }

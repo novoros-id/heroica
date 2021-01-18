@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_ : MonoBehaviour
 {
     public int step_move;
-    private bool key = false;
+    public bool key = false;
 
     // Start is called before the first frame update
     void Start()
