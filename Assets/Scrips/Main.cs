@@ -31,6 +31,14 @@ public class Main : MonoBehaviour
         else
             current_move += 1;
 
+        // передвинем знак хода
+        move_priznak_step();
+
+    }
+
+    public void move_priznak_step()
+    {
+
         // очистим значок хода
 
         pr_hod = GameObject.FindGameObjectsWithTag("pr_hod");
@@ -40,14 +48,6 @@ public class Main : MonoBehaviour
             Destroy(pr_hod[b]);
         }
 
-        // передвинем знак хода
-        move_priznak_step();
-
-    }
-
-    public void move_priznak_step()
-    {
-   
         player = GameObject.FindGameObjectsWithTag("Player");
         cam_focus = GameObject.Find("CameraFocus");
 
