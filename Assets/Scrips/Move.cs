@@ -30,7 +30,7 @@ public class Move : MonoBehaviour
             {
 
                 pl_script.set_previus_position(player[i].transform.position);
-                player[i].transform.position = new Vector3(transform.position.x, 0.55f, transform.position.z);
+                player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
 
                 ItemFromFloor(player[i], transform.position);
                 clear_blue();
@@ -127,4 +127,6 @@ public class Move : MonoBehaviour
             Destroy(Blue[b]);
         }
     }
+
+    
 }

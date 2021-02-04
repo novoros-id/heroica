@@ -21,13 +21,17 @@ public class ClickOnCube : MonoBehaviour
     public GameObject selected1;
     public GameObject[] player;
     public GameObject Curent_player;
+    static AudioSource audiosrc;
+    public AudioClip WinEnemy;
+    public AudioClip DefeatEnemy;
+    public AudioClip Click;
 
 
     void Start()
     {
-        
+        audiosrc = GetComponent<AudioSource>();
     }
-
+    
     void OnMouseDown()
     {
 
@@ -65,8 +69,11 @@ public class ClickOnCube : MonoBehaviour
 
         Cube_ = GameObject.FindGameObjectsWithTag("Cube");
 
+        
         max_name = "";
         max_position = 0;
+
+        audiosrc.PlayOneShot(Click);
 
         for (int i = 0; i < Cube_.Length; i++)
         {
@@ -425,6 +432,7 @@ public class ClickOnCube : MonoBehaviour
             {
                 if (enemy_[i].transform.position.x == Curent_player.transform.position.x && enemy_[i].transform.position.z == Curent_player.transform.position.z)
                 {
+                    audiosrc.PlayOneShot(WinEnemy);
                     Destroy(enemy_[i]);
                     pl_script.switch_battle_mode();
                     mScript.set_current_move();
@@ -433,6 +441,7 @@ public class ClickOnCube : MonoBehaviour
         }
         else // поражение, идем назад
         {
+            audiosrc.PlayOneShot(DefeatEnemy);
             Curent_player.transform.position = pl_script.get_previus_position();
             pl_script.switch_battle_mode();
             mScript.set_current_move();
