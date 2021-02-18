@@ -23,7 +23,7 @@ public class Zoom : MonoBehaviour
         transform.position = target.position + offset;
 
         X = transform.localEulerAngles.y + 0 * sensitivity;
-        Y += -13 * sensitivity;
+        Y += -7 * sensitivity;
         Y = Mathf.Clamp(Y, -limit, limit);
         transform.localEulerAngles = new Vector3(-Y, X, 0);
         transform.position = transform.localRotation * offset + target.position;
@@ -43,7 +43,7 @@ public class Zoom : MonoBehaviour
 			GetComponent<Camera>().fieldOfView = 5;
 		}
 
-		transform.position = new Vector3(target.position.x - 3.4f,4.5f,target.position.z + 1.5f);
+		//transform.position = new Vector3(target.position.x - 3.4f,4.5f,target.position.z + 1.5f);
 		
 		//if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
 		//else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
@@ -67,24 +67,24 @@ public class Zoom : MonoBehaviour
 			transform.position = transform.localRotation * offset + target.position;
         }
 
-		//if (Input.GetKeyDown("a"))
-		//{
-		//	transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
-		//}
+		if (Input.GetKeyDown("a"))
+		{
+			transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+		}
 
-		//if (Input.GetKeyDown("d"))
-		//{
-		//	transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
-		//}
+		if (Input.GetKeyDown("d"))
+		{
+			transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+		}
 
-		//if (Input.GetKeyDown("w"))
-		//{
-		//	transform.position = new Vector3(transform.position.x, transform.position.y , transform.position.z - 1);
-		//}
+		if (Input.GetKeyDown("w"))
+		{
+			transform.position = new Vector3(transform.position.x, transform.position.y , transform.position.z - 1);
+		}
 
-		//if (Input.GetKeyDown("s"))
-		//{
-		//	transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 1);
-		//}
+		if (Input.GetKeyDown("s"))
+		{
+			transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 1);
+		}
 	}
 }
