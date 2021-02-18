@@ -58,7 +58,7 @@ public class Zoom : MonoBehaviour
 			GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView + 5;
 		}
 
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(1))
         {
             X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
 			Y += Input.GetAxis("Mouse Y") * sensitivity;
