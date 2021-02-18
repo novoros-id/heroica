@@ -60,6 +60,7 @@ public class Main : MonoBehaviour
             {
                 Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.4f, player[i].transform.position.z), Quaternion.identity);
                 cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
+                break;
             }
 
         }

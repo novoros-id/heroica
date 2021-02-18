@@ -42,6 +42,7 @@ public class ClickOnCube : MonoBehaviour
     public void make_move()
     {
         list_steps.Clear(); // очистили  технический list куда можно идти
+        clear_blue(); // убрали голубые
         cube_step = throw_a_bone(); // кинули кубик
         Curent_player = return_curent_player(); // нашли текущего игркока
         bool current_player_mode_battle = return_current_player_mode(Curent_player);
@@ -54,12 +55,69 @@ public class ClickOnCube : MonoBehaviour
             {
                 Get_Steps(cube_step, CurFloorName,false);
             }
+
+           
+            if (Curent_player.GetComponent<Player_>().get_comp() == true)
+            {
+                //Debug.Log(list_steps.Count);
+                // необходимо выбрать кубик и вызвать ход
+                step_comp_player();
+            }
+
         }
         else if (Curent_player != null && current_player_mode_battle == true) // режим боя
         {
             battle_whith_enemy(cube_step);
         }
     }
+
+    /// <summary>
+    /// ////////////////////
+    /// </summary>
+
+    void step_comp_player()
+    {
+        GameObject rnd_Floor;
+        Vector3 rnd_Floor_Pos;
+
+        // у нас есть цели: сначала ключ, потом дверь, потом , главный
+
+        int count_blue = list_steps.Count;
+        int rand_list = Random.Range(0, count_blue - 1);
+
+        rnd_Floor = GameObject.Find(list_steps[rand_list]);
+        rnd_Floor_Pos = new Vector3(rnd_Floor.transform.position.x, rnd_Floor.transform.position.y, rnd_Floor.transform.position.z);
+
+        Debug.Log(rnd_Floor_Pos);
+
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
+
+        Blue = GameObject.FindGameObjectsWithTag("Blue");
+
+        for (int b = 0; b < Blue.Length; b++)
+        {
+
+            pl_script.set_previus_position(Curent_player.transform.position);
+            Curent_player.transform.position = new Vector3(rnd_Floor.transform.position.x, 0.7f, rnd_Floor.transform.position.z);
+
+            Move bScript = Blue[b].GetComponent<Move>();
+            bScript.ItemFromFloor(Curent_player, rnd_Floor_Pos);
+            bScript.clear_blue();
+            break;
+            //bScript.clear_blue();
+        }
+
+        //GameObject move = GameObject.Find("Directional Light");
+        //Main mScript = rnd_Floor.GetComponent<Main>();
+
+        //mScript.ItemFromFloor(Curent_player, rnd_Floor_Pos);
+
+    }
+
+    /// <summary>
+    /// //////////
+    /// </summary>
+    /// <returns></returns>
 
     public int throw_a_bone()
     {
@@ -116,7 +174,6 @@ public class ClickOnCube : MonoBehaviour
 
         // Debug.Log(cube_step);
     }
-
 
     public GameObject return_curent_player()
 
@@ -209,10 +266,10 @@ public class ClickOnCube : MonoBehaviour
 
                 if (collider.tag == "Player" ||
                     collider.tag == "Floor" ||
-                    collider.tag == "Enemy" ||
-                    collider.tag == "Key" ||
-                    collider.tag == "Door" ||
-                    collider.tag == "Enemy_1")
+                    collider.tag == "Enemy_1" ||
+                    collider.tag == "Enemy_2" ||
+                    collider.tag == "Enemy_boss" ||
+                    collider.tag == "Door")
 
                 {
 
@@ -339,14 +396,20 @@ public class ClickOnCube : MonoBehaviour
 
             if (ItemList.tag == "Player") // если на кубике стоит игрок
             {
-                list_steps.Add(FloorList.name);
+                //if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                //{
+                //    list_steps.Add(FloorList.name);
+                //}
                 // Debug.Log("in step " + steps_ + "tag = player in floor " + FloorList.name + " in item " + ItemList.name);
                 return mas_return;
             }
 
-            if (ItemList.tag == "Enemy_1") // если на кубике стоит враг
+            if (ItemList.tag == "Enemy_1" || ItemList.tag == "Enemy_2" || ItemList.tag == "Enemy_boss") // если на кубике стоит враг
             {
-                list_steps.Add(FloorList.name);
+                if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                {
+                    list_steps.Add(FloorList.name);
+                }
                 // Debug.Log("in step " + steps_ + "tag = player in floor " + FloorList.name + " in item " + ItemList.name);
                 show_blue_on_floor(NextStep[0]);
                 mas_return[0] = null;
@@ -367,7 +430,10 @@ public class ClickOnCube : MonoBehaviour
                 }
                 else // ключ есть, подсветим, но дальше идти нельзя
                 {
-                    list_steps.Add(FloorList.name);
+                    if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                    {
+                        list_steps.Add(FloorList.name);
+                    }
                    //  Debug.Log("in step " + steps_ + "tag = door in floor " + FloorList.name + " in item " + ItemList.name);
                     show_blue_on_floor(NextStep[0]);
                     mas_return[0] = null;
@@ -380,7 +446,10 @@ public class ClickOnCube : MonoBehaviour
             {
                 if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                 {
-                    list_steps.Add(FloorList.name);
+                    if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                    {
+                        list_steps.Add(FloorList.name);
+                    }
                     // Debug.Log("in step " + steps_ + " count = 2, floor " + FloorList.name + " in item " + ItemList.name);
                     show_blue_on_floor(NextStep[0]);
                 }
@@ -423,29 +492,124 @@ public class ClickOnCube : MonoBehaviour
         Main mScript = cam.GetComponent<Main>();
         Player_ pl_script = Curent_player.GetComponent<Player_>();
 
-        if (cube_s == 4) // победа
-        {
-            // найдем enemy с такой же позицией и уничтожим его
-            GameObject[] enemy_ = GameObject.FindGameObjectsWithTag("Enemy_1");
+        Vector3 CurFloorPos;
+        Collider[] colliders;
 
-            for (int i = 0; i < enemy_.Length; i++)
+        // enemy 1 - 1
+        // enemy 2 - 2
+        // enemy boss - 3
+
+        // 4 - победа
+        // 3 - победа
+        // 2 - потеря здоровья как сила монстра и возврат назад
+        // 1 - победа, потеря здоровья как сила монстра, возврат назад
+
+        // найдем монстра
+
+
+        CurFloorPos = new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z);
+
+        //Debug.Log("Текущая позиция платформы" + CurFloorPos);
+
+        if ((colliders = Physics.OverlapSphere(CurFloorPos, 1)).Length > 0)
+        {
+
+            foreach (var collider in colliders)
             {
-                if (enemy_[i].transform.position.x == Curent_player.transform.position.x && enemy_[i].transform.position.z == Curent_player.transform.position.z)
+                // обрабатываем только некоторые тэги
+
+                if (collider.tag == "Enemy_1" ||
+                    collider.tag == "Enemy_2" ||
+                    collider.tag == "Enemy_boss")
+
                 {
-                    audiosrc.PlayOneShot(WinEnemy);
-                    Destroy(enemy_[i]);
-                    pl_script.switch_battle_mode();
-                    mScript.set_current_move();
+
+                    // Vector3 pos1 = collider.transform.position;
+                    if (collider.transform.position == Curent_player.transform.position)
+                    {
+                        // Debug.Log("battlle");
+
+                        if (cube_s == 4) // победа
+                        {
+                            audiosrc.PlayOneShot(WinEnemy);
+                            Destroy(collider.gameObject);
+                            pl_script.switch_battle_mode();
+                            mScript.set_current_move();
+                        }
+                        else if (cube_s == 3) // победа
+                        {
+
+                            audiosrc.PlayOneShot(WinEnemy);
+                            Destroy(collider.gameObject);
+                            pl_script.switch_battle_mode();
+                            mScript.set_current_move();
+
+                        }
+                        else if (cube_s == 2)
+                        {
+                            audiosrc.PlayOneShot(DefeatEnemy);
+
+                            if (collider.tag == "Enemy_1")
+                            {
+                                pl_script.add_leaves(-1);
+                            }
+                            else if (collider.tag == "Enemy_2")
+                            {
+                                pl_script.add_leaves(-2);
+                            }
+                            else if (collider.tag == "Enemy_boss")
+                            {
+
+                                pl_script.add_leaves(-3);
+                            }
+
+
+                            Curent_player.transform.position = pl_script.get_previus_position();
+                            pl_script.switch_battle_mode();
+                            mScript.set_current_move();
+                        }
+                        else if (cube_s == 1)
+                        {
+                            audiosrc.PlayOneShot(WinEnemy);
+
+                            if (collider.tag == "Enemy_1")
+                            {
+                                pl_script.add_leaves(-1);
+                            }
+                            else if (collider.tag == "Enemy_2")
+                            {
+                                pl_script.add_leaves(-2);
+                            }
+                            else if (collider.tag == "Enemy_boss")
+                            {
+
+                                pl_script.add_leaves(-3);
+                            }
+
+                            Destroy(collider.gameObject);
+                            Curent_player.transform.position = pl_script.get_previus_position();
+                            pl_script.switch_battle_mode();
+                            mScript.set_current_move();
+                        }
+
+
+                    }
+
+
                 }
             }
         }
-        else // поражение, идем назад
-        {
-            audiosrc.PlayOneShot(DefeatEnemy);
-            Curent_player.transform.position = pl_script.get_previus_position();
-            pl_script.switch_battle_mode();
-            mScript.set_current_move();
 
+        
+    }
+
+    public void clear_blue()
+    {
+        Blue = GameObject.FindGameObjectsWithTag("Blue");
+
+        for (int b = 0; b < Blue.Length; b++)
+        {
+            Destroy(Blue[b]);
         }
     }
 
