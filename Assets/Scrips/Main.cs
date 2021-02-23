@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class Main : MonoBehaviour
         // очистим значок хода
 
         pr_hod = GameObject.FindGameObjectsWithTag("pr_hod");
+        
 
         for (int b = 0; b < pr_hod.Length; b++)
         {
@@ -60,6 +62,13 @@ public class Main : MonoBehaviour
             {
                 Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.4f, player[i].transform.position.z), Quaternion.identity);
                 cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
+
+                //text  myText;
+                var myText = GameObject.Find("Text_").GetComponent<Text>();
+                myText.text = "Текущий ход " + player[i].name + " нажмите на кубик";
+
+
+
                 break;
             }
 

@@ -26,10 +26,17 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip DefeatEnemy;
     public AudioClip Click;
 
+    private List<GameObject> list_goal_1;
+    private List<GameObject> list_goal_2;
+    private List<GameObject> list_goal_3;
 
     void Start()
     {
         audiosrc = GetComponent<AudioSource>();
+
+        list_goal_1.Add(GameObject.Find("item_key Variant"));
+        list_goal_1.Add(GameObject.Find("item_key"));
+
     }
     
     void OnMouseDown()
