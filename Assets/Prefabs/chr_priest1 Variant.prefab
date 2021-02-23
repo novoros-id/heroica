@@ -28,6 +28,19 @@ MonoBehaviour:
   step_move: 4
   key: 0
   battle_mode: 0
+  comp: 0
+  leaves: 4
+  blood: 0
+  luck: 0
+  speed: 0
+  power: 0
+  gold: 0
+  axe: 0
+  baton: 0
+  scythe: 0
+  bow: 0
+  dagger: 0
+  sword: 0
   previus_position: {x: 0, y: 0, z: 0}
 --- !u!1001 &4010944370190602154
 PrefabInstance:
@@ -114,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c5b3d6dffeae3a3468bb69a59c1b8316,
         type: 3}
       propertyPath: m_Name
-      value: chr_priest Variant
+      value: chr_priest1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c5b3d6dffeae3a3468bb69a59c1b8316,
         type: 3}

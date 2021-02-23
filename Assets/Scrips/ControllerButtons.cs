@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControllerButtons : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class ControllerButtons : MonoBehaviour
     public GameObject ButtonsMenu;
     public GameObject Levels;
     public GameObject Back;
+    public GameObject EndGameMenu;
     
     // Start is called before the first frame update
     void Start()
     {
         Levels.SetActive(false);
         Back.SetActive(false);
+        EndGameMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,7 +27,7 @@ public class ControllerButtons : MonoBehaviour
 
     public void StartLevel1()
     {
-        Application.LoadLevel("Test");
+        SceneManager.LoadScene("Test");
     }
     public void ExitGame()
     {
@@ -43,3 +46,5 @@ public class ControllerButtons : MonoBehaviour
         Back.SetActive(false);
     }
 }
+
+
