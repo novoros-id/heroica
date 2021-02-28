@@ -23,7 +23,7 @@ public class Main : MonoBehaviour
         return current_move;
     }
 
-    public void set_current_move()
+    public void set_current_move(string text_add = "")
     {
         // сдвинем ход 
 
@@ -33,12 +33,18 @@ public class Main : MonoBehaviour
             current_move += 1;
 
         // передвинем знак хода
-        move_priznak_step();
+        move_priznak_step(text_add);
 
     }
 
-    public void move_priznak_step()
+    public void move_priznak_step(string text_add = "")
     {
+        var myText = GameObject.Find("Text_").GetComponent<Text>();
+
+        if (text_add != "")
+        {
+            add_text(text_add);
+        }
 
         // очистим значок хода
 
@@ -60,18 +66,47 @@ public class Main : MonoBehaviour
 
             if (pl_script.step_move == current_move)
             {
-                Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.4f, player[i].transform.position.z), Quaternion.identity);
-                cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
+                Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.6f, player[i].transform.position.z), Quaternion.identity);
+                //cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
 
                 //text  myText;
-                var myText = GameObject.Find("Text_").GetComponent<Text>();
-                myText.text = "Текущий ход " + player[i].name + " нажмите на кубик";
+               
+                if (pl_script.get_battle_mode() == true)
+                {
+            
+                    add_text("Режим боя " + player[i].name + " нажмите на кубик и узнаете исход боя");
 
+                }
+                else if (pl_script.recovery_mode == true)
+                {
+                    add_text("Режим восстановления здоровья " + player[i].name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
+                }
+                else
+                {
+                    if (pl_script.comp == true)
+                    {
+                        add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем компьютер сам сделает ход");
+                    }
+                    else
+                    {
+                        add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем нажмите на светящееся поле");
+                    }
+                }
+
+                // text  Text_L;
+                var l_Text = GameObject.Find("Text_L").GetComponent<Text>();
+                l_Text.text = player[i].name + " жизней:" + pl_script.get_leaves();
 
 
                 break;
             }
 
         }
+    }
+
+    public void add_text(string a_text)
+    {
+        var myText = GameObject.Find("Text_").GetComponent<Text>();
+        myText.text = a_text + "\n" + "\n" + myText.text;
     }
 }

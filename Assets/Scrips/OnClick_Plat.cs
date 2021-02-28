@@ -13,6 +13,6 @@ public class OnClick_Plat : MonoBehaviour
         
     void OnMouseDown()
     {
-        Debug.Log(curpos);
+        // xsDebug.Log(curpos);
     }
 }

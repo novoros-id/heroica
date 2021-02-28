@@ -7,9 +7,7 @@ public class Move : MonoBehaviour
     public Player_ Cs;
     public GameObject[] Blue;
     public GameObject[] player;
-
-
-
+   
     void Start()
     {
         
@@ -32,7 +30,14 @@ public class Move : MonoBehaviour
             {
 
                 pl_script.set_previus_position(player[i].transform.position);
-                player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
+
+                pl_script.startTime = Time.time;
+                pl_script.startMarker = player[i].transform;
+                pl_script.endMarker = new Vector3(transform.position.x, 0.7f, transform.position.z);
+                pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(transform.position.x, 0.7f, transform.position.z));
+                pl_script.move = true;
+
+                // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
 
                 ItemFromFloor(player[i], transform.position);
                 clear_blue();
@@ -55,7 +60,9 @@ public class Move : MonoBehaviour
     }
 
     public void ItemFromFloor(GameObject player_, Vector3 position_)
+
     {
+
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
 
@@ -71,98 +78,101 @@ public class Move : MonoBehaviour
         if (_items == null)
         {
             // ничего не делаем
-            mScript.set_current_move();
+           // mScript.set_current_move();
         }
         else if (_items.tag == "Key")
         {
-            pl_script.set_key();
-            Destroy(_items);
-            mScript.set_current_move();
+            if (pl_script.get_key() == false)
+            {
+                pl_script.set_key();
+                Destroy(_items);
+            }
+            //mScript.set_current_move();
         }
         // --------------------------------------
         else if (_items.tag == "item_blood")
         {
             pl_script.add_item("blood", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_luck")
         {
             pl_script.add_item("luck", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_speed")
         {
             pl_script.add_item("speed", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_power")
         {
             pl_script.add_item("power", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_gold")
         {
             pl_script.add_item("gold", 1);
             Destroy(_items);
-            mScript.set_current_move();
+           // mScript.set_current_move();
         }
         else if (_items.tag == "item_axe")
         {
             pl_script.add_item("axe", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_baton")
         {
             pl_script.add_item("baton", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_scythe")
         {
             pl_script.add_item("scythe", 1);
             Destroy(_items);
-            mScript.set_current_move();
+           // mScript.set_current_move();
         }
         else if (_items.tag == "item_bow")
         {
             pl_script.add_item("bow", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         else if (_items.tag == "item_dagger")
         {
             pl_script.add_item("dagger", 1);
             Destroy(_items);
-            mScript.set_current_move();
+           // mScript.set_current_move();
         }
         else if (_items.tag == "item_sword")
         {
             pl_script.add_item("sword", 1);
             Destroy(_items);
-            mScript.set_current_move();
+            //mScript.set_current_move();
         }
         // -------------------------------------
         else if (_items.tag == "Door")
         {
             pl_script.clear_key();
             Destroy(_items);
-            mScript.set_current_move();
+           // mScript.set_current_move();
         }
         else if (_items.tag == "Enemy_1" || _items.tag == "Enemy_2" || _items.tag == "Enemy_boss")
         {
-            if (pl_script.get_battle_mode() == false) // это первый раз. Сразу ДРАКА
-            {
-                mScript.move_priznak_step();
-            }
-            else
-            {
-                mScript.set_current_move();
-            }
+            //if (pl_script.get_battle_mode() == false) // это первый раз. Сразу ДРАКА
+            //{
+            //    mScript.move_priznak_step();
+            //}
+            //else
+            //{
+            //    mScript.set_current_move();
+            //}
 
             pl_script.switch_battle_mode();
 

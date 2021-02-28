@@ -23,20 +23,260 @@ public class Player_ : MonoBehaviour
     public int dagger = 0;
     public int sword = 0;
 
+    public bool move = false;
+    public Transform startMarker;
+    public Vector3 endMarker;
+    public bool switch_battle_move;
+    private Vector3 previus_position;
+    public GameObject goal;
+    public bool recovery_mode = false;
+    public GameObject CubeButton;
 
-    public Vector3 previus_position;
+
+    // Movement speed in units per second.
+    public float speed_ = 1.0F;
+    // Time when the movement started.
+    public float startTime;
+    // Total distance between the markers.
+    public float journeyLength;
+
+    
+    private List<GameObject> list_goal_1 = new List<GameObject>();
+    private List<GameObject> list_goal_2 = new List<GameObject>();
+    private List<GameObject> list_goal_3 = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
+
     {
-        if (name == "chr_knight")
+        // Здесь обозначаем массивы целей
+
+       
+
+        list_goal_1.Add(GameObject.Find("item_key_1"));
+        list_goal_1.Add(GameObject.Find("item_key"));
+        list_goal_1.Add(GameObject.Find("item_key_2"));
+
+        list_goal_2.Add(GameObject.Find("Door"));
+        list_goal_2.Add(GameObject.Find("Door (2)"));
+        list_goal_2.Add(GameObject.Find("Door (3)"));
+
+        list_goal_3.Add(GameObject.Find("en_ogre_boss Variant"));
+
+        define_goal();
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (startMarker != null)
         {
-            comp = false;
-        }
-        else {
-            comp = true;
+
+
+            // Distance moved equals elapsed time times speed..
+            float distCovered = (Time.time - startTime) * speed_;
+
+            // Fraction of journey completed equals current distance divided by total distance.
+            float fractionOfJourney = distCovered / journeyLength;
+
+            // Set our position as a fraction of the distance between the markers.
+            transform.position = Vector3.Lerp(startMarker.position, endMarker, fractionOfJourney);
+
+            if (transform.position == endMarker & move == true)
+            {
+
+                move = false;
+                startMarker = null;
+                transform.position = endMarker;
+                // CubeButton.SetActive(true);
+                // Invoke("show_the_cube", 0.5f);
+
+                // Debug.Log("на месте " + name) ;
+
+                GameObject cam = GameObject.Find("Directional Light");
+                Main mScript = cam.GetComponent<Main>();
+                if (get_battle_mode() == true)
+                {
+                    //switch_battle_mode();
+                    mScript.move_priznak_step();
+                    if (switch_battle_move == true)
+                    {
+                        switch_battle_mode();
+                        switch_battle_move = false;
+                    }
+
+                }
+                else
+                {
+                    mScript.set_current_move();
+                }
+                // mScript.set_current_move();
+                //Invoke("show_the_cube", 1.2f);
+                CubeButton.SetActive(true);
+
+            }
         }
     }
+
+    void Update()
+    {
+        //if (startMarker != null)
+        //{
+
+
+        //    // Distance moved equals elapsed time times speed..
+        //    float distCovered = (Time.time - startTime) * speed_;
+
+        //    // Fraction of journey completed equals current distance divided by total distance.
+        //    float fractionOfJourney = distCovered / journeyLength;
+
+        //    // Set our position as a fraction of the distance between the markers.
+        //    transform.position = Vector3.Lerp(startMarker.position, endMarker, fractionOfJourney);
+
+        //    if (transform.position == endMarker & move == true)
+        //    {
+
+        //        move = false;
+        //        startMarker = null;
+        //        // CubeButton.SetActive(true);
+        //        // Invoke("show_the_cube", 0.5f);
+
+        //        // Debug.Log("на месте " + name) ;
+
+        //        GameObject cam = GameObject.Find("Directional Light");
+        //        Main mScript = cam.GetComponent<Main>();
+        //        if (get_battle_mode() == true)
+        //        {
+        //            //switch_battle_mode();
+        //            mScript.move_priznak_step();
+        //            if (switch_battle_move == true)
+        //            {
+        //                switch_battle_mode();
+        //                switch_battle_move = false;
+        //            }
+                    
+        //        }
+        //        else
+        //        {
+        //            mScript.set_current_move();
+        //        }
+        //        // mScript.set_current_move();
+        //        Invoke("show_the_cube", 0.2f);
+        //        //CubeButton.SetActive(true);
+
+        //    }
+        //}
+    }
+
+    private void show_the_cube()
+    {
+        CubeButton.SetActive(true);
+    }
+
+    public bool goal_live()
+    {
+        if (goal == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void define_goal()
+    {
+        update_goal();
+
+        if (list_goal_1.Count != 0)
+        {
+            int count_goal1 = list_goal_1.Count;
+            int rand_count_goal_1 = Random.Range(0, count_goal1);
+            goal = list_goal_1[rand_count_goal_1];
+            return;
+        }
+
+        if (list_goal_2.Count != 0)
+        {
+            int count_goal2 = list_goal_2.Count;
+            int rand_count_goal_2 = Random.Range(0, count_goal2);
+            goal = list_goal_2[rand_count_goal_2];
+            return;
+        }
+
+        if (list_goal_3.Count != 0)
+        {
+            int count_goal3 = list_goal_3.Count;
+            int rand_count_goal_3 = Random.Range(0, count_goal3);
+            goal = list_goal_2[rand_count_goal_3];
+            return;
+        }
+
+    }
+
+    private void update_goal()
+    {
+        List<GameObject> del_index_1 = new List<GameObject>();
+        List<GameObject> del_index_2 = new List<GameObject>();
+        List<GameObject> del_index_3 = new List<GameObject>();
+
+        // найдем пустые
+
+        // int count_1 = 0;
+        foreach (var lg in list_goal_1)
+        {
+            if (lg == null)
+            {
+                del_index_1.Add(lg);
+            }
+
+            // count_1++;
+        }
+
+
+        //int count_2 = 0;
+        foreach (var lg in list_goal_2)
+        {
+            if (lg == null)
+            {
+                del_index_2.Add(lg);
+            }
+
+            //count_2++;
+        }
+
+        // int count_3 = 0;
+        foreach (var lg in list_goal_3)
+        {
+            if (lg == null)
+            {
+                del_index_3.Add(lg);
+            }
+
+           //  count_2++;
+        }
+
+
+        // теперь удалим
+        foreach (var dd in del_index_1)
+        {
+            list_goal_1.Remove(dd);
+        }
+
+        foreach (var dd in del_index_2)
+        {
+            list_goal_2.Remove(dd);
+        }
+
+        foreach (var dd in del_index_3)
+        {
+            list_goal_3.Remove(dd);
+        }
+
+    }
+
 
     public bool get_comp()
     {
@@ -103,8 +343,23 @@ public class Player_ : MonoBehaviour
     }
 
     public void add_leaves(int leaves_)
+
     {
+        Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
+
         leaves += leaves_;
+        if (leaves <= 0)
+        {
+            recovery_mode = true;
+            leaves = 0;
+            mScript.add_text("У " + name + " закончились жизни. Установлен режим восстановления здоровья");
+        }
+        else if (leaves >= 4)
+        {
+            recovery_mode = false;
+            leaves = 4;
+            mScript.add_text("У " + name + " жизни восстановлены.");
+        }
     }
 
 
