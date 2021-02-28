@@ -94,8 +94,8 @@ public class Main : MonoBehaviour
                 }
 
                 // text  Text_L;
-                var l_Text = GameObject.Find("Text_L").GetComponent<Text>();
-                l_Text.text = player[i].name + " жизней:" + pl_script.get_leaves();
+                //var l_Text = GameObject.Find("Text_L").GetComponent<Text>();
+                //l_Text.text = player[i].name + " жизней:" + pl_script.get_leaves();
 
 
                 break;

@@ -12,6 +12,7 @@ public class Zoom : MonoBehaviour
 	public float zoomMax = 10; // макс. увеличение
 	public float zoomMin = 3; // мин. увеличение
 	private float X, Y;
+    private float speed = 0.05f;
 
 	
 
@@ -72,22 +73,22 @@ public class Zoom : MonoBehaviour
             if (Input.GetAxis("Mouse X") > 0 )
             {
                
-                transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
             }
 
             if (Input.GetAxis("Mouse X") < 0)
 
             {
-                transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
             }
             if (Input.GetAxis("Mouse Y") > 0)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
             }
 
             if (Input.GetAxis("Mouse Y") < 0)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.1f);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
             }
 
 

@@ -7,10 +7,12 @@ public class Move : MonoBehaviour
     public Player_ Cs;
     public GameObject[] Blue;
     public GameObject[] player;
+    //static AudioSource audiosrc;
+    //public AudioClip Moving;
    
     void Start()
     {
-        
+        //audiosrc = GetComponent<AudioSource>();
     }
     
     void OnMouseDown()
@@ -20,7 +22,7 @@ public class Move : MonoBehaviour
         int current_move = mScript.get_current_move();
 
         player = GameObject.FindGameObjectsWithTag("Player");
-
+        //audiosrc.PlayOneShot(Moving);
         for (int i = 0; i < player.Length; i++)
         {
 
@@ -36,7 +38,7 @@ public class Move : MonoBehaviour
                 pl_script.endMarker = new Vector3(transform.position.x, 0.7f, transform.position.z);
                 pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(transform.position.x, 0.7f, transform.position.z));
                 pl_script.move = true;
-
+                
                 // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
 
                 ItemFromFloor(player[i], transform.position);

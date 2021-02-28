@@ -190,7 +190,7 @@ public class Player_ : MonoBehaviour
     {
         update_goal();
 
-        if (list_goal_1.Count != 0)
+        if (list_goal_1.Count != 0 && get_key() == false)
         {
             int count_goal1 = list_goal_1.Count;
             int rand_count_goal_1 = Random.Range(0, count_goal1);

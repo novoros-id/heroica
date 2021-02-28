@@ -25,6 +25,8 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip WinEnemy;
     public AudioClip DefeatEnemy;
     public AudioClip Click;
+    public GameObject finalUI;
+    public AudioClip Hp;
 
 
     void Start()
@@ -69,7 +71,7 @@ public class ClickOnCube : MonoBehaviour
                 //Debug.Log(list_steps.Count);
                 // необходимо выбрать кубик и вызвать ход
                 //Curent_player.GetComponent<Player_>().define_goal();
-                Invoke("step_comp_player",0.75f);
+                Invoke("step_comp_player",0.3f);
             }
 
         }
@@ -144,7 +146,7 @@ public class ClickOnCube : MonoBehaviour
             pl_script.endMarker = new Vector3(rnd_Floor.transform.position.x, 0.7f, rnd_Floor.transform.position.z);
             pl_script.journeyLength = Vector3.Distance(Curent_player.transform.position, new Vector3(rnd_Floor.transform.position.x, 0.7f, rnd_Floor.transform.position.z));
             pl_script.move = true;
-
+            //audiosrc.PlayOneShot(Moving);
             Move bScript = Blue[b].GetComponent<Move>();
             bScript.ItemFromFloor(Curent_player, rnd_Floor_Pos);
             bScript.clear_blue();
@@ -588,7 +590,7 @@ public class ClickOnCube : MonoBehaviour
     {
         Player_ pl_script = Curent_player.GetComponent<Player_>();
         Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
-
+        audiosrc.PlayOneShot(Hp);
         pl_script.add_leaves(cube_s);
         mScript.set_current_move("Восстановлено " + cube_s + " жизней");
     }
@@ -641,6 +643,10 @@ public class ClickOnCube : MonoBehaviour
                         {
                             audiosrc.PlayOneShot(WinEnemy);
                             Destroy(collider.gameObject);
+                            if (collider.tag == "Enemy_boss")
+                            {
+                                final();
+                            }
                             pl_script.switch_battle_mode();
                             mScript.set_current_move("Победа !!!");
                         }
@@ -649,6 +655,10 @@ public class ClickOnCube : MonoBehaviour
 
                             audiosrc.PlayOneShot(WinEnemy);
                             Destroy(collider.gameObject);
+                            if (collider.tag == "Enemy_boss")
+                            {
+                                final();
+                            }
                             pl_script.switch_battle_mode();
                             mScript.set_current_move("Победа !!!");
 
@@ -699,6 +709,7 @@ public class ClickOnCube : MonoBehaviour
                             else if (collider.tag == "Enemy_boss")
                             {
 
+                                final();
                                 pl_script.add_leaves(-3);
                             }
 
@@ -734,6 +745,11 @@ public class ClickOnCube : MonoBehaviour
         {
             Destroy(Blue[b]);
         }
+    }
+
+    void final()
+    {
+        finalUI.SetActive(true);
     }
 
 }
