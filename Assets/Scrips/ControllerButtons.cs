@@ -9,20 +9,46 @@ public class ControllerButtons : MonoBehaviour
     public GameObject ButtonsMenu;
     public GameObject Levels;
     public GameObject Back;
-    public GameObject EndGameMenu;
+    public GameObject RoolsButtons;
+    public int page;
+    public GameObject Page1;
+    public GameObject Page2;
+    public GameObject Page3;
+
+
+
     
     // Start is called before the first frame update
     void Start()
     {
         Levels.SetActive(false);
         Back.SetActive(false);
-        EndGameMenu.SetActive(false);
+        RoolsButtons.SetActive(false);
+        Page2.SetActive(false);
+        Page3.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(page == 1)
+        {
+            Page1.SetActive(true);
+            Page2.SetActive(false);
+            Page3.SetActive(false);
+        }
+        if (page == 2)
+        {
+            Page1.SetActive(false);
+            Page2.SetActive(true);
+            Page3.SetActive(false);
+        }
+        if (page == 3)
+        {
+            Page1.SetActive(false);
+            Page2.SetActive(false);
+            Page3.SetActive(true);
+        }
     }
 
     public void StartLevel1()
@@ -44,6 +70,26 @@ public class ControllerButtons : MonoBehaviour
         ButtonsMenu.SetActive(true);
         Levels.SetActive(false);
         Back.SetActive(false);
+        RoolsButtons.SetActive(false);
+    }
+
+    public void Rools()
+    {
+        RoolsButtons.SetActive(true);
+        Back.SetActive(true);
+        ButtonsMenu.SetActive(false);
+    }
+
+    public void NextPage()
+    {
+        if(page < 3)
+        {
+            page++;
+        }
+        else
+        {
+            page = 1;
+        }
     }
 }
 
