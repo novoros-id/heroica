@@ -210,7 +210,7 @@ public class Player_ : MonoBehaviour
         {
             int count_goal3 = list_goal_3.Count;
             int rand_count_goal_3 = Random.Range(0, count_goal3);
-            goal = list_goal_2[rand_count_goal_3];
+            goal = list_goal_3[rand_count_goal_3];
             return;
         }
 
