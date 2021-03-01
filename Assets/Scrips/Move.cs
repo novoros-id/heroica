@@ -94,7 +94,11 @@ public class Move : MonoBehaviour
         // --------------------------------------
         else if (_items.tag == "item_blood")
         {
-            pl_script.add_item("blood", 1);
+            if (pl_script.get_leaves() != 4)
+            {
+                pl_script.add_leaves(1);
+            }
+            // pl_script.add_leaves(1);
             Destroy(_items);
             //mScript.set_current_move();
         }
