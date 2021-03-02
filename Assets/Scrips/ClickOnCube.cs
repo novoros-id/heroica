@@ -95,8 +95,8 @@ public class ClickOnCube : MonoBehaviour
         Vector3 rnd_Floor_Pos;
         Player_ pl_script = Curent_player.GetComponent<Player_>();
 
-        // проверим существует ли объект
-        if (pl_script.goal_live() == false)
+        // проверим существует ли объект и если цель не ключ, то каждый раз сверяем цель
+        if (pl_script.goal_live() == false || pl_script.goal_is_key() == false)
         {
             pl_script.define_goal();
         }
