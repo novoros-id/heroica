@@ -13,7 +13,7 @@ public class ChangeMod : MonoBehaviour
     void Start()
     {
         CompPl = GetComponent<Text>();
-        change();
+        //change();
     }
 
     public void change()

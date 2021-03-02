@@ -356,6 +356,11 @@ public class ClickOnCube : MonoBehaviour
 
                     //  Заполняем List направлений;
 
+                    if(CurFloorName_ == "StartFloor")
+                    {
+                        forward.Add(collider);
+                    }
+
                     if (pos1.x > 0 && pos1.z == 0)
                     {
                         forward.Add(collider);
