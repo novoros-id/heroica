@@ -19,8 +19,7 @@ public class UIManagment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(pl.key == true)
+        if (pl.key == true)
         {
             key.SetActive(true);
         }
