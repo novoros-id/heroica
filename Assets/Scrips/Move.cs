@@ -7,22 +7,14 @@ public class Move : MonoBehaviour
     public Player_ Cs;
     public GameObject[] Blue;
     public GameObject[] player;
-    //static AudioSource audiosrc;
-    //public AudioClip Moving;
-   
-    void Start()
-    {
-        //audiosrc = GetComponent<AudioSource>();
-    }
-    
+
     void OnMouseDown()
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
         int current_move = mScript.get_current_move();
-
         player = GameObject.FindGameObjectsWithTag("Player");
-        //audiosrc.PlayOneShot(Moving);
+        
         for (int i = 0; i < player.Length; i++)
         {
 
@@ -38,12 +30,13 @@ public class Move : MonoBehaviour
                 pl_script.endMarker = new Vector3(transform.position.x, 0.7f, transform.position.z);
                 pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(transform.position.x, 0.7f, transform.position.z));
                 pl_script.move = true;
-                
+                pl_script.SoundStep();
                 // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
 
                 ItemFromFloor(player[i], transform.position);
                 clear_blue();
-
+                
+                //Debug.Log("a");
                 break;
             }
 
@@ -54,10 +47,12 @@ public class Move : MonoBehaviour
     public void clear_blue()
     {
         Blue = GameObject.FindGameObjectsWithTag("Blue");
-
+        //audiosrc.PlayOneShot(step);
         for (int b = 0; b < Blue.Length; b++)
         {
+            //audiosrc.PlayOneShot(step);
             Destroy(Blue[b]);
+
         }
     }
 
@@ -80,7 +75,7 @@ public class Move : MonoBehaviour
         if (_items == null)
         {
             // ничего не делаем
-           // mScript.set_current_move();
+            // mScript.set_current_move();
         }
         else if (_items.tag == "Key")
         {
@@ -124,7 +119,7 @@ public class Move : MonoBehaviour
         {
             pl_script.add_item("gold", 1);
             Destroy(_items);
-           // mScript.set_current_move();
+            // mScript.set_current_move();
         }
         else if (_items.tag == "item_axe")
         {
@@ -142,7 +137,7 @@ public class Move : MonoBehaviour
         {
             pl_script.add_item("scythe", 1);
             Destroy(_items);
-           // mScript.set_current_move();
+            // mScript.set_current_move();
         }
         else if (_items.tag == "item_bow")
         {
@@ -154,7 +149,7 @@ public class Move : MonoBehaviour
         {
             pl_script.add_item("dagger", 1);
             Destroy(_items);
-           // mScript.set_current_move();
+            // mScript.set_current_move();
         }
         else if (_items.tag == "item_sword")
         {
@@ -167,7 +162,8 @@ public class Move : MonoBehaviour
         {
             pl_script.clear_key();
             Destroy(_items);
-           // mScript.set_current_move();
+            //audiosrc.PlayOneShot(open);
+            // mScript.set_current_move();
         }
         else if (_items.tag == "Enemy_1" || _items.tag == "Enemy_2" || _items.tag == "Enemy_boss")
         {

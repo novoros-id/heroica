@@ -91,6 +91,11 @@ public class ControllerButtons : MonoBehaviour
             page = 1;
         }
     }
+
+    public void Rate()
+    {
+        Application.OpenURL("https://forms.gle/A2k1LEMybaXwfGei7");
+    }
 }
 
 

@@ -12,13 +12,29 @@ public class Zoom : MonoBehaviour
 	public float zoomMax = 10; // макс. увеличение
 	public float zoomMin = 3; // мин. увеличение
 	private float X, Y;
-    private float speed = 0.05f;
+    private float speed = 0.1f;
 
-	
 
-	void Start()
+    public Transform startMarker;
+    public Transform endMarker;
+    public float fract;
+    public int go = 0;
+
+    // Movement speed in units per second.
+    public float speed_ = 0.5F;
+    // Time when the movement started.
+    public float startTime;
+    // Total distance between the markers.
+    public float journeyLength;
+
+
+
+    void Start()
 	{
-		//limit = Mathf.Abs(limit);
+        
+        
+
+        //limit = Mathf.Abs(limit);
   //      if (limit > 90) limit = 90;
   //      offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
   //      transform.position = target.position + offset;
@@ -42,6 +58,16 @@ public class Zoom : MonoBehaviour
         if (GetComponent<Camera>().fieldOfView <= 5)
         {
             GetComponent<Camera>().fieldOfView = 5;
+        }
+
+        if (Input.GetKey("q"))
+        {
+            transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, transform.localEulerAngles.y - 0.2f, transform.localEulerAngles.z);
+        }
+
+        if (Input.GetKey("e"))
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 0.2f, transform.localEulerAngles.z);
         }
 
         ////transform.position = new Vector3(target.position.x - 3.4f,4.5f,target.position.z + 1.5f);
@@ -114,4 +140,24 @@ public class Zoom : MonoBehaviour
 		//	transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 1);
 		//}
 	}
+    private void FixedUpdate()
+    {
+
+        // Distance moved equals elapsed time times speed..
+        float distCovered = (Time.time - startTime) * speed_;
+
+        // Fraction of journey completed equals current distance divided by total distance.
+        float fractionOfJourney = distCovered / journeyLength;
+
+        if (go == 1) 
+        {
+            transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+            if(transform.position == endMarker.position)
+            {
+                go = 0;
+                transform.position = endMarker.position;
+            }
+        }
+        
+    }
 }

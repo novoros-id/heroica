@@ -40,13 +40,15 @@ public class Player_ : MonoBehaviour
     // Total distance between the markers.
     public float journeyLength;
 
-    
+
     private List<GameObject> list_goal_1 = new List<GameObject>();
     private int count_key = 0;
     private List<GameObject> list_goal_2 = new List<GameObject>();
     private List<GameObject> list_goal_3 = new List<GameObject>();
 
-
+    static AudioSource audiosrc;
+    public AudioClip open;
+    public AudioClip step;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,7 @@ public class Player_ : MonoBehaviour
     {
         // Здесь обозначаем массивы целей
 
-       
+        audiosrc = GetComponent<AudioSource>();
 
         list_goal_1.Add(GameObject.Find("item_key_1"));
         list_goal_1.Add(GameObject.Find("item_key"));
@@ -72,6 +74,10 @@ public class Player_ : MonoBehaviour
 
     }
 
+    public void SoundStep()
+    {
+        audiosrc.PlayOneShot(step);
+    }
     private void FixedUpdate()
     {
         if (startMarker != null)
@@ -125,7 +131,7 @@ public class Player_ : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void show_the_cube()
@@ -161,7 +167,7 @@ public class Player_ : MonoBehaviour
             {
                 return false;
             }
-            
+
         }
     }
 
@@ -204,7 +210,7 @@ public class Player_ : MonoBehaviour
                 goal = list_goal_1[rand_count_goal_1];
                 return;
             }
-            
+
         }
 
 
@@ -215,7 +221,7 @@ public class Player_ : MonoBehaviour
             dist_to_boss = Vector3.Distance(transform.position, list_goal_3[0].transform.position);
 
             // потом меряем расстояние до ближайшей двери
-        
+
 
             float min_distance = 10000;
             int index_min_distance = 0;
@@ -245,7 +251,7 @@ public class Player_ : MonoBehaviour
                 goal = list_goal_2[index_min_distance];
                 return;
             }
-            
+
         }
 
         if (list_goal_3.Count != 0)
@@ -297,7 +303,7 @@ public class Player_ : MonoBehaviour
                 del_index_3.Add(lg);
             }
 
-           //  count_2++;
+            //  count_2++;
         }
 
 
@@ -341,6 +347,8 @@ public class Player_ : MonoBehaviour
     public void clear_key()
     {
         key = false;
+        audiosrc.PlayOneShot(open);
+
     }
 
     // battle mode
@@ -410,7 +418,7 @@ public class Player_ : MonoBehaviour
     public int get_item(string item)
     {
         if (item == "blood") return blood;
-        else if(item == "luck") return luck;
+        else if (item == "luck") return luck;
         else if (item == "speed") return speed;
         else if (item == "power") return power;
         else if (item == "gold") return gold;
@@ -425,20 +433,20 @@ public class Player_ : MonoBehaviour
 
     }
 
-    public void add_item(string item,int kol)
+    public void add_item(string item, int kol)
     {
-        if (item == "blood")  blood += kol;
+        if (item == "blood") blood += kol;
         else if (item == "luck") luck += kol;
-        else if (item == "speed")  speed += kol;
-        else if (item == "power")  power += kol;
-        else if (item == "gold")  gold += kol;
-        else if (item == "axe")  axe += kol;
-        else if (item == "baton")  baton += kol;
-        else if (item == "scythe")  scythe += kol;
-        else if (item == "bow")  bow += kol;
-        else if (item == "dagger")  dagger += kol;
-        else if (item == "sword")  sword += kol;
-  
+        else if (item == "speed") speed += kol;
+        else if (item == "power") power += kol;
+        else if (item == "gold") gold += kol;
+        else if (item == "axe") axe += kol;
+        else if (item == "baton") baton += kol;
+        else if (item == "scythe") scythe += kol;
+        else if (item == "bow") bow += kol;
+        else if (item == "dagger") dagger += kol;
+        else if (item == "sword") sword += kol;
+
 
     }
 

@@ -122,4 +122,14 @@ MonoBehaviour:
   bow: 0
   dagger: 0
   sword: 0
-  previus_position: {x: 0, y: 0, z: 0}
+  move: 0
+  startMarker: {fileID: 0}
+  endMarker: {x: 0, y: 0, z: 0}
+  switch_battle_move: 0
+  goal: {fileID: 0}
+  recovery_mode: 0
+  CubeButton: {fileID: 0}
+  speed_: 1
+  startTime: 0
+  journeyLength: 0
+  mv: {fileID: 7387087361516114196, guid: 8387c2ccadcf5c948934bc84e8fa5fab, type: 3}

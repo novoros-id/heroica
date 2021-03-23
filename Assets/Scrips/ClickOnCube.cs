@@ -22,11 +22,13 @@ public class ClickOnCube : MonoBehaviour
     public GameObject[] player;
     public GameObject Curent_player;
     static AudioSource audiosrc;
-    public AudioClip WinEnemy;
-    public AudioClip DefeatEnemy;
+    //public AudioClip WinEnemy;
+    //public AudioClip DefeatEnemy;
     public AudioClip Click;
     public GameObject finalUI;
     public AudioClip Hp;
+    public AudioClip fight;
+    public AudioClip Step;
 
 
     void Start()
@@ -34,7 +36,7 @@ public class ClickOnCube : MonoBehaviour
         audiosrc = GetComponent<AudioSource>();
 
     }
-    
+
     void OnMouseDown()
     {
 
@@ -45,6 +47,7 @@ public class ClickOnCube : MonoBehaviour
     public void make_move()
     {
         list_steps.Clear(); // очистили  технический list куда можно идти
+        
         clear_blue(); // убрали голубые
         cube_step = throw_a_bone(); // кинули кубик
         Curent_player = return_curent_player(); // нашли текущего игркока
@@ -53,14 +56,15 @@ public class ClickOnCube : MonoBehaviour
         if (Curent_player != null && current_player_mode_battle == false && current_player_mode_recovery == false) // режим хода
         {
 
+            
             GameObject.Find("Button").SetActive(false);
 
             // нашли где он стоит
             CurFloorName = Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
-             // подсветили синими квадратиками
+            // подсветили синими квадратиками
             if (CurFloorName != null)
             {
-                Get_Steps(cube_step, CurFloorName,false);
+                Get_Steps(cube_step, CurFloorName, false);
             }
 
             // Проверка нет ли уигрока на выделенном
@@ -71,7 +75,7 @@ public class ClickOnCube : MonoBehaviour
                 //Debug.Log(list_steps.Count);
                 // необходимо выбрать кубик и вызвать ход
                 //Curent_player.GetComponent<Player_>().define_goal();
-                Invoke("step_comp_player",0.3f);
+                Invoke("step_comp_player", 0.3f);
             }
 
         }
@@ -147,8 +151,11 @@ public class ClickOnCube : MonoBehaviour
             pl_script.journeyLength = Vector3.Distance(Curent_player.transform.position, new Vector3(rnd_Floor.transform.position.x, 0.7f, rnd_Floor.transform.position.z));
             pl_script.move = true;
             //audiosrc.PlayOneShot(Moving);
+            Curent_player.GetComponent<Player_>().SoundStep();
+            //audiosrc.PlayOneShot(Step);
             Move bScript = Blue[b].GetComponent<Move>();
             bScript.ItemFromFloor(Curent_player, rnd_Floor_Pos);
+            
             bScript.clear_blue();
             break;
             //bScript.clear_blue();
@@ -175,7 +182,7 @@ public class ClickOnCube : MonoBehaviour
             GameObject go_ = GameObject.Find(lst);
 
             player = GameObject.FindGameObjectsWithTag("Player");
-            
+
             for (int i = 0; i < player.Length; i++)
             {
 
@@ -264,7 +271,7 @@ public class ClickOnCube : MonoBehaviour
             {
 
                 return player[i];
-            
+
             }
 
         }
@@ -272,7 +279,7 @@ public class ClickOnCube : MonoBehaviour
         return null;
     }
 
-    public bool return_current_player_mode (GameObject cur_player)
+    public bool return_current_player_mode(GameObject cur_player)
     {
         Player_ pl_script = cur_player.GetComponent<Player_>();
         return pl_script.get_battle_mode();
@@ -313,7 +320,7 @@ public class ClickOnCube : MonoBehaviour
 
     }
 
-    void Get_Steps(int steps_, string CurFloorName_,bool local_step)
+    void Get_Steps(int steps_, string CurFloorName_, bool local_step)
     {
         GameObject CurFloor;
         Vector3 CurFloorPos;
@@ -321,7 +328,7 @@ public class ClickOnCube : MonoBehaviour
         Collider[] s_step;
 
         steps_ -= 1; // уменьшим шаг на 1
- 
+
         CurFloor = GameObject.Find(CurFloorName_);
         CurFloorPos = new Vector3(CurFloor.transform.position.x, CurFloor.transform.position.y, CurFloor.transform.position.z);
 
@@ -356,7 +363,7 @@ public class ClickOnCube : MonoBehaviour
 
                     //  Заполняем List направлений;
 
-                    if(CurFloorName_ == "StartFloor")
+                    if (CurFloorName_ == "StartFloor")
                     {
                         forward.Add(collider);
                     }
@@ -412,7 +419,7 @@ public class ClickOnCube : MonoBehaviour
                     (s_step[0] != null && steps_ <= 0 && steps_ > -3 && s_step[1] != null && s_step[1].tag == "Player")) // если шаги закончились и на последнем ходе стоит игрок
                 {
 
-                    Get_Steps(steps_, s_step[0].name,false);
+                    Get_Steps(steps_, s_step[0].name, false);
                 }
 
             }
@@ -449,17 +456,17 @@ public class ClickOnCube : MonoBehaviour
 
                 mas_return[0] = NextStep[0];
                 mas_return[1] = null;
-                
-                if (available_floor_in_list(NextStep[0].name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+
+                if (available_floor_in_list(NextStep[0].name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                 {
-                   //  Debug.Log("447 in step " + steps_ + "count = 1 in" + NextStep[0].name);
+                    //  Debug.Log("447 in step " + steps_ + "count = 1 in" + NextStep[0].name);
                     list_steps.Add(NextStep[0].name);
                     show_blue_on_floor(NextStep[0]);
                 }
-           
+
                 return mas_return;
             }
-            
+
         }
         if (NextStep.Count > 1)
         {
@@ -480,17 +487,17 @@ public class ClickOnCube : MonoBehaviour
 
             if (ItemList.tag == "Player") // если на кубике стоит игрок
             {
-                //if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                //if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                 //{
                 //    list_steps.Add(FloorList.name);
                 //}
-               //  Debug.Log("479 in step " + steps_ + "tag = player in floor " + FloorList.name + " in item " + ItemList.name);
+                //  Debug.Log("479 in step " + steps_ + "tag = player in floor " + FloorList.name + " in item " + ItemList.name);
                 return mas_return;
             }
 
             if (ItemList.tag == "Enemy_1" || ItemList.tag == "Enemy_2" || ItemList.tag == "Enemy_boss") // если на кубике стоит враг
             {
-                if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                 {
                     list_steps.Add(FloorList.name);
                     show_blue_on_floor(NextStep[0]);
@@ -514,12 +521,12 @@ public class ClickOnCube : MonoBehaviour
                 }
                 else // ключ есть, подсветим, но дальше идти нельзя
                 {
-                    if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                    if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                     {
                         list_steps.Add(FloorList.name);
                         show_blue_on_floor(NextStep[0]);
                     }
-                   //  Debug.Log("in step " + steps_ + "tag = door in floor " + FloorList.name + " in item " + ItemList.name);
+                    //  Debug.Log("in step " + steps_ + "tag = door in floor " + FloorList.name + " in item " + ItemList.name);
                     mas_return[0] = null;
                     mas_return[1] = null;
                     return mas_return;
@@ -529,17 +536,17 @@ public class ClickOnCube : MonoBehaviour
             if (FloorList.name != CurFloorName)
             {
 
-                if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
+                if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                 {
                     list_steps.Add(FloorList.name);
                     show_blue_on_floor(NextStep[0]);
                 }
-               // Debug.Log("531 in step " + steps_ + " count = 2, floor " + FloorList.name + " in item " + ItemList.name);
+                // Debug.Log("531 in step " + steps_ + " count = 2, floor " + FloorList.name + " in item " + ItemList.name);
                 // show_blue_on_floor(NextStep[0]);
-        
+
                 return mas_return;
             }
-            
+
         }
 
         mas_return[0] = null;
@@ -566,7 +573,7 @@ public class ClickOnCube : MonoBehaviour
 
     void show_blue_on_floor(Collider floor_)
     {
-       // Instantiate(selected1, new Vector3(floor_.transform.position.x, 0.05f, floor_.transform.position.z), Quaternion.identity);
+        // Instantiate(selected1, new Vector3(floor_.transform.position.x, 0.05f, floor_.transform.position.z), Quaternion.identity);
 
         bool player_in_floor = false;
 
@@ -591,7 +598,7 @@ public class ClickOnCube : MonoBehaviour
         }
     }
 
-    void leave_recovery (int cube_s)
+    void leave_recovery(int cube_s)
     {
         Player_ pl_script = Curent_player.GetComponent<Player_>();
         Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
@@ -624,6 +631,7 @@ public class ClickOnCube : MonoBehaviour
 
         CurFloorPos = new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z);
 
+        //audiosrc.PlayOneShot(fight);
         //Debug.Log("Текущая позиция платформы" + CurFloorPos);
 
         if ((colliders = Physics.OverlapSphere(CurFloorPos, 1)).Length > 0)
@@ -646,7 +654,7 @@ public class ClickOnCube : MonoBehaviour
 
                         if (cube_s == 4) // победа
                         {
-                            audiosrc.PlayOneShot(WinEnemy);
+                            audiosrc.PlayOneShot(fight);
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
@@ -658,7 +666,7 @@ public class ClickOnCube : MonoBehaviour
                         else if (cube_s == 3) // победа
                         {
 
-                            audiosrc.PlayOneShot(WinEnemy);
+                            audiosrc.PlayOneShot(fight);
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
@@ -670,7 +678,7 @@ public class ClickOnCube : MonoBehaviour
                         }
                         else if (cube_s == 2)
                         {
-                            audiosrc.PlayOneShot(DefeatEnemy);
+                            audiosrc.PlayOneShot(fight);
 
                             if (collider.tag == "Enemy_1")
                             {
@@ -696,12 +704,12 @@ public class ClickOnCube : MonoBehaviour
                             pl_script.move = true;
                             pl_script.switch_battle_move = true;
 
-                        //pl_script.switch_battle_mode();
+                            //pl_script.switch_battle_mode();
                             mScript.set_current_move("Проигрыш, были потеряны жизни");
                         }
                         else if (cube_s == 1)
                         {
-                            audiosrc.PlayOneShot(WinEnemy);
+                            audiosrc.PlayOneShot(fight);
 
                             if (collider.tag == "Enemy_1")
                             {
@@ -739,7 +747,7 @@ public class ClickOnCube : MonoBehaviour
             }
         }
 
-        
+
     }
 
     public void clear_blue()
@@ -749,6 +757,7 @@ public class ClickOnCube : MonoBehaviour
         for (int b = 0; b < Blue.Length; b++)
         {
             Destroy(Blue[b]);
+            //Debug.Log("a");
         }
     }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5522464132886668512}
   - component: {fileID: 2472727524139831832}
   - component: {fileID: 7387087361516114196}
-  - component: {fileID: 1263941116243162102}
+  - component: {fileID: 4602819438516792338}
   m_Layer: 0
   m_Name: Blue1
   m_TagString: Blue
@@ -110,8 +110,8 @@ MonoBehaviour:
   Cs: {fileID: 0}
   Blue: []
   player: []
-  Moving: {fileID: 8300000, guid: ad960f8490cea0a4bb55cb15b780c43d, type: 3}
---- !u!82 &1263941116243162102
+  step: {fileID: 8300000, guid: fb3e7116f6fb32940bc8823738ccd9fc, type: 3}
+--- !u!82 &4602819438516792338
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,7 +197,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.8
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -16,6 +16,7 @@ public class ClickOnFrog : MonoBehaviour
     {
         audiosrc.PlayOneShot(Click);
         check_item();
+        //Destroy(this.gameObject);
     }
 
     void Update()

@@ -28,7 +28,30 @@ MonoBehaviour:
   step_move: 1
   key: 0
   battle_mode: 0
-  previus_position: {x: 0, y: 0, z: 0}
+  comp: 0
+  leaves: 4
+  blood: 0
+  luck: 0
+  speed: 0
+  power: 0
+  gold: 0
+  axe: 0
+  baton: 0
+  scythe: 0
+  bow: 0
+  dagger: 0
+  sword: 0
+  move: 0
+  startMarker: {fileID: 0}
+  endMarker: {x: 0, y: 0, z: 0}
+  switch_battle_move: 0
+  goal: {fileID: 0}
+  recovery_mode: 0
+  CubeButton: {fileID: 0}
+  speed_: 1
+  startTime: 0
+  journeyLength: 0
+  mv: {fileID: 7387087361516114196, guid: 8387c2ccadcf5c948934bc84e8fa5fab, type: 3}
 --- !u!1001 &5980254386676827037
 PrefabInstance:
   m_ObjectHideFlags: 0
