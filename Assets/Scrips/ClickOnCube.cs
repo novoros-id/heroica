@@ -575,27 +575,27 @@ public class ClickOnCube : MonoBehaviour
     {
         // Instantiate(selected1, new Vector3(floor_.transform.position.x, 0.05f, floor_.transform.position.z), Quaternion.identity);
 
-        bool player_in_floor = false;
+        //bool player_in_floor = false;
 
-        player = GameObject.FindGameObjectsWithTag("Player");
+        //player = GameObject.FindGameObjectsWithTag("Player");
 
-        for (int i = 0; i < player.Length; i++)
-        {
+        //for (int i = 0; i < player.Length; i++)
+        //{
 
-            if (floor_.transform.position.x == player[i].transform.position.x && floor_.transform.position.z == player[i].transform.position.z)
-            {
-                player_in_floor = true;
-                Debug.Log("игрок на поле");
+        //    if (floor_.transform.position.x == player[i].transform.position.x && floor_.transform.position.z == player[i].transform.position.z)
+        //    {
+        //        player_in_floor = true;
+        //        Debug.Log("игрок на поле");
 
-            }
+        //    }
 
-        }
+        //}
 
-        if (player_in_floor == false)
-        {
-            Instantiate(selected1, new Vector3(floor_.transform.position.x, 0.05f, floor_.transform.position.z), Quaternion.identity);
+        //if (player_in_floor == false)
+        //{
+            Instantiate(selected1, new Vector3(floor_.transform.position.x, 1.05f, floor_.transform.position.z), Quaternion.identity);
 
-        }
+        //}
     }
 
     void leave_recovery(int cube_s)

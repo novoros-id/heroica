@@ -8,6 +8,12 @@ public class Move : MonoBehaviour
     public GameObject[] Blue;
     public GameObject[] player;
 
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
+    }
+
     void OnMouseDown()
     {
         GameObject cam = GameObject.Find("Directional Light");
@@ -83,6 +89,7 @@ public class Move : MonoBehaviour
             {
                 pl_script.set_key();
                 Destroy(_items);
+                pl_script.define_goal();
             }
             //mScript.set_current_move();
         }

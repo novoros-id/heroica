@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player_ : MonoBehaviour
 {
@@ -58,17 +59,51 @@ public class Player_ : MonoBehaviour
 
         audiosrc = GetComponent<AudioSource>();
 
-        list_goal_1.Add(GameObject.Find("item_key_1"));
-        list_goal_1.Add(GameObject.Find("item_key"));
-        list_goal_1.Add(GameObject.Find("item_key_2"));
+        if ((SceneManager.GetActiveScene().name == "Test") || (SceneManager.GetActiveScene().name == "Level3"))
+        {
 
-        count_key = list_goal_1.Count;
+            // Debug.Log("scene Test");
+            //list_goal_1.Add(GameObject.Find("item_key_1"));
+            //list_goal_1.Add(GameObject.Find("item_key"));
+            //list_goal_1.Add(GameObject.Find("item_key_2"));
 
-        list_goal_2.Add(GameObject.Find("Door"));
-        list_goal_2.Add(GameObject.Find("Door (2)"));
-        list_goal_2.Add(GameObject.Find("Door (3)"));
+            GameObject[] item_key = GameObject.FindGameObjectsWithTag("Key");
+            for (int i = 0; i < item_key.Length; i++)
+            {
+                list_goal_1.Add(item_key[i]);
+            }
 
-        list_goal_3.Add(GameObject.Find("en_ogre_boss Variant"));
+            count_key = list_goal_1.Count;
+
+            //list_goal_2.Add(GameObject.Find("Door"));
+            //list_goal_2.Add(GameObject.Find("Door (2)"));
+            //list_goal_2.Add(GameObject.Find("Door (3)"));
+
+            GameObject[] item_door = GameObject.FindGameObjectsWithTag("Door");
+            for (int i = 0; i < item_door.Length; i++)
+            {
+                list_goal_2.Add(item_door[i]);
+            }
+
+            list_goal_3.Add(GameObject.Find("en_ogre_boss Variant"));
+
+        }
+        else if (SceneManager.GetActiveScene().name == "Level2")
+        {
+           // Debug.Log("scene Level2");
+
+            list_goal_1.Add(GameObject.Find("item_key_1"));
+            list_goal_1.Add(GameObject.Find("item_key"));
+            list_goal_1.Add(GameObject.Find("item_key_2"));
+
+            count_key = list_goal_1.Count;
+
+            list_goal_2.Add(GameObject.Find("Door"));
+            list_goal_2.Add(GameObject.Find("Door (2)"));
+            list_goal_2.Add(GameObject.Find("Door (3)"));
+
+            list_goal_3.Add(GameObject.Find("en_ogre_boss Variant"));
+        }
 
         define_goal();
 
