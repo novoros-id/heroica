@@ -604,7 +604,17 @@ public class ClickOnCube : MonoBehaviour
         Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
         audiosrc.PlayOneShot(Hp);
         pl_script.add_leaves(cube_s);
-        mScript.set_current_move("Восстановлено " + cube_s + " жизней");
+
+        if (mScript.lang == "ru")
+        {
+            mScript.set_current_move("Восстановлено " + cube_s + " жизней");
+        }
+        else if (mScript.lang == "en")
+        {
+            mScript.set_current_move("Restored " + cube_s + " lives");
+        }
+
+        
     }
 
     void battle_whith_enemy(int cube_s)
@@ -661,7 +671,18 @@ public class ClickOnCube : MonoBehaviour
                                 final();
                             }
                             pl_script.switch_battle_mode();
-                            mScript.set_current_move("Победа !!!");
+
+
+                            if (mScript.lang == "ru")
+                            {
+                                mScript.set_current_move("Победа !!!");
+                            }
+                            else if (mScript.lang == "en")
+                            {
+                                mScript.set_current_move("Victory !!!");
+                            }
+
+                            
                         }
                         else if (cube_s == 3) // победа
                         {
@@ -673,7 +694,15 @@ public class ClickOnCube : MonoBehaviour
                                 final();
                             }
                             pl_script.switch_battle_mode();
-                            mScript.set_current_move("Победа !!!");
+
+                            if (mScript.lang == "ru")
+                            {
+                                mScript.set_current_move("Победа !!!");
+                            }
+                            else if (mScript.lang == "en")
+                            {
+                                mScript.set_current_move("Victory !!!");
+                            }
 
                         }
                         else if (cube_s == 2)
@@ -705,7 +734,17 @@ public class ClickOnCube : MonoBehaviour
                             pl_script.switch_battle_move = true;
 
                             //pl_script.switch_battle_mode();
-                            mScript.set_current_move("Проигрыш, были потеряны жизни");
+
+                            if (mScript.lang == "ru")
+                            {
+                                mScript.set_current_move("Проигрыш, были потеряны жизни");
+                            }
+                            else if (mScript.lang == "en")
+                            {
+                                mScript.set_current_move("Losing, lives were lost");
+                            }
+
+                            
                         }
                         else if (cube_s == 1)
                         {
@@ -736,7 +775,17 @@ public class ClickOnCube : MonoBehaviour
                             pl_script.move = true;
 
                             pl_script.switch_battle_mode();
-                            mScript.set_current_move("Победа, ценой потеряных жизней");
+
+                            if (mScript.lang == "ru")
+                            {
+                                mScript.set_current_move("Победа, ценой потеряных жизней");
+                            }
+                            else if (mScript.lang == "en")
+                            {
+                                mScript.set_current_move("Victory, at the cost of lost lives");
+                            }
+
+                            
                         }
 
 

@@ -13,6 +13,7 @@ public class Main : MonoBehaviour
     public GameObject selected1;
     public GameObject cam_focus;
     public bool Pc;
+    public string lang = "en";
 
     public void Start()
     {
@@ -83,23 +84,53 @@ public class Main : MonoBehaviour
                
                 if (pl_script.get_battle_mode() == true)
                 {
-            
-                    add_text("Режим боя " + player[i].name + " нажмите на кубик и узнаете исход боя");
+
+                    if (lang == "ru")
+                    {
+                        add_text("Режим боя " + player[i].name + " нажмите на кубик и узнаете исход боя");
+                    }
+                    else if (lang == "en")
+                    {
+                        add_text("Battle Mode " + player[i].name + " click on the cube and find out the outcome of the battle");
+                    }
+                   
 
                 }
                 else if (pl_script.recovery_mode == true)
                 {
-                    add_text("Режим восстановления здоровья " + player[i].name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
+                    if (lang == "ru")
+                    {
+                        add_text("Режим восстановления здоровья " + player[i].name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
+                    }
+                    else if (lang == "en")
+                    {
+                        add_text("Health Recovery Mode " + player[i].name + " click on the cube and you will be added as much health as you get points");
+                    }
                 }
                 else
                 {
                     if (pl_script.comp == true)
                     {
-                        add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем компьютер сам сделает ход");
+                        if (lang == "ru")
+                        {
+                            add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем компьютер сам сделает ход");
+                        }
+                        else if (lang == "en")
+                        {
+                            add_text("Current move " + player[i].name + " click on the cube, then the computer will make its own move");
+                        } 
                     }
                     else
                     {
-                        add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем нажмите на светящееся поле");
+                        if (lang == "ru")
+                        {
+                            add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем нажмите на вращающееся поле");
+                        }
+                        else if (lang == "en")
+                        {
+                            add_text("Current move  " + player[i].name + " click on the cube, then click on the rotating field");
+                        }
+
                     }
                 }
 
