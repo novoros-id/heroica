@@ -12,6 +12,9 @@ public class UIManagment : MonoBehaviour
     public GameObject key;
     public GameObject ExitGameButton;
     
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {

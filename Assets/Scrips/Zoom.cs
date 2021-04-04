@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Zoom : MonoBehaviour
 {
@@ -27,28 +28,105 @@ public class Zoom : MonoBehaviour
     // Total distance between the markers.
     public float journeyLength;
 
+    public GameObject btnLeft;
+    public GameObject btnRight;
+    public GameObject btnBack;
+    public GameObject btnForward;
+    float PosBtnLeft;
+    float PosBtnRight;
+    float PosBtnBack;
+    float PosBtnForward;
+
+    private Touch _touchA;
+    private Touch _touchB;
+    private Vector2 _touchAdirection;
+    private Vector2 _touchBdirection;
+    private float _dstBtwTouchesPosition;
+    private float _dstBtwTpuchesDirections;
+    private float _zoom;
+
+    private Camera _mainCamera;
+
+    public float ZoomMax;
+    public float ZoomMin;
+    public float Sensitivity;
+
+
 
 
     void Start()
 	{
+
+        _mainCamera = Camera.main;
         
-        
+        PosBtnBack = btnBack.transform.position.y;
+        PosBtnForward = btnForward.transform.position.y;
+        PosBtnLeft = btnLeft.transform.position.y;
+        PosBtnRight = btnRight.transform.position.y;
+
 
         //limit = Mathf.Abs(limit);
-  //      if (limit > 90) limit = 90;
-  //      offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
-  //      transform.position = target.position + offset;
+        //      if (limit > 90) limit = 90;
+        //      offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
+        //      transform.position = target.position + offset;
 
-  //      X = transform.localEulerAngles.y + 0 * sensitivity;
-  //      Y += -7 * sensitivity;
-  //      Y = Mathf.Clamp(Y, -limit, limit);
-  //      transform.localEulerAngles = new Vector3(-Y, X, 0);
-  //      transform.position = transform.localRotation * offset + target.position;
+        //      X = transform.localEulerAngles.y + 0 * sensitivity;
+        //      Y += -7 * sensitivity;
+        //      Y = Mathf.Clamp(Y, -limit, limit);
+        //      transform.localEulerAngles = new Vector3(-Y, X, 0);
+        //      transform.position = transform.localRotation * offset + target.position;
 
     }
 
-	void Update()
+
+    private void Update()
 	{
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (Input.mousePosition.x > 0)
+        //    {
+        //        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 0.2f, transform.localEulerAngles.z);
+        //    }
+        //    else
+        //    {
+        //        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 0.2f, transform.localEulerAngles.z);
+        //    }
+        //}
+
+        if(Input.touchCount == 2)
+        {
+            _touchA = Input.GetTouch(0);
+            _touchB = Input.GetTouch(1);
+            _touchAdirection = _touchA.position - _touchA.deltaPosition;
+            _touchBdirection = _touchB.position - _touchB.deltaPosition;
+            
+            _dstBtwTouchesPosition = Vector2.Distance(_touchA.position, _touchB.position);
+            _dstBtwTpuchesDirections = Vector2.Distance(_touchAdirection, _touchBdirection);
+
+            _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
+
+            var CurrentZoom = _mainCamera.orthographicSize - _zoom * Sensitivity;
+
+            _mainCamera.orthographicSize = Mathf.Clamp(CurrentZoom, ZoomMin, ZoomMax);
+
+        }
+        
+        if((int)PosBtnBack != (int)btnBack.transform.position.y)
+        {
+            transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+        }
+        if ((int)PosBtnForward != (int)btnForward.transform.position.y)
+        {
+            transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+        }
+        if ((int)PosBtnLeft != (int)btnLeft.transform.position.y)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
+        }
+        if ((int)PosBtnRight != (int)btnRight.transform.position.y)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
+        }
 
         if (GetComponent<Camera>().fieldOfView >= 105)
         {

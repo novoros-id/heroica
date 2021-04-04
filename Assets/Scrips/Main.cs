@@ -12,10 +12,20 @@ public class Main : MonoBehaviour
     public GameObject[] pr_hod;
     public GameObject selected1;
     public GameObject cam_focus;
+    public bool Pc;
 
     public void Start()
     {
         move_priznak_step();
+
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            Pc = true;
+        }
+        else
+        {
+            Pc = false;
+        }
     }
 
     public int get_current_move()
