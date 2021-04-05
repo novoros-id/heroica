@@ -29,6 +29,7 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip Hp;
     public AudioClip fight;
     public AudioClip Step;
+    public GameObject UI;
 
 
     void Start()
@@ -813,6 +814,7 @@ public class ClickOnCube : MonoBehaviour
     void final()
     {
         finalUI.SetActive(true);
-    }
+        UI.SetActive(false); ;
+}
 
 }

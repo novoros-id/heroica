@@ -25,7 +25,7 @@ public class ChangeMod : MonoBehaviour
     }
     public void start()
     {
-        AndroidUI.SetActive(false);
+        //AndroidUI.SetActive(false);
         Camera.go = 1;
         Camera.startTime = Time.time;
         Camera.journeyLength = Vector3.Distance(Camera.startMarker.position,Camera.endMarker.position);
@@ -33,7 +33,7 @@ public class ChangeMod : MonoBehaviour
         other.SetActive(true);
         if (_main.Pc == true)
         {
-            AndroidUI.SetActive(false);
+            //AndroidUI.SetActive(false);
         }
     }
 

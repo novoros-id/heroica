@@ -7,7 +7,9 @@ public class EndGame : MonoBehaviour
 {
 
     public GameObject EndGameMenu;
-    
+    public GameObject UI;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +29,6 @@ public class EndGame : MonoBehaviour
     public void EndGameOn()
     {
         EndGameMenu.SetActive(true);
+        UI.SetActive(false);
     }
 }
