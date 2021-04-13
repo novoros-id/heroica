@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07190422, g: 0.067471415, b: 0.050041452, a: 1}
+  m_IndirectSpecularColor: {r: 0.071904145, g: 0.06747142, b: 0.050041474, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10103,11 +10103,12 @@ GameObject:
   - component: {fileID: 1247323287}
   - component: {fileID: 1247323286}
   - component: {fileID: 1247323285}
+  - component: {fileID: 1247323290}
   - component: {fileID: 1247323288}
   - component: {fileID: 1247323289}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10306,6 +10307,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1247323290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247323284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1822176264ce4efba34a2d84508a410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSensitivityX: 0.5
+  moveSensitivityZ: 0.5
+  updateZoomSensitivity: 1
+  orthoZoomSpeed: 0.05
+  minZoom: 1
+  maxZoom: 20
+  invertMoveX: 0
+  invertMoveZ: 0
+  mapWidth: 85
+  mapLength: 60
+  inertiaDuration: 1
 --- !u!1 &1271322096
 GameObject:
   m_ObjectHideFlags: 0
