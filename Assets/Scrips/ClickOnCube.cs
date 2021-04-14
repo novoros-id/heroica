@@ -303,7 +303,7 @@ public class ClickOnCube : MonoBehaviour
 
         for (int i = 0; i < Floors.Length; i++)
         {
-            if (Floors[i].transform.position.x == x_f && Floors[i].transform.position.z == z_f)
+            if (Mathf.Abs(Floors[i].transform.position.x - x_f) < 0.01 && Mathf.Abs(Floors[i].transform.position.z - z_f) < 0.01)
             {
                 //CurFloorName = Floors[i].name;
                 //Debug.Log(Floors[i].name);
@@ -658,8 +658,9 @@ public class ClickOnCube : MonoBehaviour
 
                 {
 
-                    // Vector3 pos1 = collider.transform.position;
-                    if (collider.transform.position.x == Curent_player.transform.position.x && collider.transform.position.z == Curent_player.transform.position.z)
+                    // Vector3 pos1 = collider.transform.position; Mathf.Abs(float f)
+                    // if (collider.transform.position.x == Curent_player.transform.position.x && collider.transform.position.z == Curent_player.transform.position.z)
+                    if (Mathf.Abs(collider.transform.position.x -Curent_player.transform.position.x) < 0.01 && Mathf.Abs(collider.transform.position.z - Curent_player.transform.position.z) < 0.01)
                     {
                         // Debug.Log("battlle");
 

@@ -66,15 +66,15 @@ public class Zoom : MonoBehaviour
 
 
         //limit = Mathf.Abs(limit);
-        //      if (limit > 90) limit = 90;
-        //      offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
-        //      transform.position = target.position + offset;
+        //if (limit > 90) limit = 90;
+        //offset = new Vector3(offset.x, offset.y, -Mathf.Abs(zoomMax) / 2);
+        //transform.position = target.position + offset;
 
-        //      X = transform.localEulerAngles.y + 0 * sensitivity;
-        //      Y += -7 * sensitivity;
-        //      Y = Mathf.Clamp(Y, -limit, limit);
-        //      transform.localEulerAngles = new Vector3(-Y, X, 0);
-        //      transform.position = transform.localRotation * offset + target.position;
+        //X = transform.localEulerAngles.y + 0 * sensitivity;
+        //Y += -7 * sensitivity;
+        //Y = Mathf.Clamp(Y, -limit, limit);
+        //transform.localEulerAngles = new Vector3(-Y, X, 0);
+        //transform.position = transform.localRotation * offset + target.position;
 
     }
 
@@ -93,23 +93,23 @@ public class Zoom : MonoBehaviour
         //    }
         //}
 
-        //if (Input.touchCount == 2)
-        //{
-        //    _touchA = Input.GetTouch(0);
-        //    _touchB = Input.GetTouch(1);
-        //    _touchAdirection = _touchA.position - _touchA.deltaPosition;
-        //    _touchBdirection = _touchB.position - _touchB.deltaPosition;
+        if (Input.touchCount == 2)
+        {
+            _touchA = Input.GetTouch(0);
+            _touchB = Input.GetTouch(1);
+            _touchAdirection = _touchA.position - _touchA.deltaPosition;
+            _touchBdirection = _touchB.position - _touchB.deltaPosition;
 
-        //    _dstBtwTouchesPosition = Vector2.Distance(_touchA.position, _touchB.position);
-        //    _dstBtwTpuchesDirections = Vector2.Distance(_touchAdirection, _touchBdirection);
+            _dstBtwTouchesPosition = Vector2.Distance(_touchA.position, _touchB.position);
+            _dstBtwTpuchesDirections = Vector2.Distance(_touchAdirection, _touchBdirection);
 
-        //    _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
+            _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
 
-        //    var CurrentZoom = _mainCamera.orthographicSize - _zoom * Sensitivity;
+            var CurrentZoom = _mainCamera.orthographicSize - _zoom * Sensitivity;
 
-        //    _mainCamera.orthographicSize = Mathf.Clamp(CurrentZoom, ZoomMin, ZoomMax);
+            _mainCamera.orthographicSize = Mathf.Clamp(CurrentZoom, ZoomMin, ZoomMax);
 
-        //}
+        }
 
         if ((int)PosBtnBack != (int)btnBack.transform.position.y)
         {
@@ -138,104 +138,104 @@ public class Zoom : MonoBehaviour
             GetComponent<Camera>().fieldOfView = 5;
         }
 
-        //if (Input.GetKey("q"))
-        //{
-        //    transform.localEulerAngles = new Vector3 (transform.localEulerAngles.x, transform.localEulerAngles.y - 0.2f, transform.localEulerAngles.z);
-        //}
+        if (Input.GetKey("q"))
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 0.2f, transform.localEulerAngles.z);
+        }
 
-        //if (Input.GetKey("e"))
-        //{
-        //    transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 0.2f, transform.localEulerAngles.z);
-        //}
+        if (Input.GetKey("e"))
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 0.2f, transform.localEulerAngles.z);
+        }
 
-        ////transform.position = new Vector3(target.position.x - 3.4f,4.5f,target.position.z + 1.5f);
+        //transform.position = new Vector3(target.position.x - 3.4f, 4.5f, target.position.z + 1.5f);
 
-        ////if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
-        ////else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
-        ////offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
-        //if (Input.GetAxis("Mouse ScrollWheel") > 0)
-        //{
-        //    GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
-        //}
+        //if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
+        //else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
+        //offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
+        }
 
-        //if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        //{
-        //    GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView + 5;
-        //}
-
-        //      if (Input.GetMouseButton(1))
-        //      {
-        //          X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
-        //	Y += Input.GetAxis("Mouse Y") * sensitivity;
-        //	Y = Mathf.Clamp(Y, -limit, limit);
-        //	transform.localEulerAngles = new Vector3(-Y, X, 0);
-        //	transform.position = transform.localRotation * offset + target.position;
-        //      }
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView + 5;
+        }
 
         //if (Input.GetMouseButton(1))
         //{
-        //    if (Input.GetAxis("Mouse X") > 0 )
-        //    {
-
-        //        transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
-        //    }
-
-        //    if (Input.GetAxis("Mouse X") < 0)
-
-        //    {
-        //        transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
-        //    }
-        //    if (Input.GetAxis("Mouse Y") > 0)
-        //    {
-        //        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
-        //    }
-
-        //    if (Input.GetAxis("Mouse Y") < 0)
-        //    {
-        //        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
-        //    }
-
-
+        //    X = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivity;
+        //    Y += Input.GetAxis("Mouse Y") * sensitivity;
+        //    Y = Mathf.Clamp(Y, -limit, limit);
+        //    transform.localEulerAngles = new Vector3(-Y, X, 0);
+        //    transform.position = transform.localRotation * offset + target.position;
         //}
 
-        //      if (Input.GetKeyDown("a"))
+        if (Input.GetMouseButton(1))
+        {
+            if (Input.GetAxis("Mouse X") > 0)
+            {
+
+                transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+            }
+
+            if (Input.GetAxis("Mouse X") < 0)
+
+            {
+                transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+            }
+            if (Input.GetAxis("Mouse Y") > 0)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
+            }
+
+            if (Input.GetAxis("Mouse Y") < 0)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
+            }
+
+
+        }
+
+        //if (Input.GetKeyDown("a"))
         //{
-        //	transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+        //    transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
         //}
 
         //if (Input.GetKeyDown("d"))
         //{
-        //	transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+        //    transform.position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
         //}
 
         //if (Input.GetKeyDown("w"))
         //{
-        //	transform.position = new Vector3(transform.position.x, transform.position.y , transform.position.z - 1);
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
         //}
 
         //if (Input.GetKeyDown("s"))
         //{
-        //	transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 1);
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
         //}
     }
     private void FixedUpdate()
     {
 
         // Distance moved equals elapsed time times speed..
-        //float distCovered = (Time.time - startTime) * speed_;
+        float distCovered = (Time.time - startTime) * speed_;
 
-        //// Fraction of journey completed equals current distance divided by total distance.
-        //float fractionOfJourney = distCovered / journeyLength;
+        // Fraction of journey completed equals current distance divided by total distance.
+        float fractionOfJourney = distCovered / journeyLength;
 
-        //if (go == 1) 
-        //{
-        //    transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
-        //    if(transform.position == endMarker.position)
-        //    {
-        //        go = 0;
-        //        transform.position = endMarker.position;
-        //    }
-        //}
-        
+        if (go == 1)
+        {
+            transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+            if (transform.position == endMarker.position)
+            {
+                go = 0;
+                transform.position = endMarker.position;
+            }
+        }
+
     }
 }
