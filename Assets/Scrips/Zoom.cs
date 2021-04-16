@@ -13,8 +13,8 @@ public class Zoom : MonoBehaviour
 	public float zoomMax = 10; // макс. увеличение
 	public float zoomMin = 3; // мин. увеличение
 	private float X, Y;
-    private float speed = 0.1f;
-
+    private float speed = 0.1f; 
+    private float zoomSpeed = 1.0f;
 
     public Transform startMarker;
     public Transform endMarker;
@@ -51,7 +51,8 @@ public class Zoom : MonoBehaviour
     public float ZoomMin;
     public float Sensitivity;
 
-
+    private Vector2 fp; // first finger position
+    private Vector2 lp; // last finger position
 
 
     void Start()
@@ -79,19 +80,15 @@ public class Zoom : MonoBehaviour
     }
 
 
+
     private void Update()
 	{
-        //if (Input.GetMouseButton(0))
-        //{
-        //    if (Input.mousePosition.x > 0)
-        //    {
-        //        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 0.2f, transform.localEulerAngles.z);
-        //    }
-        //    else
-        //    {
-        //        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 0.2f, transform.localEulerAngles.z);
-        //    }
-        //}
+       
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///  android
 
         if (Input.touchCount == 2)
         {
@@ -105,11 +102,63 @@ public class Zoom : MonoBehaviour
 
             _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
 
-            var CurrentZoom = _mainCamera.orthographicSize - _zoom * Sensitivity;
+            if (_zoom != 0.0f)
+            {
+                
 
-            _mainCamera.orthographicSize = Mathf.Clamp(CurrentZoom, ZoomMin, ZoomMax);
+                //if (transform.position.y <= 1.0f)
+                //{
+                //    transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
+
+                //}
+
+
+                //if (transform.position.y >= 20.0f)
+                //{
+                //    transform.position = new Vector3(transform.position.x, 20.0f, transform.position.z);
+                 
+                //}
+
+                transform.Translate(0, _zoom * 0.01f, _zoom * 0.01f, Space.World);
+                
+                
+
+
+            }
+
+            //var CurrentZoom = _mainCamera.orthographicSize - _zoom * Sensitivity;
+
+            //_mainCamera.orthographicSize = Mathf.Clamp(CurrentZoom, ZoomMin, ZoomMax);
+
 
         }
+
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+            transform.Translate(-touchDeltaPosition.x * speed, 0, - touchDeltaPosition.y * speed);
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///  computer
+        ///
+
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (Input.mousePosition.x > 0)
+        //    {
+        //        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 0.2f, transform.localEulerAngles.z);
+        //    }
+        //    else
+        //    {
+        //        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 0.2f, transform.localEulerAngles.z);
+        //    }
+        //}
+
 
         if ((int)PosBtnBack != (int)btnBack.transform.position.y)
         {
@@ -128,15 +177,15 @@ public class Zoom : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
         }
 
-        if (GetComponent<Camera>().fieldOfView >= 105)
-        {
-            GetComponent<Camera>().fieldOfView = 105;
-        }
+        //if (GetComponent<Camera>().fieldOfView >= 105)
+        //{
+        //    GetComponent<Camera>().fieldOfView = 105;
+        //}
 
-        if (GetComponent<Camera>().fieldOfView <= 5)
-        {
-            GetComponent<Camera>().fieldOfView = 5;
-        }
+        //if (GetComponent<Camera>().fieldOfView <= 5)
+        //{
+        //    GetComponent<Camera>().fieldOfView = 5;
+        //}
 
         if (Input.GetKey("q"))
         {
@@ -153,15 +202,24 @@ public class Zoom : MonoBehaviour
         //if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
         //else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
         //offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
+            //GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll != 0.0f)
+            {
+                //GetComponent<Camera>().transform.position.y += scroll * zoomSpeed;
+                //GetComponent<Camera>().transform.position.z += scroll * zoomSpeed;
+                GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, scroll * zoomSpeed, Space.World);
+            }
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView + 5;
-        }
+
+
+        //if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        //{
+        //    GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView + 5;
+        //}
 
         //if (Input.GetMouseButton(1))
         //{
@@ -236,6 +294,8 @@ public class Zoom : MonoBehaviour
                 transform.position = endMarker.position;
             }
         }
+
+
 
     }
 }
