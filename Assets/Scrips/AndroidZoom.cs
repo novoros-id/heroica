@@ -25,7 +25,7 @@ public class AndroidZoom : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-    //    if ((Mathf.Abs(eventData.delta.x)) > (Mathf.Abs(eventData.delta.y)))
+    //     if ((Mathf.Abs(eventData.delta.x)) > (Mathf.Abs(eventData.delta.y)))
     //    {
     //        if (eventData.delta.x > 0)
     //        {

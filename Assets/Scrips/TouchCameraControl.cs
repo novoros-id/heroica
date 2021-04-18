@@ -30,6 +30,8 @@ public class TouchCameraControl : MonoBehaviour
 
     void Start()
     {
+        Debug.Log(this.name);
+        
         _camera = Camera.main;
 
         //maxZoom = 0.5f * (mapWidth / _camera.aspect);  //use this if you need max zoom more than 20

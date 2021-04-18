@@ -13,7 +13,9 @@ public class Zoom : MonoBehaviour
 	public float zoomMax = 10; // макс. увеличение
 	public float zoomMin = 3; // мин. увеличение
 	private float X, Y;
-    private float speed = 0.1f; 
+    private float speed = 0.1f;
+    private float Androidspeed = 0.01F;
+    private Touch touch;
     private float zoomSpeed = 1.0f;
 
     public Transform startMarker;
@@ -44,6 +46,7 @@ public class Zoom : MonoBehaviour
     private float _dstBtwTouchesPosition;
     private float _dstBtwTpuchesDirections;
     private float _zoom;
+    public GameObject CameraCenter;
 
     private Camera _mainCamera;
 
@@ -57,6 +60,8 @@ public class Zoom : MonoBehaviour
 
     void Start()
 	{
+
+        CameraCenter = GameObject.Find("CameraCenter");
 
         _mainCamera = Camera.main;
         
@@ -102,6 +107,18 @@ public class Zoom : MonoBehaviour
 
             _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
 
+
+            if (_touchBdirection != _touchB.position           )
+            {
+                CameraCenter.transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
+
+            }
+            if (_touchAdirection != _touchA.position)
+            {
+                CameraCenter.transform.Rotate(new Vector3(0, -45, 0) * Time.deltaTime);
+
+            }
+
             if (_zoom != 0.0f)
             {
                 
@@ -110,7 +127,7 @@ public class Zoom : MonoBehaviour
                 //{
                 //    transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
 
-                //}
+                 //}
 
 
                 //if (transform.position.y >= 20.0f)
@@ -119,7 +136,7 @@ public class Zoom : MonoBehaviour
                  
                 //}
 
-                transform.Translate(0, _zoom * 0.01f, _zoom * 0.01f, Space.World);
+                CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, Space.World);
                 
                 
 
@@ -133,12 +150,42 @@ public class Zoom : MonoBehaviour
 
         }
 
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        if(Input.touchCount == 1)
         {
-            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-            transform.Translate(-touchDeltaPosition.x * speed, 0, - touchDeltaPosition.y * speed);
+            touch = Input.GetTouch(0);
+
+            if(touch.phase == TouchPhase.Moved)
+            {
+                CameraCenter.transform.position = new Vector3(CameraCenter.transform.position.x + touch.deltaPosition.x * Androidspeed, CameraCenter.transform.position.y, CameraCenter.transform.position.z + touch.deltaPosition.y * Androidspeed);
+            }
         }
+        
+        //if (Input.touchCount == 1) //&& Input.GetTouch(0).phase == TouchPhase.Moved)
+        //{
+        //    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+        //    Debug.Log(touchDeltaPosition);
+        //    if (touchDeltaPosition.x > 0)
+        //    {
+
+        //        transform.position = new Vector3(transform.position.x + Androidspeed, transform.position.y, transform.position.z);
+        //    }
+
+        //    if (touchDeltaPosition.x < 0)
+
+        //    {
+        //        transform.position = new Vector3(transform.position.x - Androidspeed, transform.position.y, transform.position.z);
+        //    }
+        //    if (touchDeltaPosition.y > 0)
+        //    {
+        //        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Androidspeed);
+        //    }
+
+        //    if (touchDeltaPosition.y < 0)
+        //    {
+        //        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - Androidspeed);
+        //    }
+        //    //transform.Translate(-touchDeltaPosition.x * speed, 0, - touchDeltaPosition.y * speed);
+        //}
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,32 +207,32 @@ public class Zoom : MonoBehaviour
         //}
 
 
-        if ((int)PosBtnBack != (int)btnBack.transform.position.y)
-        {
-            transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
-        }
-        if ((int)PosBtnForward != (int)btnForward.transform.position.y)
-        {
-            transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
-        }
-        if ((int)PosBtnLeft != (int)btnLeft.transform.position.y)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
-        }
-        if ((int)PosBtnRight != (int)btnRight.transform.position.y)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
-        }
-
-        //if (GetComponent<Camera>().fieldOfView >= 105)
+        //if ((int)PosBtnBack != (int)btnBack.transform.position.y)
         //{
-        //    GetComponent<Camera>().fieldOfView = 105;
+        //    transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
+        //}
+        //if ((int)PosBtnForward != (int)btnForward.transform.position.y)
+        //{
+        //    transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+        //}
+        //if ((int)PosBtnLeft != (int)btnLeft.transform.position.y)
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed);
+        //}
+        //if ((int)PosBtnRight != (int)btnRight.transform.position.y)
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - speed);
         //}
 
-        //if (GetComponent<Camera>().fieldOfView <= 5)
-        //{
-        //    GetComponent<Camera>().fieldOfView = 5;
-        //}
+        if (GetComponent<Camera>().fieldOfView >= 90)
+        {
+          GetComponent<Camera>().fieldOfView = 90;
+        }
+
+        if (GetComponent<Camera>().fieldOfView <= 5)
+        {
+            GetComponent<Camera>().fieldOfView = 5;
+        }
 
         if (Input.GetKey("q"))
         {
@@ -204,13 +251,14 @@ public class Zoom : MonoBehaviour
         //offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            //GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
+           // GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0.0f)
             {
                 //GetComponent<Camera>().transform.position.y += scroll * zoomSpeed;
                 //GetComponent<Camera>().transform.position.z += scroll * zoomSpeed;
                 GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, scroll * zoomSpeed, Space.World);
+                //GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, 0, Space.World);
             }
         }
 
@@ -288,11 +336,12 @@ public class Zoom : MonoBehaviour
         if (go == 1)
         {
             transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
-            if (transform.position == endMarker.position)
+            if (Mathf.Abs(transform.position.x - endMarker.transform.position.x) < 0.01 && Mathf.Abs(transform.position.z - endMarker.transform.position.z) < 0.01)
             {
                 go = 0;
                 transform.position = endMarker.position;
             }
+            //(transform.position == endMarker.position) 
         }
 
 
