@@ -57,6 +57,9 @@ public class Zoom : MonoBehaviour
     private Vector2 fp; // first finger position
     private Vector2 lp; // last finger position
 
+    private float rotation_position;
+    private float rotationRate = 3.0f;
+
 
     void Start()
 	{
@@ -107,38 +110,58 @@ public class Zoom : MonoBehaviour
 
             _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
 
+            //////////////////
+            ///ROTATION
+            ///
 
-            if (_touchBdirection != _touchB.position           )
+            //Debug.Log("a " +_touchA.deltaPosition.y);
+            //Debug.Log("b " + _touchB.deltaPosition.y);
+
+            if (_touchA.deltaPosition.y > _touchB.deltaPosition.y)
             {
+                //Debug.Log("Left");
                 CameraCenter.transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
-
             }
-            if (_touchAdirection != _touchA.position)
+            else
             {
+                //Debug.Log("Right");
                 CameraCenter.transform.Rotate(new Vector3(0, -45, 0) * Time.deltaTime);
-
             }
+            //if (_touchBdirection != _touchB.position)
+            //{
+            //    CameraCenter.transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
 
+            //}
+            //if (_touchAdirection != _touchA.position)
+            //{
+            //    CameraCenter.transform.Rotate(new Vector3(0, -45, 0) * Time.deltaTime);
+
+            //}
+
+            ////////////////////
+            ///ZOOM
+            ///
             if (_zoom != 0.0f)
             {
-                
+
 
                 //if (transform.position.y <= 1.0f)
                 //{
                 //    transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
 
-                 //}
+                //}
 
 
                 //if (transform.position.y >= 20.0f)
                 //{
                 //    transform.position = new Vector3(transform.position.x, 20.0f, transform.position.z);
-                 
+
                 //}
 
-                CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, Space.World);
-                
-                
+                //CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, Space.World);
+                CameraCenter.transform.Translate(0, _zoom * 0.03f * -1, 0, Camera.main.transform);
+
+
 
 
             }
@@ -146,46 +169,30 @@ public class Zoom : MonoBehaviour
             //var CurrentZoom = _mainCamera.orthographicSize - _zoom * Sensitivity;
 
             //_mainCamera.orthographicSize = Mathf.Clamp(CurrentZoom, ZoomMin, ZoomMax);
-
-
+            
+           
         }
 
-        if(Input.touchCount == 1)
+  
+
+        ////////////////////
+        ///ПЕРЕМЕЩЕНИЕ
+
+        if (Input.touchCount == 1)
         {
             touch = Input.GetTouch(0);
 
             if(touch.phase == TouchPhase.Moved)
             {
-                CameraCenter.transform.position = new Vector3(CameraCenter.transform.position.x + touch.deltaPosition.x * Androidspeed, CameraCenter.transform.position.y, CameraCenter.transform.position.z + touch.deltaPosition.y * Androidspeed);
+               
+                //CameraCenter.transform.position = new Vector3(CameraCenter.transform.position.x + touch.deltaPosition.x * Androidspeed, CameraCenter.transform.position.y, CameraCenter.transform.position.z + touch.deltaPosition.y * Androidspeed);
+
+                // Vector3 moveVector = (touch.deltaPosition.x  + touch.deltaPosition.y ).normalized;
+                // CameraCenter.transform.Translate(touch.deltaPosition.x * Androidspeed * -1,0, touch.deltaPosition.y * Androidspeed* -1, Camera.main.transform);
+                CameraCenter.transform.Translate(touch.deltaPosition.x * Androidspeed , 0, touch.deltaPosition.y * Androidspeed , CameraCenter.transform);
             }
         }
-        
-        //if (Input.touchCount == 1) //&& Input.GetTouch(0).phase == TouchPhase.Moved)
-        //{
-        //    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-        //    Debug.Log(touchDeltaPosition);
-        //    if (touchDeltaPosition.x > 0)
-        //    {
-
-        //        transform.position = new Vector3(transform.position.x + Androidspeed, transform.position.y, transform.position.z);
-        //    }
-
-        //    if (touchDeltaPosition.x < 0)
-
-        //    {
-        //        transform.position = new Vector3(transform.position.x - Androidspeed, transform.position.y, transform.position.z);
-        //    }
-        //    if (touchDeltaPosition.y > 0)
-        //    {
-        //        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + Androidspeed);
-        //    }
-
-        //    if (touchDeltaPosition.y < 0)
-        //    {
-        //        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - Androidspeed);
-        //    }
-        //    //transform.Translate(-touchDeltaPosition.x * speed, 0, - touchDeltaPosition.y * speed);
-        //}
+ 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
