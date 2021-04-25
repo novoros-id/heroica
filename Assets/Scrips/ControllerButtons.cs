@@ -104,7 +104,7 @@ public class ControllerButtons : MonoBehaviour
 
     public void Rate()
     {
-        Application.OpenURL("https://forms.gle/A2k1LEMybaXwfGei7");
+        Application.OpenURL("https://www.instagram.com/invites/contact/?i=skg3kios5rk3&utm_content=lp3lin0");
     }
 }
 

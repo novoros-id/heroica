@@ -89,7 +89,7 @@ public class Zoom : MonoBehaviour
 
 
 
-    private void Update()
+    private void FixedUpdate()
 	{
        
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,6 +100,9 @@ public class Zoom : MonoBehaviour
 
         if (Input.touchCount == 2)
         {
+
+            float difference = _touchA.deltaPosition.y - _touchB.deltaPosition.y;
+
             _touchA = Input.GetTouch(0);
             _touchB = Input.GetTouch(1);
             _touchAdirection = _touchA.position - _touchA.deltaPosition;
@@ -113,20 +116,22 @@ public class Zoom : MonoBehaviour
             //////////////////
             ///ROTATION
             ///
+            //Debug.Log(Mathf.Abs(difference));
 
             //Debug.Log("a " +_touchA.deltaPosition.y);
             //Debug.Log("b " + _touchB.deltaPosition.y);
 
-            if (_touchA.deltaPosition.y > _touchB.deltaPosition.y)
+            if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14)
             {
                 //Debug.Log("Left");
-                CameraCenter.transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
+                CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
             }
-            else
+            else if(_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14)
             {
-                //Debug.Log("Right");
-                CameraCenter.transform.Rotate(new Vector3(0, -45, 0) * Time.deltaTime);
+               //Debug.Log("Right");
+                CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
             }
+
             //if (_touchBdirection != _touchB.position)
             //{
             //    CameraCenter.transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
@@ -159,7 +164,8 @@ public class Zoom : MonoBehaviour
                 //}
 
                 //CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, Space.World);
-                CameraCenter.transform.Translate(0, _zoom * 0.03f * -1, 0, Camera.main.transform);
+                CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, CameraCenter.transform);
+                //CameraCenter.transform.Translate(0, _zoom * 0.03f * -1, 0, Camera.main.transform);
 
 
 
@@ -330,9 +336,6 @@ public class Zoom : MonoBehaviour
         //{
         //    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
         //}
-    }
-    private void FixedUpdate()
-    {
 
         // Distance moved equals elapsed time times speed..
         float distCovered = (Time.time - startTime) * speed_;
@@ -350,8 +353,5 @@ public class Zoom : MonoBehaviour
             }
             //(transform.position == endMarker.position) 
         }
-
-
-
     }
 }
