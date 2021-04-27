@@ -11,6 +11,8 @@ public class UIManagment : MonoBehaviour
     public Player_ pl;
     public GameObject key;
     public GameObject ExitGameButton;
+    public Text TextEndGame;
+    public GameObject Cube;
     
     
     
@@ -25,6 +27,9 @@ public class UIManagment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        ClickOnCube cb = Cube.GetComponent<ClickOnCube>();
+        
         if (Input.GetKey(KeyCode.Escape))
         {
             ExitGameButton.SetActive(true);
@@ -41,6 +46,9 @@ public class UIManagment : MonoBehaviour
         }
 
         hearts.text = pl.leaves.ToString();
+
+        TextEndGame.text = "Congratulation!"
+            +cb.Curent_player.name+" win!";
     }
     public void ExitGame()
     {
