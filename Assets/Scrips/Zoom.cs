@@ -16,7 +16,7 @@ public class Zoom : MonoBehaviour
     private float speed = 0.5f;
     private float Androidspeed = 0.01F;
     private Touch touch;
-    private float zoomSpeed = 1.0f;
+    private float zoomSpeed = 1f;
 
     public Transform startMarker;
     public Transform endMarker;
@@ -55,7 +55,7 @@ public class Zoom : MonoBehaviour
 
     private void FixedUpdate()
 	{
-
+        bool go1 = true;
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///  android
@@ -136,14 +136,18 @@ public class Zoom : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
            // GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll != 0.0f)
+            
+            if(go1 == true)
             {
-                //GetComponent<Camera>().transform.position.y += scroll * zoomSpeed;
-                //GetComponent<Camera>().transform.position.z += scroll * zoomSpeed;
-               // GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, scroll * zoomSpeed, Space.World);
-                CameraCenter.transform.Translate(0, -scroll * zoomSpeed, -scroll * zoomSpeed, CameraCenter.transform);
-                //GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, 0, Space.World);
+                float scroll = Input.GetAxis("Mouse ScrollWheel");
+                if (scroll != 0.0f)
+                {
+                    //GetComponent<Camera>().transform.position.y += scroll * zoomSpeed;
+                    //GetComponent<Camera>().transform.position.z += scroll * zoomSpeed;
+                    // GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, scroll * zoomSpeed, Space.World);
+                    CameraCenter.transform.Translate(0, -scroll * zoomSpeed, -scroll * zoomSpeed, CameraCenter.transform);
+                    //GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, 0, Space.World);
+                }
             }
         }
 
@@ -154,7 +158,11 @@ public class Zoom : MonoBehaviour
         if (Input.GetMouseButton(0))
 
         {
-            CameraCenter.transform.Translate(Input.GetAxis("Mouse X") * speed, 0, Input.GetAxis("Mouse Y") * speed, CameraCenter.transform);
+            if(go1 == true)
+            {
+                CameraCenter.transform.Translate(Input.GetAxis("Mouse X") * speed, 0, Input.GetAxis("Mouse Y") * speed, CameraCenter.transform);
+            }
+           
 
         }
 
@@ -164,14 +172,14 @@ public class Zoom : MonoBehaviour
         if (Input.GetMouseButton(1))
 
         {
-            if (Input.GetAxis("Mouse Y") > 0)
+            if (Input.GetAxis("Mouse X") > 0)
             {
-                CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(Input.GetAxis("Mouse Y")) * 200, 0) * Time.deltaTime);
+                CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(Input.GetAxis("Mouse X")) * 200, 0) * Time.deltaTime);
             }
 
-            if (Input.GetAxis("Mouse Y") < 0)
+            if (Input.GetAxis("Mouse X") < 0)
             {
-                CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(Input.GetAxis("Mouse Y")) * 200, 0) * Time.deltaTime);
+                CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(Input.GetAxis("Mouse X")) * 200, 0) * Time.deltaTime);
             }
                 
 
@@ -180,18 +188,23 @@ public class Zoom : MonoBehaviour
         ///
         /// Ограничение камеры
         ///
-        Debug.Log(GetComponent<Camera>().transform.position.y);
+        Debug.Log(transform.position.y);
 
-        if (GetComponent<Camera>().transform.position.y >= 13)
+        if (transform.position.y >= 13)
         {
-           // GetComponent<Camera>().transform.position = new Vector3(GetComponent<Camera>().transform.position.x, 13, GetComponent<Camera>().transform.position.z);
+            go1 = false;
+            //transform.position = new Vector3(transform.position.x, 13, transform.position.z);
+        }
+        else
+        {
+            go1 = true;
         }
 
         //if (GetComponent<Camera>().transform.position.y <= 1)
         //{
         //    GetComponent<Camera>().transform.Translate(GetComponent<Camera>().transform.position.x, 1, GetComponent<Camera>().transform.position.z, Space.World);
         //}
-
+        
         ///
         /// ПЕрвое движение
 
