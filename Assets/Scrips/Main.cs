@@ -26,7 +26,7 @@ public class Main : MonoBehaviour
         else if(Application.isPlaying)
         {
             Pc = true;
-            Debug.Log("pc");
+           // Debug.Log("pc");
         }
         else
         {
