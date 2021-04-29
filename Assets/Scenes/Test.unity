@@ -4730,8 +4730,6 @@ MonoBehaviour:
   pl: {fileID: 1820541452}
   key: {fileID: 1069983640}
   ExitGameButton: {fileID: 1668601309}
-  TextEndGame: {fileID: 1196914117}
-  Cube: {fileID: 1426250422}
 --- !u!222 &618977134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6666,8 +6664,6 @@ MonoBehaviour:
   pl: {fileID: 566311374}
   key: {fileID: 1029082079}
   ExitGameButton: {fileID: 1668601309}
-  TextEndGame: {fileID: 1196914117}
-  Cube: {fileID: 1426250422}
 --- !u!1001 &976999817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9593,10 +9589,6 @@ MonoBehaviour:
   speed_: 1
   startTime: 0
   journeyLength: 0
-  btnLeft: {fileID: 0}
-  btnRight: {fileID: 0}
-  btnBack: {fileID: 0}
-  btnForward: {fileID: 0}
   CameraCenter: {fileID: 1809571907}
   ZoomMax: 15
   ZoomMin: 2
@@ -9880,8 +9872,6 @@ MonoBehaviour:
   pl: {fileID: 1631169728}
   key: {fileID: 270043973}
   ExitGameButton: {fileID: 1668601309}
-  TextEndGame: {fileID: 1196914117}
-  Cube: {fileID: 1426250422}
 --- !u!222 &1285499359
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10758,8 +10748,6 @@ MonoBehaviour:
   pl: {fileID: 268866601}
   key: {fileID: 999318737}
   ExitGameButton: {fileID: 1668601309}
-  TextEndGame: {fileID: 1196914117}
-  Cube: {fileID: 1426250422}
 --- !u!222 &1383182481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22285,6 +22273,11 @@ PrefabInstance:
       propertyPath: DefeatEnemy
       value: 
       objectReference: {fileID: 8300000, guid: 6f2b0f0ed9fccf64f87721e4c649376e, type: 3}
+    - target: {fileID: 2062366958636785609, guid: 9e5a818a4056a4f419fe8e3701b07f91,
+        type: 3}
+      propertyPath: TextEndGame
+      value: 
+      objectReference: {fileID: 1196914117}
     m_RemovedComponents:
     - {fileID: 2062366958636785610, guid: 9e5a818a4056a4f419fe8e3701b07f91, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a818a4056a4f419fe8e3701b07f91, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ClickOnCube : MonoBehaviour
@@ -30,6 +31,7 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip fight;
     public AudioClip Step;
     public GameObject UI;
+    public Text TextEndGame;
 
 
     void Start()
@@ -815,7 +817,9 @@ public class ClickOnCube : MonoBehaviour
     void final()
     {
         finalUI.SetActive(true);
-        UI.SetActive(false); ;
+        UI.SetActive(false);
+        TextEndGame.text = "Congratulation!"
+            +Curent_player.name+" win!";
 }
 
 }

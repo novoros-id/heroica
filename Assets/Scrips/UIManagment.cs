@@ -11,8 +11,8 @@ public class UIManagment : MonoBehaviour
     public Player_ pl;
     public GameObject key;
     public GameObject ExitGameButton;
-    public Text TextEndGame;
-    public GameObject Cube;
+    //public Text TextEndGame;
+    //public GameObject Cube;
     
     
     
@@ -28,7 +28,7 @@ public class UIManagment : MonoBehaviour
     void Update()
     {
 
-        ClickOnCube cb = Cube.GetComponent<ClickOnCube>();
+        //ClickOnCube cb = Cube.GetComponent<ClickOnCube>();
         
         if (Input.GetKey(KeyCode.Escape))
         {
@@ -47,8 +47,8 @@ public class UIManagment : MonoBehaviour
 
         hearts.text = pl.leaves.ToString();
 
-        TextEndGame.text = "Congratulation!"
-            +cb.Curent_player.name+" win!";
+        //TextEndGame.text = "Congratulation!"
+        //    +cb.Curent_player.name+" win!";
     }
     public void ExitGame()
     {
