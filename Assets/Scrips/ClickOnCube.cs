@@ -606,6 +606,7 @@ public class ClickOnCube : MonoBehaviour
         Player_ pl_script = Curent_player.GetComponent<Player_>();
         Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
         audiosrc.PlayOneShot(Hp);
+        Debug.Log("Hp+");
         pl_script.add_leaves(cube_s);
 
         if (mScript.lang == "ru")
