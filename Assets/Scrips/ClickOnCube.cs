@@ -329,6 +329,8 @@ public class ClickOnCube : MonoBehaviour
         Vector3 CurFloorPos;
         Collider[] colliders;
         Collider[] s_step;
+        float x,z;
+
 
         steps_ -= 1; // уменьшим шаг на 1
 
@@ -364,6 +366,25 @@ public class ClickOnCube : MonoBehaviour
                     Vector3 pos1 = collider.transform.position - CurFloorPos;
                     //float pos_x = collider.transform.position.x - CurFloorPos.x;
 
+                    // так как есть небольшие смещения, приведем к 0 округления
+                    if (Mathf.Abs(pos1.x) < 0.01)
+                    {
+                        x = 0;
+                    }
+                    else
+                    {
+                        x = pos1.x;
+                    }
+
+                    if (Mathf.Abs(pos1.z) < 0.01)
+                    {
+                        z = 0;
+                    }
+                    else
+                    {
+                        z = pos1.z;
+                    }
+
                     //  Заполняем List направлений;
 
                     if (CurFloorName_ == "StartFloor")
@@ -371,30 +392,50 @@ public class ClickOnCube : MonoBehaviour
                         forward.Add(collider);
                     }
 
-                    if (pos1.x > 0 && pos1.z == 0)
+                    if (x > 0 && z == 0)
                     {
                         forward.Add(collider);
                     }
 
-                    //if (pos1.x == 0 && pos1.z == 0)
-                    //{
-                    //    center.Add(collider);
-                    //}
-
-                    if (pos1.x < 0 && pos1.z == 0)
+                    if (x < 0 && z == 0)
                     {
                         back.Add(collider);
                     }
 
-                    if (pos1.z > 0 && pos1.x == 0)
+                    if (z > 0 && x == 0)
                     {
                         left.Add(collider);
                     }
 
-                    if (pos1.z < 0 && pos1.x == 0)
+                    if (z < 0 && x == 0)
                     {
                         right.Add(collider);
                     }
+
+                    //if (pos1.x > 0 && pos1.z == 0)
+                    //{
+                    //    forward.Add(collider);
+                    //}
+
+                    ////if (pos1.x == 0 && pos1.z == 0)
+                    ////{
+                    ////    center.Add(collider);
+                    ////}
+
+                    //if (pos1.x < 0 && pos1.z == 0)
+                    //{
+                    //    back.Add(collider);
+                    //}
+
+                    //if (pos1.z > 0 && pos1.x == 0)
+                    //{
+                    //    left.Add(collider);
+                    //}
+
+                    //if (pos1.z < 0 && pos1.x == 0)
+                    //{
+                    //    right.Add(collider);
+                    //}
 
 
                 }
