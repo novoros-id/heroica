@@ -60,7 +60,7 @@ public class ClickOnCube : MonoBehaviour
         {
 
             
-            GameObject.Find("Button").SetActive(false);
+            //GameObject.Find("Button").SetActive(false);
 
             // нашли где он стоит
             CurFloorName = Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));

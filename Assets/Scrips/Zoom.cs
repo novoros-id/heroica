@@ -44,7 +44,7 @@ public class Zoom : MonoBehaviour
     public float ZoomMin;
     public float Sensitivity;
 
-    private float max_zoom = 10.8f;
+    private float max_zoom = 100.8f;
     private float min_zoom = -1.5f;
 
     void Start()
