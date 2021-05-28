@@ -60,7 +60,7 @@ public class ClickOnCube : MonoBehaviour
         {
 
             
-            //GameObject.Find("Button").SetActive(false);
+            GameObject.Find("Button").SetActive(false);
 
             // нашли где он стоит
             CurFloorName = Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
@@ -650,14 +650,14 @@ public class ClickOnCube : MonoBehaviour
         Debug.Log("Hp+");
         pl_script.add_leaves(cube_s);
 
-        if (mScript.lang == "ru")
-        {
-            mScript.set_current_move("Восстановлено " + cube_s + " жизней");
-        }
-        else if (mScript.lang == "en")
-        {
+        //if (mScript.lang == "ru")
+        //{
+        //    mScript.set_current_move("Восстановлено " + cube_s + " жизней");
+        //}
+        //else if (mScript.lang == "en")
+        //{
             mScript.set_current_move("Restored " + cube_s + " lives");
-        }
+        //}
 
         
     }

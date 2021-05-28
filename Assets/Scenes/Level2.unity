@@ -870,8 +870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u044B\u0439\u0442\u0438 \u0432 \u0433\u043B\u0430\u0432\u043D\u043E\u0435
-    \u043C\u0435\u043D\u044E"
+  m_Text: Back to main menu
 --- !u!222 &105772296
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2442,7 +2441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1215.7145, y: -512.592}
+  m_AnchoredPosition: {x: -1215.7145, y: -679.4}
   m_SizeDelta: {x: 750, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &339760541
@@ -6153,7 +6152,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1353528336}
-        m_MethodName: ChoozeMage
+        m_MethodName: ChoozePriest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8482,6 +8481,7 @@ MonoBehaviour:
   ZoomMax: 15
   ZoomMin: 2
   Sensitivity: 0.03
+  mn: {fileID: 1145377612}
 --- !u!81 &1001447654
 AudioListener:
   m_ObjectHideFlags: 0
@@ -12084,8 +12084,8 @@ MonoBehaviour:
   Priest: {fileID: 1298897624}
   Knightext: {fileID: 1084457342}
   Barbariantext: {fileID: 1835609905}
-  Magetext: {fileID: 743024234}
-  Priesttext: {fileID: 1849312035}
+  Magetext: {fileID: 1849312035}
+  Priesttext: {fileID: 743024234}
   Chooze: {fileID: 1479908057}
   other: {fileID: 2104950623}
   _main: {fileID: 1145377612}
@@ -13803,7 +13803,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1353528336}
-        m_MethodName: ChoozePriest
+        m_MethodName: ChoozeMage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

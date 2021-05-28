@@ -23,11 +23,11 @@ public class Main : MonoBehaviour
         {
             Pc = true;
         }
-        else if(Application.isPlaying)
-        {
-            Pc = true;
-           // Debug.Log("pc");
-        }
+        //else if(Application.isPlaying)
+        //{
+        //    Pc = true;
+        //   // Debug.Log("pc");
+        //}
         else
         {
             Pc = false;

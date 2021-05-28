@@ -14,7 +14,7 @@ public class Zoom : MonoBehaviour
 	public float zoomMin = 3; // мин. увеличение
 	private float X, Y;
     private float speed = 0.5f;
-    private float Androidspeed = 0.01F;
+    private float Androidspeed = 0.006F;
     private Touch touch;
     private float zoomSpeed = 1f;
 
@@ -46,6 +46,8 @@ public class Zoom : MonoBehaviour
 
     private float max_zoom = 100.8f;
     private float min_zoom = -1.5f;
+
+    public Main mn;
 
     void Start()
 	{
@@ -132,91 +134,94 @@ public class Zoom : MonoBehaviour
             }
 
 
-
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///  computer
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-            ///
-            ///ZOOM
-            ///
-            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            if(mn.Pc == true)
             {
-                // GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;        
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                ///  computer
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                float scroll = Input.GetAxis("Mouse ScrollWheel");
-                if (scroll != 0.0f)
+                ///
+                ///ZOOM
+                ///
+                if (Input.GetAxis("Mouse ScrollWheel") != 0)
                 {
-                    //GetComponent<Camera>().transform.position.y += scroll * zoomSpeed;
-                    //GetComponent<Camera>().transform.position.z += scroll * zoomSpeed;
-                    // GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, scroll * zoomSpeed, Space.World);
-                    //Debug.Log("y - " + CameraCenter.transform.position.y);
-                    //Debug.Log("trans " + scroll * zoomSpeed);
-                    float y_goal = CameraCenter.transform.position.y - scroll * zoomSpeed;
-                    //Debug.Log("y_goal " + y_goal);
-                    //Debug.Log("itogo " + scroll * zoomSpeed);
-                    if (y_goal <= max_zoom && y_goal >= min_zoom)
+                    // GetComponent<Camera>().fieldOfView = GetComponent<Camera>().fieldOfView - 5;        
+
+
+                    float scroll = Input.GetAxis("Mouse ScrollWheel");
+                    if (scroll != 0.0f)
                     {
-                        CameraCenter.transform.Translate(0, -scroll * zoomSpeed, -scroll * zoomSpeed, CameraCenter.transform);
+                        //GetComponent<Camera>().transform.position.y += scroll * zoomSpeed;
+                        //GetComponent<Camera>().transform.position.z += scroll * zoomSpeed;
+                        // GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, scroll * zoomSpeed, Space.World);
+                        //Debug.Log("y - " + CameraCenter.transform.position.y);
+                        //Debug.Log("trans " + scroll * zoomSpeed);
+                        float y_goal = CameraCenter.transform.position.y - scroll * zoomSpeed;
+                        //Debug.Log("y_goal " + y_goal);
+                        //Debug.Log("itogo " + scroll * zoomSpeed);
+                        if (y_goal <= max_zoom && y_goal >= min_zoom)
+                        {
+                            CameraCenter.transform.Translate(0, -scroll * zoomSpeed, -scroll * zoomSpeed, CameraCenter.transform);
+                        }
+                        // CameraCenter.transform.Translate(0, -scroll * zoomSpeed, -scroll * zoomSpeed, CameraCenter.transform);
+                        //GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, 0, Space.World);
                     }
-                    // CameraCenter.transform.Translate(0, -scroll * zoomSpeed, -scroll * zoomSpeed, CameraCenter.transform);
-                    //GetComponent<Camera>().transform.Translate(0, scroll * zoomSpeed, 0, Space.World);
+
                 }
 
-            }
 
+                ///
+                ///ПЕРЕМЕЩЕНИЕ
+                ///
+                if (Input.GetMouseButton(0))
 
-            ///
-            ///ПЕРЕМЕЩЕНИЕ
-            ///
-            if (Input.GetMouseButton(0))
-
-            {
-
-                CameraCenter.transform.Translate(Input.GetAxis("Mouse X") * speed, 0, Input.GetAxis("Mouse Y") * speed, CameraCenter.transform);
-
-            }
-
-            ///
-            /// Вращение
-            ///
-            if (Input.GetMouseButton(1))
-
-            {
-                if (Input.GetAxis("Mouse X") > 0)
                 {
-                    CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(Input.GetAxis("Mouse X")) * 200, 0) * Time.deltaTime);
+
+                    CameraCenter.transform.Translate(Input.GetAxis("Mouse X") * speed, 0, Input.GetAxis("Mouse Y") * speed, CameraCenter.transform);
+
                 }
 
-                if (Input.GetAxis("Mouse X") < 0)
+                ///
+                /// Вращение
+                ///
+                if (Input.GetMouseButton(1))
+
                 {
-                    CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(Input.GetAxis("Mouse X")) * 200, 0) * Time.deltaTime);
+                    if (Input.GetAxis("Mouse X") > 0)
+                    {
+                        CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(Input.GetAxis("Mouse X")) * 200, 0) * Time.deltaTime);
+                    }
+
+                    if (Input.GetAxis("Mouse X") < 0)
+                    {
+                        CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(Input.GetAxis("Mouse X")) * 200, 0) * Time.deltaTime);
+                    }
+
                 }
 
+                ///
+                /// Ограничение камеры
+                ///
+                //Debug.Log(transform.position.y);
+
+                //if (transform.position.y >= 13)
+                //{ 
+                //    //transform.position = new Vector3(transform.position.x, 13, transform.position.z);
+                //}
+
+
+                //if (transform.position.y <= 1)
+                //{
+                //    // transform.Translate(transform.position.x, 1, transform.position.z, Space.World);
+                //    transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+                //}
+
+                ///
             }
 
-            ///
-            /// Ограничение камеры
-            ///
-            //Debug.Log(transform.position.y);
-
-            //if (transform.position.y >= 13)
-            //{ 
-            //    //transform.position = new Vector3(transform.position.x, 13, transform.position.z);
-            //}
-
-
-            //if (transform.position.y <= 1)
-            //{
-            //    // transform.Translate(transform.position.x, 1, transform.position.z, Space.World);
-            //    transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
-            //}
-
-            ///
         }
 
         /// ПЕрвое движение
