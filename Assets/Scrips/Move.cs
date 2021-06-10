@@ -72,7 +72,7 @@ public class Move : MonoBehaviour
         // найдем расположено ли на этой клетке что-то
         // если расположено, то выполним действия и удалим этот объект с поля
 
-        GameObject _items = return_tag_item_on_position(position_);
+        GameObject _items = mScript.return_tag_item_on_position(position_);
         Player_ pl_script = player_.GetComponent<Player_>();
 
         //GameObject cam = GameObject.Find("Directional Light");
@@ -192,74 +192,74 @@ public class Move : MonoBehaviour
 
     }
 
-    public GameObject return_tag_item_on_position(Vector3 player_position)
-    {
-        //string tag_item = "";
-        Vector3 CurFloorPos;
-        Collider[] colliders;
+    //public GameObject return_tag_item_on_position(Vector3 player_position)
+    //{
+    //    //string tag_item = "";
+    //    Vector3 CurFloorPos;
+    //    Collider[] colliders;
 
-        CurFloorPos = new Vector3(player_position.x, player_position.y, player_position.z);
+    //    CurFloorPos = new Vector3(player_position.x, player_position.y, player_position.z);
 
-        //Debug.Log("Текущая позиция платформы" + CurFloorPos);
+    //    //Debug.Log("Текущая позиция платформы" + CurFloorPos);
 
-        if ((colliders = Physics.OverlapSphere(CurFloorPos, 0.5f)).Length > 0)
-        {
+    //    if ((colliders = Physics.OverlapSphere(CurFloorPos, 0.5f)).Length > 0)
+    //    {
 
-            foreach (var collider in colliders)
-            {
-                // обрабатываем только некоторые тэги
+    //        foreach (var collider in colliders)
+    //        {
+    //            // обрабатываем только некоторые тэги
 
-                if (collider.tag == "Enemy_1" ||
-                    collider.tag == "Enemy_2" ||
-                    collider.tag == "Enemy_boss" ||
-                    collider.tag == "Key" ||
-                    collider.tag == "Door" ||
-                    collider.tag == "item_blood" ||
-                    collider.tag == "item_luck" ||
-                    collider.tag == "item_speed" ||
-                    collider.tag == "item_power" ||
-                    collider.tag == "item_gold" ||
-                    collider.tag == "item_axe" ||
-                    collider.tag == "item_baton" ||
-                    collider.tag == "item_scythe" ||
-                    collider.tag == "item_bow" ||
-                    collider.tag == "item_dagger" ||
-                    collider.tag == "item_sword")
+    //            if (collider.tag == "Enemy_1" ||
+    //                collider.tag == "Enemy_2" ||
+    //                collider.tag == "Enemy_boss" ||
+    //                collider.tag == "Key" ||
+    //                collider.tag == "Door" ||
+    //                collider.tag == "item_blood" ||
+    //                collider.tag == "item_luck" ||
+    //                collider.tag == "item_speed" ||
+    //                collider.tag == "item_power" ||
+    //                collider.tag == "item_gold" ||
+    //                collider.tag == "item_axe" ||
+    //                collider.tag == "item_baton" ||
+    //                collider.tag == "item_scythe" ||
+    //                collider.tag == "item_bow" ||
+    //                collider.tag == "item_dagger" ||
+    //                collider.tag == "item_sword")
 
-                {
+    //            {
 
-                    return collider.gameObject;
-
-
-                }
-            }
-        }
+    //                return collider.gameObject;
 
 
-        //string[] tag_item = new string[] { "Key", "Door", "Enemy_1","Enemy_2","Enemy_boss","item_blood"
-        //                                  , "item_luck", "item_speed", "item_power", "item_gold", "item_axe", "item_baton"
-        //                                  , "item_scythe", "item_bow", "item_dagger", "item_sword"};
-
-        //foreach (string tag in tag_item)
-        //{
-
-        //    GameObject[] item = GameObject.FindGameObjectsWithTag(tag);
-
-        //    for (int i = 0; i < item.Length; i++)
-        //    {
-        //        if (item[i].transform.position.x == player_position.x && item[i].transform.position.z == player_position.z)
-        //        {
-        //            return item[i];
-        //        }
-        //    }
+    //            }
+    //        }
+    //    }
 
 
-        //}
+    //    //string[] tag_item = new string[] { "Key", "Door", "Enemy_1","Enemy_2","Enemy_boss","item_blood"
+    //    //                                  , "item_luck", "item_speed", "item_power", "item_gold", "item_axe", "item_baton"
+    //    //                                  , "item_scythe", "item_bow", "item_dagger", "item_sword"};
+
+    //    //foreach (string tag in tag_item)
+    //    //{
+
+    //    //    GameObject[] item = GameObject.FindGameObjectsWithTag(tag);
+
+    //    //    for (int i = 0; i < item.Length; i++)
+    //    //    {
+    //    //        if (item[i].transform.position.x == player_position.x && item[i].transform.position.z == player_position.z)
+    //    //        {
+    //    //            return item[i];
+    //    //        }
+    //    //    }
 
 
-        return null;
+    //    //}
 
-    }
+
+    //    return null;
+
+    //}
 
 
 }

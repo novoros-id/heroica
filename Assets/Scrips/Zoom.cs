@@ -87,12 +87,12 @@ public class Zoom : MonoBehaviour
                 ///ROTATION
                 ///
 
-                if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14)
+                if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
                 {
                     //Debug.Log("Left");
                     CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
                 }
-                else if (_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14)
+                else if (_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
                 {
                     //Debug.Log("Right");
                     CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
@@ -102,7 +102,7 @@ public class Zoom : MonoBehaviour
                 ///ZOOM
                 ///
 
-                if (_zoom != 0.0f)
+                if (_zoom != 0.0f && _touchA.deltaPosition.y != 0 && _touchB.deltaPosition.y != 0)
                 {
 
                     float y_goal = CameraCenter.transform.position.y - _zoom * 0.01f;
