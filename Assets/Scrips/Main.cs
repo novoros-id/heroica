@@ -19,7 +19,7 @@ public class Main : MonoBehaviour
     {
         move_priznak_step();
 
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsPlayer )
         {
             Pc = true;
         }
