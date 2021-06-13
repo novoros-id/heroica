@@ -101,44 +101,52 @@ public class ClickOnCube : MonoBehaviour
         GameObject rnd_Floor;
         Vector3 rnd_Floor_Pos;
         Player_ pl_script = Curent_player.GetComponent<Player_>();
+        string way_player;
 
-        // проверим существует ли объект и если цель не ключ, то каждый раз сверяем цель
-        if (pl_script.goal_live() == false || pl_script.goal_is_key() == false)
+        if (pl_script.goal_live() == false)
         {
-            pl_script.define_goal();
+            way_player = pl_script.define_way();
+        }
+        else
+        {
+            way_player = pl_script.return_way_to_goal();
+
         }
 
+        //
 
-        float min_distance = 10000;
-        int index_min_distance = 0;
+        string[] subs = way_player.Split(',');
 
-        // выбор самого близкого объекта
+        // переберем все доступные ходы и найдем с самым большим индексом
+
+
+        float max_distance = 0;
+        int index_max_distance = 0;
+
+        //// выбор самого близкого объекта
 
         int index_ls = 0;
         foreach (var lst in list_steps)
         {
-            GameObject go_ = GameObject.Find(lst);
-            float dist = Vector3.Distance(go_.transform.position, pl_script.goal.transform.position);
-            if (dist <= min_distance)
+
+            //index_ls++;
+            int index = System.Array.IndexOf(subs, lst);
+            if (index >= max_distance)
             {
-                min_distance = dist;
-                index_min_distance = index_ls;
+                max_distance = index;
+                index_max_distance = index_ls;
             }
 
             index_ls++;
 
+
         }
 
-        //int count_blue = list_steps.Count;
-        //int rand_list = Random.Range(0, count_blue - 1);
 
-        rnd_Floor = GameObject.Find(list_steps[index_min_distance]);
+        rnd_Floor = GameObject.Find(list_steps[index_max_distance]);
 
 
         rnd_Floor_Pos = new Vector3(rnd_Floor.transform.position.x, rnd_Floor.transform.position.y, rnd_Floor.transform.position.z);
-
-        // Debug.Log(rnd_Floor_Pos);
-
 
         Blue = GameObject.FindGameObjectsWithTag("Blue");
 
@@ -161,13 +169,7 @@ public class ClickOnCube : MonoBehaviour
             
             bScript.clear_blue();
             break;
-            //bScript.clear_blue();
         }
-
-        //GameObject move = GameObject.Find("Directional Light");
-        //Main mScript = rnd_Floor.GetComponent<Main>();
-
-        //mScript.ItemFromFloor(Curent_player, rnd_Floor_Pos);
 
     }
 

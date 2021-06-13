@@ -89,7 +89,7 @@ public class Move : MonoBehaviour
             {
                 pl_script.set_key();
                 Destroy(_items);
-                pl_script.define_goal();
+               // pl_script.define_goal();
             }
             //mScript.set_current_move();
         }
