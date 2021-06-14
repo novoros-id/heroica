@@ -45,7 +45,7 @@ public class Player_ : MonoBehaviour
     // Total distance between the markers.
     public float journeyLength;
 
-    private int count_key = 0;
+    // private int count_key = 0;
 
 
     static AudioSource audiosrc;

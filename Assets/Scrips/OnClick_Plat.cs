@@ -25,6 +25,18 @@ public class OnClick_Plat : MonoBehaviour
         //GameObject cam = GameObject.Find("Directional Light");
         //Main mScript = cam.GetComponent<Main>();
         //mScript.show_the_way(CurFloorName,name);
+        GameObject[] Blue = GameObject.FindGameObjectsWithTag("Blue");
+
+        for (int i = 0; i < Blue.Length; i++)
+        {
+            if (Mathf.Abs(Blue[i].transform.position.x - transform.position.x) < 0.01 && Mathf.Abs(Blue[i].transform.position.z - transform.position.z) < 0.01)
+            {
+                Move mScript = Blue[i].GetComponent<Move>();
+                mScript.move_player(Blue[i].transform.position);
+                Debug.Log("move player");
+            }
+        }
+
 
     }
 
