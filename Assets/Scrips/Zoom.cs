@@ -14,7 +14,7 @@ public class Zoom : MonoBehaviour
 	public float zoomMin = 3; // мин. увеличение
 	private float X, Y;
     private float speed = 0.5f;
-    private float Androidspeed = 0.006F;
+    private float Androidspeed = 0.009F;
     private Touch touch;
     private float zoomSpeed = 1f;
 
@@ -90,12 +90,12 @@ public class Zoom : MonoBehaviour
                 if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
                 {
                     //Debug.Log("Left");
-                    CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                    CameraCenter.transform.Rotate(new Vector3(0, - Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
                 }
                 else if (_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
                 {
                     //Debug.Log("Right");
-                    CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                    CameraCenter.transform.Rotate(new Vector3(0, + Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
                 }
 
                 ///
@@ -108,7 +108,7 @@ public class Zoom : MonoBehaviour
                     float y_goal = CameraCenter.transform.position.y - _zoom * 0.01f;
                     if (y_goal <= max_zoom && y_goal >= min_zoom)
                     {
-                        CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, CameraCenter.transform);
+                        CameraCenter.transform.Translate(0, - _zoom * 0.01f, -_zoom * 0.01f, CameraCenter.transform);
                     }
 
                 }
@@ -128,7 +128,7 @@ public class Zoom : MonoBehaviour
                 if (touch.phase == TouchPhase.Moved)
                 {
 
-                    CameraCenter.transform.Translate(touch.deltaPosition.x * Androidspeed, 0, touch.deltaPosition.y * Androidspeed, CameraCenter.transform);
+                    CameraCenter.transform.Translate( touch.deltaPosition.x * Androidspeed, 0, touch.deltaPosition.y * Androidspeed, CameraCenter.transform);
                 }
 
             }
@@ -231,14 +231,17 @@ public class Zoom : MonoBehaviour
 
         // Fraction of journey completed equals current distance divided by total distance.
         float fractionOfJourney = distCovered / journeyLength;
+        
 
         if (go == 1)
         {
             transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+
             if (Mathf.Abs(transform.position.x - endMarker.transform.position.x) < 0.01 && Mathf.Abs(transform.position.z - endMarker.transform.position.z) < 0.01)
             {
                 go = 0;
                 transform.position = endMarker.position;
+                CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(545) * 4, 0) * Time.deltaTime);
             }
             //(transform.position == endMarker.position) 
         }

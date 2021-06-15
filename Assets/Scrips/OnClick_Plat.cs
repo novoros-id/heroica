@@ -7,7 +7,7 @@ public class OnClick_Plat : MonoBehaviour
     public Vector3 curpos;
     public GameObject[] player;
     public GameObject Curent_player;
-    public string CurFloorName;
+    //public string CurFloorName;
     public GameObject[] Blue;
 
     void Start()
@@ -18,40 +18,29 @@ public class OnClick_Plat : MonoBehaviour
     void OnMouseDown()
     {
 
-        Curent_player = return_curent_player(); // нашли текущего игркока
-        CurFloorName = Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
-        // Debug.Log(name);
+        //Curent_player = return_curent_player(); // нашли текущего игркока
+        //CurFloorName = Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
+        //// Debug.Log(name);
 
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
-        mScript.show_the_way(CurFloorName,name);
+        //GameObject cam = GameObject.Find("Directional Light");
+        //Main mScript = cam.GetComponent<Main>();
+        //mScript.show_the_way(CurFloorName,name);
+        GameObject[] Blue = GameObject.FindGameObjectsWithTag("Blue");
 
-    }
-
-    public GameObject return_curent_player()
-
-    {
-        player = GameObject.FindGameObjectsWithTag("Player");
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-
-        for (int i = 0; i < player.Length; i++)
+        for (int i = 0; i < Blue.Length; i++)
         {
-
-            Player_ pl_script = player[i].GetComponent<Player_>();
-
-            if (pl_script.step_move == current_move)
+            if (Mathf.Abs(Blue[i].transform.position.x - transform.position.x) < 0.01 && Mathf.Abs(Blue[i].transform.position.z - transform.position.z) < 0.01)
             {
-
-                return player[i];
-
+                Move mScript = Blue[i].GetComponent<Move>();
+                mScript.move_player(Blue[i].transform.position);
+                Debug.Log("move player");
             }
-
         }
 
-        return null;
+
     }
+
+   
 
     private string Return_floor_player(Vector3 pos)
     {

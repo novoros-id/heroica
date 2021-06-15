@@ -16,11 +16,17 @@ public class Move : MonoBehaviour
 
     void OnMouseDown()
     {
+        move_player(transform.position);
+
+    }
+
+    public void move_player(Vector3 position_blue)
+    {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
         int current_move = mScript.get_current_move();
         player = GameObject.FindGameObjectsWithTag("Player");
-        
+
         for (int i = 0; i < player.Length; i++)
         {
 
@@ -33,21 +39,20 @@ public class Move : MonoBehaviour
 
                 pl_script.startTime = Time.time;
                 pl_script.startMarker = player[i].transform;
-                pl_script.endMarker = new Vector3(transform.position.x, 0.7f, transform.position.z);
-                pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(transform.position.x, 0.7f, transform.position.z));
+                pl_script.endMarker = new Vector3(position_blue.x, 0.7f, position_blue.z);
+                pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(position_blue.x, 0.7f, position_blue.z));
                 pl_script.move = true;
                 pl_script.SoundStep();
                 // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
 
-                ItemFromFloor(player[i], transform.position);
+                ItemFromFloor(player[i], position_blue);
                 clear_blue();
-                
+
                 //Debug.Log("a");
                 break;
             }
 
         }
-
     }
 
     public void clear_blue()
@@ -89,7 +94,7 @@ public class Move : MonoBehaviour
             {
                 pl_script.set_key();
                 Destroy(_items);
-                pl_script.define_goal();
+               // pl_script.define_goal();
             }
             //mScript.set_current_move();
         }
