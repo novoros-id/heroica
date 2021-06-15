@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07190355, g: 0.067462675, b: 0.050038517, a: 1}
+  m_IndirectSpecularColor: {r: 0.071903415, g: 0.06746268, b: 0.05003845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9491,12 +9491,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1960797665}
-  m_RootOrder: 1
+  m_Father: {fileID: 1967627649}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192.83997, y: 56.799927}
+  m_AnchoredPosition: {x: -0.0001373291, y: -0.000034332275}
   m_SizeDelta: {x: 160, y: 86.44631}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188324812
@@ -9879,6 +9879,7 @@ MonoBehaviour:
   ZoomMin: 2
   Sensitivity: 0.03
   mn: {fileID: 6415535510322868604}
+  SumRotate: 0
 --- !u!82 &1247323289
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20593,13 +20594,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1967627649}
-  - {fileID: 1188324811}
   m_Father: {fileID: 1150753018}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -53}
+  m_AnchoredPosition: {x: 180.5, y: 35.33}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1967627648
@@ -20631,13 +20631,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1188324811}
   m_Father: {fileID: 1960797665}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192.84, y: 56.8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967627650
@@ -23378,7 +23379,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -3.4289443e+28, z: 4.5785e-41, w: -1}
+  m_BoundingSphereOverride: {x: 0, y: -2.0567474, z: 7.55e-43, w: -22.656586}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

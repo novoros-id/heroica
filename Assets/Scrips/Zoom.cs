@@ -48,6 +48,7 @@ public class Zoom : MonoBehaviour
     private float min_zoom = -1.5f;
 
     public Main mn;
+    public float SumRotate = 0;
 
     void Start()
 	{
@@ -236,12 +237,16 @@ public class Zoom : MonoBehaviour
         if (go == 1)
         {
             transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
-
+            if(SumRotate < 545)
+            {
+                CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(5) * 4, 0) * Time.deltaTime);
+                SumRotate += 5;
+            }        
             if (Mathf.Abs(transform.position.x - endMarker.transform.position.x) < 0.01 && Mathf.Abs(transform.position.z - endMarker.transform.position.z) < 0.01)
             {
                 go = 0;
                 transform.position = endMarker.position;
-                CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(545) * 4, 0) * Time.deltaTime);
+                //CameraCenter.transform.Rotate(new Vector3(0, Mathf.Abs(545) * 4, 0) * Time.deltaTime);
             }
             //(transform.position == endMarker.position) 
         }

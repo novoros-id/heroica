@@ -18,7 +18,7 @@ public class OceanObject : MonoBehaviour
     void FixedUpdate()
     {
         transform.rotation = Quaternion.Euler(0, roty, 0);
-        transform.position = new Vector3(transform.position.x + 0.2f, -1.2f, transform.position.z);
+        transform.position = new Vector3(transform.position.x + 0.2f, -1.05f, transform.position.z);
         if (timeBtwDeaths <= 0)
         {
             Destroy(gameObject);
