@@ -65,6 +65,10 @@ public class ControllerButtons : MonoBehaviour
     {
         SceneManager.LoadScene("Level3");
     }
+    public void StartLevel4()
+    {
+        SceneManager.LoadScene("Level4");
+    }
     public void ExitGame()
     {
         Application.Quit();
