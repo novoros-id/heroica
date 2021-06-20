@@ -48,10 +48,12 @@ MonoBehaviour:
   goal: {fileID: 0}
   recovery_mode: 0
   CubeButton: {fileID: 0}
+  floor_g: []
   speed_: 1
   startTime: 0
   journeyLength: 0
-  mv: {fileID: 7387087361516114196, guid: 8387c2ccadcf5c948934bc84e8fa5fab, type: 3}
+  open: {fileID: 0}
+  step: {fileID: 8300000, guid: 3c372e900278840cabc964381533ee5d, type: 3}
 --- !u!1001 &4996774650272411648
 PrefabInstance:
   m_ObjectHideFlags: 0
