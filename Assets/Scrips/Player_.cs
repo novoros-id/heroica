@@ -51,6 +51,9 @@ public class Player_ : MonoBehaviour
     static AudioSource audiosrc;
     public AudioClip open;
     public AudioClip step;
+    public AudioClip Battle_mode;
+    public AudioClip HP_plus;
+
 
     // Start is called before the first frame update
     void Start()
@@ -100,10 +103,12 @@ public class Player_ : MonoBehaviour
                 {
                     //switch_battle_mode();
                     mScript.move_priznak_step();
+                    audiosrc.PlayOneShot(Battle_mode);
                     if (switch_battle_move == true)
                     {
                         switch_battle_mode();
                         switch_battle_move = false;
+                        
                     }
 
                 }
@@ -496,6 +501,7 @@ public class Player_ : MonoBehaviour
 
     public bool get_battle_mode()
     {
+       
         return battle_mode;
     }
 
@@ -507,6 +513,7 @@ public class Player_ : MonoBehaviour
         }
         else
         {
+            //audiosrc.PlayOneShot(Battle_mode);
             battle_mode = true;
         }
     }
@@ -542,14 +549,18 @@ public class Player_ : MonoBehaviour
         {
             recovery_mode = true;
             leaves = 0;
-            mScript.add_text("У " + name + " закончились жизни. Установлен режим восстановления здоровья");
+            // mScript.add_text("У " + name + " закончились жизни. Установлен режим восстановления здоровья");
+            mScript.add_text(" " + name + " lives are over. The health recovery mode is set");
         }
         else if (leaves >= 4)
         {
             recovery_mode = false;
             leaves = 4;
-            mScript.add_text("У " + name + " жизни восстановлены.");
+            // mScript.add_text("У " + name + " жизни восстановлены.");
+            mScript.add_text(" " + name + " lives restored");
+
         }
+        audiosrc.PlayOneShot(HP_plus);
     }
 
 

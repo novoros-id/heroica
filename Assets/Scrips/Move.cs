@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     public GameObject[] Blue;
     public GameObject[] player;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -187,7 +188,6 @@ public class Move : MonoBehaviour
             //{
             //    mScript.set_current_move();
             //}
-
             pl_script.switch_battle_mode();
 
 
