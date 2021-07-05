@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.07190422, g: 0.067471415, b: 0.050041452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1006,6 +1006,12 @@ MonoBehaviour:
   speed_: 1
   startTime: 0
   journeyLength: 0
+  CameraCenter: {fileID: 0}
+  ZoomMax: 0
+  ZoomMin: 0
+  Sensitivity: 0
+  mn: {fileID: 0}
+  SumRotate: 0
 --- !u!81 &117162495
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2715,6 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndGameMenu: {fileID: 175041348}
+  UI: {fileID: 0}
 --- !u!4 &499753465
 Transform:
   m_ObjectHideFlags: 0
@@ -6850,8 +6857,14 @@ MonoBehaviour:
   Barbarian: {fileID: 1460825783}
   Mage: {fileID: 584502382}
   Priest: {fileID: 1881323999}
+  Knightext: {fileID: 0}
+  Barbariantext: {fileID: 0}
+  Magetext: {fileID: 0}
+  Priesttext: {fileID: 0}
   Chooze: {fileID: 1051211588}
   other: {fileID: 775751181}
+  _main: {fileID: 0}
+  AndroidUI: {fileID: 0}
 --- !u!224 &1554810879
 RectTransform:
   m_ObjectHideFlags: 0
