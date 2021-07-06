@@ -48,10 +48,13 @@ MonoBehaviour:
   goal: {fileID: 0}
   recovery_mode: 0
   CubeButton: {fileID: 0}
+  floor_g: []
   speed_: 1
   startTime: 0
   journeyLength: 0
-  mv: {fileID: 7387087361516114196, guid: 8387c2ccadcf5c948934bc84e8fa5fab, type: 3}
+  open: {fileID: 0}
+  step: {fileID: 0}
+  Battle_mode: {fileID: 8300000, guid: 40316963507184eea9476e3583d5e0cd, type: 3}
 --- !u!1001 &3521414188982275407
 PrefabInstance:
   m_ObjectHideFlags: 0

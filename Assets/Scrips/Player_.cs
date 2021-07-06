@@ -52,7 +52,7 @@ public class Player_ : MonoBehaviour
     public AudioClip open;
     public AudioClip step;
     public AudioClip Battle_mode;
-    public AudioClip HP_plus;
+    //public AudioClip HP_plus;
 
 
     // Start is called before the first frame update
@@ -560,7 +560,7 @@ public class Player_ : MonoBehaviour
             mScript.add_text(" " + name + " lives restored");
 
         }
-        audiosrc.PlayOneShot(HP_plus);
+        //audiosrc.PlayOneShot(HP_plus);
     }
 
 
