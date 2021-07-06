@@ -30,6 +30,8 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip Hp;
     public AudioClip fight;
     public AudioClip Step;
+    public AudioClip sound_proigr_battle;
+    public AudioClip sound_final;
     public GameObject UI;
     public Text TextEndGame;
 
@@ -755,7 +757,7 @@ public class ClickOnCube : MonoBehaviour
                         }
                         else if (cube_s == 2)
                         {
-                            audiosrc.PlayOneShot(fight);
+                            audiosrc.PlayOneShot(sound_proigr_battle);
 
                             if (collider.tag == "Enemy_1")
                             {
@@ -860,6 +862,7 @@ public class ClickOnCube : MonoBehaviour
 
     void final()
     {
+        audiosrc.PlayOneShot(sound_final);
         finalUI.SetActive(true);
         UI.SetActive(false);
         TextEndGame.text = "Congratulation!"

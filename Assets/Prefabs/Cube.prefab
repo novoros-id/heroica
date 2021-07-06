@@ -1250,6 +1250,12 @@ MonoBehaviour:
     type: 3}
   player: []
   Curent_player: {fileID: 0}
-  WinEnemy: {fileID: 8300000, guid: 4a16e6f8314633e4cb7450645214602a, type: 3}
-  DefeatEnemy: {fileID: 8300000, guid: 6f2b0f0ed9fccf64f87721e4c649376e, type: 3}
   Click: {fileID: 8300000, guid: fb3e7116f6fb32940bc8823738ccd9fc, type: 3}
+  finalUI: {fileID: 0}
+  Hp: {fileID: 0}
+  fight: {fileID: 0}
+  Step: {fileID: 0}
+  sound_proigr_battle: {fileID: 8300000, guid: 84f2a597f15f447ea87fc5128d31a8e3, type: 3}
+  sound_final: {fileID: 8300000, guid: 591f042c5319244228ac1efff3ef172e, type: 3}
+  UI: {fileID: 0}
+  TextEndGame: {fileID: 0}

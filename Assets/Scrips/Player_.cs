@@ -52,6 +52,7 @@ public class Player_ : MonoBehaviour
     public AudioClip open;
     public AudioClip step;
     public AudioClip Battle_mode;
+ 
     //public AudioClip HP_plus;
 
 
@@ -103,12 +104,17 @@ public class Player_ : MonoBehaviour
                 {
                     //switch_battle_mode();
                     mScript.move_priznak_step();
-                    audiosrc.PlayOneShot(Battle_mode);
+                    //audiosrc.PlayOneShot(Battle_mode);
                     if (switch_battle_move == true)
                     {
                         switch_battle_mode();
                         switch_battle_move = false;
                         
+
+                    }
+                    else
+                    {
+                        audiosrc.PlayOneShot(Battle_mode);
                     }
 
                 }
