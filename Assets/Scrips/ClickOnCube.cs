@@ -34,12 +34,13 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip sound_final;
     public GameObject UI;
     public Text TextEndGame;
+    public GameObject CrystalButton_;
 
 
     void Start()
     {
         audiosrc = GetComponent<AudioSource>();
-
+        CrystalButton_.SetActive(false);
     }
 
     void OnMouseDown()
@@ -63,6 +64,10 @@ public class ClickOnCube : MonoBehaviour
 
             
             GameObject.Find("Button").SetActive(false);
+            if(cube_step == 4)
+            {
+                CrystalButton_.SetActive(true);
+            }
 
             // нашли где он стоит
             CurFloorName = Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
