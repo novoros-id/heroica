@@ -11,17 +11,19 @@ public class UIManagment : MonoBehaviour
     public Player_ pl;
     public GameObject key;
     public GameObject ExitGameButton;
+    public GameObject cross;
     //public Text TextEndGame;
     //public GameObject Cube;
-    
-    
-    
-    
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         hearts = GetComponent<Text>();
         ExitGameButton.SetActive(false);
+        cross.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,6 +45,16 @@ public class UIManagment : MonoBehaviour
         if (pl.key == false)
         {
             key.SetActive(false);
+        }
+
+        if (pl.recovery_mode == true)
+        {
+            cross.SetActive(true);
+        }
+
+        if (pl.recovery_mode == false)
+        {
+            cross.SetActive(false);
         }
 
         hearts.text = pl.leaves.ToString();
