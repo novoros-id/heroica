@@ -35,6 +35,7 @@ public class ClickOnCube : MonoBehaviour
     public GameObject UI;
     public Text TextEndGame;
     public GameObject CrystalButton_;
+    
 
 
     void Start()
@@ -53,7 +54,7 @@ public class ClickOnCube : MonoBehaviour
     public void make_move()
     {
         list_steps.Clear(); // очистили  технический list куда можно идти
-        
+       
         clear_blue(); // убрали голубые
         cube_step = throw_a_bone(); // кинули кубик
         Curent_player = return_curent_player(); // нашли текущего игркока
@@ -692,6 +693,8 @@ public class ClickOnCube : MonoBehaviour
 
         // найдем монстра
 
+        
+        
 
         CurFloorPos = new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z);
 
@@ -862,6 +865,7 @@ public class ClickOnCube : MonoBehaviour
         {
             Destroy(Blue[b]);
             //Debug.Log("a");
+            CrystalButton_.SetActive(false);
         }
     }
 

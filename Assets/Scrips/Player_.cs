@@ -52,8 +52,10 @@ public class Player_ : MonoBehaviour
     public AudioClip open;
     public AudioClip step;
     public AudioClip Battle_mode;
- 
+
     //public AudioClip HP_plus;
+    public GameObject CrystalButton_;
+    public GameObject CrossedSwords;
 
 
     // Start is called before the first frame update
@@ -115,6 +117,7 @@ public class Player_ : MonoBehaviour
                     else
                     {
                         audiosrc.PlayOneShot(Battle_mode);
+                        Instantiate(CrossedSwords, new Vector3(transform.position.x + 0.4f, 1.4f,transform.position.z), Quaternion.identity);
                     }
 
                 }
@@ -125,6 +128,7 @@ public class Player_ : MonoBehaviour
                 // mScript.set_current_move();
                 //Invoke("show_the_cube", 1.2f);
                 CubeButton.SetActive(true);
+                CrystalButton_.SetActive(false);
 
             }
         }
@@ -134,6 +138,7 @@ public class Player_ : MonoBehaviour
     private void show_the_cube()
     {
         CubeButton.SetActive(true);
+        
     }
 
     public bool goal_live()
