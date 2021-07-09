@@ -739,6 +739,8 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Victory !!!");
                             }
+                            GameObject Swords = GameObject.Find("crossed sword(Clone)");
+                            Destroy(Swords);
 
                             
                         }
@@ -746,6 +748,8 @@ public class ClickOnCube : MonoBehaviour
                         {
 
                             audiosrc.PlayOneShot(fight);
+                            GameObject Swords = GameObject.Find("crossed sword(Clone)");
+                            Destroy(Swords);
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
@@ -761,11 +765,14 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Victory !!!");
                             }
+                            
 
                         }
                         else if (cube_s == 2)
                         {
                             audiosrc.PlayOneShot(sound_proigr_battle);
+                            GameObject Swords = GameObject.Find("crossed sword(Clone)");
+                            Destroy(Swords);
 
                             if (collider.tag == "Enemy_1")
                             {
@@ -801,12 +808,15 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Losing, lives were lost");
                             }
-
                             
+
+
                         }
                         else if (cube_s == 1)
                         {
                             audiosrc.PlayOneShot(fight);
+                            GameObject Swords = GameObject.Find("crossed sword(Clone)");
+                            Destroy(Swords);
 
                             if (collider.tag == "Enemy_1")
                             {
@@ -842,8 +852,9 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Victory, at the cost of lost lives");
                             }
+                           
 
-                            
+
                         }
 
 

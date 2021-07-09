@@ -117,7 +117,7 @@ public class Player_ : MonoBehaviour
                     else
                     {
                         audiosrc.PlayOneShot(Battle_mode);
-                        Instantiate(CrossedSwords, new Vector3(transform.position.x + 0.4f, 1.4f,transform.position.z), Quaternion.identity);
+                        Instantiate(CrossedSwords, new Vector3(transform.position.x - 0.4f, 1.4f,transform.position.z), Quaternion.identity);
                     }
 
                 }
