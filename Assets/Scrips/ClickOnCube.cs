@@ -12,6 +12,7 @@ public class ClickOnCube : MonoBehaviour
     public float max_position;
     public int cube_step;
     public List<string> list_steps = new List<string>();
+    public int count_magic_crystall;
 
 
     public Instantiant massive;
@@ -35,6 +36,7 @@ public class ClickOnCube : MonoBehaviour
     public GameObject UI;
     public Text TextEndGame;
     public GameObject CrystalButton_;
+
     
 
 
@@ -42,6 +44,17 @@ public class ClickOnCube : MonoBehaviour
     {
         audiosrc = GetComponent<AudioSource>();
         CrystalButton_.SetActive(false);
+
+
+        if (PlayerPrefs.HasKey("count_magic_crystall"))
+        {
+            count_magic_crystall = PlayerPrefs.GetInt("count_magic_crystall");
+        }
+        else
+        {
+            count_magic_crystall = 0;
+        }
+
     }
 
     void OnMouseDown()
@@ -241,6 +254,11 @@ public class ClickOnCube : MonoBehaviour
         if (max_name == "gold")
         {
             //cube_step = 4;
+            count_magic_crystall += 1;
+
+            PlayerPrefs.SetInt("count_magic_crystall", count_magic_crystall);
+            PlayerPrefs.Save();
+
             return 4;
         }
 
