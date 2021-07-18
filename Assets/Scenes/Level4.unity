@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16642067, g: 0.1408562, b: 0.106449746, a: 1}
+  m_IndirectSpecularColor: {r: 0.16498268, g: 0.13949019, b: 0.10566721, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1426,6 +1426,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8cdbe2cef448a4bb60f35f75516295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  list_steps: []
+  Curent_player: {fileID: 0}
+  player: []
+  Blue: []
+  CubeButton: {fileID: 0}
+  CrystalButton_: {fileID: 0}
+  CurFloorName: 
+  sword: {fileID: 1524996914856487658, guid: 8beef934a0982c640bf69f1387f4960e, type: 3}
 --- !u!114 &98669572
 MonoBehaviour:
   m_ObjectHideFlags: 0

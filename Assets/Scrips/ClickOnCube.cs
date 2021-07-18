@@ -78,6 +78,7 @@ public class ClickOnCube : MonoBehaviour
 
             
             GameObject.Find("Button").SetActive(false);
+
             if(cube_step == 4)
             {
                 CrystalButton_.SetActive(true);
@@ -905,6 +906,11 @@ public class ClickOnCube : MonoBehaviour
         UI.SetActive(false);
         TextEndGame.text = "Congratulation!"
             +Curent_player.name+" win!";
-}
+    }
+
+    public void play_victory_fight()
+    {
+        audiosrc.PlayOneShot(fight);
+    }
 
 }

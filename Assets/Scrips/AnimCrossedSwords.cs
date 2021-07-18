@@ -26,4 +26,10 @@ public class AnimCrossedSwords : MonoBehaviour
     {
         audiosrc.PlayOneShot(fight);
     }
+
+    public void OnMouseDown()
+    {
+        Debug.Log("mouse doen");
+    }
+
 }

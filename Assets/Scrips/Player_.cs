@@ -52,6 +52,7 @@ public class Player_ : MonoBehaviour
     public AudioClip open;
     public AudioClip step;
     public AudioClip Battle_mode;
+    public AudioClip Use_crystal;
 
     //public AudioClip HP_plus;
     public GameObject CrystalButton_;
@@ -73,6 +74,11 @@ public class Player_ : MonoBehaviour
         audiosrc.PlayOneShot(step);
     }
 
+
+    public void play_sound_use_crystal()
+    {
+        audiosrc.PlayOneShot(Use_crystal);
+    }
 
     private void FixedUpdate()
     {
@@ -135,7 +141,7 @@ public class Player_ : MonoBehaviour
     }
 
 
-    private void show_the_cube()
+    public void show_the_cube()
     {
         CubeButton.SetActive(true);
         
@@ -294,7 +300,7 @@ public class Player_ : MonoBehaviour
 
     //}
 
-    private string Return_floor_player(Vector3 pos)
+    public string Return_floor_player(Vector3 pos)
     {
         GameObject[] Floors;
         float x_f = pos.x - 0;
@@ -323,159 +329,6 @@ public class Player_ : MonoBehaviour
 
     }
 
-    //public void define_goal()
-    //{
-    //    update_goal();
-    //    float dist_to_boss = 100000;
-
-    //    // сначала выбираем любой, если у нас нет ключа
-    //    if (list_goal_1.Count != 0 && get_key() == false)
-    //    {
-    //        int count_goal1 = list_goal_1.Count;
-
-    //        if (count_goal1 < count_key) // если ключей меньше чем вначале, идем к ближайшему
-    //        {
-
-    //            float min_distance_g1 = 10000;
-    //            int index_min_distance_g1 = 0;
-
-    //            int index_g1 = 0;
-    //            foreach (var lg_g1 in list_goal_1)
-    //            {
-    //                float dist_to_g1 = Vector3.Distance(transform.position, lg_g1.transform.position);
-
-    //                if (dist_to_g1 <= min_distance_g1)
-    //                {
-    //                    min_distance_g1 = dist_to_g1;
-    //                    index_min_distance_g1 = index_g1;
-    //                }
-
-    //                index_g1++;
-    //            }
-
-    //            goal = list_goal_1[index_min_distance_g1];
-    //            return;
-    //        }
-    //        else // выбираем случайный
-    //        {
-    //            int rand_count_goal_1 = Random.Range(0, count_goal1);
-    //            goal = list_goal_1[rand_count_goal_1];
-    //            return;
-    //        }
-
-    //    }
-
-
-    //    if (list_goal_2.Count != 0 && list_goal_3.Count != 0)
-    //    {
-    //        //  меряем расстояние до цели 3 - запоминаем
-
-    //        dist_to_boss = Vector3.Distance(transform.position, list_goal_3[0].transform.position);
-
-    //        // потом меряем расстояние до ближайшей двери
-
-
-    //        float min_distance = 10000;
-    //        int index_min_distance = 0;
-
-    //        int index_ = 0;
-    //        foreach (var lg in list_goal_2)
-    //        {
-    //            float dist_to_g = Vector3.Distance(transform.position, lg.transform.position);
-
-    //            if (dist_to_g <= min_distance)
-    //            {
-    //                min_distance = dist_to_g;
-    //                index_min_distance = index_;
-    //            }
-
-    //            index_++;
-    //        }
-
-    //        // если до босса  меньше, то идем к нему
-    //        if (dist_to_boss < min_distance)
-    //        {
-    //            goal = list_goal_3[0];
-    //            return;
-    //        }
-    //        else // если больше, то идем к ближайшей двери
-    //        {
-    //            goal = list_goal_2[index_min_distance];
-    //            return;
-    //        }
-
-    //    }
-
-    //    if (list_goal_3.Count != 0)
-    //    {
-    //        int count_goal3 = list_goal_3.Count;
-    //        int rand_count_goal_3 = Random.Range(0, count_goal3);
-    //        goal = list_goal_3[rand_count_goal_3];
-    //        return;
-    //    }
-
-    //}
-
-    //private void update_goal()
-    //{
-    //    List<GameObject> del_index_1 = new List<GameObject>();
-    //    List<GameObject> del_index_2 = new List<GameObject>();
-    //    List<GameObject> del_index_3 = new List<GameObject>();
-
-    //    // найдем пустые
-
-    //    // int count_1 = 0;
-    //    foreach (var lg in list_goal_1)
-    //    {
-    //        if (lg == null)
-    //        {
-    //            del_index_1.Add(lg);
-    //        }
-
-    //        // count_1++;
-    //    }
-
-
-    //    //int count_2 = 0;
-    //    foreach (var lg in list_goal_2)
-    //    {
-    //        if (lg == null)
-    //        {
-    //            del_index_2.Add(lg);
-    //        }
-
-    //        //count_2++;
-    //    }
-
-    //    // int count_3 = 0;
-    //    foreach (var lg in list_goal_3)
-    //    {
-    //        if (lg == null)
-    //        {
-    //            del_index_3.Add(lg);
-    //        }
-
-    //        //  count_2++;
-    //    }
-
-
-    //    // теперь удалим
-    //    foreach (var dd in del_index_1)
-    //    {
-    //        list_goal_1.Remove(dd);
-    //    }
-
-    //    foreach (var dd in del_index_2)
-    //    {
-    //        list_goal_2.Remove(dd);
-    //    }
-
-    //    foreach (var dd in del_index_3)
-    //    {
-    //        list_goal_3.Remove(dd);
-    //    }
-
-    //}
 
     /// <summary>
     /// Управление арсеналом игрока
@@ -684,7 +537,6 @@ public class Player_ : MonoBehaviour
 
     }
 
-
     public void addEdgeFromFloor(string nameFloor, Graph gr)
     {
 
@@ -756,6 +608,8 @@ public class Player_ : MonoBehaviour
             }
         }
     }
+
+
 
     public void build_graph()
     {
