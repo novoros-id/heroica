@@ -409,7 +409,7 @@ public class CrystalButton : MonoBehaviour
 
     void show_sword_on_floor(Collider floor_)
     {
-        GameObject clone = Instantiate(sword, new Vector3(floor_.transform.position.x, 1.05f, floor_.transform.position.z), Quaternion.identity);
+        GameObject clone = Instantiate(sword, new Vector3(floor_.transform.position.x - 0.4f, 1.4f, floor_.transform.position.z), Quaternion.identity);
         battle_mode m_Script = clone.GetComponent<battle_mode>();
         m_Script.set_crystal_use();
     }

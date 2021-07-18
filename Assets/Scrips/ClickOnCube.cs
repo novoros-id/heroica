@@ -251,7 +251,7 @@ public class ClickOnCube : MonoBehaviour
         }
 
         //Debug.Log(max_name);
-
+        return 4;
         if (max_name == "gold")
         {
             //cube_step = 4;
