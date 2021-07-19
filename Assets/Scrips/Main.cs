@@ -89,10 +89,28 @@ public class Main : MonoBehaviour
             if (pl_script.step_move == current_move)
             {
                 Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.6f, player[i].transform.position.z), Quaternion.identity);
+                if(pl_script.baton == 1)
+                {
+                    pl_script.weapon1.SetActive(true);
+                }
+                if (pl_script.axe == 1)
+                {
+                    pl_script.weapon2.SetActive(true);
+                }
+                if (pl_script.scythe == 1)
+                {
+                    pl_script.weapon3.SetActive(true);
+                }
+                if(pl_script.scythe == 0 && pl_script.axe == 0 && pl_script.baton == 0)
+                {
+                    pl_script.weapon1.SetActive(false);
+                    pl_script.weapon2.SetActive(false);
+                    pl_script.weapon3.SetActive(false);
+                }
                 //cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
 
                 //text  myText;
-               
+
                 if (pl_script.get_battle_mode() == true)
                 {
 

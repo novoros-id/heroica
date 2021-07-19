@@ -24,14 +24,19 @@ public class UIManagment : MonoBehaviour
         hearts = GetComponent<Text>();
         ExitGameButton.SetActive(false);
         cross.SetActive(false);
+        pl.weapon1.SetActive(false);
+        pl.weapon2.SetActive(false);
+        pl.weapon3.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        int current_move = mScript.get_current_move();
         //ClickOnCube cb = Cube.GetComponent<ClickOnCube>();
-        
+
         if (Input.GetKey(KeyCode.Escape))
         {
             ExitGameButton.SetActive(true);
@@ -61,6 +66,12 @@ public class UIManagment : MonoBehaviour
 
         //TextEndGame.text = "Congratulation!"
         //    +cb.Curent_player.name+" win!";
+        if(pl.step_move != current_move)
+        {
+            pl.weapon1.SetActive(false);
+            pl.weapon2.SetActive(false);
+            pl.weapon3.SetActive(false);
+        }
     }
     public void ExitGame()
     {
