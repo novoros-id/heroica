@@ -11,6 +11,7 @@ public class Main : MonoBehaviour
     public GameObject[] player;
     public GameObject[] pr_hod;
     public GameObject selected1;
+    public GameObject shop_button;
 
     public GameObject cam_focus;
     public bool Pc;
@@ -30,7 +31,7 @@ public class Main : MonoBehaviour
         {
             Pc = false;
         }
-
+        shop_button.SetActive(false);
     }
 
 
@@ -106,6 +107,14 @@ public class Main : MonoBehaviour
                     pl_script.weapon1.SetActive(false);
                     pl_script.weapon2.SetActive(false);
                     pl_script.weapon3.SetActive(false);
+                    if(pl_script.comp == false)
+                    {
+                        shop_button.SetActive(true);
+                    }
+                    else
+                    {
+                        shop_button.SetActive(false);
+                    }
                 }
                 //cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
 

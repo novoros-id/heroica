@@ -8,6 +8,7 @@ public class UIManagment : MonoBehaviour
 {
 
     Text hearts;
+    public Text coins;
     public Player_ pl;
     public GameObject key;
     public GameObject ExitGameButton;
@@ -63,6 +64,7 @@ public class UIManagment : MonoBehaviour
         }
 
         hearts.text = pl.leaves.ToString();
+        coins.text = pl.gold.ToString();
 
         //TextEndGame.text = "Congratulation!"
         //    +cb.Curent_player.name+" win!";
