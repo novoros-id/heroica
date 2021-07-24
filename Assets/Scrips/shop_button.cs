@@ -19,9 +19,8 @@ public class shop_button : MonoBehaviour
     void Start()
     {
         shop.SetActive(false);
-        weaponButtonsSellAxe.SetActive(false);
-        weaponButtonsSellBaton.SetActive(false);
-        weaponButtonsSellScythe.SetActive(false);
+        Debug.Log("we");
+        
     }
     void Update()
     {
@@ -30,22 +29,22 @@ public class shop_button : MonoBehaviour
         int current_move = mScript.get_current_move();
         if (1 == current_move)
         {
-            transform.localPosition = new Vector2(-1519, -197.1f);
+            //transform.localPosition = new Vector2(-1519, -197.1f);
             Current_player = GameObject.Find("Knight");
         }
         if (2 == current_move)
         {
-            transform.localPosition = new Vector2(-1319, -197.1f);
+            //transform.localPosition = new Vector2(-1319, -197.1f);
             Current_player = GameObject.Find("Barbarian");
         }
         if (3 == current_move)
         {
-            transform.localPosition = new Vector2(-1119, -197.1f);
+            //transform.localPosition = new Vector2(-1119, -197.1f);
             Current_player = GameObject.Find("Mage");
         }
         if (4 == current_move)
         {
-            transform.localPosition = new Vector2(-919, -197.1f);
+            //transform.localPosition = new Vector2(-919, -197.1f);
             Current_player = GameObject.Find("Priest");
         }
         
@@ -132,6 +131,10 @@ public class shop_button : MonoBehaviour
         else
         {
             weaponButtonsSellScythe.SetActive(false);
+        }
+        if(Current_player.GetComponent<Player_>().baton == 1 || Current_player.GetComponent<Player_>().axe == 1 || Current_player.GetComponent<Player_>().scythe == 1)
+        {
+            weaponButtonsBuy.SetActive(false);
         }
         coins.text = Current_player.GetComponent<Player_>().gold.ToString();
     }

@@ -18,10 +18,12 @@ public class ChangeMod : MonoBehaviour
     public GameObject other;
     public Main _main;
     public GameObject AndroidUI;
+    public GameObject shop;
     // Start is called before the first frame update
     void Start()
     {
         other.SetActive(false);
+        shop.SetActive(false);
     }
     public void start()
     {

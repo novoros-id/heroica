@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
+    public Sprite Weapon1;
+    public Sprite Weapon2;
+    public Sprite Weapon3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +19,8 @@ public class WeaponScript : MonoBehaviour
     {
         
     }
-    public void Baton()
+    public void WeaponAction()
     {
-        Debug.Log("Baton");
-    }
-    public void Axe()
-    {
-        Debug.Log("Axe");
-    }
-    public void Scythe()
-    {
-        Debug.Log("Scythe");
+
     }
 }

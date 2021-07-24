@@ -25,9 +25,6 @@ public class UIManagment : MonoBehaviour
         hearts = GetComponent<Text>();
         ExitGameButton.SetActive(false);
         cross.SetActive(false);
-        pl.weapon1.SetActive(false);
-        pl.weapon2.SetActive(false);
-        pl.weapon3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,12 +65,7 @@ public class UIManagment : MonoBehaviour
 
         //TextEndGame.text = "Congratulation!"
         //    +cb.Curent_player.name+" win!";
-        if(pl.step_move != current_move)
-        {
-            pl.weapon1.SetActive(false);
-            pl.weapon2.SetActive(false);
-            pl.weapon3.SetActive(false);
-        }
+        
     }
     public void ExitGame()
     {

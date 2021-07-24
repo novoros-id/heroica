@@ -12,6 +12,7 @@ public class Main : MonoBehaviour
     public GameObject[] pr_hod;
     public GameObject selected1;
     public GameObject shop_button;
+    public GameObject Weapon_Button;
 
     public GameObject cam_focus;
     public bool Pc;
@@ -31,7 +32,7 @@ public class Main : MonoBehaviour
         {
             Pc = false;
         }
-        shop_button.SetActive(false);
+        //shop_button.SetActive(false);
     }
 
 
@@ -92,21 +93,25 @@ public class Main : MonoBehaviour
                 Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.6f, player[i].transform.position.z), Quaternion.identity);
                 if(pl_script.baton == 1)
                 {
-                    pl_script.weapon1.SetActive(true);
+                    Weapon_Button.SetActive(true);
+                    Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon1;
+                    Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(49.2f, 109.8f);
                 }
                 if (pl_script.axe == 1)
                 {
-                    pl_script.weapon2.SetActive(true);
+                    Weapon_Button.SetActive(true);
+                    Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon2;
+                    Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(77.4f, 127.2f);
                 }
                 if (pl_script.scythe == 1)
                 {
-                    pl_script.weapon3.SetActive(true);
+                    Weapon_Button.SetActive(true);
+                    Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon3;
+                    Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(43, 103.8f);
                 }
                 if(pl_script.scythe == 0 && pl_script.axe == 0 && pl_script.baton == 0)
                 {
-                    pl_script.weapon1.SetActive(false);
-                    pl_script.weapon2.SetActive(false);
-                    pl_script.weapon3.SetActive(false);
+                    Weapon_Button.SetActive(false);
                     if(pl_script.comp == false)
                     {
                         shop_button.SetActive(true);

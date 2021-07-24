@@ -57,9 +57,7 @@ public class Player_ : MonoBehaviour
     //public AudioClip HP_plus;
     public GameObject CrystalButton_;
     public GameObject CrossedSwords;
-    public GameObject weapon1;
-    public GameObject weapon2;
-    public GameObject weapon3;
+   
    
 
 
