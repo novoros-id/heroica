@@ -14,6 +14,7 @@ public class shop_button : MonoBehaviour
     public GameObject weaponButtonsSellAxe;
     public GameObject weaponButtonsSellScythe;
     public GameObject Current_player;
+    public GameObject WeaponButtonController;
 
     // Update is called once per frame
     void Start()
@@ -63,15 +64,15 @@ public class shop_button : MonoBehaviour
         Main mScript = cam.GetComponent<Main>();
         int current_move = mScript.get_current_move();
         GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-
         for (int i = 0; i < player.Length; i++)
         {
-
+            WeaponChanger wc_script = WeaponButtonController.GetComponent<WeaponChanger>();
             Player_ pl_script = player[i].GetComponent<Player_>();
-
             if (pl_script.step_move == current_move)
             {
+                pl_script.set_CurWeapon();
                 mScript.WeaponIcon(pl_script);
+                wc_script.CheckWeapons();
                 break;
             }
 
@@ -149,10 +150,7 @@ public class shop_button : MonoBehaviour
         {
             weaponButtonsSellScythe.SetActive(false);
         }
-        if(Current_player.GetComponent<Player_>().baton == 1 || Current_player.GetComponent<Player_>().axe == 1 || Current_player.GetComponent<Player_>().scythe == 1)
-        {
-            weaponButtonsBuy.SetActive(false);
-        }
+
         coins.text = Current_player.GetComponent<Player_>().gold.ToString();
     }
 }

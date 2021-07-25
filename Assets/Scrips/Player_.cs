@@ -17,6 +17,7 @@ public class Player_ : MonoBehaviour
     public int speed = 0;
     public int power = 0;
     public int gold = 0;
+    
     public int axe = 0;
     public int baton = 0;
     public int scythe = 0;
@@ -57,6 +58,7 @@ public class Player_ : MonoBehaviour
     //public AudioClip HP_plus;
     public GameObject CrystalButton_;
     public GameObject CrossedSwords;
+    public string CurWeapon;
    
    
 
@@ -66,9 +68,8 @@ public class Player_ : MonoBehaviour
     void Start()
 
     {
-        
         audiosrc = GetComponent<AudioSource>();
-
+        set_CurWeapon();
     }
 
     
@@ -77,6 +78,66 @@ public class Player_ : MonoBehaviour
         audiosrc.PlayOneShot(step);
     }
 
+    public string get_CurWeapon()
+    {
+        return CurWeapon;
+    }
+    public string set_CurWeapon()
+    {
+        List<string> weapon_list = GetWeaponList();
+        if(weapon_list.Count == 0)
+        {
+            CurWeapon = "";
+            return "";
+        }
+        if(CurWeapon == "")
+        {
+            CurWeapon = weapon_list[0];
+            return CurWeapon;
+        }
+
+        int CurIndexWeapon = weapon_list.IndexOf(CurWeapon);
+        CurIndexWeapon++;
+        if (CurIndexWeapon >= weapon_list.Count)
+        {
+            CurWeapon = weapon_list[0];
+            return CurWeapon;
+        }
+        
+        CurWeapon = weapon_list[CurIndexWeapon];
+        return CurWeapon;
+    }
+
+    public List<string> GetWeaponList()
+    {
+        List<string> weapon_list = new List<string>(); 
+        if(axe == 1)
+        {
+            weapon_list.Add("axe");
+        }
+        if (baton == 1)
+        {
+            weapon_list.Add("baton");
+        }
+        if (scythe == 1)
+        {
+            weapon_list.Add("scythe");
+        }
+        if (bow == 1)
+        {
+            weapon_list.Add("bow");
+        }
+        if (dagger == 1)
+        {
+            weapon_list.Add("dagger");
+        }
+        if (sword == 1)
+        {
+            weapon_list.Add("sword");
+        }
+        
+        return weapon_list;
+    }
 
     public void play_sound_use_crystal()
     {

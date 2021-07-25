@@ -177,25 +177,25 @@ public class Main : MonoBehaviour
     }
     public void WeaponIcon(Player_ pl_script)
     {
-        if (pl_script.baton == 1)
+        if (pl_script.CurWeapon == "baton")
         {
             Weapon_Button.SetActive(true);
             Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon1;
             Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(49.2f, 109.8f);
         }
-        if (pl_script.axe == 1)
+        if (pl_script.CurWeapon == "axe")
         {
             Weapon_Button.SetActive(true);
             Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon2;
             Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(77.4f, 127.2f);
         }
-        if (pl_script.scythe == 1)
+        if (pl_script.CurWeapon == "scythe")
         {
             Weapon_Button.SetActive(true);
             Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon3;
             Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(43, 103.8f);
         }
-        if (pl_script.scythe == 0 && pl_script.axe == 0 && pl_script.baton == 0)
+        if (pl_script.CurWeapon == "")
         {
             Weapon_Button.SetActive(false);
             if (pl_script.comp == false)
