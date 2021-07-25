@@ -59,6 +59,23 @@ public class shop_button : MonoBehaviour
     }
     public void ShopOff()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        int current_move = mScript.get_current_move();
+        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+
+        for (int i = 0; i < player.Length; i++)
+        {
+
+            Player_ pl_script = player[i].GetComponent<Player_>();
+
+            if (pl_script.step_move == current_move)
+            {
+                mScript.WeaponIcon(pl_script);
+                break;
+            }
+
+        }
         UI.SetActive(true);
         shop.SetActive(false);
     }
