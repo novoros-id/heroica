@@ -20,36 +20,16 @@ public class shop_button : MonoBehaviour
     void Start()
     {
         shop.SetActive(false);
-        Debug.Log("we");
+        //Debug.Log("we");
         
     }
     void Update()
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-        if (1 == current_move)
-        {
-            //transform.localPosition = new Vector2(-1519, -197.1f);
-            Current_player = GameObject.Find("Knight");
-        }
-        if (2 == current_move)
-        {
-            //transform.localPosition = new Vector2(-1319, -197.1f);
-            Current_player = GameObject.Find("Barbarian");
-        }
-        if (3 == current_move)
-        {
-            //transform.localPosition = new Vector2(-1119, -197.1f);
-            Current_player = GameObject.Find("Mage");
-        }
-        if (4 == current_move)
-        {
-            //transform.localPosition = new Vector2(-919, -197.1f);
-            Current_player = GameObject.Find("Priest");
-        }
-        
-        
+
+
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока  
 
     }
     public void ShopOn()
@@ -62,21 +42,15 @@ public class shop_button : MonoBehaviour
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < player.Length; i++)
-        {
-            WeaponChanger wc_script = WeaponButtonController.GetComponent<WeaponChanger>();
-            Player_ pl_script = player[i].GetComponent<Player_>();
-            if (pl_script.step_move == current_move)
-            {
-                pl_script.set_CurWeapon();
-                mScript.WeaponIcon(pl_script);
-                wc_script.CheckWeapons();
-                break;
-            }
+        WeaponChanger wc_script = WeaponButtonController.GetComponent<WeaponChanger>();
 
-        }
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
+
+        pl_script.set_CurWeapon();
+        mScript.WeaponIcon(pl_script);
+        wc_script.CheckWeapons();
+
         UI.SetActive(true);
         shop.SetActive(false);
     }

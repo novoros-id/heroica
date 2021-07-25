@@ -22,5 +22,11 @@ public class WeaponScript : MonoBehaviour
     public void WeaponAction()
     {
 
+        // узнаем кто активный игрок
+        // узанем какое у него активное оружие
+        // используем его   
+        // поле использования оружие уничтожим
+
+
     }
 }

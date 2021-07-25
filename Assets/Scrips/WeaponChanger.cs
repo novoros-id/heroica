@@ -25,43 +25,24 @@ public class WeaponChanger : MonoBehaviour
     public void ChangeWeapon()
     {
         GameObject cam = GameObject.Find("Directional Light");
-           Main mScript = cam.GetComponent<Main>();
-            int current_move = mScript.get_current_move();
-            GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+        Main mScript = cam.GetComponent<Main>();
 
-            for (int i = 0; i < player.Length; i++)
-            {
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
+ 
+        pl_script.set_CurWeapon();
+        mScript.WeaponIcon(pl_script);
 
-              Player_ pl_script = player[i].GetComponent<Player_>();
-
-              if (pl_script.step_move == current_move)
-                {
-                   pl_script.set_CurWeapon();
-                   mScript.WeaponIcon(pl_script);
-                   break;
-                }
-
-           }
     }
     public void CheckWeapons()
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
 
-        for (int i = 0; i < player.Length; i++)
-        {
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
 
-            Player_ pl_script = player[i].GetComponent<Player_>();
-
-            if (pl_script.step_move == current_move)
-            {
-                Weapons = pl_script.axe + pl_script.baton + pl_script.scythe + pl_script.sword + pl_script.dagger + pl_script.bow;
-                break;
-            }
-
-        }
+        Weapons = pl_script.axe + pl_script.baton + pl_script.scythe + pl_script.sword + pl_script.dagger + pl_script.bow;
         
     }
 }

@@ -66,11 +66,14 @@ public class ClickOnCube : MonoBehaviour
 
     public void make_move()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
         list_steps.Clear(); // очистили  технический list куда можно идти
        
         clear_blue(); // убрали голубые
         cube_step = throw_a_bone(); // кинули кубик
-        Curent_player = return_curent_player(); // нашли текущего игркока
+        Curent_player = mScript.return_curent_player(); // нашли текущего игркока
         bool current_player_mode_battle = return_current_player_mode(Curent_player);
         bool current_player_mode_recovery = return_current_mode_recovery(Curent_player);
         if (Curent_player != null && current_player_mode_battle == false && current_player_mode_recovery == false) // режим хода
@@ -251,7 +254,8 @@ public class ClickOnCube : MonoBehaviour
         }
 
         //Debug.Log(max_name);
-        return 4;
+        // return 4;
+
         if (max_name == "gold")
         {
             //cube_step = 4;
@@ -286,30 +290,6 @@ public class ClickOnCube : MonoBehaviour
         // Debug.Log(cube_step);
     }
 
-    public GameObject return_curent_player()
-
-    {
-        player = GameObject.FindGameObjectsWithTag("Player");
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-
-        for (int i = 0; i < player.Length; i++)
-        {
-
-            Player_ pl_script = player[i].GetComponent<Player_>();
-
-            if (pl_script.step_move == current_move)
-            {
-
-                return player[i];
-
-            }
-
-        }
-
-        return null;
-    }
 
     public bool return_current_player_mode(GameObject cur_player)
     {

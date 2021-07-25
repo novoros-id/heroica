@@ -37,7 +37,14 @@ public class battle_mode : MonoBehaviour
         // сдвинем ход
 
         // сначала найдем текущего игрока
-        GameObject  Curent_player = return_curent_player(); // нашли текущего игркока
+
+
+        // GameObject  Curent_player = return_curent_player(); // нашли текущего игркока
+
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
         Player_ pl_script = Curent_player.GetComponent<Player_>();
 
 
@@ -82,8 +89,8 @@ public class battle_mode : MonoBehaviour
         }
         else if (Curent_player.name == "Mage")
         {
-            GameObject cam = GameObject.Find("Directional Light");
-            Main mScript = cam.GetComponent<Main>();
+            //GameObject cam = GameObject.Find("Directional Light");
+            //Main mScript = cam.GetComponent<Main>();
             mScript.set_current_move();
 
             //CubeButton = GameObject.Find("Button");
@@ -106,55 +113,19 @@ public class battle_mode : MonoBehaviour
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-        player = GameObject.FindGameObjectsWithTag("Player");
 
-        for (int i = 0; i < player.Length; i++)
-        {
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
 
-            Player_ pl_script = player[i].GetComponent<Player_>();
+        pl_script.set_previus_position(Curent_player.transform.position);
 
-            if (pl_script.step_move == current_move)
-            {
+        pl_script.startTime = Time.time;
+        pl_script.startMarker = Curent_player.transform;
+        pl_script.endMarker = new Vector3(position_blue.x, 0.7f, position_blue.z);
+        pl_script.journeyLength = Vector3.Distance(Curent_player.transform.position, new Vector3(position_blue.x, 0.7f, position_blue.z));
+        pl_script.move = true;
+        pl_script.SoundStep();
 
-                pl_script.set_previus_position(player[i].transform.position);
-
-                pl_script.startTime = Time.time;
-                pl_script.startMarker = player[i].transform;
-                pl_script.endMarker = new Vector3(position_blue.x, 0.7f, position_blue.z);
-                pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(position_blue.x, 0.7f, position_blue.z));
-                pl_script.move = true;
-                pl_script.SoundStep();
-                // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
-
-                break;
-            }
-
-        }
-    }
-    public GameObject return_curent_player()
-
-    {
-        player = GameObject.FindGameObjectsWithTag("Player");
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-
-        for (int i = 0; i < player.Length; i++)
-        {
-
-            Player_ pl_script = player[i].GetComponent<Player_>();
-
-            if (pl_script.step_move == current_move)
-            {
-
-                return player[i];
-
-            }
-
-        }
-
-        return null;
     }
 
     public void set_crystal_use()

@@ -151,30 +151,36 @@ public class Main : MonoBehaviour
         }
 
 
-        //string[] tag_item = new string[] { "Key", "Door", "Enemy_1","Enemy_2","Enemy_boss","item_blood"
-        //                                  , "item_luck", "item_speed", "item_power", "item_gold", "item_axe", "item_baton"
-        //                                  , "item_scythe", "item_bow", "item_dagger", "item_sword"};
-
-        //foreach (string tag in tag_item)
-        //{
-
-        //    GameObject[] item = GameObject.FindGameObjectsWithTag(tag);
-
-        //    for (int i = 0; i < item.Length; i++)
-        //    {
-        //        if (item[i].transform.position.x == player_position.x && item[i].transform.position.z == player_position.z)
-        //        {
-        //            return item[i];
-        //        }
-        //    }
-
-
-        //}
-
-
         return null;
 
     }
+
+
+    public GameObject return_curent_player()
+
+    {
+        GameObject[] player = GameObject.FindGameObjectsWithTag("Player");
+        //GameObject cam = GameObject.Find("Directional Light");
+        //Main mScript = cam.GetComponent<Main>();
+        int current_move = get_current_move();
+
+        for (int i = 0; i < player.Length; i++)
+        {
+
+            Player_ pl_script = player[i].GetComponent<Player_>();
+
+            if (pl_script.step_move == current_move)
+            {
+
+                return player[i];
+
+            }
+
+        }
+
+        return null;
+    }
+
     public void WeaponIcon(Player_ pl_script)
     {
         if (pl_script.CurWeapon == "baton")

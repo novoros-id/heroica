@@ -30,9 +30,9 @@ public class UIManagment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
+        //GameObject cam = GameObject.Find("Directional Light");
+        //Main mScript = cam.GetComponent<Main>();
+        //int current_move = mScript.get_current_move();
         //ClickOnCube cb = Cube.GetComponent<ClickOnCube>();
 
         if (Input.GetKey(KeyCode.Escape))

@@ -27,9 +27,13 @@ public class CrystalButton : MonoBehaviour
     public void CrystalAction()
     {
         list_steps.Clear(); // очистили  технический list куда можно идти
-        Curent_player = return_curent_player(); // нашли текущего игркока
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        //Curent_player = return_curent_player(); // нашли текущего игркока
         Player_ pl_script = Curent_player.GetComponent<Player_>();
-        Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
+        //Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
         CurFloorName = pl_script.Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
 
 
@@ -430,30 +434,6 @@ public class CrystalButton : MonoBehaviour
         }
     }
 
-    public GameObject return_curent_player()
-
-    {
-        player = GameObject.FindGameObjectsWithTag("Player");
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-
-        for (int i = 0; i < player.Length; i++)
-        {
-
-            Player_ pl_script = player[i].GetComponent<Player_>();
-
-            if (pl_script.step_move == current_move)
-            {
-
-                return player[i];
-
-            }
-
-        }
-
-        return null;
-    }
 
     public void clear_blue()
     {

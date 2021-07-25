@@ -25,35 +25,24 @@ public class Move : MonoBehaviour
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
-        int current_move = mScript.get_current_move();
-        player = GameObject.FindGameObjectsWithTag("Player");
 
-        for (int i = 0; i < player.Length; i++)
-        {
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
 
-            Player_ pl_script = player[i].GetComponent<Player_>();
 
-            if (pl_script.step_move == current_move)
-            {
+        pl_script.set_previus_position(Curent_player.transform.position);
 
-                pl_script.set_previus_position(player[i].transform.position);
+        pl_script.startTime = Time.time;
+        pl_script.startMarker = Curent_player.transform;
+        pl_script.endMarker = new Vector3(position_blue.x, 0.7f, position_blue.z);
+        pl_script.journeyLength = Vector3.Distance(Curent_player.transform.position, new Vector3(position_blue.x, 0.7f, position_blue.z));
+        pl_script.move = true;
+        pl_script.SoundStep();
+        // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
 
-                pl_script.startTime = Time.time;
-                pl_script.startMarker = player[i].transform;
-                pl_script.endMarker = new Vector3(position_blue.x, 0.7f, position_blue.z);
-                pl_script.journeyLength = Vector3.Distance(player[i].transform.position, new Vector3(position_blue.x, 0.7f, position_blue.z));
-                pl_script.move = true;
-                pl_script.SoundStep();
-                // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
+        ItemFromFloor(Curent_player, position_blue);
+        clear_blue();
 
-                ItemFromFloor(player[i], position_blue);
-                clear_blue();
-
-                //Debug.Log("a");
-                break;
-            }
-
-        }
     }
 
     public void clear_blue()
