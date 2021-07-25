@@ -172,7 +172,7 @@ public class ClickOnCube : MonoBehaviour
 
         Blue = GameObject.FindGameObjectsWithTag("Blue");
 
-        for (int b = 0; b < Blue.Length; b++)
+        for (int b = 0; b < Blue.Length;)
         {
 
             pl_script.set_previus_position(Curent_player.transform.position);
