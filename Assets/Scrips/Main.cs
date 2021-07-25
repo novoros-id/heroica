@@ -91,97 +91,8 @@ public class Main : MonoBehaviour
             if (pl_script.step_move == current_move)
             {
                 Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.6f, player[i].transform.position.z), Quaternion.identity);
-                if(pl_script.baton == 1)
-                {
-                    Weapon_Button.SetActive(true);
-                    Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon1;
-                    Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(49.2f, 109.8f);
-                }
-                if (pl_script.axe == 1)
-                {
-                    Weapon_Button.SetActive(true);
-                    Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon2;
-                    Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(77.4f, 127.2f);
-                }
-                if (pl_script.scythe == 1)
-                {
-                    Weapon_Button.SetActive(true);
-                    Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon3;
-                    Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(43, 103.8f);
-                }
-                if(pl_script.scythe == 0 && pl_script.axe == 0 && pl_script.baton == 0)
-                {
-                    Weapon_Button.SetActive(false);
-                    if(pl_script.comp == false)
-                    {
-                        shop_button.SetActive(true);
-                    }
-                    else
-                    {
-                        shop_button.SetActive(false);
-                    }
-                }
-                //cam_focus.transform.position = new Vector3(player[i].transform.position.x, 0, player[i].transform.position.z);
-
-                //text  myText;
-
-                if (pl_script.get_battle_mode() == true)
-                {
-
-                    if (lang == "ru")
-                    {
-                        add_text("Режим боя " + player[i].name + " нажмите на кубик и узнаете исход боя");
-                    }
-                    else if (lang == "en")
-                    {
-                        add_text("Battle Mode " + player[i].name + " click on the cube and find out the outcome of the battle");
-                    }
-                   
-
-                }
-                else if (pl_script.recovery_mode == true)
-                {
-                    if (lang == "ru")
-                    {
-                        add_text("Режим восстановления здоровья " + player[i].name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
-                    }
-                    else if (lang == "en")
-                    {
-                        add_text("Health Recovery Mode " + player[i].name + " click on the cube and you will be added as much health as you get points");
-                    }
-                }
-                else
-                {
-                    if (pl_script.comp == true)
-                    {
-                        if (lang == "ru")
-                        {
-                            add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем компьютер сам сделает ход");
-                        }
-                        else if (lang == "en")
-                        {
-                            add_text("Current move " + player[i].name + " click on the cube, then the computer will make its own move");
-                        } 
-                    }
-                    else
-                    {
-                        if (lang == "ru")
-                        {
-                            add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем нажмите на вращающееся поле");
-                        }
-                        else if (lang == "en")
-                        {
-                            add_text("Current move  " + player[i].name + " click on the cube, then click on the rotating field");
-                        }
-
-                    }
-                }
-
-                // text  Text_L;
-                //var l_Text = GameObject.Find("Text_L").GetComponent<Text>();
-                //l_Text.text = player[i].name + " жизней:" + pl_script.get_leaves();
-
-
+                WeaponIcon(pl_script);
+                ChangeText(pl_script, i);
                 break;
             }
 
@@ -263,5 +174,92 @@ public class Main : MonoBehaviour
 
         return null;
 
+    }
+    public void WeaponIcon(Player_ pl_script)
+    {
+        if (pl_script.baton == 1)
+        {
+            Weapon_Button.SetActive(true);
+            Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon1;
+            Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(49.2f, 109.8f);
+        }
+        if (pl_script.axe == 1)
+        {
+            Weapon_Button.SetActive(true);
+            Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon2;
+            Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(77.4f, 127.2f);
+        }
+        if (pl_script.scythe == 1)
+        {
+            Weapon_Button.SetActive(true);
+            Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon3;
+            Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(43, 103.8f);
+        }
+        if (pl_script.scythe == 0 && pl_script.axe == 0 && pl_script.baton == 0)
+        {
+            Weapon_Button.SetActive(false);
+            if (pl_script.comp == false)
+            {
+                shop_button.SetActive(true);
+            }
+            else
+            {
+                shop_button.SetActive(false);
+            }
+        }
+    }
+    public void ChangeText(Player_ pl_script, int i)
+    {
+        if (pl_script.get_battle_mode() == true)
+        {
+
+            if (lang == "ru")
+            {
+                add_text("Режим боя " + player[i].name + " нажмите на кубик и узнаете исход боя");
+            }
+            else if (lang == "en")
+            {
+                add_text("Battle Mode " + player[i].name + " click on the cube and find out the outcome of the battle");
+            }
+
+
+        }
+        else if (pl_script.recovery_mode == true)
+        {
+            if (lang == "ru")
+            {
+                add_text("Режим восстановления здоровья " + player[i].name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
+            }
+            else if (lang == "en")
+            {
+                add_text("Health Recovery Mode " + player[i].name + " click on the cube and you will be added as much health as you get points");
+            }
+        }
+        else
+        {
+            if (pl_script.comp == true)
+            {
+                if (lang == "ru")
+                {
+                    add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем компьютер сам сделает ход");
+                }
+                else if (lang == "en")
+                {
+                    add_text("Current move " + player[i].name + " click on the cube, then the computer will make its own move");
+                }
+            }
+            else
+            {
+                if (lang == "ru")
+                {
+                    add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем нажмите на вращающееся поле");
+                }
+                else if (lang == "en")
+                {
+                    add_text("Current move  " + player[i].name + " click on the cube, then click on the rotating field");
+                }
+
+            }
+        }
     }
 }
