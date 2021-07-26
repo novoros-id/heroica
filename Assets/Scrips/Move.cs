@@ -127,36 +127,42 @@ public class Move : MonoBehaviour
         {
             pl_script.add_item("axe", 1);
             Destroy(_items);
+            pl_script.set_CurWeapon();
             //mScript.set_current_move();
         }
         else if (_items.tag == "item_baton")
         {
             pl_script.add_item("baton", 1);
             Destroy(_items);
+            pl_script.set_CurWeapon();
             //mScript.set_current_move();
         }
         else if (_items.tag == "item_scythe")
         {
             pl_script.add_item("scythe", 1);
             Destroy(_items);
+            pl_script.set_CurWeapon();
             // mScript.set_current_move();
         }
         else if (_items.tag == "item_bow")
         {
             pl_script.add_item("bow", 1);
             Destroy(_items);
+            pl_script.set_CurWeapon();
             //mScript.set_current_move();
         }
         else if (_items.tag == "item_dagger")
         {
             pl_script.add_item("dagger", 1);
             Destroy(_items);
+            pl_script.set_CurWeapon();
             // mScript.set_current_move();
         }
         else if (_items.tag == "item_sword")
         {
             pl_script.add_item("sword", 1);
             Destroy(_items);
+            pl_script.set_CurWeapon();
             //mScript.set_current_move();
         }
         // -------------------------------------

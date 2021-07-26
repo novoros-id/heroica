@@ -18,6 +18,8 @@ public class Main : MonoBehaviour
     public bool Pc;
     public string lang = "en";
     public Text TextComment;
+
+    public WeaponChanger NextButton;
    
     public void Start()
     {
@@ -177,35 +179,40 @@ public class Main : MonoBehaviour
 
     public void WeaponIcon(Player_ pl_script)
     {
+        
+        
         if (pl_script.CurWeapon == "baton")
         {
             Weapon_Button.SetActive(true);
             Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon1;
             Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(49.2f, 109.8f);
+            NextButton.CheckWeapons();
         }
         if (pl_script.CurWeapon == "axe")
         {
             Weapon_Button.SetActive(true);
             Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon2;
             Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(77.4f, 127.2f);
+            NextButton.CheckWeapons();
         }
         if (pl_script.CurWeapon == "scythe")
         {
             Weapon_Button.SetActive(true);
             Weapon_Button.GetComponent<Image>().sprite = Weapon_Button.GetComponent<WeaponScript>().Weapon3;
             Weapon_Button.GetComponent<RectTransform>().sizeDelta = new Vector2(43, 103.8f);
+            NextButton.CheckWeapons();
         }
         if (pl_script.CurWeapon == "")
         {
             Weapon_Button.SetActive(false);
-            if (pl_script.comp == false)
-            {
-                shop_button.SetActive(true);
-            }
-            else
-            {
-                shop_button.SetActive(false);
-            }
+        }
+        if (pl_script.comp == false)
+        {
+            shop_button.SetActive(true);
+        }
+        else
+        {
+            shop_button.SetActive(false);
         }
     }
 

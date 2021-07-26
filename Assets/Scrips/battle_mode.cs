@@ -11,6 +11,8 @@ public class battle_mode : MonoBehaviour
     public GameObject[] player;
     public GameObject CubeButton;
 
+    public bool Weapon_use;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class battle_mode : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (crystal_use == false)
+        if (crystal_use == false && Weapon_use == false)
         {
             return;
 
@@ -83,11 +85,12 @@ public class battle_mode : MonoBehaviour
 
         }
 
-        if (Curent_player.name == "Knight")
+        if (Curent_player.name == "Knight" && crystal_use == true)
         {
-            move_player(transform.position);
+            Vector3 MovePlayerPosition = new Vector3(transform.position.x+0.4f,transform.position.y,transform.position.z);
+            move_player(MovePlayerPosition);
         }
-        else if (Curent_player.name == "Mage")
+        else if (Curent_player.name == "Mage" || (Curent_player.name == "Knight" && Weapon_use == true))
         {
             //GameObject cam = GameObject.Find("Directional Light");
             //Main mScript = cam.GetComponent<Main>();
@@ -131,5 +134,9 @@ public class battle_mode : MonoBehaviour
     public void set_crystal_use()
     {
         crystal_use = true;
+    }
+    public void set_weapon_use()
+    {
+        Weapon_use = true;
     }
 }

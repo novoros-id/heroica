@@ -17,6 +17,8 @@ public class WeaponScript : MonoBehaviour
 
     public GameObject sword;
 
+    public GameObject[] Blue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,7 @@ public class WeaponScript : MonoBehaviour
             }
 
             pl_script.play_sound_use_crystal();
+            clear_blue();
             // clear_blue();
 
             if (mScript.lang == "ru")
@@ -86,6 +89,7 @@ public class WeaponScript : MonoBehaviour
             }
 
             pl_script.play_sound_use_crystal();
+            clear_blue();
 
             if (mScript.lang == "ru")
             {
@@ -106,8 +110,9 @@ public class WeaponScript : MonoBehaviour
             }
 
             pl_script.play_sound_use_crystal();
+            clear_blue();
             // clear_blue();
-            pl_script.add_leaves(4);
+            pl_script.add_leaves(2);
 
             if (mScript.lang == "ru")
             {
@@ -396,7 +401,7 @@ public class WeaponScript : MonoBehaviour
     {
         GameObject clone = Instantiate(sword, new Vector3(floor_.transform.position.x - 0.4f, 1.4f, floor_.transform.position.z), Quaternion.identity);
         battle_mode m_Script = clone.GetComponent<battle_mode>();
-        m_Script.set_crystal_use();
+        m_Script.set_weapon_use();
     }
 
     bool available_floor_in_list(string name_floor)
@@ -412,6 +417,17 @@ public class WeaponScript : MonoBehaviour
         {
             // Debug.Log(name_floor + " in List true");
             return true;
+        }
+    }
+    public void clear_blue()
+    {
+        Blue = GameObject.FindGameObjectsWithTag("Blue");
+        //audiosrc.PlayOneShot(step);
+        for (int b = 0; b < Blue.Length; b++)
+        {
+            //audiosrc.PlayOneShot(step);
+            Destroy(Blue[b]);
+
         }
     }
 }
