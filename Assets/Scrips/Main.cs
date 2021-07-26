@@ -8,7 +8,7 @@ public class Main : MonoBehaviour
     public float pl_fl_x = 1.2f;
     public float pl_fl_z = 0.8f;
     private int current_move = 1;
-    public GameObject[] player;
+    //public GameObject[] player;
     public GameObject[] pr_hod;
     public GameObject selected1;
     public GameObject shop_button;
@@ -80,23 +80,17 @@ public class Main : MonoBehaviour
             Destroy(pr_hod[b]);
         }
 
-        player = GameObject.FindGameObjectsWithTag("Player");
-        cam_focus = GameObject.Find("CameraFocus");
 
-        for (int i = 0; i < player.Length; i++)
-        {
 
-            Player_ pl_script = player[i].GetComponent<Player_>();
+        GameObject player_ = return_curent_player();
 
-            if (pl_script.step_move == current_move)
-            {
-                Instantiate(selected1, new Vector3(player[i].transform.position.x, 1.6f, player[i].transform.position.z), Quaternion.identity);
-                WeaponIcon(pl_script);
-                ChangeText(pl_script, i);
-                break;
-            }
+        Player_ pl_script = player_.GetComponent<Player_>();
 
-        }
+    
+        Instantiate(selected1, new Vector3(player_.transform.position.x, 1.6f, player_.transform.position.z), Quaternion.identity);
+        WeaponIcon(pl_script);
+        ChangeText(pl_script, player_);
+   
     }
 
     public void add_text(string a_text)
@@ -214,18 +208,19 @@ public class Main : MonoBehaviour
             }
         }
     }
-    public void ChangeText(Player_ pl_script, int i)
+
+    public void ChangeText(Player_ pl_script, GameObject curPlayer)
     {
         if (pl_script.get_battle_mode() == true)
         {
 
             if (lang == "ru")
             {
-                add_text("Режим боя " + player[i].name + " нажмите на кубик и узнаете исход боя");
+                add_text("Режим боя " + curPlayer.name + " нажмите на кубик и узнаете исход боя");
             }
             else if (lang == "en")
             {
-                add_text("Battle Mode " + player[i].name + " click on the cube and find out the outcome of the battle");
+                add_text("Battle Mode " + curPlayer.name + " click on the cube and find out the outcome of the battle");
             }
 
 
@@ -234,11 +229,11 @@ public class Main : MonoBehaviour
         {
             if (lang == "ru")
             {
-                add_text("Режим восстановления здоровья " + player[i].name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
+                add_text("Режим восстановления здоровья " + curPlayer.name + " нажмите на кубик и будет добавлено столько здоровья, сколько выпало очков");
             }
             else if (lang == "en")
             {
-                add_text("Health Recovery Mode " + player[i].name + " click on the cube and you will be added as much health as you get points");
+                add_text("Health Recovery Mode " + curPlayer.name + " click on the cube and you will be added as much health as you get points");
             }
         }
         else
@@ -247,22 +242,22 @@ public class Main : MonoBehaviour
             {
                 if (lang == "ru")
                 {
-                    add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем компьютер сам сделает ход");
+                    add_text("Текущий ход " + curPlayer.name + " нажмите на кубик, затем компьютер сам сделает ход");
                 }
                 else if (lang == "en")
                 {
-                    add_text("Current move " + player[i].name + " click on the cube, then the computer will make its own move");
+                    add_text("Current move " + curPlayer.name + " click on the cube, then the computer will make its own move");
                 }
             }
             else
             {
                 if (lang == "ru")
                 {
-                    add_text("Текущий ход " + player[i].name + " нажмите на кубик, затем нажмите на вращающееся поле");
+                    add_text("Текущий ход " + curPlayer.name + " нажмите на кубик, затем нажмите на вращающееся поле");
                 }
                 else if (lang == "en")
                 {
-                    add_text("Current move  " + player[i].name + " click on the cube, then click on the rotating field");
+                    add_text("Current move  " + curPlayer.name + " click on the cube, then click on the rotating field");
                 }
 
             }
