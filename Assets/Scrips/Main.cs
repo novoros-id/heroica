@@ -16,7 +16,7 @@ public class Main : MonoBehaviour
 
     public GameObject cam_focus;
     public bool Pc;
-    public string lang = "en";
+    public string lang;
     public Text TextComment;
 
     public WeaponChanger NextButton;

@@ -37,6 +37,13 @@ public class ChangeMod : MonoBehaviour
         {
             //AndroidUI.SetActive(false);
         }
+
+
+        Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
+        GameObject Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
+
+        mScript.WeaponIcon(pl_script);
     }
 
     public void ChoozeKnight()

@@ -47,6 +47,12 @@ public class WeaponScript : MonoBehaviour
         Curent_player = mScript.return_curent_player(); // нашли текущего игркока
         //Curent_player = return_curent_player(); // нашли текущего игркока
         Player_ pl_script = Curent_player.GetComponent<Player_>();
+
+        if (pl_script.comp == true)
+        {
+            return;
+        }
+
         //Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
         CurFloorName = pl_script.Return_floor_player(new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z));
 
@@ -75,7 +81,7 @@ public class WeaponScript : MonoBehaviour
             }
 
             //CubeButton.SetActive(true);
-            // pl_script.show_the_cube();
+            pl_script.show_the_cube();
             WeaponlButton_.SetActive(false);
 
         }
