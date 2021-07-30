@@ -59,10 +59,14 @@ public class Player_ : MonoBehaviour
     public GameObject CrystalButton_;
     public GameObject CrossedSwords;
     public string CurWeapon;
-   
-   
 
 
+
+    private void Awake()
+    {
+        CrystalButton_ = GameObject.Find("CrystalButton");
+        CubeButton = GameObject.Find("CubeButton");
+    }
 
     // Start is called before the first frame update
     void Start()

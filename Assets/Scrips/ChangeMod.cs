@@ -28,6 +28,12 @@ public class ChangeMod : MonoBehaviour
     public void start()
     {
         //AndroidUI.SetActive(false);
+        Camera = GameObject.Find("Camera").GetComponent<Zoom>();
+        Knight = GameObject.Find("Knight");
+        Barbarian = GameObject.Find("Barbarian");
+        Mage = GameObject.Find("Mage");
+        Priest = GameObject.Find("Priest");
+        _main = GameObject.Find("Directional Light").GetComponent<Main>();
         Camera.go = 1;
         Camera.startTime = Time.time;
         Camera.journeyLength = Vector3.Distance(Camera.startMarker.position,Camera.endMarker.position);

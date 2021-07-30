@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
@@ -20,12 +21,25 @@ public class Main : MonoBehaviour
     public Text TextComment;
 
     public WeaponChanger NextButton;
-   
+
+    private void Awake()
+    {
+        if(SceneManager.GetActiveScene().name != "Start")
+        {
+            TextComment = GameObject.Find("Text_").GetComponent<Text>();
+            shop_button = GameObject.Find("shop_button");
+            Weapon_Button = GameObject.Find("Weapon_Button");
+            NextButton = GameObject.Find("WeaponChangerController").GetComponent<WeaponChanger>();
+        }
+        
+    }
     public void Start()
     {
-        
-        move_priznak_step();
-
+        if (SceneManager.GetActiveScene().name != "Start")
+        {
+            move_priznak_step();
+        }
+            
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
             Pc = true;
@@ -41,9 +55,10 @@ public class Main : MonoBehaviour
         }
         else
         {
-            lang = "en";
+           lang = "en";
         }
-        //shop_button.SetActive(false);
+        //shop_button.SetActive(false); 
+        
     }
 
 

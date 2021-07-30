@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class CrystalCount : MonoBehaviour
 {
     Text Count;
-    public ClickOnCube cb;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +16,8 @@ public class CrystalCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Count.text = cb.count_magic_crystall.ToString();
+        GameObject cb = GameObject.Find("Cube");
+        ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
+        Count.text = cbScript.count_magic_crystall.ToString();
     }
 }

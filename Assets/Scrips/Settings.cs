@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
 {
@@ -52,10 +53,12 @@ public class Settings : MonoBehaviour
     }
     public void ResetCrystalCount()
     {
-        GameObject cb = GameObject.Find("Cube");
-        ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
-
-        cbScript.count_magic_crystall = 0;
+        if (SceneManager.GetActiveScene().name != "Start")
+        {
+            GameObject cb = GameObject.Find("Cube");
+            ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
+            cbScript.count_magic_crystall = 0;
+        }  
         PlayerPrefs.SetInt("count_magic_crystall", 0);
         PlayerPrefs.Save();
     }

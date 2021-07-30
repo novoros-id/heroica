@@ -37,11 +37,18 @@ public class ClickOnCube : MonoBehaviour
     public Text TextEndGame;
     public GameObject CrystalButton_;
 
-    
 
+    private void Awake()
+    {
+        finalUI = GameObject.Find("EndGame");
+        UI = GameObject.Find("UI");
+        TextEndGame = GameObject.Find("TextEnd").GetComponent<Text>();
+        CrystalButton_ = GameObject.Find("CrystalButton");
+    }
 
     void Start()
     {
+        
         audiosrc = GetComponent<AudioSource>();
         CrystalButton_.SetActive(false);
 
@@ -80,7 +87,7 @@ public class ClickOnCube : MonoBehaviour
         {
 
             
-            GameObject.Find("Button").SetActive(false);
+            GameObject.Find("CubeButton").SetActive(false);
 
             if(cube_step == 4)
             {
