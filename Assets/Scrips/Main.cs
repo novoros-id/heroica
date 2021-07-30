@@ -34,6 +34,15 @@ public class Main : MonoBehaviour
         {
             Pc = false;
         }
+
+        if (PlayerPrefs.HasKey("lang"))
+        {
+            lang = PlayerPrefs.GetString("lang");
+        }
+        else
+        {
+            lang = "en";
+        }
         //shop_button.SetActive(false);
     }
 
@@ -42,7 +51,21 @@ public class Main : MonoBehaviour
     /// управление ходом
     /// </summary>
    
-    
+    public void SetLang()
+    {
+        if(lang == "ru")
+        {
+            lang = "en";
+            PlayerPrefs.SetString("lang", lang);
+            PlayerPrefs.Save();
+        }
+        else if (lang == "en")
+        {
+            lang = "ru";
+            PlayerPrefs.SetString("lang", lang);
+            PlayerPrefs.Save();
+        }
+    }
 
     public int get_current_move()
     {
