@@ -35,10 +35,7 @@ public class Main : MonoBehaviour
     }
     public void Start()
     {
-        if (SceneManager.GetActiveScene().name != "Start")
-        {
-            move_priznak_step();
-        }
+     
             
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -57,8 +54,13 @@ public class Main : MonoBehaviour
         {
            lang = "en";
         }
-        //shop_button.SetActive(false); 
-        
+        //shop_button.SetActive(false);
+
+        //if (SceneManager.GetActiveScene().name != "Start")
+        //{
+        //    move_priznak_step();
+        //}
+
     }
 
 

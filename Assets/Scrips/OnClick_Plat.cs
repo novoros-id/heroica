@@ -33,7 +33,7 @@ public class OnClick_Plat : MonoBehaviour
             {
                 Move mScript = Blue[i].GetComponent<Move>();
                 mScript.move_player(Blue[i].transform.position);
-                Debug.Log("move player");
+                // Debug.Log("move player");
             }
         }
 

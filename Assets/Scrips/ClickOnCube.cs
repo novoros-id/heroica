@@ -729,6 +729,8 @@ public class ClickOnCube : MonoBehaviour
                         if (cube_s == 4) // победа
                         {
                             audiosrc.PlayOneShot(fight);
+                            GameObject Swords = GameObject.Find("crossed sword(Clone)");
+                            Destroy(Swords);
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
@@ -745,8 +747,7 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Victory !!!");
                             }
-                            GameObject Swords = GameObject.Find("crossed sword(Clone)");
-                            Destroy(Swords);
+                            
 
                             
                         }
@@ -774,7 +775,7 @@ public class ClickOnCube : MonoBehaviour
                             
 
                         }
-                        else if (cube_s == 2)
+                        else if (cube_s == 2) // проигрышь, шаг назад 
                         {
                             audiosrc.PlayOneShot(sound_proigr_battle);
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
@@ -818,7 +819,7 @@ public class ClickOnCube : MonoBehaviour
 
 
                         }
-                        else if (cube_s == 1)
+                        else if (cube_s == 1) // победа и шаг назад
                         {
                             audiosrc.PlayOneShot(fight);
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");

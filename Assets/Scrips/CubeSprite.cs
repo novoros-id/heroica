@@ -9,18 +9,20 @@ public class CubeSprite : MonoBehaviour
     public Sprite two;
     public Sprite three;
     public Sprite four;
-
+    GameObject cb;
+    ClickOnCube cbScript;
 
     void Start()
     {
-        
+        cb = GameObject.Find("Cube");
+        cbScript = cb.GetComponent<ClickOnCube>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject cb = GameObject.Find("Cube");
-        ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
+        //GameObject cb = GameObject.Find("Cube");
+        //ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
 
         if (cbScript.cube_step == 1)
         {

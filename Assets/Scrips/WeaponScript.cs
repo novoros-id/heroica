@@ -14,6 +14,7 @@ public class WeaponScript : MonoBehaviour
     public string CurFloorName;
 
     public GameObject WeaponlButton_;
+    public GameObject CrystallButton_;
 
     public GameObject sword;
 
@@ -24,6 +25,7 @@ public class WeaponScript : MonoBehaviour
     {
 
         WeaponlButton_ = GameObject.Find("Weapon_Button");
+        CrystallButton_ = GameObject.Find("CrystalButton");
 
     }
 
@@ -83,6 +85,7 @@ public class WeaponScript : MonoBehaviour
             //CubeButton.SetActive(true);
             pl_script.show_the_cube();
             WeaponlButton_.SetActive(false);
+            CrystallButton_.SetActive(false);
 
         }
         else if (cur_Weapon == "baton")
@@ -107,6 +110,7 @@ public class WeaponScript : MonoBehaviour
             }
 
             WeaponlButton_.SetActive(false);
+            CrystallButton_.SetActive(false);
         }
         else if (cur_Weapon == "scythe")
         {
@@ -132,6 +136,7 @@ public class WeaponScript : MonoBehaviour
             //CubeButton.SetActive(true);
             pl_script.show_the_cube();
             WeaponlButton_.SetActive(false);
+            CrystallButton_.SetActive(false);
         }
 
 

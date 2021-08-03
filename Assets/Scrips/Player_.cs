@@ -179,7 +179,7 @@ public class Player_ : MonoBehaviour
                 if (get_battle_mode() == true)
                 {
                     //switch_battle_mode();
-                    mScript.move_priznak_step();
+                    // mScript.move_priznak_step();
                     //audiosrc.PlayOneShot(Battle_mode);
                     if (switch_battle_move == true)
                     {

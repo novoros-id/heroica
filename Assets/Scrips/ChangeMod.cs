@@ -62,6 +62,11 @@ public class ChangeMod : MonoBehaviour
         Player_ pl_script = Curent_player.GetComponent<Player_>();
 
         mScript.WeaponIcon(pl_script);
+
+        //if (SceneManager.GetActiveScene().name != "Start")
+        //{
+        mScript.move_priznak_step();
+        // }
     }
 
     public void ChoozeKnight()

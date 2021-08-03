@@ -19,10 +19,7 @@ public class ClickOnFrog : MonoBehaviour
         //Destroy(this.gameObject);
     }
 
-    void Update()
-    {
-        
-    }
+ 
 
     void check_item()
     {

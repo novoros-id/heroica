@@ -16,11 +16,6 @@ public class EndGame : MonoBehaviour
         EndGameMenu.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void EndGame1()
     {
