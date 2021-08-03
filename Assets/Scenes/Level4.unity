@@ -24016,6 +24016,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 15159201666699251, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: Field
+      objectReference: {fileID: 0}
+    - target: {fileID: 254352291548647722, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: Survival Mode
+      objectReference: {fileID: 0}
     - target: {fileID: 2110596834715270598, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Pivot.x
@@ -24131,6 +24141,11 @@ PrefabInstance:
       propertyPath: pl
       value: 
       objectReference: {fileID: 1828804667}
+    - target: {fileID: 2110596835004560566, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Name
+      value: DescriptionWeapon1
+      objectReference: {fileID: 0}
     - target: {fileID: 2110596835141988797, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -24191,6 +24206,16 @@ PrefabInstance:
       propertyPath: Barbarian
       value: 
       objectReference: {fileID: 1480541975}
+    - target: {fileID: 2110596836215340824, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Name
+      value: DescriptionWeapon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110596836632593384, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Name
+      value: DescriptionWeapon3
+      objectReference: {fileID: 0}
     - target: {fileID: 2110596836770386945, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: pl

@@ -19,13 +19,10 @@ public class ChangeMod : MonoBehaviour
     public Main _main;
     public GameObject AndroidUI;
     public GameObject shop;
+    public GameObject Information;
     // Start is called before the first frame update
-    void Start()
-    {
-        other.SetActive(false);
-        shop.SetActive(false);
-    }
-    public void start()
+
+    private void Awake()
     {
         //AndroidUI.SetActive(false);
         Camera = GameObject.Find("Camera").GetComponent<Zoom>();
@@ -34,6 +31,21 @@ public class ChangeMod : MonoBehaviour
         Mage = GameObject.Find("Mage");
         Priest = GameObject.Find("Priest");
         _main = GameObject.Find("Directional Light").GetComponent<Main>();
+    }
+    void Start()
+    {
+        other.SetActive(false);
+        shop.SetActive(false);
+        Chooze.SetActive(false);
+    }
+    
+    public void ChoozeOn()
+    {
+        Chooze.SetActive(true);
+        Information.SetActive(false);
+    }
+    public void start()
+    {
         Camera.go = 1;
         Camera.startTime = Time.time;
         Camera.journeyLength = Vector3.Distance(Camera.startMarker.position,Camera.endMarker.position);

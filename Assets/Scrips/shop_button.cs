@@ -15,7 +15,6 @@ public class shop_button : MonoBehaviour
     public GameObject weaponButtonsSellScythe;
     public GameObject Current_player;
     public GameObject WeaponButtonController;
-
     // Update is called once per frame
     void Start()
     {
@@ -37,6 +36,7 @@ public class shop_button : MonoBehaviour
         UI.SetActive(false);
         shop.SetActive(true);
         CheckButtons();
+        ChangeDesText();
     }
     public void ShopOff()
     {
@@ -126,5 +126,25 @@ public class shop_button : MonoBehaviour
         }
 
         coins.text = Current_player.GetComponent<Player_>().gold.ToString();
+    }
+    public void ChangeDesText()
+    {
+        Text BatonText = GameObject.Find("DescriptionWeapon1").GetComponent<Text>();
+        Text AxeText = GameObject.Find("DescriptionWeapon2").GetComponent<Text>();
+        Text ScytheText = GameObject.Find("DescriptionWeapon3").GetComponent<Text>();
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        if(mScript.lang == "ru")
+        {
+            BatonText.text = "Победа над монстром на расстоянии до 3 полей, даже при повороте за угол";
+            AxeText.text = "Победа над ВСЕМИ соседними монстрами";
+            ScytheText.text = "Восстанавливает 2 кубика здоровья";
+        }
+        else if (mScript.lang == "en")
+        {
+            BatonText.text = "Defeat the monster at a distance of up to 3 fields, even when turning a corner";
+            AxeText.text = "Defeat ALL the neighboring monsters";
+            ScytheText.text = "Restores 2 health cubes";
+        }
     }
 }
