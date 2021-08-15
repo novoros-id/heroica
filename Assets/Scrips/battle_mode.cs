@@ -19,12 +19,6 @@ public class battle_mode : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnMouseDown()
     {
         if (crystal_use == false && Weapon_use == false)

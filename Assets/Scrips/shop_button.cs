@@ -15,22 +15,18 @@ public class shop_button : MonoBehaviour
     public GameObject weaponButtonsSellScythe;
     public GameObject Current_player;
     public GameObject WeaponButtonController;
+    public Main mScript;
     // Update is called once per frame
     void Start()
     {
         shop.SetActive(false);
         //Debug.Log("we");
-        
-    }
-    void Update()
-    {
-        GameObject cam = GameObject.Find("Directional Light");
-        Main mScript = cam.GetComponent<Main>();
 
-
-        Current_player = mScript.return_curent_player(); // нашли текущего игркока  
+        //GameObject cam = GameObject.Find("Directional Light");
+        //Main mScript = cam.GetComponent<Main>();
 
     }
+
     public void ShopOn()
     {
         UI.SetActive(false);
@@ -56,42 +52,77 @@ public class shop_button : MonoBehaviour
     }
     public void SellBaton()
     {
+
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока  
+
         Current_player.GetComponent<Player_>().gold += 2;
         Current_player.GetComponent<Player_>().baton = 0;
         CheckButtons();
     }
+
     public void SellAxe()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока
+
         Current_player.GetComponent<Player_>().gold += 2;
         Current_player.GetComponent<Player_>().axe = 0;
         CheckButtons();
     }
     public void SellScythe()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока
+
         Current_player.GetComponent<Player_>().gold += 2;
         Current_player.GetComponent<Player_>().scythe = 0;
         CheckButtons();
     }
     public void BuyBaton()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока
+
         Current_player.GetComponent<Player_>().gold -= 3;
         Current_player.GetComponent<Player_>().baton = 1;
         CheckButtons();
     }
     public void BuyAxe()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока
+
         Current_player.GetComponent<Player_>().gold -= 3;
         Current_player.GetComponent<Player_>().axe = 1;
         CheckButtons();
     }
     public void BuyScythe()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока
+
         Current_player.GetComponent<Player_>().gold -= 3;
         Current_player.GetComponent<Player_>().scythe = 1;
         CheckButtons();
     }
     public void CheckButtons()
     {
+
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        Current_player = mScript.return_curent_player(); // нашли текущего игркока
+
         if (Current_player.GetComponent<Player_>().gold < 3)
         {
             weaponButtonsBuy.SetActive(false);
