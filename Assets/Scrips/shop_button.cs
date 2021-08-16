@@ -9,7 +9,9 @@ public class shop_button : MonoBehaviour
     public GameObject UI;
     public GameObject shop;
     public Text coins;
-    public GameObject weaponButtonsBuy;
+    public GameObject weaponButtonsBuyBaton;
+    public GameObject weaponButtonsBuyAxe;
+    public GameObject weaponButtonsBuyScythe;
     public GameObject weaponButtonsSellBaton;
     public GameObject weaponButtonsSellAxe;
     public GameObject weaponButtonsSellScythe;
@@ -125,15 +127,20 @@ public class shop_button : MonoBehaviour
 
         if (Current_player.GetComponent<Player_>().gold < 3)
         {
-            weaponButtonsBuy.SetActive(false);
+            weaponButtonsBuyBaton.SetActive(false);
+            weaponButtonsBuyAxe.SetActive(false);
+            weaponButtonsBuyScythe.SetActive(false);
         }
         else
         {
-            weaponButtonsBuy.SetActive(true);
+            weaponButtonsBuyBaton.SetActive(true);
+            weaponButtonsBuyAxe.SetActive(true);
+            weaponButtonsBuyScythe.SetActive(true);
         }
         if (Current_player.GetComponent<Player_>().baton == 1)
         {
             weaponButtonsSellBaton.SetActive(true);
+            weaponButtonsBuyBaton.SetActive(false);
         }
         else
         {
@@ -142,6 +149,7 @@ public class shop_button : MonoBehaviour
         if (Current_player.GetComponent<Player_>().axe == 1)
         {
             weaponButtonsSellAxe.SetActive(true);
+            weaponButtonsBuyAxe.SetActive(false);
         }
         else
         {
@@ -150,6 +158,7 @@ public class shop_button : MonoBehaviour
         if (Current_player.GetComponent<Player_>().scythe == 1)
         {
             weaponButtonsSellScythe.SetActive(true);
+            weaponButtonsBuyScythe.SetActive(false);
         }
         else
         {
