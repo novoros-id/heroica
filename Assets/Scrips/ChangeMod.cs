@@ -20,6 +20,24 @@ public class ChangeMod : MonoBehaviour
     public GameObject AndroidUI;
     public GameObject shop;
     public GameObject Information;
+
+    public Text level_Description;
+    public Text level_Description_ru;
+
+    public GameObject KnightImage;
+    public GameObject BarbarianImage;
+    public GameObject MageImage;
+    public GameObject PriestImage;
+
+    public GameObject KnightIcon;
+    public GameObject BarbarianIcon;
+    public GameObject MageIcon;
+    public GameObject PriestIcon;
+
+    private string lang;
+
+    private bool solo_level;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -31,9 +49,62 @@ public class ChangeMod : MonoBehaviour
         Mage = GameObject.Find("Mage");
         Priest = GameObject.Find("Priest");
         _main = GameObject.Find("Directional Light").GetComponent<Main>();
+
+        solo_level = _main.solo_player;
+
+
+        if (PlayerPrefs.HasKey("lang"))
+        {
+             lang = PlayerPrefs.GetString("lang");
+        }
+        else
+        {
+             lang = "en";
+        }
+
+        if (lang == "ru")
+        {
+            level_Description.enabled = false;
+            level_Description_ru.enabled = true;
+        }
+        else
+        {
+            level_Description.enabled = true;
+            level_Description_ru.enabled = false;
+        }
+
+        if (_main.Knight_aviable == false) {
+
+            KnightImage.SetActive(false);
+            KnightIcon.SetActive(false);
+        }
+
+        if (_main.Barbarian_aviable == false)
+        {
+
+            BarbarianImage.SetActive(false);
+            BarbarianIcon.SetActive(false);
+
+        }
+
+        if (_main.Mage_aviable == false)
+        {
+
+            MageImage.SetActive(false);
+            MageIcon.SetActive(false);
+        }
+
+        if (_main.Priest_aviable == false)
+        {
+
+            PriestImage.SetActive(false);
+            PriestIcon.SetActive(false);
+        }
+
     }
     void Start()
     {
+
         other.SetActive(false);
         shop.SetActive(false);
         Chooze.SetActive(false);
@@ -87,7 +158,12 @@ public class ChangeMod : MonoBehaviour
             pl_script.comp = false;
             Knightext.text = "Player";
         }
-        else
+        else if (pl_script.comp == true && solo_level)
+        {
+
+
+        }
+        else if (pl_script.comp == false)
         {
             pl_script.comp = true;
             Knightext.text = "Computer";

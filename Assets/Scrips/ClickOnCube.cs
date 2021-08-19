@@ -89,7 +89,7 @@ public class ClickOnCube : MonoBehaviour
             
             GameObject.Find("CubeButton").SetActive(false);
 
-            if(cube_step == 4)
+            if(cube_step == 4 && mScript.Crystal_aviable == true)
             {
                 CrystalButton_.SetActive(true);
             }

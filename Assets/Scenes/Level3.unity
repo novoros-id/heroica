@@ -4297,9 +4297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace4ac81d14de664ba770912f4656d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: {fileID: 0}
   pl: {fileID: 1874545706}
   key: {fileID: 123047307}
   ExitGameButton: {fileID: 2051101868}
+  cross: {fileID: 0}
 --- !u!222 &527853879
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5908,9 +5910,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace4ac81d14de664ba770912f4656d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: {fileID: 0}
   pl: {fileID: 1480541977}
   key: {fileID: 678672437}
   ExitGameButton: {fileID: 2051101868}
+  cross: {fileID: 0}
 --- !u!222 &702116754
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6534,6 +6538,18 @@ MonoBehaviour:
   other: {fileID: 2039899536}
   _main: {fileID: 1628689482}
   AndroidUI: {fileID: 1506046798}
+  shop: {fileID: 0}
+  Information: {fileID: 0}
+  level_Description: {fileID: 0}
+  level_Description_ru: {fileID: 0}
+  KnightImage: {fileID: 0}
+  BarbarianImage: {fileID: 0}
+  MageImage: {fileID: 0}
+  PriestImage: {fileID: 0}
+  KnightIcon: {fileID: 0}
+  BarbarianIcon: {fileID: 0}
+  MageIcon: {fileID: 0}
+  PriestIcon: {fileID: 0}
 --- !u!224 &822433295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9047,9 +9063,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace4ac81d14de664ba770912f4656d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: {fileID: 0}
   pl: {fileID: 901709997}
   key: {fileID: 112579211}
   ExitGameButton: {fileID: 2051101868}
+  cross: {fileID: 0}
 --- !u!222 &1125184304
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11458,7 +11476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf3399138d0e8540a6ef252129f20de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cb: {fileID: 32192468}
   one: {fileID: 21300000, guid: d12764a5c996ec543baaacfdae7953ae, type: 3}
   two: {fileID: 21300000, guid: d12764a5c996ec543baaacfdae7953ae, type: 3}
   three: {fileID: 21300000, guid: 10b69a0d98a558d4fb180ad058d6f759, type: 3}
@@ -11652,6 +11669,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Mage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Knight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Priest
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Barbarian
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Mage_bool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: cam_focus
       value: 
       objectReference: {fileID: 0}
@@ -11669,12 +11711,47 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Knight_bool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Priest_bool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: TextComment
       value: 
       objectReference: {fileID: 1086842349}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Mage_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: current_move
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Barbarian_bool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Knight_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Priest_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Barbarian_aviable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661641, guid: c0151c24d3bda94409901719cdd53349,
@@ -14579,9 +14656,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace4ac81d14de664ba770912f4656d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: {fileID: 0}
   pl: {fileID: 1828804667}
   key: {fileID: 827852587}
   ExitGameButton: {fileID: 2051101868}
+  cross: {fileID: 0}
 --- !u!224 &1974288134
 RectTransform:
   m_ObjectHideFlags: 0

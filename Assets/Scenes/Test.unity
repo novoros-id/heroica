@@ -2152,6 +2152,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1566371702}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &311279196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2110596835482995031, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1566371702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &311911430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6948,6 +6954,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebd9cd964fb2be45884d42fc05d453a, type: 3}
+--- !u!1 &997620632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2110596834743842568, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1566371702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1006618668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7417,6 +7429,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebd9cd964fb2be45884d42fc05d453a, type: 3}
+--- !u!1 &1081404558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2110596835760314378, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1566371702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1084313962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,6 +10289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon3
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188755942254725623, guid: 3228eff52351c8d46ae5285576372387,
+        type: 3}
+      propertyPath: step_move
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3188755942254725623, guid: 3228eff52351c8d46ae5285576372387,
         type: 3}
@@ -16355,6 +16378,26 @@ PrefabInstance:
       propertyPath: pl
       value: 
       objectReference: {fileID: 8238084771568609244}
+    - target: {fileID: 2110596835997395769, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: MageIcon
+      value: 
+      objectReference: {fileID: 311279196}
+    - target: {fileID: 2110596835997395769, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: KnightIcon
+      value: 
+      objectReference: {fileID: 1625334513}
+    - target: {fileID: 2110596835997395769, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: PriestIcon
+      value: 
+      objectReference: {fileID: 1081404558}
+    - target: {fileID: 2110596835997395769, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: BarbarianIcon
+      value: 
+      objectReference: {fileID: 997620632}
     - target: {fileID: 2110596836215340824, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Name
@@ -16370,6 +16413,11 @@ PrefabInstance:
       propertyPath: pl
       value: 
       objectReference: {fileID: 5457933342595412841}
+    - target: {fileID: 6676010173899911680, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a6c7e676ad1704ab38e30a8cc8af06, type: 3}
 --- !u!1 &1566645975 stripped
@@ -16804,6 +16852,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebd9cd964fb2be45884d42fc05d453a, type: 3}
+--- !u!1 &1625334513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2110596836312217919, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1566371702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1637498263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20203,6 +20257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419103786371129406, guid: 90241f7b125f08b4298e938512cf55fa,
         type: 3}
+      propertyPath: step_move
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5419103786371129406, guid: 90241f7b125f08b4298e938512cf55fa,
+        type: 3}
       propertyPath: CubeButton
       value: 
       objectReference: {fileID: 0}
@@ -20663,6 +20722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3554979612993357071, guid: 6f07c13e121fa944e8eb97846c7c72a6,
         type: 3}
+      propertyPath: step_move
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554979612993357071, guid: 6f07c13e121fa944e8eb97846c7c72a6,
+        type: 3}
       propertyPath: CubeButton
       value: 
       objectReference: {fileID: 0}
@@ -20833,6 +20897,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Mage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Knight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Priest
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Barbarian
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Mage_bool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: selected1
       value: 
       objectReference: {fileID: 6789674371695938401, guid: 17f309479e10c41e4848b664d7371cb9,
@@ -20850,6 +20939,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Knight_bool
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Priest_bool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: TextComment
       value: 
       objectReference: {fileID: 0}
@@ -20860,6 +20959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Mage_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: current_move
       value: 1
       objectReference: {fileID: 0}
@@ -20867,6 +20971,26 @@ PrefabInstance:
         type: 3}
       propertyPath: Weapon_Button
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Barbarian_bool
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Knight_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Priest_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Barbarian_aviable
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661641, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
@@ -21222,6 +21346,11 @@ PrefabInstance:
         type: 3}
       propertyPath: weapon3
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024423587589989349, guid: 0d80f15e53974b744a26b4390e63385a,
+        type: 3}
+      propertyPath: step_move
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1024423587589989349, guid: 0d80f15e53974b744a26b4390e63385a,
         type: 3}

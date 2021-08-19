@@ -49,7 +49,7 @@ public class Player_ : MonoBehaviour
     // private int count_key = 0;
 
 
-    static AudioSource audiosrc;
+    private AudioSource audiosrc;
     public AudioClip open;
     public AudioClip step;
     public AudioClip Battle_mode;
@@ -66,13 +66,14 @@ public class Player_ : MonoBehaviour
     {
         CrystalButton_ = GameObject.Find("CrystalButton");
         CubeButton = GameObject.Find("CubeButton");
+        audiosrc = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
 
     {
-        audiosrc = GetComponent<AudioSource>();
+       // audiosrc = GetComponent<AudioSource>();
         set_CurWeapon();
     }
 

@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
-    public float pl_fl_x = 1.2f;
-    public float pl_fl_z = 0.8f;
     private int current_move = 1;
     //public GameObject[] player;
     public GameObject[] pr_hod;
@@ -19,6 +17,20 @@ public class Main : MonoBehaviour
     public bool Pc;
     public string lang;
     public Text TextComment;
+
+    public int max_player;
+
+    // настройки игры
+    public bool Knight_aviable;
+    public bool Barbarian_aviable;
+    public bool Mage_aviable;
+    public bool Priest_aviable;
+    
+    public bool Shop_aviable;
+    public bool Crystal_aviable;
+
+    public bool solo_player;
+    public bool survival;
 
     public WeaponChanger NextButton;
 
@@ -36,7 +48,7 @@ public class Main : MonoBehaviour
     public void Start()
     {
      
-            
+        // Определим платформу   
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
             Pc = true;
@@ -46,6 +58,7 @@ public class Main : MonoBehaviour
             Pc = false;
         }
 
+        // Получим язык 
         if (PlayerPrefs.HasKey("lang"))
         {
             lang = PlayerPrefs.GetString("lang");
@@ -54,7 +67,11 @@ public class Main : MonoBehaviour
         {
            lang = "en";
         }
-        //shop_button.SetActive(false);
+
+        // Установим видимость выбора игроков
+
+        set_player_aviable();
+
 
         //if (SceneManager.GetActiveScene().name != "Start")
         //{
@@ -63,11 +80,71 @@ public class Main : MonoBehaviour
 
     }
 
+    public void set_player_aviable()
+    {
+        int step_move = 0;
+        max_player = 0;
+        GameObject Knight_ = GameObject.Find("Knight");
+
+        if (Knight_aviable == false)
+        {
+            Knight_.SetActive(false);
+
+        }
+        else if (Knight_aviable == true)
+        {
+            Player_ pl_script_knight = Knight_.GetComponent<Player_>();
+            step_move += 1;
+            pl_script_knight.step_move = step_move;
+            max_player += 1;
+        }
+
+        GameObject Barbarian_ = GameObject.Find("Barbarian");
+        if (Barbarian_aviable == false)
+        {
+            Barbarian_.SetActive(false);
+        }
+        else if (Barbarian_aviable == true)
+        {
+            Player_ pl_script_Barbarian = Barbarian_.GetComponent<Player_>();
+            step_move += 1;
+            pl_script_Barbarian.step_move = step_move;
+            max_player += 1;
+        }
+
+        GameObject Mage_ = GameObject.Find("Mage");
+        if (Mage_aviable == false)
+        {
+            Mage_.SetActive(false);
+        }
+        else if (Mage_aviable == true)
+        {
+            Player_ pl_script_Mage = Mage_.GetComponent<Player_>();
+            step_move += 1;
+            pl_script_Mage.step_move = step_move;
+            max_player += 1;
+        }
+
+
+        GameObject Priest_ = GameObject.Find("Priest");
+        if (Priest_aviable == false)
+        {
+            Priest_.SetActive(false);
+        }
+        else if (Priest_aviable == true)
+        {
+            Player_ pl_script_Priest = Priest_.GetComponent<Player_>();
+            step_move += 1;
+            pl_script_Priest.step_move = step_move;
+            max_player += 1;
+        }
+
+    }
 
     /// <summary>
     /// управление ходом
     /// </summary>
-   
+
     public void SetLang()
     {
         if(lang == "ru")
@@ -93,7 +170,7 @@ public class Main : MonoBehaviour
     {
         // сдвинем ход 
 
-        if (current_move == 4)
+        if (current_move == max_player)
             current_move = 1;
         else
             current_move += 1;
@@ -246,7 +323,7 @@ public class Main : MonoBehaviour
         {
             Weapon_Button.SetActive(false);
         }
-        if (pl_script.comp == false)
+        if (pl_script.comp == false && Shop_aviable == true)
         {
             shop_button.SetActive(true);
         }
