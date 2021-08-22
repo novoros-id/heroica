@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 61690603}
   - component: {fileID: 61690602}
   - component: {fileID: 61690601}
+  - component: {fileID: 61690604}
   m_Layer: 0
   m_Name: Lvl7Button
   m_TagString: Untagged
@@ -472,6 +473,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61690599}
   m_CullTransparentMesh: 0
+--- !u!114 &61690604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61690599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &196351926
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +498,7 @@ GameObject:
   - component: {fileID: 196351930}
   - component: {fileID: 196351929}
   - component: {fileID: 196351928}
+  - component: {fileID: 196351931}
   m_Layer: 0
   m_Name: Lvl14Button
   m_TagString: Untagged
@@ -601,6 +616,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196351926}
   m_CullTransparentMesh: 0
+--- !u!114 &196351931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196351926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &237382514
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +641,7 @@ GameObject:
   - component: {fileID: 237382518}
   - component: {fileID: 237382517}
   - component: {fileID: 237382516}
+  - component: {fileID: 237382519}
   m_Layer: 0
   m_Name: Lvl2Button
   m_TagString: Untagged
@@ -683,8 +712,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747796020}
-        m_MethodName: StartLevel2
+      - m_Target: {fileID: 237382519}
+        m_MethodName: StartLevel_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -731,6 +760,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237382514}
   m_CullTransparentMesh: 0
+--- !u!114 &237382519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237382514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: Level2
 --- !u!1 &309868515
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +965,7 @@ GameObject:
   - component: {fileID: 312826305}
   - component: {fileID: 312826304}
   - component: {fileID: 312826303}
+  - component: {fileID: 312826306}
   m_Layer: 0
   m_Name: Lvl4Button
   m_TagString: Untagged
@@ -992,8 +1035,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747796020}
-        m_MethodName: 
+      - m_Target: {fileID: 312826306}
+        m_MethodName: StartLevel_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1040,6 +1083,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312826301}
   m_CullTransparentMesh: 0
+--- !u!114 &312826306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312826301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: Level4
 --- !u!1 &338128593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1108,7 @@ GameObject:
   - component: {fileID: 338128597}
   - component: {fileID: 338128596}
   - component: {fileID: 338128595}
+  - component: {fileID: 338128598}
   m_Layer: 0
   m_Name: Lvl3Button
   m_TagString: Untagged
@@ -1122,8 +1179,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747796020}
-        m_MethodName: StartLevel4
+      - m_Target: {fileID: 338128598}
+        m_MethodName: StartLevel_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1170,6 +1227,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338128593}
   m_CullTransparentMesh: 0
+--- !u!114 &338128598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338128593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: Level3
 --- !u!1 &382280446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,6 +1252,7 @@ GameObject:
   - component: {fileID: 382280450}
   - component: {fileID: 382280449}
   - component: {fileID: 382280448}
+  - component: {fileID: 382280451}
   m_Layer: 0
   m_Name: Lvl11Button
   m_TagString: Untagged
@@ -1299,6 +1370,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382280446}
   m_CullTransparentMesh: 0
+--- !u!114 &382280451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382280446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &414366118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1650,7 @@ GameObject:
   - component: {fileID: 611309819}
   - component: {fileID: 611309818}
   - component: {fileID: 611309817}
+  - component: {fileID: 611309820}
   m_Layer: 0
   m_Name: 'Lvl12Button '
   m_TagString: Untagged
@@ -1683,6 +1768,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611309815}
   m_CullTransparentMesh: 0
+--- !u!114 &611309820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611309815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &638537908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1923,7 @@ GameObject:
   - component: {fileID: 659231815}
   - component: {fileID: 659231814}
   - component: {fileID: 659231813}
+  - component: {fileID: 659231816}
   m_Layer: 0
   m_Name: Lvl9Button
   m_TagString: Untagged
@@ -1942,6 +2041,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659231811}
   m_CullTransparentMesh: 0
+--- !u!114 &659231816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659231811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &685340334
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,8 +2689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6f197ac93be0944bd032e76020334d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pl_fl_x: 1.2
-  pl_fl_z: 0.8
   pr_hod: []
   selected1: {fileID: 0}
   shop_button: {fileID: 0}
@@ -2587,6 +2697,15 @@ MonoBehaviour:
   Pc: 0
   lang: 
   TextComment: {fileID: 0}
+  max_player: 0
+  Knight_aviable: 0
+  Barbarian_aviable: 0
+  Mage_aviable: 0
+  Priest_aviable: 0
+  Shop_aviable: 0
+  Crystal_aviable: 0
+  solo_player: 0
+  survival: 0
   NextButton: {fileID: 0}
 --- !u!1 &1103090542
 GameObject:
@@ -2600,6 +2719,7 @@ GameObject:
   - component: {fileID: 1103090546}
   - component: {fileID: 1103090545}
   - component: {fileID: 1103090544}
+  - component: {fileID: 1103090547}
   m_Layer: 0
   m_Name: Lvl10Button
   m_TagString: Untagged
@@ -2717,6 +2837,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103090542}
   m_CullTransparentMesh: 0
+--- !u!114 &1103090547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103090542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &1156953838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2940,7 @@ GameObject:
   - component: {fileID: 1174314157}
   - component: {fileID: 1174314156}
   - component: {fileID: 1174314155}
+  - component: {fileID: 1174314158}
   m_Layer: 0
   m_Name: Lvl6Button
   m_TagString: Untagged
@@ -2853,7 +2987,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.043137256, g: 0.45098042, b: 0.25882354, a: 1}
+    m_NormalColor: {r: 0.043137256, g: 0.4156863, b: 0.2392157, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2924,6 +3058,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174314153}
   m_CullTransparentMesh: 0
+--- !u!114 &1174314158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174314153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &1331995837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +3082,7 @@ GameObject:
   - component: {fileID: 1331995838}
   - component: {fileID: 1331995841}
   - component: {fileID: 1331995840}
+  - component: {fileID: 1331995842}
   - component: {fileID: 1331995839}
   m_Layer: 0
   m_Name: Lvl1Button
@@ -2983,7 +3131,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.043137256, g: 0.45098042, b: 0.25882354, a: 1}
+    m_NormalColor: {r: 0.043137256, g: 0.43137258, b: 0.24705884, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3006,8 +3154,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747796020}
-        m_MethodName: StartLevel1
+      - m_Target: {fileID: 1331995842}
+        m_MethodName: StartLevel_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3054,6 +3202,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331995837}
   m_CullTransparentMesh: 0
+--- !u!114 &1331995842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331995837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: Test
 --- !u!1 &1353422475
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,6 +3523,7 @@ GameObject:
   - component: {fileID: 1531849646}
   - component: {fileID: 1531849645}
   - component: {fileID: 1531849644}
+  - component: {fileID: 1531849647}
   m_Layer: 0
   m_Name: Lvl13Button
   m_TagString: Untagged
@@ -3479,6 +3641,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531849642}
   m_CullTransparentMesh: 0
+--- !u!114 &1531849647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531849642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &1545201282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,6 +3666,7 @@ GameObject:
   - component: {fileID: 1545201286}
   - component: {fileID: 1545201285}
   - component: {fileID: 1545201284}
+  - component: {fileID: 1545201287}
   m_Layer: 0
   m_Name: Lvl15Button
   m_TagString: Untagged
@@ -3608,6 +3784,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545201282}
   m_CullTransparentMesh: 0
+--- !u!114 &1545201287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545201282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1 &1593482461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,6 +3809,7 @@ GameObject:
   - component: {fileID: 1593482465}
   - component: {fileID: 1593482464}
   - component: {fileID: 1593482463}
+  - component: {fileID: 1593482466}
   m_Layer: 0
   m_Name: Lvl5Button
   m_TagString: Untagged
@@ -3689,8 +3879,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747796020}
-        m_MethodName: 
+      - m_Target: {fileID: 1593482466}
+        m_MethodName: StartLevel_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3737,6 +3927,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593482461}
   m_CullTransparentMesh: 0
+--- !u!114 &1593482466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593482461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: Level5_
 --- !u!1 &1656785703
 GameObject:
   m_ObjectHideFlags: 0
@@ -4092,6 +4295,7 @@ GameObject:
   - component: {fileID: 2145185263}
   - component: {fileID: 2145185262}
   - component: {fileID: 2145185261}
+  - component: {fileID: 2145185264}
   m_Layer: 0
   m_Name: Lvl8Button
   m_TagString: Untagged
@@ -4209,6 +4413,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145185259}
   m_CullTransparentMesh: 0
+--- !u!114 &2145185264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145185259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelName: 
 --- !u!1001 &5686004970650191313
 PrefabInstance:
   m_ObjectHideFlags: 0

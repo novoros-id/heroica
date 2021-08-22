@@ -15,24 +15,6 @@ public class ControllerButtons : MonoBehaviour
         Levels.SetActive(false);
         Back.SetActive(false);
     }
-    public void StartLevel1()
-    {
-        SceneManager.LoadScene("Test");
-    }
-
-    public void StartLevel2()
-    {
-        SceneManager.LoadScene("Level2");
-    }
-
-    public void StartLevel3()
-    {
-        SceneManager.LoadScene("Level3");
-    }
-    public void StartLevel4()
-    {
-        SceneManager.LoadScene("Level4");
-    }
     public void ExitGame()
     {
         Application.Quit();
