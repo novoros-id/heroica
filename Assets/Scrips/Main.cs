@@ -32,6 +32,8 @@ public class Main : MonoBehaviour
     public bool solo_player;
     public bool survival;
 
+    public bool level_complete;
+
     public WeaponChanger NextButton;
 
     private void Awake()
@@ -70,7 +72,7 @@ public class Main : MonoBehaviour
 
         // Установим видимость выбора игроков
 
-        set_player_aviable();
+        // set_player_aviable();
 
 
         //if (SceneManager.GetActiveScene().name != "Start")
