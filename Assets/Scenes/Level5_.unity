@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44893157, g: 0.4989993, b: 0.57570535, a: 1}
+  m_IndirectSpecularColor: {r: 0.44893187, g: 0.4990003, b: 0.5757066, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -537,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 254352291548647722, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Text
-      value: Classic Mode
+      value: Solo Mode
       objectReference: {fileID: 0}
     - target: {fileID: 2110596834715270598, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -15447,6 +15447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shop_button
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: solo_player
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
