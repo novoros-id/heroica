@@ -16035,6 +16035,24 @@ PrefabInstance:
       propertyPath: pl
       value: 
       objectReference: {fileID: 5457933342595412841}
+    - target: {fileID: 3315855884089738475, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: Mountains
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472972934676285896, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: Greetings, great hero! Let's start our tutorial, which will introduce
+        you to the game. The main task of any mission is to find a way out of the
+        maze and kill the main villain. Some missions you will go through alone,
+        and some with a team. To find a way out of the maze, you need to look for
+        keys and open doors. You will receive more information at the next levels
+        of study. Let's get started. While you are a lonely knight and at this level
+        you must find the Barbarian. Click on the cube and the computer will show
+        you where you can walk (click on the rotating planes). To fight the enemy,
+        click on the cube too. Forward, great knight!
+      objectReference: {fileID: 0}
     - target: {fileID: 4846140717197929348, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Text
@@ -16089,6 +16107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5115342394718890635, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: Classic
       objectReference: {fileID: 0}
     - target: {fileID: 5997499087575105405, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
