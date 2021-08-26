@@ -12070,7 +12070,7 @@ PrefabInstance:
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: survival
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
@@ -12147,17 +12147,22 @@ PrefabInstance:
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: Knight_aviable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: Priest_aviable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Crystal_aviable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: Barbarian_aviable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661641, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
