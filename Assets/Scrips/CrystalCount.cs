@@ -24,4 +24,14 @@ public class CrystalCount : MonoBehaviour
         //ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
         Count.text = cbScript.count_magic_crystall.ToString();
     }
+
+    public void OnClick()
+    {
+        // найдем текущего игрока
+        // проверим что игрок - человек
+        // проверим что игрок еще не кинул кубик
+        // полуич скрипт кубика
+        // установим вариант кубика на 4
+        // и вызовем функцию
+    }
 }
