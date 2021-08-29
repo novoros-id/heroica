@@ -6,7 +6,7 @@ public class ClickSound : MonoBehaviour
 {
     
     public ClickOnCube CoC;
-    static AudioSource audiosrc;
+    private AudioSource audiosrc;
     public AudioClip click;
 
     void Start()
@@ -16,10 +16,10 @@ public class ClickSound : MonoBehaviour
 
     public void PlaySound()
     {
-        if(CoC.Curent_player.GetComponent<Player_>().battle_mode == false)
-        {
+        //if (CoC.Curent_player.GetComponent<Player_>().battle_mode == false)
+        //{
             audiosrc.PlayOneShot(click);
-        }
+        //}
     }
 
 }

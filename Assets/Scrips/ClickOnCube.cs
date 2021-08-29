@@ -13,6 +13,7 @@ public class ClickOnCube : MonoBehaviour
     public int cube_step;
     public List<string> list_steps = new List<string>();
     public int count_magic_crystall;
+    public int cube_step_crystall =0;
 
 
     public Instantiant massive;
@@ -79,7 +80,18 @@ public class ClickOnCube : MonoBehaviour
         list_steps.Clear(); // очистили  технический list куда можно идти
        
         clear_blue(); // убрали голубые
-        cube_step = throw_a_bone(); // кинули кубик
+
+        if (cube_step_crystall == 0)
+        {
+            cube_step = throw_a_bone(); // кинули кубик
+        }
+        else
+        {
+            cube_step = cube_step_crystall;
+            cube_step_crystall = 0;
+        }
+
+        //cube_step = throw_a_bone(); // кинули кубик
         Curent_player = mScript.return_curent_player(); // нашли текущего игркока
         bool current_player_mode_battle = return_current_player_mode(Curent_player);
         bool current_player_mode_recovery = return_current_mode_recovery(Curent_player);
@@ -235,6 +247,14 @@ public class ClickOnCube : MonoBehaviour
         }
     }
 
+    public void save_count_crystal(int count_crystal)
+    {
+
+        PlayerPrefs.SetInt("count_magic_crystall", count_crystal);
+        PlayerPrefs.Save();
+    }
+
+
     public int throw_a_bone()
     {
         transform.Rotate(0, Random.Range(1, 100) * 90, 0);
@@ -268,15 +288,17 @@ public class ClickOnCube : MonoBehaviour
             //cube_step = 4;
             count_magic_crystall += 1;
 
-            PlayerPrefs.SetInt("count_magic_crystall", count_magic_crystall);
-            PlayerPrefs.Save();
+            //PlayerPrefs.SetInt("count_magic_crystall", count_magic_crystall);
+            //PlayerPrefs.Save();
+
+            save_count_crystal(count_magic_crystall);
 
             return 4;
         }
 
         if (max_name == "One")
         {
-            cube_step = 1;
+            //cube_step = 1;
             return 1;
         }
 

@@ -120,6 +120,7 @@ public class Move : MonoBehaviour
         else if (_items.tag == "item_gold")
         {
             pl_script.add_item("gold", 1);
+            pl_script.save_gold();
             Destroy(_items);
             // mScript.set_current_move();
         }

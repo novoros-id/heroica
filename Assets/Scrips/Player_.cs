@@ -75,9 +75,83 @@ public class Player_ : MonoBehaviour
     {
        // audiosrc = GetComponent<AudioSource>();
         set_CurWeapon();
+
+        if (name == "Knight")
+        {
+            if (PlayerPrefs.HasKey("Knight_gold"))
+            {
+                gold = PlayerPrefs.GetInt("Knight_gold");
+            }
+            else
+            {
+                gold = 0;
+            }
+        }
+        else if (name == "Barbarian")
+        {
+            if (PlayerPrefs.HasKey("Barbarian_gold"))
+            {
+                gold = PlayerPrefs.GetInt("Barbarian_gold");
+            }
+            else
+            {
+                gold = 0;
+            }
+        }
+        else if (name == "Mage")
+        {
+            if (PlayerPrefs.HasKey("Mage_gold"))
+            {
+                gold = PlayerPrefs.GetInt("Mage_gold");
+            }
+            else
+            {
+                gold = 0;
+            }
+        }
+        else if (name == "Priest")
+        {
+            if (PlayerPrefs.HasKey("Priest_gold"))
+            {
+                gold = PlayerPrefs.GetInt("Priest_gold");
+            }
+            else
+            {
+                gold = 0;
+            }
+        }
+
     }
 
-    
+    public void save_gold()
+    {
+        if (name == "Knight")
+        {
+
+            PlayerPrefs.SetInt("Knight_gold", gold);
+            PlayerPrefs.Save();
+        }
+        else if (name == "Barbarian")
+        {
+   
+            PlayerPrefs.SetInt("Barbarian_gold", gold);
+            PlayerPrefs.Save();
+        }
+        else if (name == "Mage")
+        {
+      
+            PlayerPrefs.SetInt("Mage_gold", gold);
+            PlayerPrefs.Save();
+
+        }
+        else if (name == "Priest")
+        {
+
+            PlayerPrefs.SetInt("Priest_gold", gold);
+            PlayerPrefs.Save();
+        }
+    }
+
     public void SoundStep()
     {
         audiosrc.PlayOneShot(step);

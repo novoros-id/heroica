@@ -60,6 +60,10 @@ public class shop_button : MonoBehaviour
         Current_player = mScript.return_curent_player(); // нашли текущего игркока  
 
         Current_player.GetComponent<Player_>().gold += 2;
+
+        Player_ pl_script = Current_player.GetComponent<Player_>();
+        pl_script.save_gold();
+
         Current_player.GetComponent<Player_>().baton = 0;
         CheckButtons();
     }
@@ -71,6 +75,8 @@ public class shop_button : MonoBehaviour
         Current_player = mScript.return_curent_player(); // нашли текущего игркока
 
         Current_player.GetComponent<Player_>().gold += 2;
+        Player_ pl_script = Current_player.GetComponent<Player_>();
+        pl_script.save_gold();
         Current_player.GetComponent<Player_>().axe = 0;
         CheckButtons();
     }
@@ -81,6 +87,8 @@ public class shop_button : MonoBehaviour
         Current_player = mScript.return_curent_player(); // нашли текущего игркока
 
         Current_player.GetComponent<Player_>().gold += 2;
+        Player_ pl_script = Current_player.GetComponent<Player_>();
+        pl_script.save_gold();
         Current_player.GetComponent<Player_>().scythe = 0;
         CheckButtons();
     }
@@ -92,6 +100,8 @@ public class shop_button : MonoBehaviour
         Current_player = mScript.return_curent_player(); // нашли текущего игркока
 
         Current_player.GetComponent<Player_>().gold -= 3;
+        Player_ pl_script = Current_player.GetComponent<Player_>();
+        pl_script.save_gold();
         Current_player.GetComponent<Player_>().baton = 1;
         CheckButtons();
     }
@@ -103,6 +113,8 @@ public class shop_button : MonoBehaviour
         Current_player = mScript.return_curent_player(); // нашли текущего игркока
 
         Current_player.GetComponent<Player_>().gold -= 3;
+        Player_ pl_script = Current_player.GetComponent<Player_>();
+        pl_script.save_gold();
         Current_player.GetComponent<Player_>().axe = 1;
         CheckButtons();
     }
@@ -114,6 +126,8 @@ public class shop_button : MonoBehaviour
         Current_player = mScript.return_curent_player(); // нашли текущего игркока
 
         Current_player.GetComponent<Player_>().gold -= 3;
+        Player_ pl_script = Current_player.GetComponent<Player_>();
+        pl_script.save_gold();
         Current_player.GetComponent<Player_>().scythe = 1;
         CheckButtons();
     }
