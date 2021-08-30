@@ -1664,7 +1664,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 69
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &289290229
 PrefabInstance:
@@ -2719,7 +2719,7 @@ Transform:
   m_LocalScale: {x: 5, y: 0.1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 146
+  m_RootOrder: 152
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &414819184
 GameObject:
@@ -2812,7 +2812,7 @@ Transform:
   m_LocalScale: {x: 2, y: 0.1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 147
+  m_RootOrder: 155
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &414824944
 PrefabInstance:
@@ -2991,7 +2991,7 @@ Transform:
   m_Children:
   - {fileID: 7709178}
   m_Father: {fileID: 0}
-  m_RootOrder: 67
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &493490472
 PrefabInstance:
@@ -4429,7 +4429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 79
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &722194521
 PrefabInstance:
@@ -5743,7 +5743,7 @@ Transform:
   m_LocalScale: {x: 4, y: 0.1, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 145
+  m_RootOrder: 149
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &835478158
 PrefabInstance:
@@ -7690,7 +7690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 68
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1153667387
 PrefabInstance:
@@ -8277,7 +8277,7 @@ Transform:
   m_LocalScale: {x: 6.6770043, y: 1, z: 6.692}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 114
+  m_RootOrder: 124
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1207296201
 PrefabInstance:
@@ -8397,7 +8397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: -36.1, z: 0}
 --- !u!114 &1217037960
 MonoBehaviour:
@@ -8647,6 +8647,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 8c5e6a56dcfc84d329eafcb1334f274f,
         type: 3}
+    - target: {fileID: 953823685286173584, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u041F\u043E\u0437\u043D\u0430\u043A\u043E\u043C\u0438\u043C\u0441\u044F
+        \u0441 \u043C\u0430\u0433\u043E\u043C. \u041C\u0430\u0433\u0443 \u0431\u043E\u043B\u0435\u0435
+        \u0442\u044B\u0441\u044F\u0447\u0438 \u043B\u0435\u0442. \u041E\u043D \u0432\u044B\u0440\u043E\u0441
+        \u0432 \u0434\u0438\u043A\u0438\u0445 \u043B\u0435\u0441\u0430\u0445. \u0423\u0447\u0438\u043B\u0441\u044F
+        \u043C\u0430\u0433\u0438\u0438 \u0443 \u0434\u0440\u0443\u0438\u0434\u043E\u0432.
+        \u041E\u043D \u0440\u043E\u0441 \u0432 \u0442\u044F\u0436\u0435\u043B\u044B\u0445
+        \u0443\u0441\u043B\u043E\u0432\u0438\u044F\u0445,  \u0432 \u043A\u043E\u0442\u043E\u0440\u044B\u0445
+        \u0431\u044B\u043B\u043E \u0432\u0430\u0436\u043D\u043E \u0443\u0431\u0438\u0442\u044C
+        \u0432\u0440\u0430\u0433\u0430 \u043F\u0435\u0440\u0432\u044B\u043C. \u041E\u043D
+        \u043D\u0430\u0443\u0447\u0438\u043B\u0441\u044F \u0443\u0431\u0438\u0432\u0430\u0442\u044C
+        \u0438\u0437\u0434\u0430\u043B\u0435\u043A\u0430. \u0415\u0433\u043E \u0441\u0443\u043F\u0435\u0440\u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
+        \u0443\u0431\u0438\u0432\u0430\u0442\u044C \u0432\u0440\u0430\u0433\u0430
+        \u0434\u043E 4 \u043A\u043B\u0435\u0442\u043E\u043A. \u0412 \u044D\u0442\u043E\u043C
+        \u0435\u043C\u0443 \u043F\u043E\u043C\u043E\u0433\u0430\u0435\u0442 \u0435\u0433\u043E
+        \u043F\u043E\u0441\u043E\u0445. \u0412 \u044D\u0442\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435
+        \u0442\u044B \u0434\u043E\u043B\u0436\u0435\u043D \u0445\u043E\u0442\u044F
+        \u0431\u044B \u0440\u0430\u0437 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C
+        \u0441\u0443\u043F\u0435\u0440\u0441\u0438\u043B\u0443. \u0412\u043F\u0435\u0440\u0435\u0434
+        \u0432\u0435\u043B\u0438\u043A\u0438\u0439 \u043C\u0430\u0433!!! "
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290923061243799542, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2110596834715270598, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8660,7 +8688,7 @@ PrefabInstance:
     - target: {fileID: 2110596834715270598, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_RootOrder
-      value: 54
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 2110596834715270598, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -8842,6 +8870,21 @@ PrefabInstance:
       propertyPath: pl
       value: 
       objectReference: {fileID: 1424088640}
+    - target: {fileID: 3008053331031128341, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008053331031128341, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008053331031128341, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3315855884089738475, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Text
@@ -8866,6 +8909,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228725844033117422, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228725844033117422, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4846140717197929348, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -8894,6 +8947,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Single challenge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988324804374960502, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077946868733527989, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: Let's get acquainted with the magician. The magician is more than a
+        thousand years old. He grew up in the wild forests. He learned magic from
+        the druids. He grew up in difficult conditions, in which it was important
+        to kill the enemy first. He learned to kill from afar. His superpower is
+        to kill the enemy up to 4 cells. His wand helps him in this. In this level,
+        you must use superpowers at least once. Go ahead, great magician!!!
       objectReference: {fileID: 0}
     - target: {fileID: 7188023648986302944, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -10985,7 +11053,7 @@ Transform:
   m_LocalScale: {x: 2, y: 0.1, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 148
+  m_RootOrder: 158
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1517949075
 PrefabInstance:
@@ -11350,7 +11418,7 @@ Transform:
   m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 144
+  m_RootOrder: 146
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1602105975
 PrefabInstance:
@@ -14762,7 +14830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 74
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1965001641
 PrefabInstance:
