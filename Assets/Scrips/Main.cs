@@ -31,6 +31,7 @@ public class Main : MonoBehaviour
 
     public bool solo_player;
     public bool survival;
+    public bool challenge_level;
 
     public bool level_complete;
 
