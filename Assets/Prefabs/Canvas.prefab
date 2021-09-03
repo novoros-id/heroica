@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Defeat the boss
+  m_Text: 
 --- !u!114 &2937199406404211684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2089656053621551936}
   m_HandleRect: {fileID: 3008053331031128341}
   m_Direction: 2
-  m_Value: 1.0000018
+  m_Value: 0.99997663
   m_Size: 0.9433333
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10550,7 +10550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.00035615175}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &4576890247265210944
@@ -11226,7 +11226,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Defeat the boss
+  m_Text: 
 --- !u!114 &8729516202096471775
 MonoBehaviour:
   m_ObjectHideFlags: 0
