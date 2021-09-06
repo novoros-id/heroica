@@ -948,11 +948,11 @@ public class ClickOnCube : MonoBehaviour
                     // audiosrc.PlayOneShot(sound_final);
                     if (mScript.lang == "ru")
                     {
-                        TextEndGame.text = "Проигрыш !" + Curent_player.name + " вы не выполнили цель миссии!";
+                        TextEndGame.text = "Проигрыш " + Curent_player.name + " вы не выполнили цель миссии!";
                     }
                     else if (mScript.lang == "en")
                     {
-                        TextEndGame.text = "Loss!" + Curent_player.name + " you have not completed the mission goal!";
+                        TextEndGame.text = "Loss " + Curent_player.name + " you have not completed the mission goal!";
                     }
 
                     return;
@@ -963,11 +963,11 @@ public class ClickOnCube : MonoBehaviour
             audiosrc.PlayOneShot(sound_final);
             if (mScript.lang == "ru")
             {
-                TextEndGame.text = "Поздравляем !" + Curent_player.name + " с победой!";
+                TextEndGame.text = "Поздравляем " + Curent_player.name + " с победой!";
             }
             else if (mScript.lang == "en")
             {
-                TextEndGame.text = "Congratulation!" + Curent_player.name + " win!";
+                TextEndGame.text = "Congratulation " + Curent_player.name + " win!";
             }
            
         }
@@ -976,11 +976,11 @@ public class ClickOnCube : MonoBehaviour
             // audiosrc.PlayOneShot(sound_final);
             if (mScript.lang == "ru")
             {
-                TextEndGame.text = "Проигрыш !" + Curent_player.name + " из за потери всех жизней!";
+                TextEndGame.text = "Проигрыш " + Curent_player.name + " из за потери всех жизней!";
             }
             else if (mScript.lang == "en")
             {
-                TextEndGame.text = "Loss!" + Curent_player.name + " loss of all lives!";
+                TextEndGame.text = "Loss " + Curent_player.name + " loss of all lives!";
             }
         }
 
