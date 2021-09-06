@@ -37,6 +37,7 @@ public class Main : MonoBehaviour
 
     public WeaponChanger NextButton;
 
+
     private void Awake()
     {
         if(SceneManager.GetActiveScene().name != "Start")
@@ -82,6 +83,7 @@ public class Main : MonoBehaviour
         //}
 
     }
+
 
     public void set_player_aviable()
     {

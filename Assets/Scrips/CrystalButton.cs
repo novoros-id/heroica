@@ -42,6 +42,8 @@ public class CrystalButton : MonoBehaviour
             return;
         }
 
+        pl_script.set_goal_challenge_level("used_the_superpower_of_the_crystal");
+
         if (Curent_player.name == "Knight")
         {
 

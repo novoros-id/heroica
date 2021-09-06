@@ -60,7 +60,7 @@ public class Player_ : MonoBehaviour
     public GameObject CrossedSwords;
     public string CurWeapon;
 
-
+    public Dictionary<string, bool> goal_challenge_level = new Dictionary<string, bool>();
 
     private void Awake()
     {
@@ -121,6 +121,90 @@ public class Player_ : MonoBehaviour
             }
         }
 
+
+        //  инициилизируем словарь целей уровна
+
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        if (mScript.challenge_level == true)
+        {
+            init_goal_challenge_level();
+        }
+
+    }
+
+
+    //
+    // справочка
+    //Debug.Log(goal_challenge_level.ContainsKey("tomate"));
+    //Debug.Log(goal_challenge_level["tomate"]);
+
+    //goal_challenge_level["tomate"] = true;
+    //Debug.Log(
+
+    void init_goal_challenge_level()
+    {
+        // описание всех целей
+        // used_the_superpower_of_the_crystal
+        // used_axe
+        // used_baton
+        // used_scythe
+
+        string name_level = SceneManager.GetActiveScene().name;
+
+        if (name_level == "Level5_" || name_level == "Level6" || name_level == "Level7" || name_level  == "Level8")
+        {
+            goal_challenge_level.Add("used_the_superpower_of_the_crystal", false);
+
+        }
+        else if (name_level == "Level9")
+        {
+            goal_challenge_level.Add("used_axe", false);
+        }
+        else if (name_level == "Level10")
+        {
+            goal_challenge_level.Add("used_baton", false);
+        }
+        else if (name_level == "Level11")
+        {
+            goal_challenge_level.Add("used_scythe", false);
+        }
+    }
+
+    public void set_goal_challenge_level(string goal)
+    {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        if (goal_challenge_level.ContainsKey(goal) == true)
+        {
+            goal_challenge_level[goal] = true;
+
+            if (mScript.lang == "ru")
+            {
+                mScript.add_text (name + " выполнил задание уровня");
+            }
+            else if (mScript.lang == "en")
+            {
+                mScript.add_text(name +  " completed the level task");
+            }
+        }
+    }
+
+    public bool test_goal_challenge_level()
+    {
+        bool return_test = false;
+
+        foreach (var item in goal_challenge_level)
+        {
+            if (item.Value == true)
+            {
+                return_test = true;
+            }
+        }
+
+        return return_test;
     }
 
     public void save_gold()

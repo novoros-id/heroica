@@ -756,7 +756,7 @@ public class ClickOnCube : MonoBehaviour
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
-                                final();
+                                final(false);
                             }
                             pl_script.switch_battle_mode();
 
@@ -782,7 +782,7 @@ public class ClickOnCube : MonoBehaviour
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
-                                final();
+                                final(false);
                             }
                             pl_script.switch_battle_mode();
 
@@ -819,6 +819,13 @@ public class ClickOnCube : MonoBehaviour
 
 
                             //Curent_player.transform.position = pl_script.get_previus_position();
+                            if (pl_script.get_leaves() == 0 && level_survival() == true)
+                            {
+
+                                final(true);
+                   
+                            }
+
 
                             pl_script.startTime = Time.time;
                             pl_script.startMarker = Curent_player.transform;
@@ -837,8 +844,6 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Losing, lives were lost");
                             }
-                            
-
 
                         }
                         else if (cube_s == 1) // победа и шаг назад
@@ -858,8 +863,15 @@ public class ClickOnCube : MonoBehaviour
                             else if (collider.tag == "Enemy_boss")
                             {
 
-                                final();
+                                final(false);
                                 pl_script.add_leaves(-3);
+                            }
+
+                            if (pl_script.get_leaves() == 0 && level_survival() == true)
+                            {
+
+                                final(true);
+
                             }
 
                             Destroy(collider.gameObject);
@@ -880,16 +892,9 @@ public class ClickOnCube : MonoBehaviour
                             else if (mScript.lang == "en")
                             {
                                 mScript.set_current_move("Victory, at the cost of lost lives");
-                            }
-                           
-
-
+                            }                        
                         }
-
-
                     }
-
-
                 }
             }
         }
@@ -909,13 +914,78 @@ public class ClickOnCube : MonoBehaviour
         }
     }
 
-    void final()
+    private bool level_survival()
     {
-        audiosrc.PlayOneShot(sound_final);
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
+
+        if (mScript.survival == true && mScript.level_complete == false &&  pl_script.comp == false)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+
+    void final(bool lose)
+    {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
         finalUI.SetActive(true);
         UI.SetActive(false);
-        TextEndGame.text = "Congratulation!"
-            +Curent_player.name+" win!";
+
+        if (lose == false)
+        {
+            // проверим, а выполнил ли он уровень
+            if (mScript.challenge_level == true)
+            {
+                Player_ pl_script = Curent_player.GetComponent<Player_>();
+
+                if (pl_script.test_goal_challenge_level() == false)
+                {
+                    // audiosrc.PlayOneShot(sound_final);
+                    if (mScript.lang == "ru")
+                    {
+                        TextEndGame.text = "Проигрыш !" + Curent_player.name + " вы не выполнили цель миссии!";
+                    }
+                    else if (mScript.lang == "en")
+                    {
+                        TextEndGame.text = "Loss!" + Curent_player.name + " you have not completed the mission goal!";
+                    }
+
+                    return;
+
+                }
+            }
+
+            audiosrc.PlayOneShot(sound_final);
+            if (mScript.lang == "ru")
+            {
+                TextEndGame.text = "Поздравляем !" + Curent_player.name + " с победой!";
+            }
+            else if (mScript.lang == "en")
+            {
+                TextEndGame.text = "Congratulation!" + Curent_player.name + " win!";
+            }
+           
+        }
+        else
+        {
+            // audiosrc.PlayOneShot(sound_final);
+            if (mScript.lang == "ru")
+            {
+                TextEndGame.text = "Проигрыш !" + Curent_player.name + " из за потери всех жизней!";
+            }
+            else if (mScript.lang == "en")
+            {
+                TextEndGame.text = "Loss!" + Curent_player.name + " loss of all lives!";
+            }
+        }
+
+   
+
     }
 
     public void play_victory_fight()
