@@ -29896,6 +29896,11 @@ PrefabInstance:
         return back. Be brave!  There are coins on the way, collect them, and we
         will tell you why they are needed at the next levels.'
       objectReference: {fileID: 0}
+    - target: {fileID: 7183452247891115273, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Chapter 1: Level 1'
+      objectReference: {fileID: 0}
     - target: {fileID: 7655889127914152796, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchorMax.x

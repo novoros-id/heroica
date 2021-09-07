@@ -16359,6 +16359,11 @@ PrefabInstance:
         show where you can walk (click on the rotating planes). To fight the enemy,
         click on the cube again. Go ahead, great knight!
       objectReference: {fileID: 0}
+    - target: {fileID: 7183452247891115273, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Chapter 1: Level 1'
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7946668289515759634, guid: 20a6c7e676ad1704ab38e30a8cc8af06, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 20a6c7e676ad1704ab38e30a8cc8af06, type: 3}

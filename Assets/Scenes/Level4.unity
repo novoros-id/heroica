@@ -12574,6 +12574,11 @@ PrefabInstance:
         the mission is failed. This is just such a level. Be careful! Get the crystal,
         the boss is guarding it!'
       objectReference: {fileID: 0}
+    - target: {fileID: 7183452247891115273, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Chapter 1: Level 1'
+      objectReference: {fileID: 0}
     - target: {fileID: 7188023648986302944, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_SizeDelta.x

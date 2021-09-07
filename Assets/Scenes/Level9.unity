@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.071904145, g: 0.06747142, b: 0.050041474, a: 1}
+  m_IndirectSpecularColor: {r: 0.07190422, g: 0.067471415, b: 0.050041452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5525,6 +5525,11 @@ PrefabInstance:
         on the weapon icon and you will use it. The axe gives you the opportunity
         to defeat all the enemies on the neighboring cells. Go ahead !! Don't forget
         that you have to defeat the boss first.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183452247891115273, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Chapter 1: Level 1'
       objectReference: {fileID: 0}
     - target: {fileID: 7188023648986302944, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}

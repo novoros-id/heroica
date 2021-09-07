@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.071904145, g: 0.06747142, b: 0.050041474, a: 1}
+  m_IndirectSpecularColor: {r: 0.07190422, g: 0.067471415, b: 0.050041452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11460,6 +11460,11 @@ PrefabInstance:
         itself became magical and brings life-giving power. The scythe restores 2
         health levels. You must be the first to grab the scythe and use it. As always,
         you must find a way out and kill the boss first.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183452247891115273, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Chapter 1: Level 1'
       objectReference: {fileID: 0}
     - target: {fileID: 7188023648986302944, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
