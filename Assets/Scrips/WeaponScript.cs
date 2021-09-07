@@ -68,6 +68,8 @@ public class WeaponScript : MonoBehaviour
             clear_blue();
             // clear_blue();
 
+            pl_script.set_goal_challenge_level("used_axe");
+
             if (mScript.lang == "ru")
             {
                 mScript.set_current_move("Вы воспользовались топором и уничтожили всех врагов на соседних полях");
@@ -95,6 +97,8 @@ public class WeaponScript : MonoBehaviour
             pl_script.play_sound_use_crystal();
             clear_blue();
 
+            pl_script.set_goal_challenge_level("used_baton");
+
             if (mScript.lang == "ru")
             {
                 mScript.add_text("Вы выбираете использование Жезла, укажите врага которого хотите победить ");
@@ -118,6 +122,8 @@ public class WeaponScript : MonoBehaviour
             clear_blue();
             // clear_blue();
             pl_script.add_leaves(2);
+
+            pl_script.set_goal_challenge_level("used_scythe");
 
             if (mScript.lang == "ru")
             {
