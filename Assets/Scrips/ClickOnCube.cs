@@ -38,6 +38,9 @@ public class ClickOnCube : MonoBehaviour
     public Text TextEndGame;
     public GameObject CrystalButton_;
 
+    public Sprite ImageEndWin;
+    public Sprite ImageEndLoose;
+
 
     private void Awake()
     {
@@ -935,6 +938,7 @@ public class ClickOnCube : MonoBehaviour
         Main mScript = cam.GetComponent<Main>();
         finalUI.SetActive(true);
         UI.SetActive(false);
+        GameObject ImageEnd = GameObject.Find("ImageEnd");
 
         if (lose == false)
         {
@@ -945,10 +949,14 @@ public class ClickOnCube : MonoBehaviour
 
                 if (pl_script.test_goal_challenge_level() == false)
                 {
+                    ImageEnd.GetComponent<Image>().sprite = ImageEndLoose;
+                    ImageEnd.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 185.7f);
+                    ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, -90);
                     // audiosrc.PlayOneShot(sound_final);
                     if (mScript.lang == "ru")
                     {
                         TextEndGame.text = "Проигрыш " + Curent_player.name + " вы не выполнили цель миссии!";
+                        
                     }
                     else if (mScript.lang == "en")
                     {
@@ -959,7 +967,9 @@ public class ClickOnCube : MonoBehaviour
 
                 }
             }
-
+            ImageEnd.GetComponent<Image>().sprite = ImageEndWin;
+            ImageEnd.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 250);
+            ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             audiosrc.PlayOneShot(sound_final);
             if (mScript.lang == "ru")
             {
@@ -974,6 +984,9 @@ public class ClickOnCube : MonoBehaviour
         else
         {
             // audiosrc.PlayOneShot(sound_final);
+            ImageEnd.GetComponent<Image>().sprite = ImageEndLoose;
+            ImageEnd.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 185.7f);
+            ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, -90);
             if (mScript.lang == "ru")
             {
                 TextEndGame.text = "Проигрыш " + Curent_player.name + " из за потери всех жизней!";
