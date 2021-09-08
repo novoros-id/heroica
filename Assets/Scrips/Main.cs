@@ -37,17 +37,47 @@ public class Main : MonoBehaviour
 
     public WeaponChanger NextButton;
 
+    private string[] Waiting_cube_before_the_move;
+    private string[] Waiting_cube_before_the_fight;
 
     private void Awake()
     {
-        if(SceneManager.GetActiveScene().name != "Start")
+       
+        if (SceneManager.GetActiveScene().name != "Start")
         {
             TextComment = GameObject.Find("Text_").GetComponent<Text>();
             shop_button = GameObject.Find("shop_button");
             Weapon_Button = GameObject.Find("Weapon_Button");
             NextButton = GameObject.Find("WeaponChangerController").GetComponent<WeaponChanger>();
         }
-        
+
+
+        Waiting_cube_before_the_move = new string[] {
+            "Давай-давай кидай как следует | Come on, come on, throw it properly",
+            "Я жду! Хоть бы выпал кристалл! | I'm waiting! If only there was a crystal!",
+            "Кидай кубик хорошо, не как в прошлый раз | Oh! If only there was a crystal!Roll the dice well, not like last time",
+            "Кидай кубик, хочу чтобы выпал кристалл!!! Кристалл!!! Кристалл!!! | Throw a cube, I want a crystal!!! Crystal!!! Crystal!!!",
+            "Я уже заждался, давай кидай уже | I've already been waiting, come on, throw it already",
+            "Кидай, давай. Проверим, удачный ли день | Throw it, come on. Let's check if it's a good day",
+            "Классная сегодня игра. Жду удачный бросок!| Cool game today. I'm waiting for a successful throw!",
+            "Как погода? Ладно потом, кидай кубик | How is the weather? Okay then, roll the dice",
+            "Хотите расскажу анекдот? а мой ход? ну потом … | Would you like me to tell you a joke? and my move? well then …",
+            "Нормальная музыка, мне норм | Normal music, I'm normal",
+            "Кручу верчу, выиграть хочу  | I twist and turn, I want to win",
+            "Как настроение? Ой мой ход! | How are you feeling? Oh, my move!",
+            "Засиделся я уже )| I've been sitting too long already )",
+            "Хорошо сидим, играем, весело. Ждем пока ты бросаешь кубик! | We sit well, play, have fun. We are waiting for you to roll the dice!" };
+
+        Waiting_cube_before_the_fight = new string[] {
+            "Я хочу победить !! Ура!! | I want to win !! Hurray!!",
+            "Сейчас ты попробуешь моего меча | Now you will try my sword!",
+            "Давай же кидай кубик, бой идет | Come on, roll the dice, the fight is on",
+            "Броня крепка и танки наши быстры | The armor is strong and our tanks are fast",
+            "Кидай кубик или тебе нравится смотреть как мы деремся? | Roll the dice or do you like to watch us fight?",
+            "Из последних сил я его заколю| With the last of my strength, I will stab him",
+            "СПАРТА !!!!! | SPARTA !!!!!" };
+
+
     }
     public void Start()
     {
@@ -213,16 +243,21 @@ public class Main : MonoBehaviour
     
         Instantiate(selected1, new Vector3(player_.transform.position.x, 1.6f, player_.transform.position.z), Quaternion.identity);
         WeaponIcon(pl_script);
-        ChangeText(pl_script, player_);
+        ChangeText(player_);
    
     }
 
     public void add_text(string a_text)
     {
         //var myText = GameObject.Find("Text_").GetComponent<Text>();
+
+        if (a_text.IndexOf("<") == -1)
+        {
+            a_text = "<b> Admin </b>: " + a_text;
+        }
         TextComment.text = a_text + "\n" + "\n" + TextComment.text;
     }
-
+    
     public GameObject return_tag_item_on_position(Vector3 player_position)
     {
         //string tag_item = "";
@@ -338,8 +373,10 @@ public class Main : MonoBehaviour
         }
     }
 
-    public void ChangeText(Player_ pl_script, GameObject curPlayer)
+    public void ChangeText(GameObject curPlayer)
     {
+        Player_ pl_script = curPlayer.GetComponent<Player_>();
+
         if (pl_script.get_battle_mode() == true)
         {
 
@@ -352,7 +389,10 @@ public class Main : MonoBehaviour
                 add_text("Battle Mode " + curPlayer.name + " click on the cube and find out the outcome of the battle");
             }
 
-
+            if (pl_script.comp == true)
+            {
+                write_to_the_chat(curPlayer, "Waiting_cube_before_the_fight");
+            }
         }
         else if (pl_script.recovery_mode == true)
         {
@@ -371,12 +411,14 @@ public class Main : MonoBehaviour
             {
                 if (lang == "ru")
                 {
-                    add_text("Текущий ход " + curPlayer.name + " нажмите на кубик, затем компьютер сам сделает ход");
+                    add_text("Текущий ход " + curPlayer.name + "  нажмите на кубик, затем компьютер сам сделает ход");
                 }
                 else if (lang == "en")
                 {
                     add_text("Current move " + curPlayer.name + " click on the cube, then the computer will make its own move");
                 }
+
+                write_to_the_chat(curPlayer, "Waiting_cube_before_the_move");
             }
             else
             {
@@ -392,4 +434,68 @@ public class Main : MonoBehaviour
             }
         }
     }
+
+    public void write_to_the_chat(GameObject Player_, string incident)
+    {
+        // сначала решим будет ли вообще писать игрок // выбираем из двух случайных  чисел
+        // потом по инциденту выбирает массив, и пишет случайное сообщение
+
+        string tag_colour = "<color=white><b>";
+        string[] subs;
+
+        if (Player_.name == "Knight")
+        {
+            tag_colour = "<color=grey><b>";
+        }
+        else if (Player_.name == "Barbarian")
+        {
+            tag_colour = "<color=orange><b>";
+        }
+        else if (Player_.name == "Mage")
+        {
+            tag_colour = "<color=maroon><b>";
+        }
+        else if (Player_.name == "Priest")
+        {
+            tag_colour = "<color=darkblue><b>";
+        }
+
+        if (Random.Range(1, 3) == 1) // ничего не пишем
+        {
+            return;
+        }
+
+
+        if (incident == "Waiting_cube_before_the_move")
+        {
+            int range_el = Random.Range(0, Waiting_cube_before_the_move.Length);
+            subs = Waiting_cube_before_the_move[range_el].Split('|');
+        }
+        else if (incident == "Waiting_cube_before_the_fight")
+        {
+            int range_el = Random.Range(0, Waiting_cube_before_the_fight.Length);
+            subs = Waiting_cube_before_the_fight[range_el].Split('|');
+        }
+        else
+        {
+            subs = new string[] { "......","........"};
+        }
+
+        GameObject cube = GameObject.Find("Cube");
+        ClickOnCube clicCube = cube.GetComponent<ClickOnCube>();
+        clicCube.play_chat();
+
+        if (lang == "ru")
+        {
+            add_text(tag_colour + Player_.name + " </b></color> : " + subs[0]);
+        }
+        else
+        {
+            add_text(tag_colour + Player_.name + "</b></color> : " + subs[1]);
+        }
+
+     
+
+    }
+
 }

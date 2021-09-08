@@ -67,6 +67,7 @@ public class Player_ : MonoBehaviour
         CrystalButton_ = GameObject.Find("CrystalButton");
         CubeButton = GameObject.Find("CubeButton");
         audiosrc = GetComponent<AudioSource>();
+
     }
 
     // Start is called before the first frame update

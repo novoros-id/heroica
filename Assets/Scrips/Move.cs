@@ -184,9 +184,14 @@ public class Move : MonoBehaviour
             //{
             //    mScript.set_current_move();
             //}
+
             pl_script.switch_battle_mode();
 
+            if (pl_script.comp == true)
+            {
 
+                mScript.write_to_the_chat(player_, "Waiting_cube_before_the_fight");
+            }
             // если первый раз
             // Destroy(_items);
         }

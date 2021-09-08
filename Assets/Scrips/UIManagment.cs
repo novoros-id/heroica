@@ -23,7 +23,7 @@ public class UIManagment : MonoBehaviour
     void Start()
     {
         hearts = GetComponent<Text>();
-        ExitGameButton.SetActive(false);
+        // ExitGameButton.SetActive(false);
         cross.SetActive(false);
     }
 

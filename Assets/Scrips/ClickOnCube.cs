@@ -31,6 +31,7 @@ public class ClickOnCube : MonoBehaviour
     public GameObject finalUI;
     public AudioClip Hp;
     public AudioClip fight;
+    public AudioClip sound_chat;
     public AudioClip Step;
     public AudioClip sound_proigr_battle;
     public AudioClip sound_final;
@@ -1048,4 +1049,9 @@ public class ClickOnCube : MonoBehaviour
         audiosrc.PlayOneShot(fight);
     }
 
+
+    public void play_chat()
+    {
+        audiosrc.PlayOneShot(sound_chat);
+    }
 }
