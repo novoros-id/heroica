@@ -34,6 +34,7 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip Step;
     public AudioClip sound_proigr_battle;
     public AudioClip sound_final;
+    public AudioClip sound_final_loss;
     public GameObject UI;
     public Text TextEndGame;
     public GameObject CrystalButton_;
@@ -171,6 +172,7 @@ public class ClickOnCube : MonoBehaviour
         int index_max_distance = 0;
 
         //// выбор самого близкого объекта
+        
 
         int index_ls = 0;
         foreach (var lst in list_steps)
@@ -182,6 +184,13 @@ public class ClickOnCube : MonoBehaviour
             {
                 max_distance = index;
                 index_max_distance = index_ls;
+
+
+                if (item_on_the_field(list_steps[index_max_distance]) == true) /// если на поле есть предмет, то забираем его
+                {
+                    break;
+                }
+
             }
 
             index_ls++;
@@ -225,6 +234,27 @@ public class ClickOnCube : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     ///
+
+    bool item_on_the_field (string name_field)
+    {
+        GameObject _Floor = GameObject.Find(name_field);
+        Vector3 position_ = _Floor.transform.position;
+
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+
+        // найдем расположено ли на этой клетке что-то
+
+        GameObject _items = mScript.return_tag_item_on_position(position_);
+
+        if (_items != null)
+        {
+            return true;
+
+        }
+
+        return false;
+    }
 
     private void check_the_player_on_the_field()
     {
@@ -753,7 +783,11 @@ public class ClickOnCube : MonoBehaviour
 
                         if (cube_s == 4) // победа
                         {
-                            audiosrc.PlayOneShot(fight);
+                            if (collider.tag != "Enemy_boss")
+                            {
+                                audiosrc.PlayOneShot(fight);
+                            }
+                            
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
                             Destroy(collider.gameObject);
@@ -779,7 +813,11 @@ public class ClickOnCube : MonoBehaviour
                         else if (cube_s == 3) // победа
                         {
 
-                            audiosrc.PlayOneShot(fight);
+                            if (collider.tag != "Enemy_boss")
+                            {
+                                audiosrc.PlayOneShot(fight);
+                            }
+
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
                             Destroy(collider.gameObject);
@@ -851,7 +889,11 @@ public class ClickOnCube : MonoBehaviour
                         }
                         else if (cube_s == 1) // победа и шаг назад
                         {
-                            audiosrc.PlayOneShot(fight);
+                            if (collider.tag != "Enemy_boss")
+                            {
+                                audiosrc.PlayOneShot(fight);
+                            }
+
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
 
@@ -952,7 +994,7 @@ public class ClickOnCube : MonoBehaviour
                     ImageEnd.GetComponent<Image>().sprite = ImageEndLoose;
                     ImageEnd.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 185.7f);
                     ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, -90);
-                    // audiosrc.PlayOneShot(sound_final);
+                    audiosrc.PlayOneShot(sound_final_loss);
                     if (mScript.lang == "ru")
                     {
                         TextEndGame.text = "Проигрыш " + Curent_player.name + " вы не выполнили цель миссии!";
@@ -983,7 +1025,7 @@ public class ClickOnCube : MonoBehaviour
         }
         else
         {
-            // audiosrc.PlayOneShot(sound_final);
+            audiosrc.PlayOneShot(sound_final_loss);
             ImageEnd.GetComponent<Image>().sprite = ImageEndLoose;
             ImageEnd.GetComponent<RectTransform>().sizeDelta = new Vector2(125, 185.7f);
             ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, -90);
