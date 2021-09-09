@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134c61591d097504784991841a91a134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelName: 
+  LevelName: Level15
 --- !u!114 &484020874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,8 +1643,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1747796020}
-        m_MethodName: 
+      - m_Target: {fileID: 484020873}
+        m_MethodName: StartLevel_
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
