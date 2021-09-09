@@ -39,6 +39,8 @@ public class Main : MonoBehaviour
 
     private string[] Waiting_cube_before_the_move;
     private string[] Waiting_cube_before_the_fight;
+    private string[] Cube_fight_victory;
+    private string[] Cube_fight_loss;
 
     private void Awake()
     {
@@ -66,6 +68,11 @@ public class Main : MonoBehaviour
             "Кручу верчу, выиграть хочу  | I twist and turn, I want to win",
             "Как настроение? Ой мой ход! | How are you feeling? Oh, my move!",
             "Засиделся я уже )| I've been sitting too long already )",
+            "Играю не для выигрыша, а для удовольствия| I play not for winning, but for pleasure",
+            "парам-пам-пам | param-pam-pam",
+            "Развели тут флуд ) | We've got a flood here )",
+            "Давайте общаться по существу| Let's communicate essentially",
+            "Кто проиграет, тот идет за мороженым ))) | Who loses, he goes for ice cream )))",
             "Хорошо сидим, играем, весело. Ждем пока ты бросаешь кубик! | We sit well, play, have fun. We are waiting for you to roll the dice!" };
 
         Waiting_cube_before_the_fight = new string[] {
@@ -76,6 +83,20 @@ public class Main : MonoBehaviour
             "Кидай кубик или тебе нравится смотреть как мы деремся? | Roll the dice or do you like to watch us fight?",
             "Из последних сил я его заколю| With the last of my strength, I will stab him",
             "СПАРТА !!!!! | SPARTA !!!!!" };
+
+        Cube_fight_victory = new string[] {
+            "Получи! Ура!| Get it! Hurray!",
+            "Ура! Победа! | Hurray! Victory!",
+            "Класс! | Wow!",
+            "Я самый сильный !!! | I am the strongest !!!",
+            "Если нужно подраться, то я за!| If you need to fight, then I'm for it!"};
+
+        Cube_fight_loss = new string[] {
+            "О! Нееееет !| Oh! Noooooo !",
+            "Это было больно! | It was painful!",
+            "Ну ничего ! | Well, nothing !",
+            "Отомстите за меня| Avenge me",
+            "Еще сдеремся! | We'll get together again!"};
 
 
     }
@@ -460,7 +481,7 @@ public class Main : MonoBehaviour
             tag_colour = "<color=darkblue><b>";
         }
 
-        if (Random.Range(1, 3) == 1) // ничего не пишем
+        if (Random.Range(1, 4) != 1) // ничего не пишем
         {
             return;
         }
@@ -471,10 +492,20 @@ public class Main : MonoBehaviour
             int range_el = Random.Range(0, Waiting_cube_before_the_move.Length);
             subs = Waiting_cube_before_the_move[range_el].Split('|');
         }
-        else if (incident == "Waiting_cube_before_the_fight")
+        else if (incident == "Waiting_cube_before_the_fight") 
         {
             int range_el = Random.Range(0, Waiting_cube_before_the_fight.Length);
             subs = Waiting_cube_before_the_fight[range_el].Split('|');
+        }
+        else if (incident == "Cube_fight_victory") 
+        {
+            int range_el = Random.Range(0, Cube_fight_victory.Length);
+            subs = Cube_fight_victory[range_el].Split('|');
+        }
+        else if (incident == "Cube_fight_loss") 
+        {
+            int range_el = Random.Range(0, Cube_fight_loss.Length);
+            subs = Cube_fight_loss[range_el].Split('|');
         }
         else
         {

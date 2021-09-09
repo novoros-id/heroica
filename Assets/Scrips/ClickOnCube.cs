@@ -808,7 +808,10 @@ public class ClickOnCube : MonoBehaviour
                                 mScript.set_current_move("Victory !!!");
                             }
                             
-
+                            if (pl_script.comp == true)
+                            {
+                                mScript.write_to_the_chat(Curent_player, "Cube_fight_victory"); 
+                            }
                             
                         }
                         else if (cube_s == 3) // победа
@@ -836,7 +839,12 @@ public class ClickOnCube : MonoBehaviour
                             {
                                 mScript.set_current_move("Victory !!!");
                             }
-                            
+
+                            if (pl_script.comp == true)
+                            {
+                                mScript.write_to_the_chat(Curent_player, "Cube_fight_victory");
+                            }
+
 
                         }
                         else if (cube_s == 2) // проигрышь, шаг назад 
@@ -885,6 +893,11 @@ public class ClickOnCube : MonoBehaviour
                             else if (mScript.lang == "en")
                             {
                                 mScript.set_current_move("Losing, lives were lost");
+                            }
+
+                            if (pl_script.comp == true)
+                            {
+                                mScript.write_to_the_chat(Curent_player, "Cube_fight_loss"); 
                             }
 
                         }
@@ -938,7 +951,12 @@ public class ClickOnCube : MonoBehaviour
                             else if (mScript.lang == "en")
                             {
                                 mScript.set_current_move("Victory, at the cost of lost lives");
-                            }                        
+                            }
+
+                            if (pl_script.comp == true)
+                            {
+                                mScript.write_to_the_chat(Curent_player, "Cube_fight_victory");
+                            }
                         }
                     }
                 }
