@@ -42,9 +42,11 @@ public class Main : MonoBehaviour
     private string[] Cube_fight_victory;
     private string[] Cube_fight_loss;
 
+    public Dictionary<string, string> chapter_1_levels_name = new Dictionary<string, string>();
+
     private void Awake()
     {
-       
+
         if (SceneManager.GetActiveScene().name != "Start")
         {
             TextComment = GameObject.Find("Text_").GetComponent<Text>();
@@ -53,6 +55,46 @@ public class Main : MonoBehaviour
             NextButton = GameObject.Find("WeaponChangerController").GetComponent<WeaponChanger>();
         }
 
+        chapter_1_levels_name.Add("Test", "chapter_1_level_1");
+        chapter_1_levels_name.Add("Level2", "chapter_1_level_2");
+        chapter_1_levels_name.Add("Level3", "chapter_1_level_3");
+        chapter_1_levels_name.Add("Level4", "chapter_1_level_4");
+        chapter_1_levels_name.Add("Level5_", "chapter_1_level_5");
+        chapter_1_levels_name.Add("Level6", "chapter_1_level_6");
+        chapter_1_levels_name.Add("Level7", "chapter_1_level_7");
+        chapter_1_levels_name.Add("Level8", "chapter_1_level_8");
+        chapter_1_levels_name.Add("Level9", "chapter_1_level_9");
+        chapter_1_levels_name.Add("Level10", "chapter_1_level_10");
+        chapter_1_levels_name.Add("Level11", "chapter_1_level_11");
+        chapter_1_levels_name.Add("Level12", "chapter_1_level_12");
+        chapter_1_levels_name.Add("Level13", "chapter_1_level_13");
+        chapter_1_levels_name.Add("Level14", "chapter_1_level_14");
+        chapter_1_levels_name.Add("Level15", "chapter_1_level_15");
+
+        string active_scene_name = SceneManager.GetActiveScene().name;
+
+
+
+        if (chapter_1_levels_name.ContainsKey(active_scene_name))
+        { 
+            if (PlayerPrefs.HasKey(chapter_1_levels_name[active_scene_name]))
+            {
+                int level_save = PlayerPrefs.GetInt(chapter_1_levels_name[active_scene_name]);
+
+                if (level_save == 1)
+                {
+                    level_complete = true;
+                }
+                else
+                {
+                    level_complete = false;
+                }
+            }
+            else
+            {
+                level_complete = false;
+            }
+        }
 
         Waiting_cube_before_the_move = new string[] {
             "Давай-давай кидай как следует | Come on, come on, throw it properly",
@@ -135,6 +177,23 @@ public class Main : MonoBehaviour
 
     }
 
+    public void save_level_complete(string level_name)
+    {
+        PlayerPrefs.SetInt(chapter_1_levels_name[level_name], 1);
+    }
+
+    public string get_level_complete_name(string level_name)
+    {
+        if (chapter_1_levels_name.ContainsKey(level_name) == true)
+        {
+            return chapter_1_levels_name[level_name];
+        }
+        else
+        {
+            return "------";
+        }
+        
+    }
 
     public void set_player_aviable()
     {

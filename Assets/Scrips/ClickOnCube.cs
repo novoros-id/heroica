@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class ClickOnCube : MonoBehaviour
@@ -1032,6 +1033,9 @@ public class ClickOnCube : MonoBehaviour
             ImageEnd.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 250);
             ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             audiosrc.PlayOneShot(sound_final);
+
+            mScript.save_level_complete(SceneManager.GetActiveScene().name);
+
             if (mScript.lang == "ru")
             {
                 TextEndGame.text = "Поздравляем " + Curent_player.name + " с победой!";
