@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657654, g: 0.49641126, b: 0.5748163, a: 1}
+  m_IndirectSpecularColor: {r: 0.446577, g: 0.4964121, b: 0.5748177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20290,7 +20290,7 @@ PrefabInstance:
     - target: {fileID: 5115342394718890635, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Text
-      value: Classic
+      value: Survival
       objectReference: {fileID: 0}
     - target: {fileID: 6988324804374960502, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -24475,6 +24475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Shop_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: current_move
       value: 1
       objectReference: {fileID: 0}
@@ -24496,6 +24501,11 @@ PrefabInstance:
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: Priest_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Crystal_aviable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,

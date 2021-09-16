@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.07190355, g: 0.067462675, b: 0.050038517, a: 1}
+  m_IndirectSpecularColor: {r: 0.071903415, g: 0.06746268, b: 0.05003845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1293,7 +1293,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a3bae3f9c3bba3845ac129e255f1dc74, type: 2}
+      objectReference: {fileID: 2100000, guid: c96fc123bbdd1bf43b3de2e4ffb58990, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2112d2fae4e4d5344abba216cfd6437c, type: 3}
 --- !u!1001 &314780598
@@ -4100,7 +4100,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c96fc123bbdd1bf43b3de2e4ffb58990, type: 2}
+      objectReference: {fileID: 2100000, guid: d802a2f1594ec44efbafdc0ebcd24504, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2112d2fae4e4d5344abba216cfd6437c, type: 3}
 --- !u!1 &1172245107
@@ -4190,8 +4190,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172245107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0000002, y: -0.05, z: -3.5}
-  m_LocalScale: {x: 2, y: 0.1, z: 3}
+  m_LocalPosition: {x: -3.0000002, y: -0.05, z: -3}
+  m_LocalScale: {x: 2, y: 0.1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 45
@@ -5812,7 +5812,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d802a2f1594ec44efbafdc0ebcd24504, type: 2}
+      objectReference: {fileID: 2100000, guid: 9cf46b74bf3155840baa3a4f002658e7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2112d2fae4e4d5344abba216cfd6437c, type: 3}
 --- !u!1001 &1547808079
@@ -7902,8 +7902,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906940754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5000002, y: -0.05, z: -6.5}
-  m_LocalScale: {x: 3, y: 0.1, z: 3}
+  m_LocalPosition: {x: -2.5000002, y: -0.05, z: -5.75}
+  m_LocalScale: {x: 3, y: 0.1, z: 3.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 47

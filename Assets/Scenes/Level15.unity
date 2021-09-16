@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.071904145, g: 0.06747142, b: 0.050041474, a: 1}
+  m_IndirectSpecularColor: {r: 0.07190422, g: 0.067471415, b: 0.050041452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9241,6 +9241,16 @@ PrefabInstance:
         \u0414\u043E\u0431\u0443\u0434\u044C \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043B,
         \u0435\u0433\u043E \u043E\u0445\u0440\u0430\u043D\u044F\u0435\u0442 \u0431\u043E\u0441\u0441!"
       objectReference: {fileID: 0}
+    - target: {fileID: 4920285711816229902, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000019073486
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920285711816229902, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00017857575
+      objectReference: {fileID: 0}
     - target: {fileID: 5019184031333439752, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9282,7 +9292,7 @@ PrefabInstance:
     - target: {fileID: 7188023648986302944, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 494.89532
+      value: 398.9
       objectReference: {fileID: 0}
     - target: {fileID: 7188023648986302944, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -15454,7 +15464,7 @@ PrefabInstance:
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: survival
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
@@ -15515,6 +15525,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
+      propertyPath: Shop_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
       propertyPath: current_move
       value: 1
       objectReference: {fileID: 0}
@@ -15536,6 +15551,11 @@ PrefabInstance:
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
         type: 3}
       propertyPath: Priest_aviable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
+        type: 3}
+      propertyPath: Crystal_aviable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6415535510645661640, guid: c0151c24d3bda94409901719cdd53349,
