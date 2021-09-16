@@ -316,7 +316,7 @@ public class ClickOnCube : MonoBehaviour
         }
 
         //Debug.Log(max_name);
-        //return 4;
+        //return 1;
 
         if (max_name == "gold")
         {
@@ -947,11 +947,11 @@ public class ClickOnCube : MonoBehaviour
 
                             if (mScript.lang == "ru")
                             {
-                                mScript.set_current_move("Победа, ценой потеряных жизней");
+                                mScript.add_text("Победа, ценой потеряных жизней");
                             }
                             else if (mScript.lang == "en")
                             {
-                                mScript.set_current_move("Victory, at the cost of lost lives");
+                                mScript.add_text("Victory, at the cost of lost lives");
                             }
 
                             if (pl_script.comp == true)
