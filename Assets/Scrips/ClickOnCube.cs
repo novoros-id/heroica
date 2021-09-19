@@ -1001,13 +1001,14 @@ public class ClickOnCube : MonoBehaviour
         finalUI.SetActive(true);
         UI.SetActive(false);
         GameObject ImageEnd = GameObject.Find("ImageEnd");
+        Player_ pl_script = Curent_player.GetComponent<Player_>();
 
         if (lose == false)
         {
             // проверим, а выполнил ли он уровень
             if (mScript.challenge_level == true)
             {
-                Player_ pl_script = Curent_player.GetComponent<Player_>();
+                // Player_ pl_script = Curent_player.GetComponent<Player_>();
 
                 if (pl_script.test_goal_challenge_level() == false)
                 {
@@ -1034,7 +1035,11 @@ public class ClickOnCube : MonoBehaviour
             ImageEnd.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, 0);
             audiosrc.PlayOneShot(sound_final);
 
-            mScript.save_level_complete(SceneManager.GetActiveScene().name);
+            if (pl_script.comp == false)
+            {
+                mScript.save_level_complete(SceneManager.GetActiveScene().name);
+            }
+            
 
             if (mScript.lang == "ru")
             {
