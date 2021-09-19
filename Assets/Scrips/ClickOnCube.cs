@@ -1038,17 +1038,30 @@ public class ClickOnCube : MonoBehaviour
             if (pl_script.comp == false)
             {
                 mScript.save_level_complete(SceneManager.GetActiveScene().name);
+                if (mScript.lang == "ru")
+                {
+                    TextEndGame.text = "Поздравляем " + Curent_player.name + " с победой!";
+                }
+                else if (mScript.lang == "en")
+                {
+                    TextEndGame.text = "Congratulation " + Curent_player.name + " win!";
+                }
+
+            }
+            else
+            {
+                if (mScript.lang == "ru")
+                {
+                    TextEndGame.text = "Поздравляем " + Curent_player.name + " с победой, но уровень не защитан!";
+                }
+                else if (mScript.lang == "en")
+                {
+                    TextEndGame.text = "Congratulation " + Curent_player.name + " win, but the level is not protected!";
+                }
             }
             
 
-            if (mScript.lang == "ru")
-            {
-                TextEndGame.text = "Поздравляем " + Curent_player.name + " с победой!";
-            }
-            else if (mScript.lang == "en")
-            {
-                TextEndGame.text = "Congratulation " + Curent_player.name + " win!";
-            }
+           
            
         }
         else
