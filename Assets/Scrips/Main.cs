@@ -115,7 +115,14 @@ public class Main : MonoBehaviour
             "Развели тут флуд ) | We've got a flood here )",
             "Давайте общаться по существу| Let's communicate essentially",
             "Кто проиграет, тот идет за мороженым ))) | Who loses, he goes for ice cream )))",
-            "Хорошо сидим, играем, весело. Ждем пока ты бросаешь кубик! | We sit well, play, have fun. We are waiting for you to roll the dice!" };
+            "Хорошо сидим, играем, весело. Ждем пока ты бросаешь кубик! | We sit well, play, have fun. We are waiting for you to roll the dice!",
+            "Играем в быстром темпе, не тормозим | We play at a fast pace, do not slow down",
+            "Будет здорово, когда можно будет играть в онлайне | It will be great when we can play online",
+            "Вот бы добавили редактор уровней | I would like to add a level editor",
+            "Что так долго?Пойду заварю себе чай | What's taking so long?I'm going to make myself some tea",
+            "В такую погоду, только в такие игры и играть | In this weather, only such games and play",
+            "Не паримся, не получится начнём ещё раз | Don't sweat it, it won't work let's start again",
+            "Я знаю как зовут разработчиков, Алексей и Владимир | I know the names of the developers, Alexey and Vladimir" };
 
         Waiting_cube_before_the_fight = new string[] {
             "Я хочу победить !! Ура!! | I want to win !! Hurray!!",
