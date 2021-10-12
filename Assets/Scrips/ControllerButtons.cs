@@ -31,6 +31,14 @@ public class ControllerButtons : MonoBehaviour
         Levels.SetActive(false);
         Back.SetActive(false);
     }
+    public void CustomLVLCreate() 
+    {
+        Application.LoadLevel("CreateLevel");
+    }
+    public void CustomLVLLoad()
+    {
+        Application.LoadLevel("Created_Level");
+    }
     public void Rate()
     {
         Application.OpenURL("https://www.instagram.com/invites/contact/?i=skg3kios5rk3&utm_content=lp3lin0");

@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8695046470916215073}
   - component: {fileID: 1513802233231153860}
   - component: {fileID: 3195459985581913638}
+  - component: {fileID: 4187516990737178833}
   m_Layer: 0
-  m_Name: Door
+  m_Name: door
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62317c6b3f5a94ddaa574d4180ccaff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: {fileID: 8300000, guid: 006aa10ad69ffba44a41b38f394694d4, type: 3}
 --- !u!65 &1513802233231153860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -204,3 +204,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4187516990737178833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792289563224757722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8554a7a800b8d064d9586b66146f4408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selected: 0
+  prefabname: door
