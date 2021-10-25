@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MayCreatedItems : MonoBehaviour
 {
@@ -13,20 +14,23 @@ public class MayCreatedItems : MonoBehaviour
     }
     public void SetSelected()
     {
-        //Убираем selected со всех объектов
-        GameObject[] AllObject = FindObjectsOfType<GameObject>();
-        for (int b = 0; b<AllObject.Length; b++)
+        if(SceneManager.GetActiveScene().name == "CreateLevel")
         {
-            if (AllObject[b].GetComponent<MayCreatedItems>() != null)
+            //Убираем selected со всех объектов
+            GameObject[] AllObject = FindObjectsOfType<GameObject>();
+            for (int b = 0; b < AllObject.Length; b++)
             {
-                AllObject[b].GetComponent<MayCreatedItems>().selected = false;
+                if (AllObject[b].GetComponent<MayCreatedItems>() != null)
+                {
+                    AllObject[b].GetComponent<MayCreatedItems>().selected = false;
+                }
             }
-        }
-        // и делаем этот объект selected
-        selected = true;
+            // и делаем этот объект selected
+            selected = true;
 
-        GameObject ControllerButtons = GameObject.Find("ControllerButtonsCreatedLevels");
-        ControllerButtons.GetComponent<ControllerButtonsCreateLevel>().FloorButtonsCheck();
-        ControllerButtons.GetComponent<ControllerButtonsCreateLevel>().ChangeNameSelectedObj();
+            GameObject ControllerButtons = GameObject.Find("ControllerButtonsCreatedLevels");
+            ControllerButtons.GetComponent<ControllerButtonsCreateLevel>().LinkedButtonsCheck();
+            ControllerButtons.GetComponent<ControllerButtonsCreateLevel>().ChangeNameSelectedObj();
+        }      
     }
 }

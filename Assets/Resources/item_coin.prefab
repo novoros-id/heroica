@@ -13,18 +13,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.021, y: 0.021, z: 0.005}
   m_Center: {x: -4.656613e-10, y: 0, z: 4.0745363e-10}
---- !u!114 &9079613054668426327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7996962464923802337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be44b0c382a4215489a196c033a3be96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1790532647374244265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +27,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selected: 0
   prefabname: item_coin
+--- !u!114 &9211950957828967538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996962464923802337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18d0cb05224e48088ff8cf34fb60145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7078395464879925168
 PrefabInstance:
   m_ObjectHideFlags: 0

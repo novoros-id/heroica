@@ -5,7 +5,7 @@ using UnityEngine;
 public class Test : MonoBehaviour
 {
 
-    private void OnMouseDown()
+    public void SaveLevel()
     {
         //position_ = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         //string a = JsonUtility.ToJson(this);
@@ -40,7 +40,9 @@ public class Test : MonoBehaviour
         GameObject[] scythes;
         scythes = GameObject.FindGameObjectsWithTag("item_scythe");
 
-        ObjectToJSON abcds = new ObjectToJSON();
+        FieldsObjects abcds = new FieldsObjects();
+
+        LevelSave LevelSettings = new LevelSave();
 
         string LastJSON = "";
 
@@ -156,11 +158,16 @@ public class Test : MonoBehaviour
 
         LastJSON = LastJSONaxes + LastJSONbatons + LastJSONbloods + LastJSONcoins + LastJSONDoors + LastJSONenemys_1 + LastJSONenemys_2 + LastJSONenemys_boss + LastJSONFloors + LastJSONFurniture + LastJSONKeys + LastJSONscythes;
 
-        PlayerPrefs.SetString("LastJSON", LastJSON);
+        LevelSettings.CreateObject("levelname",LastJSON,"1","1","1","1");
+
+        string LevelSettingsEnd = JsonUtility.ToJson(LevelSettings);
+
+        //PlayerPrefs.SetString("LastJSON", LastJSON);
+        PlayerPrefs.SetString("LastJSON", LevelSettingsEnd);
         PlayerPrefs.Save();
 
         //string ab = JsonUtility.ToJson(massiveJSON);
-        Debug.Log(LastJSON);
+        Debug.Log(LevelSettingsEnd);
 
         ////string[] words = LastJSON.Split('|');
 
@@ -173,7 +180,7 @@ public class Test : MonoBehaviour
 
     }
 }
-public class ObjectToJSON
+public class FieldsObjects
 {
     public string name;
     public string prefab;
@@ -186,5 +193,25 @@ public class ObjectToJSON
         prefab = obj.GetComponent<MayCreatedItems>().prefabname;
         position_ = obj.transform.position;
         rotation_ = obj.transform.rotation;
+    }
+}
+public class LevelSave
+{
+    public string levelname;
+    public string FieldsObjects_;
+
+    public string HeroKnight;
+    public string HeroBarbarian;
+    public string HeroMage;
+    public string HeroPriest;
+
+    public void CreateObject(string levelname_, string FieldsObjects__, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_)
+    {
+        levelname = levelname_;
+        FieldsObjects_ = FieldsObjects__;
+        HeroKnight = HeroKnight_;
+        HeroBarbarian = HeroBarbarian_;
+        HeroMage = HeroMage_;
+        HeroPriest = HeroPriest_;
     }
 }

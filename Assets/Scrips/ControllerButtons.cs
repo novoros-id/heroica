@@ -33,11 +33,11 @@ public class ControllerButtons : MonoBehaviour
     }
     public void CustomLVLCreate() 
     {
-        Application.LoadLevel("CreateLevel");
+        SceneManager.LoadScene("CreateLevel");
     }
     public void CustomLVLLoad()
     {
-        Application.LoadLevel("Created_Level");
+        SceneManager.LoadScene("Created_Level");
     }
     public void Rate()
     {

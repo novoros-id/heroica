@@ -431,7 +431,8 @@ public class Player_ : MonoBehaviour
         build_graph();
         string PlayerFloor = Return_floor_player(new Vector3(transform.position.x, transform.position.y, transform.position.z));
 
-        GameObject boss = GameObject.Find("en_ogre_boss Variant");
+        //GameObject boss = GameObject.Find("en_ogre_boss Variant");
+        GameObject boss = GameObject.FindGameObjectWithTag("Enemy_boss");
         string BossFloor = Return_floor_player(new Vector3(boss.transform.position.x, boss.transform.position.y, boss.transform.position.z));
         var boss_way = dijkstra.FindShortestPath(PlayerFloor, BossFloor);
         // Debug.Log("Boss way " + boss_way);

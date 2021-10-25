@@ -12,15 +12,20 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
 
     public GameObject Floor1;
 
+    public GameObject ButtonsPanel;
+
     public Text NameSelectedObject;
 
     public void Awake()
     {
         NameSelectedObject = GameObject.Find("NameSelectedObj").GetComponent<Text>();
+
+        ButtonsPanel = GameObject.Find("PanelWeapons");
     }
     public void Start()
     {
-        FloorButtonsCheck();
+        LinkedButtonsCheck();
+        ButtonsPanel.SetActive(false);
     }
     public void CreateFloorLeft()
     {
@@ -50,6 +55,33 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
         newobj = Instantiate(Floor1, new Vector3(FindSelectedObject().transform.position.x, FindSelectedObject().transform.position.y, FindSelectedObject().transform.position.z - 1f), Quaternion.identity);
         newobj.GetComponent<MayCreatedItems>().SetSelected();
     }
+
+
+    public void CreateLinkedObject(string nameObject)
+    {
+        FindSelectedObject();
+        GameObject newobj;
+        if(nameObject == "door")
+        {
+            newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.05f, FindSelectedObject().transform.position.z), Quaternion.identity);
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+        else
+        {
+            newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.7f, FindSelectedObject().transform.position.z), Quaternion.identity);
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
+        }  
+    }
+
+    public void ShowWeapons()
+    {
+        ButtonsPanel.SetActive(true);
+        LinkedButtonsCheck();
+    }
+    public void CloseWeapons()
+    {
+        ButtonsPanel.SetActive(false);
+    }
     public GameObject FindSelectedObject()
     {
         GameObject[] AllObject = FindObjectsOfType<GameObject>();
@@ -65,10 +97,15 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
         }
         return null;
     }
-    public void FloorButtonsCheck()
+    public void LinkedButtonsCheck()
     {
+        GameObject[] AllLinkedButtons = GameObject.FindGameObjectsWithTag("LinkedButton");
         if(FindSelectedObject() != null && FindSelectedObject().name == "StartFloor")
         {
+            for (int b = 0; b < AllLinkedButtons.Length; b++)
+            {
+                AllLinkedButtons[b].GetComponent<Button>().interactable = false;
+            }
             floorupbutton.GetComponent<Button>().interactable = true;
             floordownbutton.GetComponent<Button>().interactable = true;
             floorleftbutton.GetComponent<Button>().interactable = false;
@@ -76,17 +113,17 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
         }
         else if (FindSelectedObject() != null && FindSelectedObject().tag == "Floor")
         {
-            floorupbutton.GetComponent<Button>().interactable = true;
-            floordownbutton.GetComponent<Button>().interactable = true;
-            floorleftbutton.GetComponent<Button>().interactable = true;
-            floorrightbutton.GetComponent<Button>().interactable = true;
+            for(int b = 0; b < AllLinkedButtons.Length; b++)
+            {
+                AllLinkedButtons[b].GetComponent<Button>().interactable = true;
+            }
         }
         else
         {
-            floorupbutton.GetComponent<Button>().interactable = false;
-            floordownbutton.GetComponent<Button>().interactable = false;
-            floorleftbutton.GetComponent<Button>().interactable = false;
-            floorrightbutton.GetComponent<Button>().interactable = false;
+            for (int b = 0; b < AllLinkedButtons.Length; b++)
+            {
+                AllLinkedButtons[b].GetComponent<Button>().interactable = false;
+            }
         }
     }
     public void ChangeNameSelectedObj()

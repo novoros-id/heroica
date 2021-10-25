@@ -2674,7 +2674,7 @@ PrefabInstance:
     - target: {fileID: 700012059875024701, guid: dd519bf1117b3724984fbde69dd89670,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 700012059875024701, guid: dd519bf1117b3724984fbde69dd89670,
         type: 3}
@@ -8554,7 +8554,6 @@ GameObject:
   - component: {fileID: 3469287837162512829}
   - component: {fileID: 1711813855584671095}
   - component: {fileID: 919132149508535459}
-  - component: {fileID: 919132149508535460}
   m_Layer: 0
   m_Name: medium_tree (3)
   m_TagString: Untagged
@@ -8575,18 +8574,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019999998, y: 0.026999997, z: 0.022}
   m_Center: {x: 0.00054059085, y: 0.013500047, z: 0.00013711723}
---- !u!114 &919132149508535460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149508535458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db73339b2ecf84044baac6f22c0de53c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1680732756588527825
 GameObject:
   m_ObjectHideFlags: 0
