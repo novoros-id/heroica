@@ -710,7 +710,7 @@ public class ClickOnCube : MonoBehaviour
 
         //if (player_in_floor == false)
         //{
-            Instantiate(selected1, new Vector3(floor_.transform.position.x, 1.05f, floor_.transform.position.z), Quaternion.identity);
+            Instantiate(selected1, new Vector3(floor_.transform.position.x, 1.3f, floor_.transform.position.z), Quaternion.identity);
 
         //}
     }
