@@ -46,7 +46,7 @@ public class ChangeMod : MonoBehaviour
 
     // Start is called before the first frame update
 
-    private void Awake()
+    private void Start()
     {
         //AndroidUI.SetActive(false);
         Camera = GameObject.Find("Camera").GetComponent<Zoom>();
@@ -197,13 +197,15 @@ public class ChangeMod : MonoBehaviour
             }
         }
 
-    }
-    void Start()
-    {
-
         other.SetActive(false);
         shop.SetActive(false);
         Chooze.SetActive(false);
+
+    }
+    void Awake()
+    {
+
+        
     }
     
     public void ChoozeOn()

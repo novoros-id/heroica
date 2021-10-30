@@ -1,10 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
+    public string LevelName;
+    public GameObject SettingsObject;
+    public string KnightAvalaible;
+    public string BarbarianAvalaible;
+    public string MageAvalaible;
+    public string PriestAvalaible;
+    public string ShopAvalaible;
+    public string CrystalAvalaible;
+    public string SoloAvalaible;
+    public string SurvivalAvalaible;
 
+    public void GetLevelName()
+    {
+        KnightAvalaible = GameObject.Find("ImageKn").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        BarbarianAvalaible = GameObject.Find("ImageBr").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        MageAvalaible = GameObject.Find("ImageMg").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        PriestAvalaible = GameObject.Find("ImagePr").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        ShopAvalaible = GameObject.Find("ImageSh").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        CrystalAvalaible = GameObject.Find("ImageCr").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        SoloAvalaible = GameObject.Find("ImageSl").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        SurvivalAvalaible = GameObject.Find("ImageSr").GetComponent<HeroesAvaibility>().HeroAvaibility;
+        LevelName = GameObject.Find("LevelName").GetComponent<Text>().text;
+    }
+    public void Start()
+    {
+        SettingsObject.SetActive(false);
+    }
+    public void SettingsOn()
+    {
+        SettingsObject.SetActive(true);
+    }
     public void SaveLevel()
     {
         //position_ = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -13,7 +44,7 @@ public class Test : MonoBehaviour
 
         //List<ObjectToJSON> massiveJSON = new List<ObjectToJSON>(); ;
 
-
+        
 
         GameObject[] Floors;
         Floors = GameObject.FindGameObjectsWithTag("Floor");
@@ -158,7 +189,9 @@ public class Test : MonoBehaviour
 
         LastJSON = LastJSONaxes + LastJSONbatons + LastJSONbloods + LastJSONcoins + LastJSONDoors + LastJSONenemys_1 + LastJSONenemys_2 + LastJSONenemys_boss + LastJSONFloors + LastJSONFurniture + LastJSONKeys + LastJSONscythes;
 
-        LevelSettings.CreateObject("levelname",LastJSON,"1","1","1","1");
+        GetLevelName();
+
+        LevelSettings.CreateObject(LevelName,LastJSON,KnightAvalaible,BarbarianAvalaible,MageAvalaible,PriestAvalaible, ShopAvalaible, CrystalAvalaible, SoloAvalaible, SurvivalAvalaible);
 
         string LevelSettingsEnd = JsonUtility.ToJson(LevelSettings);
 
@@ -205,7 +238,12 @@ public class LevelSave
     public string HeroMage;
     public string HeroPriest;
 
-    public void CreateObject(string levelname_, string FieldsObjects__, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_)
+    public string ShopAvai;
+    public string CrystalAvai;
+    public string SoloAvai;
+    public string SurvivalAvai;
+
+    public void CreateObject(string levelname_, string FieldsObjects__, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_, string ShopAvai_, string CrystalAvai_, string SoloAvai_, string SurvivalAvai_)
     {
         levelname = levelname_;
         FieldsObjects_ = FieldsObjects__;
@@ -213,5 +251,9 @@ public class LevelSave
         HeroBarbarian = HeroBarbarian_;
         HeroMage = HeroMage_;
         HeroPriest = HeroPriest_;
+        ShopAvai = ShopAvai_;
+        CrystalAvai = CrystalAvai_;
+        SoloAvai = SoloAvai_;
+        SurvivalAvai = SurvivalAvai_;
     }
 }

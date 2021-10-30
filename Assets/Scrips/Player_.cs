@@ -64,6 +64,7 @@ public class Player_ : MonoBehaviour
 
     private void Awake()
     {
+        
         CrystalButton_ = GameObject.Find("CrystalButton");
         CubeButton = GameObject.Find("CubeButton");
         audiosrc = GetComponent<AudioSource>();
@@ -74,7 +75,8 @@ public class Player_ : MonoBehaviour
     void Start()
 
     {
-       // audiosrc = GetComponent<AudioSource>();
+        
+        // audiosrc = GetComponent<AudioSource>();
         set_CurWeapon();
 
         if (name == "Knight")

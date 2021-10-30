@@ -31,11 +31,13 @@ public class TestLoad : MonoBehaviour
 
         LevelSave asd = JsonUtility.FromJson<LevelSave>(Level);
 
-        Debug.Log(asd.levelname);
-        Debug.Log(asd.HeroKnight);
-        Debug.Log(asd.HeroBarbarian);
-        Debug.Log(asd.HeroMage);
-        Debug.Log(asd.HeroPriest);
+        //Debug.Log(asd.levelname);
+        //Debug.Log(asd.HeroKnight);
+        //Debug.Log(asd.HeroBarbarian);
+        //Debug.Log(asd.HeroMage);
+        //Debug.Log(asd.HeroPriest);
+
+        SetSettings();
 
         string[] words = asd.FieldsObjects_.Split('|');
         for (int b = 0; b < words.Length; b++)
@@ -49,6 +51,86 @@ public class TestLoad : MonoBehaviour
             clone = Instantiate(Resources.Load(bcd.prefab) as GameObject, bcd.position_, bcd.rotation_);
             clone.name = clone.name + b as string;
 
+        }
+    }
+    public void SetSettings()
+    {
+        string Level = PlayerPrefs.GetString("LastJSON");
+
+        LevelSave asd = JsonUtility.FromJson<LevelSave>(Level);
+
+        Main DLight = GameObject.Find("Directional Light").GetComponent<Main>();
+
+        if (asd.HeroKnight == "1")
+        {
+            DLight.Knight_aviable = true;
+        }
+        else
+        {
+            DLight.Knight_aviable = false;
+        }
+
+        if (asd.HeroBarbarian == "1")
+        {
+            DLight.Barbarian_aviable = true;
+        }
+        else
+        {
+            DLight.Barbarian_aviable = false;
+        }
+
+        if (asd.HeroMage == "1")
+        {
+            DLight.Mage_aviable = true;
+        }
+        else
+        {
+            DLight.Mage_aviable = false;
+        }
+
+        if (asd.HeroPriest == "1")
+        {
+            DLight.Priest_aviable = true;
+        }
+        else
+        {
+            DLight.Priest_aviable = false;
+        }
+
+        if(asd.ShopAvai == "1")
+        {
+            DLight.Shop_aviable = true;
+        }
+        else
+        {
+            DLight.Shop_aviable = false;
+        }
+
+        if (asd.CrystalAvai == "1")
+        {
+            DLight.Crystal_aviable = true;
+        }
+        else
+        {
+            DLight.Crystal_aviable = false;
+        }
+
+        if (asd.SoloAvai == "1")
+        {
+            DLight.solo_player = true;
+        }
+        else
+        {
+            DLight.solo_player = false;
+        }
+
+        if (asd.SurvivalAvai == "1")
+        {
+            DLight.survival = true;
+        }
+        else
+        {
+            DLight.survival = false;
         }
     }
 }
