@@ -31,6 +31,13 @@ public class ControllerButtons : MonoBehaviour
         Levels.SetActive(false);
         Back.SetActive(false);
     }
+
+    public void ResetCreated()
+    {
+        PlayerPrefs.GetInt("LevelMaxCount");
+        PlayerPrefs.SetInt("LevelMaxCount", 0);
+        PlayerPrefs.Save();
+    }
     public void CustomLVLCreate() 
     {
         SceneManager.LoadScene("CreateLevel");
