@@ -16,6 +16,7 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
 
     public Text NameSelectedObject;
 
+
     public void Awake()
     {
         NameSelectedObject = GameObject.Find("NameSelectedObj").GetComponent<Text>();
@@ -73,6 +74,20 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
         }  
     }
 
+    public void DeleteSelectedObject()
+    {
+        if(FindSelectedObject().name != "StartFloor")
+        {
+            Destroy(FindSelectedObject());
+            GameObject[] AllLinkedButtons = GameObject.FindGameObjectsWithTag("LinkedButton");
+            for (int b = 0; b < AllLinkedButtons.Length; b++)
+            {
+                AllLinkedButtons[b].GetComponent<Button>().interactable = false;
+            }
+        }
+        
+    }
+
     public void ShowWeapons()
     {
         ButtonsPanel.SetActive(true);
@@ -87,12 +102,9 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
         GameObject[] AllObject = FindObjectsOfType<GameObject>();
         for(int b = 0; b < AllObject.Length; b++)
         {
-            if(AllObject[b].GetComponent<MayCreatedItems>() != null)
+            if(AllObject[b].GetComponent<MayCreatedItems>() != null && AllObject[b].GetComponent<MayCreatedItems>().selected == true)
             {
-                if(AllObject[b].GetComponent<MayCreatedItems>().selected == true)
-                {
-                    return AllObject[b];
-                } 
+                    return AllObject[b];             
             }
         }
         return null;

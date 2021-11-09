@@ -16,6 +16,8 @@ public class Test : MonoBehaviour
     public string SoloAvalaible;
     public string SurvivalAvalaible;
 
+    public int LevelMaxCount;
+
     public void GetLevelName()
     {
         KnightAvalaible = GameObject.Find("ImageKn").GetComponent<HeroesAvaibility>().HeroAvaibility;
@@ -90,6 +92,8 @@ public class Test : MonoBehaviour
         string LastJSONbatons = "";
         string LastJSONscythes = "";
 
+        
+
         if (PlayerPrefs.HasKey("LastJSON"))
         {
             LastJSON = PlayerPrefs.GetString("LastJSON");
@@ -97,6 +101,15 @@ public class Test : MonoBehaviour
         else
         {
             LastJSON = "";
+        }
+
+        if (PlayerPrefs.HasKey("LevelMaxCount"))
+        {
+            LevelMaxCount = PlayerPrefs.GetInt("LevelMaxCount");
+        }
+        else
+        {
+            LevelMaxCount = 0;
         }
 
         for (int b = 0; b < Floors.Length; b++)
@@ -191,12 +204,19 @@ public class Test : MonoBehaviour
 
         GetLevelName();
 
-        LevelSettings.CreateObject(LevelName,LastJSON,KnightAvalaible,BarbarianAvalaible,MageAvalaible,PriestAvalaible, ShopAvalaible, CrystalAvalaible, SoloAvalaible, SurvivalAvalaible);
+        LevelMaxCount = LevelMaxCount + 1;
+
+        LevelSettings.CreateObject(LevelName,LastJSON,KnightAvalaible,BarbarianAvalaible,MageAvalaible,PriestAvalaible, ShopAvalaible, CrystalAvalaible, SoloAvalaible, SurvivalAvalaible, LevelMaxCount);
+
+        
 
         string LevelSettingsEnd = JsonUtility.ToJson(LevelSettings);
 
         //PlayerPrefs.SetString("LastJSON", LastJSON);
-        PlayerPrefs.SetString("LastJSON", LevelSettingsEnd);
+        PlayerPrefs.SetString(LevelMaxCount.ToString(), LevelSettingsEnd);
+        PlayerPrefs.SetInt("LevelMaxCount", LevelMaxCount);
+        int ml = PlayerPrefs.GetInt("LevelMaxCount");
+        Debug.Log(ml);
         PlayerPrefs.Save();
 
         //string ab = JsonUtility.ToJson(massiveJSON);
@@ -243,7 +263,9 @@ public class LevelSave
     public string SoloAvai;
     public string SurvivalAvai;
 
-    public void CreateObject(string levelname_, string FieldsObjects__, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_, string ShopAvai_, string CrystalAvai_, string SoloAvai_, string SurvivalAvai_)
+    public int LevelCount;
+
+    public void CreateObject(string levelname_, string FieldsObjects__, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_, string ShopAvai_, string CrystalAvai_, string SoloAvai_, string SurvivalAvai_, int LevelCount_)
     {
         levelname = levelname_;
         FieldsObjects_ = FieldsObjects__;
@@ -255,5 +277,6 @@ public class LevelSave
         CrystalAvai = CrystalAvai_;
         SoloAvai = SoloAvai_;
         SurvivalAvai = SurvivalAvai_;
+        LevelCount = LevelCount_;
     }
 }
