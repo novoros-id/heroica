@@ -83,6 +83,15 @@ public class ClickOnCube : MonoBehaviour
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
 
+
+        GameObject cube_button = GameObject.Find("CubeButton");
+        cube_button_script mCube = cube_button.GetComponent<cube_button_script>();
+
+        if (mCube.cube_is_available == false)
+        {
+            return;
+        }
+
         list_steps.Clear(); // очистили  технический list куда можно идти
        
         clear_blue(); // убрали голубые
@@ -104,10 +113,11 @@ public class ClickOnCube : MonoBehaviour
         if (Curent_player != null && current_player_mode_battle == false && current_player_mode_recovery == false) // режим хода
         {
 
-            
-            GameObject.Find("CubeButton").SetActive(false);
 
-            if(cube_step == 4 && mScript.Crystal_aviable == true)
+            // GameObject.Find("CubeButton").SetActive(false);
+            mCube.reverse_cube_aviable();
+
+            if (cube_step == 4 && mScript.Crystal_aviable == true)
             {
                 CrystalButton_.SetActive(true);
             }
@@ -316,7 +326,7 @@ public class ClickOnCube : MonoBehaviour
         }
 
         //Debug.Log(max_name);
-        //return 1;
+        //return 4;
 
         if (max_name == "gold")
         {

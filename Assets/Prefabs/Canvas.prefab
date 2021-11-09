@@ -4693,6 +4693,7 @@ GameObject:
   - component: {fileID: 2110596835687802296}
   - component: {fileID: 2110596835687802297}
   - component: {fileID: 2110596835687802298}
+  - component: {fileID: 5832947327650100645}
   m_Layer: 5
   m_Name: CubeButton
   m_TagString: Untagged
@@ -4887,6 +4888,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5832947327650100645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110596835687802300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f5f5df0cfa94bf2a573bcae4e5fe59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cube_is_available: 0
 --- !u!1 &2110596835713710758
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,8 +7893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 297.3996, y: -758.4}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchoredPosition: {x: 217, y: -566.73}
+  m_SizeDelta: {x: 106.426605, y: 102.56944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2110596836326959410
 CanvasRenderer:
@@ -7939,6 +7953,7 @@ MonoBehaviour:
   CrystalButton_: {fileID: 0}
   CurFloorName: 
   sword: {fileID: 1524996914856487658, guid: 8beef934a0982c640bf69f1387f4960e, type: 3}
+  mCube: {fileID: 0}
 --- !u!114 &2110596836326959413
 MonoBehaviour:
   m_ObjectHideFlags: 0

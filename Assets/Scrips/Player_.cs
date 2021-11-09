@@ -59,6 +59,7 @@ public class Player_ : MonoBehaviour
     public GameObject CrystalButton_;
     public GameObject CrossedSwords;
     public string CurWeapon;
+    public cube_button_script mCube;
 
     public Dictionary<string, bool> goal_challenge_level = new Dictionary<string, bool>();
 
@@ -67,6 +68,7 @@ public class Player_ : MonoBehaviour
         
         CrystalButton_ = GameObject.Find("CrystalButton");
         CubeButton = GameObject.Find("CubeButton");
+        cube_button_script mCube = CubeButton.GetComponent<cube_button_script>();
         audiosrc = GetComponent<AudioSource>();
 
     }
@@ -363,7 +365,9 @@ public class Player_ : MonoBehaviour
                 }
                 // mScript.set_current_move();
                 //Invoke("show_the_cube", 1.2f);
-                CubeButton.SetActive(true);
+                // CubeButton.SetActive(true);
+                // mCube.reverse_cube_aviable();
+                show_the_cube();
                 CrystalButton_.SetActive(false);
 
             }
@@ -373,8 +377,10 @@ public class Player_ : MonoBehaviour
 
     public void show_the_cube()
     {
-        CubeButton.SetActive(true);
-        
+        // CubeButton.SetActive(true);
+        GameObject CubeButton_ = GameObject.Find("CubeButton");
+        cube_button_script mCube_ = CubeButton_.GetComponent<cube_button_script>();
+        mCube_.cube_is_available = true;
     }
 
     public bool goal_live()

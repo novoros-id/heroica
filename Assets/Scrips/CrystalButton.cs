@@ -16,11 +16,13 @@ public class CrystalButton : MonoBehaviour
 
     public string CurFloorName;
     public GameObject sword;
+    public cube_button_script mCube;
 
     void Start()
     {
         //audiosrc = GetComponent<AudioSource>();
         CubeButton = GameObject.Find("Button");
+        cube_button_script mCube = CubeButton.GetComponent<cube_button_script>();
         CrystalButton_ = GameObject.Find("CrystalButton");
     }
 

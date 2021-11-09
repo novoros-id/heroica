@@ -74,6 +74,7 @@ public class level_script : MonoBehaviour
                 else
                 {
                     item.Value.interactable = false;
+              
                 }
             }
             else
