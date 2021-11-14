@@ -50,6 +50,13 @@ public class Zoom : MonoBehaviour
     public Main mn;
     public float SumRotate = 0;
 
+    /// <summary>
+    float initialFingersDistance;
+    Vector3 initialScale;
+    float rotationRate = 0.2f;
+    int direction = 1;
+    /// </summary>
+
     void Start()
 	{
 
@@ -57,11 +64,11 @@ public class Zoom : MonoBehaviour
 
     }
 
-
-
     private void FixedUpdate()
 	{
-        if(go == 0)
+
+
+        if (go == 0)
         {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -72,47 +79,120 @@ public class Zoom : MonoBehaviour
             if (Input.touchCount == 2)
             {
 
-                float difference = _touchA.deltaPosition.y - _touchB.deltaPosition.y;
+                Touch t1 = Input.touches[0];
+                Touch t2 = Input.touches[1];
 
-                _touchA = Input.GetTouch(0);
-                _touchB = Input.GetTouch(1);
-                _touchAdirection = _touchA.position - _touchA.deltaPosition;
-                _touchBdirection = _touchB.position - _touchB.deltaPosition;
-
-                _dstBtwTouchesPosition = Vector2.Distance(_touchA.position, _touchB.position);
-                _dstBtwTpuchesDirections = Vector2.Distance(_touchAdirection, _touchBdirection);
-
-                _zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
-
-                ///
-                ///ROTATION
-                ///
-
-                if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
+                if (t1.phase == TouchPhase.Began || t2.phase == TouchPhase.Began)
                 {
-                    //Debug.Log("Left");
-                    CameraCenter.transform.Rotate(new Vector3(0, - Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
-                }
-                else if (_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
-                {
-                    //Debug.Log("Right");
-                    CameraCenter.transform.Rotate(new Vector3(0, + Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                    initialFingersDistance = Vector2.Distance(t1.position, t2.position);
+                    initialScale = CameraCenter.transform.localScale;
                 }
 
-                ///
-                ///ZOOM
-                ///
-
-                if (_zoom != 0.0f && _touchA.deltaPosition.y != 0 && _touchB.deltaPosition.y != 0)
+                else if (t1.phase == TouchPhase.Moved || t2.phase == TouchPhase.Moved)
                 {
+                    var currentFingersDistance = Vector2.Distance(t1.position, t2.position);
+                    //   Debug.Log(currentFingersDistance);
+                    ////if (currentFingersDistance != initialFingersDistance) 
+                    //{
+                    var scaleFactor = currentFingersDistance / initialFingersDistance;
+                   // Debug.Log(scaleFactor);
 
-                    float y_goal = CameraCenter.transform.position.y - _zoom * 0.01f;
-                    if (y_goal <= max_zoom && y_goal >= min_zoom)
-                    {
-                        CameraCenter.transform.Translate(0, - _zoom * 0.01f, -_zoom * 0.01f, CameraCenter.transform);
+                    CameraCenter.transform.localScale = initialScale * scaleFactor;
+                    //} 
+
+                    float Dx = t1.position.x - transform.position.x;
+                    float Dy = t1.position.y - transform.position.y;
+
+                    Vector3 pos = t2.position;
+
+                    //Vector3 pos = t1.position - t2.position;
+                    Vector3 touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(pos.x, pos.y, 10));
+                    // CameraCenter.transform.position = Vector3.Lerp(CameraCenter.transform.position, touchedPos, Time.deltaTime * 4);
+                    //   transform.position += touchedPos;
+
+                    float pinchAmount = 0;
+                    Quaternion desiredRotation = CameraCenter.transform.rotation;
+
+                    TouchLogic.Calculate();
+
+                    if (Mathf.Abs(TouchLogic.pinchDistanceDelta) > 0)
+                    { // zoom
+                        pinchAmount = TouchLogic.pinchDistanceDelta;
                     }
 
+                    if (Mathf.Abs(TouchLogic.turnAngleDelta) > 0)
+                    { // rotate
+                        Vector3 rotationDeg = Vector3.zero;
+                        rotationDeg.y = -TouchLogic.turnAngleDelta;
+                        desiredRotation *= Quaternion.Euler(rotationDeg);
+                    }
+
+                    // not so sure those will work:
+
+                    CameraCenter.transform.rotation = desiredRotation;
+                    // CameraCenter.transform.position += Vector3.forward * pinchAmount;
                 }
+
+
+                //_touchA = Input.GetTouch(0);
+                //_touchB = Input.GetTouch(1);
+
+                //float difference = _touchA.deltaPosition.y - _touchB.deltaPosition.y;
+
+                ////_touchA = Input.GetTouch(0);
+                ////_touchB = Input.GetTouch(1);
+                //_touchAdirection = _touchA.position - _touchA.deltaPosition;
+                //_touchBdirection = _touchB.position - _touchB.deltaPosition;
+
+                //_dstBtwTouchesPosition = Vector2.Distance(_touchA.position, _touchB.position);
+                //_dstBtwTpuchesDirections = Vector2.Distance(_touchAdirection, _touchBdirection);
+
+                //_zoom = _dstBtwTouchesPosition - _dstBtwTpuchesDirections;
+
+                //Debug.Log(_dstBtwTpuchesDirections);
+
+                /////
+                /////ROTATION
+                /////
+
+                //if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
+                //{
+                //    //Debug.Log("Left");
+                //    CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                //}
+                //else if (_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
+                //{
+                //    //Debug.Log("Right");
+                //    CameraCenter.transform.Rotate(new Vector3(0, +Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                //}
+
+
+                ////if (_touchA.deltaPosition.y > _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
+                ////{
+                ////    //Debug.Log("Left");
+                ////    CameraCenter.transform.Rotate(new Vector3(0, -Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                ////}
+                ////else if (_touchA.deltaPosition.y < _touchB.deltaPosition.y && Mathf.Abs(difference) > 14 && (_touchA.deltaPosition.y == 0 || _touchB.deltaPosition.y == 0))
+                ////{
+                ////    //Debug.Log("Right");
+                ////    CameraCenter.transform.Rotate(new Vector3(0, +Mathf.Abs(difference) * 4, 0) * Time.deltaTime);
+                ////}
+
+                /////
+                /////ZOOM
+                /////
+
+
+                //if (_zoom != 0.0f && _touchA.deltaPosition.y != 0 && _touchB.deltaPosition.y != 0)
+                //{
+
+                //    float y_goal = CameraCenter.transform.position.y - _zoom * 0.01f;
+                //    if (y_goal <= max_zoom && y_goal >= min_zoom)
+                //    {
+                //        CameraCenter.transform.Translate(0, -_zoom * 0.01f, -_zoom * 0.01f, CameraCenter.transform);
+                //    }
+
+                //}
 
             }
 
@@ -250,5 +330,130 @@ public class Zoom : MonoBehaviour
             }
             //(transform.position == endMarker.position) 
         }
+    }
+}
+
+public class TouchLogic : MonoBehaviour
+{
+    const float pinchTurnRatio = Mathf.PI / 2;
+    const float minTurnAngle = 0;
+
+    const float pinchRatio = 1;
+    const float minPinchDistance = 0;
+
+    const float panRatio = 1;
+    const float minPanDistance = 0;
+
+    /// <summary>
+    ///   The delta of the angle between two touch points
+    /// </summary>
+    static public float turnAngleDelta;
+    /// <summary>
+    ///   The angle between two touch points
+    /// </summary>
+    static public float turnAngle;
+
+    /// <summary>
+    ///   The delta of the distance between two touch points that were distancing from each other
+    /// </summary>
+    static public float pinchDistanceDelta;
+    /// <summary>
+    ///   The distance between two touch points that were distancing from each other
+    /// </summary>
+    static public float pinchDistance;
+
+    /// <summary>
+    ///   Calculates Pinch and Turn - This should be used inside LateUpdate
+    /// </summary>
+    /// 
+    static public Touch LastTouch;
+    static public void Calculate()
+    {
+        pinchDistance = pinchDistanceDelta = 0;
+        turnAngle = turnAngleDelta = 0;
+
+        // if two fingers are touching the screen at the same time ...
+
+
+        if (Input.touchCount == 1)
+        {
+
+            Touch touch1 = Input.touches[0];
+
+            turnAngle = Angle(touch1.position, LastTouch.position);
+            float prevTurn = Angle(touch1.position + touch1.deltaPosition,
+                                   LastTouch.deltaPosition + LastTouch.position);
+            turnAngleDelta = Mathf.DeltaAngle(prevTurn, turnAngle);
+
+            // ... if it's greater than a minimum threshold, it's a turn!
+            if (Mathf.Abs(turnAngleDelta) > minTurnAngle)
+            {
+                turnAngleDelta *= pinchTurnRatio;
+            }
+            else
+            {
+                turnAngle = turnAngleDelta = 0;
+            }
+            LastTouch = Input.touches[0];
+        }
+
+        else if (Input.touchCount == 2)
+        {
+            Touch touch1 = Input.touches[0];
+            Touch touch2 = Input.touches[1];
+
+            // ... if at least one of them moved ...
+            if (touch1.phase == TouchPhase.Moved || touch2.phase == TouchPhase.Moved)
+            {
+                // ... check the delta distance between them ...
+                pinchDistance = Vector2.Distance(touch1.position, touch2.position);
+                float prevDistance = Vector2.Distance(touch1.position - touch1.deltaPosition,
+                                                     touch2.position - touch2.deltaPosition);
+                pinchDistanceDelta = pinchDistance - prevDistance;
+
+                // ... if it's greater than a minimum threshold, it's a pinch!
+                if (Mathf.Abs(pinchDistanceDelta) > minPinchDistance)
+                {
+                    pinchDistanceDelta *= pinchRatio;
+                }
+                else
+                {
+                    pinchDistance = pinchDistanceDelta = 0;
+                }
+
+                // ... or check the delta angle between them ...
+                turnAngle = Angle(touch1.position, touch2.position);
+                float prevTurn = Angle(touch1.position + touch1.deltaPosition,
+                                       touch2.position + touch2.deltaPosition);
+                turnAngleDelta = Mathf.DeltaAngle(prevTurn, turnAngle);
+
+                // ... if it's greater than a minimum threshold, it's a turn!
+                if (Mathf.Abs(turnAngleDelta) > minTurnAngle)
+                {
+                    turnAngleDelta *= pinchTurnRatio;
+                }
+                else
+                {
+                    turnAngle = turnAngleDelta = 0;
+                }
+            }
+        }
+    }
+
+
+    static private float Angle(Vector2 pos1, Vector2 pos2)
+    {
+        Vector2 from = pos2 - pos1;
+        Vector2 to = new Vector2(1, 0);
+
+        float result = Vector2.Angle(from, to);
+        Vector3 cross = Vector3.Cross(from, to);
+
+        if (cross.z > 0)
+        {
+            result = 360f - result;
+        }
+
+        return result;
     }
 }
