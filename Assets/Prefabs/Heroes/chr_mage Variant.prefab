@@ -59,6 +59,8 @@ MonoBehaviour:
   CrystalButton_: {fileID: 0}
   CrossedSwords: {fileID: 1524996914856487658, guid: 8beef934a0982c640bf69f1387f4960e,
     type: 3}
+  CurWeapon: 
+  mCube: {fileID: 0}
 --- !u!1001 &3521414188982275407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159,3 +161,93 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3521414188982275407}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3986858786046503588 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c3fb9ad8e76f85d43adeffcbe8157d18,
+    type: 3}
+  m_PrefabInstance: {fileID: 3521414188982275407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7576685008895518782
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3986858786046503588}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0065857484
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0065857503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0065857484
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0017045537
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0069739
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000007202849
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.57119226
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1547891
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7928292
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.14560802
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 24.061
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 109.518005
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 4.9700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4aa2b5ba36fb84746af81bd6f5a797b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Santa's hat
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4aa2b5ba36fb84746af81bd6f5a797b5, type: 3}

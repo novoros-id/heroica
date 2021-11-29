@@ -12,6 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1568558e38f9e3346b2f7c8a25e506e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7839017789065999126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403843717420335517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8554a7a800b8d064d9586b66146f4408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selected: 0
+  prefabname: windmill
+--- !u!114 &7057527052946606184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403843717420335517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1001 &7673805507345249711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179,8 +211,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: windmill
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2e96a4b1e82f0c7498708c556b2a8d26,
+        type: 3}
+      propertyPath: m_TagString
+      value: Furniture
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e96a4b1e82f0c7498708c556b2a8d26, type: 3}
+--- !u!1 &7403843717420335517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e96a4b1e82f0c7498708c556b2a8d26,
+    type: 3}
+  m_PrefabInstance: {fileID: 7673805508630150348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7923076454653926183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e96a4b1e82f0c7498708c556b2a8d26,
