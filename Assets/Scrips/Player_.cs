@@ -815,30 +815,31 @@ public class Player_ : MonoBehaviour
                     }
 
                     // add to Graph
+                    int collider_price = return_collider_price(collider.name);
 
                     if (CurFloor.name == "StartFloor")
                     {
-                        gr.AddEdge(CurFloor.name, collider.name, 1);
+                        gr.AddEdge(CurFloor.name, collider.name, collider_price);
                     }
 
                     if (x > 0 && z == 0)
                     {
-                        gr.AddEdge(nameFloor, collider.name, 1);
+                        gr.AddEdge(nameFloor, collider.name, collider_price);
                     }
 
                     if (x < 0 && z == 0)
                     {
-                        gr.AddEdge(nameFloor, collider.name, 1);
+                        gr.AddEdge(nameFloor, collider.name, collider_price);
                     }
 
                     if (z > 0 && x == 0)
                     {
-                        gr.AddEdge(nameFloor, collider.name, 1);
+                        gr.AddEdge(nameFloor, collider.name, collider_price);
                     }
 
                     if (z < 0 && x == 0)
                     {
-                        gr.AddEdge(nameFloor, collider.name, 1);
+                        gr.AddEdge(nameFloor, collider.name, collider_price);
                     }
 
                 }
@@ -846,15 +847,49 @@ public class Player_ : MonoBehaviour
         }
     }
 
+    public int return_collider_price(string collider_name)
+    {
+        GameObject floor_ = GameObject.Find(collider_name);
+        // Instantiate(blue_floor, new Vector3(floor_.transform.position.x, 1.05f, floor_.transform.position.z), Quaternion.identity);
+        GameObject _items = return_tag_item_on_position(floor_.transform.position);
+        if (_items == null)
+        {
+            return 1;
+        }
+        else if (_items.tag == "Door")
+        {
+            return 1000;
+        }
+        else if (_items.tag == "Enemy_1")
+        {
+            return 10;
+        }
+        else if (_items.tag == "Enemy_2")
+        {
+            return 10;
+        }
+        else
+        {
+            return 1;
+        }
 
+        //return 1;
+    }
 
     public void build_graph()
     {
 
 
         //добавление вершин
-
+        //Graph g = new Graph();
         //не ставить тэг на это поле
+        //if (g.Vertices.Count != 0)
+        //{
+        //    return;
+        //}
+
+        g.Vertices.Clear();
+
         g.AddVertex("StartFloor");
         // остальные вершины добавляем по тэгу
 
@@ -870,14 +905,14 @@ public class Player_ : MonoBehaviour
 
         // добавим грани
         addEdgeFromFloor("StartFloor", g);
-        floor_g = GameObject.FindGameObjectsWithTag("Floor");
+        //floor_g = GameObject.FindGameObjectsWithTag("Floor");
 
-        for (int i = 0; i < floor_g.Length; i++)
-        {
+        //for (int i = 0; i < floor_g.Length; i++)
+        //{
 
-            addEdgeFromFloor(floor_g[i].name, g);
+        //    addEdgeFromFloor(floor_g[i].name, g);
 
-        }
+        //}
 
     }
 
