@@ -32,29 +32,72 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
     {
         FindSelectedObject();
         GameObject newobj;
-        newobj = Instantiate(Floor1, new Vector3(FindSelectedObject().transform.position.x - 1f, FindSelectedObject().transform.position.y, FindSelectedObject().transform.position.z),Quaternion.identity);
-        newobj.GetComponent<MayCreatedItems>().SetSelected();
+        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x + 1f, 0, FindSelectedObject().transform.position.z);
+
+        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+        if (test_obj == null)
+        {
+            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+        else
+        {
+            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+        
     }
     public void CreateFloorRight()
     {
         FindSelectedObject();
         GameObject newobj;
-        newobj = Instantiate(Floor1, new Vector3(FindSelectedObject().transform.position.x + 1f, FindSelectedObject().transform.position.y, FindSelectedObject().transform.position.z), Quaternion.identity);
-        newobj.GetComponent<MayCreatedItems>().SetSelected();
+
+        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x - 1f, 0, FindSelectedObject().transform.position.z);
+        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+        if (test_obj == null)
+        {
+            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+        else
+        {
+            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+
     }
     public void CreateFloorUp()
     {
         FindSelectedObject();
         GameObject newobj;
-        newobj = Instantiate(Floor1, new Vector3(FindSelectedObject().transform.position.x, FindSelectedObject().transform.position.y, FindSelectedObject().transform.position.z + 1f), Quaternion.identity);
-        newobj.GetComponent<MayCreatedItems>().SetSelected();
+
+        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x, 0, FindSelectedObject().transform.position.z - 1f);
+        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+        if (test_obj == null)
+        {
+            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+        else
+        {
+            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+        }
     }
     public void CreateFloorDown()
     {
         FindSelectedObject();
         GameObject newobj;
-        newobj = Instantiate(Floor1, new Vector3(FindSelectedObject().transform.position.x, FindSelectedObject().transform.position.y, FindSelectedObject().transform.position.z - 1f), Quaternion.identity);
-        newobj.GetComponent<MayCreatedItems>().SetSelected();
+
+        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x, 0, FindSelectedObject().transform.position.z + 1f);
+        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+        if (test_obj == null)
+        {
+            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+        else
+        {
+            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+        }
+
     }
 
 
@@ -62,16 +105,24 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
     {
         FindSelectedObject();
         GameObject newobj;
-        if(nameObject == "door")
+
+        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x, 0.35f, FindSelectedObject().transform.position.z);
+
+        if (object_exist_on_position(new_position) == false)
         {
-            newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.05f, FindSelectedObject().transform.position.z), Quaternion.identity);
-            newobj.GetComponent<MayCreatedItems>().SetSelected();
+            if (nameObject == "door")
+            {
+                newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.05f, FindSelectedObject().transform.position.z), Quaternion.identity);
+                newobj.GetComponent<MayCreatedItems>().SetSelected();
+            }
+            else
+            {
+                newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.7f, FindSelectedObject().transform.position.z), Quaternion.identity);
+                newobj.GetComponent<MayCreatedItems>().SetSelected();
+            }
         }
-        else
-        {
-            newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.7f, FindSelectedObject().transform.position.z), Quaternion.identity);
-            newobj.GetComponent<MayCreatedItems>().SetSelected();
-        }  
+
+       
     }
 
     public void DeleteSelectedObject()
@@ -134,7 +185,7 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
         {
             for (int b = 0; b < AllLinkedButtons.Length; b++)
             {
-                AllLinkedButtons[b].GetComponent<Button>().interactable = false;
+                AllLinkedButtons[b].GetComponent<Button>().interactable = true;
             }
         }
     }
@@ -142,4 +193,44 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
     {
         NameSelectedObject.text = FindSelectedObject().name;
     }
+
+    private GameObject object_exist_on_position_with_tag(Vector3 new_position, string tag_object)
+    {
+        GameObject[] g_obj = GameObject.FindGameObjectsWithTag(tag_object);
+
+        for (int i = 0; i < g_obj.Length; i++)
+        {
+
+            if (new_position.x == g_obj[i].transform.position.x && new_position.z == g_obj[i].transform.position.z)
+            {
+                return g_obj[i];
+
+            }
+
+        }
+        return null;
+    }
+
+    private bool object_exist_on_position(Vector3 new_position)
+    {
+        Collider[] colliders;
+
+        if ((colliders = Physics.OverlapSphere(new_position, 0.35f)).Length > 0)
+        {
+
+            foreach (var collider in colliders)
+            {
+                // обрабатываем только некоторые тэги
+
+                if (collider.tag != "Floor")
+                {
+                    return true;
+                }
+            }
+        }
+
+    return false;
+
+    }
+
 }
