@@ -32,70 +32,102 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
     {
         FindSelectedObject();
         GameObject newobj;
-        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x + 1f, 0, FindSelectedObject().transform.position.z);
+        GameObject Select_ob = FindSelectedObject();
+        Vector3 new_position = new Vector3(Select_ob.transform.position.x + 1f, 0, Select_ob.transform.position.z);
 
-        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
-        if (test_obj == null)
+        if (Select_ob.tag == "Floor")
         {
-            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
-            newobj.GetComponent<MayCreatedItems>().SetSelected();
+            GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+            if (test_obj == null)
+            {
+                newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+                newobj.GetComponent<MayCreatedItems>().SetSelected();
+            }
+            else
+            {
+                test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            }
         }
-        else
+        else if (Select_ob.tag == "Furniture")
         {
-            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            Select_ob.transform.position = new_position;
         }
+
         
     }
     public void CreateFloorRight()
     {
         FindSelectedObject();
         GameObject newobj;
+        GameObject Select_ob = FindSelectedObject();
 
-        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x - 1f, 0, FindSelectedObject().transform.position.z);
-        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
-        if (test_obj == null)
+        Vector3 new_position = new Vector3(Select_ob.transform.position.x - 1f, 0, Select_ob.transform.position.z);
+        if (Select_ob.tag == "Floor")
         {
-            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
-            newobj.GetComponent<MayCreatedItems>().SetSelected();
+            GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+            if (test_obj == null)
+            {
+                newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+                newobj.GetComponent<MayCreatedItems>().SetSelected();
+            }
+            else
+            {
+                test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            }
         }
-        else
+        else if (Select_ob.tag == "Furniture")
         {
-            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            Select_ob.transform.position = new_position;
         }
-
     }
     public void CreateFloorUp()
     {
         FindSelectedObject();
         GameObject newobj;
+        GameObject Select_ob = FindSelectedObject();
 
-        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x, 0, FindSelectedObject().transform.position.z - 1f);
-        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
-        if (test_obj == null)
+        Vector3 new_position = new Vector3(Select_ob.transform.position.x, 0, Select_ob.transform.position.z - 1f);
+        if (Select_ob.tag == "Floor"|| Select_ob.name == "StartFloor")
         {
-            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
-            newobj.GetComponent<MayCreatedItems>().SetSelected();
+            GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+            if (test_obj == null)
+            {
+                newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+                newobj.GetComponent<MayCreatedItems>().SetSelected();
+            }
+            else
+            {
+                test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            }
         }
-        else
+        else if (Select_ob.tag == "Furniture")
         {
-            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            Select_ob.transform.position = new_position;
         }
     }
     public void CreateFloorDown()
     {
         FindSelectedObject();
         GameObject newobj;
+        GameObject Select_ob = FindSelectedObject();
 
-        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x, 0, FindSelectedObject().transform.position.z + 1f);
-        GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
-        if (test_obj == null)
+        Vector3 new_position = new Vector3(Select_ob.transform.position.x, 0, Select_ob.transform.position.z + 1f);
+        if (Select_ob.tag == "Floor" || Select_ob.name == "StartFloor")
         {
-            newobj = Instantiate(Floor1, new_position, Quaternion.identity);
-            newobj.GetComponent<MayCreatedItems>().SetSelected();
+            GameObject test_obj = object_exist_on_position_with_tag(new_position, "Floor");
+            if (test_obj == null)
+            {
+                newobj = Instantiate(Floor1, new_position, Quaternion.identity);
+                newobj.GetComponent<MayCreatedItems>().SetSelected();
+            }
+            else
+            {
+                test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            }
         }
-        else
+        else if (Select_ob.tag == "Furniture")
         {
-            test_obj.GetComponent<MayCreatedItems>().SetSelected();
+            Select_ob.transform.position = new_position;
         }
 
     }
@@ -105,21 +137,29 @@ public class ControllerButtonsCreateLevel : MonoBehaviour
     {
         FindSelectedObject();
         GameObject newobj;
+        GameObject Select_ob = FindSelectedObject();
 
-        Vector3 new_position = new Vector3(FindSelectedObject().transform.position.x, 0.35f, FindSelectedObject().transform.position.z);
+
+        Vector3 new_position = new Vector3(Select_ob.transform.position.x, 0.35f, Select_ob.transform.position.z);
 
         if (object_exist_on_position(new_position) == false)
         {
             if (nameObject == "door")
             {
-                newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.05f, FindSelectedObject().transform.position.z), Quaternion.identity);
-                newobj.GetComponent<MayCreatedItems>().SetSelected();
+                newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(Select_ob.transform.position.x, 0.05f, Select_ob.transform.position.z), Quaternion.identity);
+               
             }
-            else
+            else if (nameObject == "windmill")
             {
-                newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(FindSelectedObject().transform.position.x, 0.7f, FindSelectedObject().transform.position.z), Quaternion.identity);
-                newobj.GetComponent<MayCreatedItems>().SetSelected();
+                GameObject camera_cent = GameObject.Find("CameraCenter");
+                newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(camera_cent.transform.position.x, 0, camera_cent.transform.position.z), Quaternion.identity);
             }
+            else {
+                    newobj = Instantiate(Resources.Load(nameObject) as GameObject, new Vector3(Select_ob.transform.position.x, 0.7f, Select_ob.transform.position.z), Quaternion.identity);
+
+            }
+
+            newobj.GetComponent<MayCreatedItems>().SetSelected();
         }
 
        
