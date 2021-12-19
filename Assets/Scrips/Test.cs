@@ -32,11 +32,17 @@ public class Test : MonoBehaviour
     }
     public void Start()
     {
-        SettingsObject.SetActive(false);
+        SettingsObject.SetActive(true);
     }
     public void SettingsOn()
     {
         SettingsObject.SetActive(true);
+    }
+    public void SettingsOFF()
+    {
+        SettingsObject.SetActive(false);
+        GameObject StartF = GameObject.Find("StartFloor");
+        StartF.GetComponent<MayCreatedItems>().SetSelected();
     }
     public void SaveLevel()
     {
@@ -208,15 +214,41 @@ public class Test : MonoBehaviour
 
         LevelSettings.CreateObject(LevelName,LastJSON,KnightAvalaible,BarbarianAvalaible,MageAvalaible,PriestAvalaible, ShopAvalaible, CrystalAvalaible, SoloAvalaible, SurvivalAvalaible, LevelMaxCount);
 
+        if (LevelName == "")
+        {
+            return;
+        }
         
 
         string LevelSettingsEnd = JsonUtility.ToJson(LevelSettings);
 
         //PlayerPrefs.SetString("LastJSON", LastJSON);
-        PlayerPrefs.SetString(LevelMaxCount.ToString(), LevelSettingsEnd);
-        PlayerPrefs.SetInt("LevelMaxCount", LevelMaxCount);
-        int ml = PlayerPrefs.GetInt("LevelMaxCount");
-        Debug.Log(ml);
+        //PlayerPrefs.SetString(LevelMaxCount.ToString(), LevelSettingsEnd);
+        //PlayerPrefs.SetString("LevelName", LevelMaxCount);
+
+        string levelsName = PlayerPrefs.GetString("LevelsNames");
+        string[] massLevelsName = levelsName.Split('|');
+
+        bool level_exists = false;
+
+        foreach (string ln in massLevelsName)
+        {
+            if (ln == LevelName)
+            {
+                level_exists = true;
+            }
+        }
+
+        if (level_exists == false)
+        {
+            levelsName = levelsName + "|" + LevelName;
+        }
+
+        PlayerPrefs.SetString(LevelName, LevelSettingsEnd);
+        PlayerPrefs.SetString("LevelsNames", levelsName);
+
+        //int ml = PlayerPrefs.GetInt("LevelMaxCount");
+        //Debug.Log(ml);
         PlayerPrefs.Save();
 
         //string ab = JsonUtility.ToJson(massiveJSON);
