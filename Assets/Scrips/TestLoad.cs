@@ -28,22 +28,47 @@ public class TestLoad : MonoBehaviour
     public void Awake()
     {
         GameObject previous = null;
-        int maxlevels = PlayerPrefs.GetInt("LevelMaxCount");
-        for (int b = 1; b < maxlevels + 1; b++)
+
+        string levelsName = PlayerPrefs.GetString("LevelsNames");
+        string[] massLevelsName = levelsName.Split('|');
+
+        bool ferst_window = true;
+        foreach (string ln in massLevelsName)
         {
-            if(b == 1)
+            if (ln != "")
             {
-                previous = Instantiate(LevelButton, new Vector2(450, 725), Quaternion.identity);
-                previous.transform.SetParent(this.transform);
-                previous.GetComponent<LevelButton>().SetNumberLevel(b.ToString());
-            }
-            else
-            {
-                previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 170),Quaternion.identity);
-                previous.transform.SetParent(this.transform);
-                previous.GetComponent<LevelButton>().SetNumberLevel(b.ToString());
+                if (ferst_window == true)
+                {
+                    previous = Instantiate(LevelButton, new Vector2(450, 725), Quaternion.identity);
+                    previous.transform.SetParent(this.transform);
+                    previous.GetComponent<LevelButton>().SetNumberLevel(ln);
+                    ferst_window = false;
+                }
+                else
+                {
+                    previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 170), Quaternion.identity);
+                    previous.transform.SetParent(this.transform);
+                    previous.GetComponent<LevelButton>().SetNumberLevel(ln);
+                }
             }
         }
+        //GameObject previous = null;
+        //int maxlevels = PlayerPrefs.GetInt("LevelMaxCount");
+        //for (int b = 1; b < maxlevels + 1; b++)
+        //{
+        //    if(b == 1)
+        //    {
+        //        previous = Instantiate(LevelButton, new Vector2(450, 725), Quaternion.identity);
+        //        previous.transform.SetParent(this.transform);
+        //        previous.GetComponent<LevelButton>().SetNumberLevel(b.ToString());
+        //    }
+        //    else
+        //    {
+        //        previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 170),Quaternion.identity);
+        //        previous.transform.SetParent(this.transform);
+        //        previous.GetComponent<LevelButton>().SetNumberLevel(b.ToString());
+        //    }
+        //}
     }
 
     
