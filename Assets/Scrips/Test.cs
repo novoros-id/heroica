@@ -50,6 +50,12 @@ public class Test : MonoBehaviour
         GameObject StartF = GameObject.Find("StartFloor");
         StartF.GetComponent<MayCreatedItems>().SetSelected();
     }
+
+    public void ExitLevel()
+    {
+        Application.LoadLevel("Start");
+    }
+
     public void SaveLevel()
     {
         //position_ = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
