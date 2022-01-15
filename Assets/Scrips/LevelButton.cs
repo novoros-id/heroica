@@ -11,7 +11,11 @@ public class LevelButton : MonoBehaviour
 
     public string numberlevel;
 
-   
+    public GameObject Fieldmn;
+    public GameObject Fieldse;
+    public GameObject Fieldfi;
+
+
 
     public void SetNumberLevel(string number_level)
     {
@@ -66,7 +70,18 @@ public class LevelButton : MonoBehaviour
         LevelSave asd = JsonUtility.FromJson<LevelSave>(Level);
 
         Main DLight = GameObject.Find("Directional Light").GetComponent<Main>();
-
+        if(asd.FieldMn == "1")
+        {
+            Instantiate(Fieldmn);
+        }
+        if (asd.FieldSe == "1")
+        {
+            Instantiate(Fieldse);
+        }
+        if (asd.FieldFi == "1")
+        {
+            Instantiate(Fieldfi);
+        }
         if (asd.HeroKnight == "1")
         {
             DLight.Knight_aviable = true;

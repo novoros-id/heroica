@@ -7,6 +7,9 @@ public class Test : MonoBehaviour
 {
     public string LevelName;
     public GameObject SettingsObject;
+    public string MountAvalaible;
+    public string SeaAvalaible;
+    public string FieldAvalaible;
     public string KnightAvalaible;
     public string BarbarianAvalaible;
     public string MageAvalaible;
@@ -20,6 +23,9 @@ public class Test : MonoBehaviour
 
     public void GetLevelName()
     {
+        MountAvalaible = GameObject.Find("ImageMn").GetComponent<ChoozeField>().Field;
+        SeaAvalaible = GameObject.Find("ImageSe").GetComponent<ChoozeField>().Field;
+        FieldAvalaible = GameObject.Find("ImageFi").GetComponent<ChoozeField>().Field;
         KnightAvalaible = GameObject.Find("ImageKn").GetComponent<HeroesAvaibility>().HeroAvaibility;
         BarbarianAvalaible = GameObject.Find("ImageBr").GetComponent<HeroesAvaibility>().HeroAvaibility;
         MageAvalaible = GameObject.Find("ImageMg").GetComponent<HeroesAvaibility>().HeroAvaibility;
@@ -212,7 +218,7 @@ public class Test : MonoBehaviour
 
         LevelMaxCount = LevelMaxCount + 1;
 
-        LevelSettings.CreateObject(LevelName,LastJSON,KnightAvalaible,BarbarianAvalaible,MageAvalaible,PriestAvalaible, ShopAvalaible, CrystalAvalaible, SoloAvalaible, SurvivalAvalaible, LevelMaxCount);
+        LevelSettings.CreateObject(LevelName,LastJSON, MountAvalaible, SeaAvalaible, FieldAvalaible, KnightAvalaible,BarbarianAvalaible,MageAvalaible,PriestAvalaible, ShopAvalaible, CrystalAvalaible, SoloAvalaible, SurvivalAvalaible, LevelMaxCount);
 
         if (LevelName == "")
         {
@@ -285,6 +291,10 @@ public class LevelSave
     public string levelname;
     public string FieldsObjects_;
 
+    public string FieldMn;
+    public string FieldSe;
+    public string FieldFi;
+
     public string HeroKnight;
     public string HeroBarbarian;
     public string HeroMage;
@@ -297,8 +307,11 @@ public class LevelSave
 
     public int LevelCount;
 
-    public void CreateObject(string levelname_, string FieldsObjects__, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_, string ShopAvai_, string CrystalAvai_, string SoloAvai_, string SurvivalAvai_, int LevelCount_)
+    public void CreateObject(string levelname_, string FieldsObjects__, string FieldMn_, string FieldSe_, string FieldFi_, string HeroKnight_, string HeroBarbarian_, string HeroMage_, string HeroPriest_, string ShopAvai_, string CrystalAvai_, string SoloAvai_, string SurvivalAvai_, int LevelCount_)
     {
+        FieldMn = FieldMn_;
+        FieldSe = FieldSe_;
+        FieldFi = FieldFi_;
         levelname = levelname_;
         FieldsObjects_ = FieldsObjects__;
         HeroKnight = HeroKnight_;
