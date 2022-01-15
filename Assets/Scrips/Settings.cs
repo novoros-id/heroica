@@ -51,6 +51,15 @@ public class Settings : MonoBehaviour
         SettingsUI.SetActive(true);
         ChangeIcon();
     }
+    public void CreateLevel()
+    {
+        Application.LoadLevel("CreateLevel");
+    }
+    public void LoadLevel_()
+    {
+        Application.LoadLevel("Created_level");
+    }
+
     public void ResetCrystalCount()
     {
         if (SceneManager.GetActiveScene().name != "Start")

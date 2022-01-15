@@ -23,6 +23,12 @@ public class MayCreatedItems : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "CreateLevel")
         {
+            Vector3 mousePos = Input.mousePosition;
+            if (mousePos.y < 130)
+            {
+                return;
+            }
+
             //Убираем selected со всех объектов
             GameObject[] AllObject = FindObjectsOfType<GameObject>();
             for (int b = 0; b < AllObject.Length; b++)
