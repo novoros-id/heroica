@@ -9,7 +9,7 @@ public class ChoozeField : MonoBehaviour
     public GameObject fi1;
     public GameObject fi2;
     public GameObject Floor;
-    private void Start()
+    private void Awake()
     {
         Floor.SetActive(false);
         cross.SetActive(false);

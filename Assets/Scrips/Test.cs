@@ -39,6 +39,15 @@ public class Test : MonoBehaviour
     public void Start()
     {
         SettingsObject.SetActive(true);
+
+        GameObject Mn = GameObject.Find("ImageMn");
+        ChoozeField MnCf = Mn.GetComponent<ChoozeField>();
+        MnCf.ChangeField(); 
+
+        GameObject Sl = GameObject.Find("ImageSl");
+        HeroesAvaibility SlHr = Sl.GetComponent<HeroesAvaibility>();
+        SlHr.HeroAvaibility = "0";
+        SlHr.cross.SetActive(false);
     }
     public void SettingsOn()
     {

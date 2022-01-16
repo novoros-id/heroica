@@ -7,13 +7,15 @@ public class MayCreatedItems : MonoBehaviour
 {
     public bool selected;
     public string prefabname;
+    public int Screenhe;
 
     private void Start()
     {
         if(SceneManager.GetActiveScene().name != "CreateLevel")
         {
             this.GetComponent<Outline>().enabled = false;
-        }   
+        }
+        Screenhe = Screen.height; 
     }
     public void OnMouseDown()
     {
@@ -23,6 +25,12 @@ public class MayCreatedItems : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "CreateLevel")
         {
+            Vector3 mousePos = Input.mousePosition;
+            //Debug.Log(mousePos.y);
+            if (mousePos.y < Screenhe/4.3f)
+            {
+                return;
+            }
             //Убираем selected со всех объектов
             GameObject[] AllObject = FindObjectsOfType<GameObject>();
             for (int b = 0; b < AllObject.Length; b++)
