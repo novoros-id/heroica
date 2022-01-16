@@ -7,7 +7,7 @@ public class MayCreatedItems : MonoBehaviour
 {
     public bool selected;
     public string prefabname;
-    public int Screenhe;
+    public float Screenhe;
 
     private void Start()
     {
@@ -15,10 +15,12 @@ public class MayCreatedItems : MonoBehaviour
         {
             this.GetComponent<Outline>().enabled = false;
         }
-        Screenhe = Screen.height; 
+       // Screenhe = Screen.height;
+        GameObject knOrge = GameObject.Find("en_ogre");
+        Screenhe = knOrge.transform.position.y + 150;
     }
     public void OnMouseDown()
-    {
+    { 
         SetSelected();
     }
     public void SetSelected()
@@ -27,7 +29,7 @@ public class MayCreatedItems : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
             //Debug.Log(mousePos.y);
-            if (mousePos.y < Screenhe/4.3f)
+            if (mousePos.y < Screenhe)
             {
                 return;
             }

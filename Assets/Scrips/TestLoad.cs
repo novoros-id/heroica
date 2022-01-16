@@ -46,7 +46,7 @@ public class TestLoad : MonoBehaviour
                 }
                 else
                 {
-                    previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 170), Quaternion.identity);
+                    previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 45), Quaternion.identity);
                     previous.transform.SetParent(this.transform);
                     previous.GetComponent<LevelButton>().SetNumberLevel(ln);
                 }
