@@ -13,5 +13,5 @@ public class CamMove : MonoBehaviour
         pos = new Vector3(0f, 0f, 0f);
     }
 
-    
+    //test
 }
