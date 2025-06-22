@@ -11,13 +11,27 @@ public class MayCreatedItems : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name != "CreateLevel")
+        if (SceneManager.GetActiveScene().name != "CreateLevel")
         {
-            this.GetComponent<Outline>().enabled = false;
+            Outline outline = GetComponent<Outline>();
+            if (outline != null)
+            {
+                outline.enabled = false;
+            }
         }
-       // Screenhe = Screen.height;
+        // Screenhe = Screen.height;
+        //GameObject knOrge = GameObject.Find("en_ogre");
+        //Screenhe = knOrge.transform.position.y + 150;
         GameObject knOrge = GameObject.Find("en_ogre");
-        Screenhe = knOrge.transform.position.y + 150;
+        if (knOrge != null)
+        {
+            Screenhe = knOrge.transform.position.y + 150;
+        }
+        else
+        {
+            //Debug.LogError("GameObject 'en_ogre' не найден!");
+            Screenhe = 0; // или любое дефолтное значение
+        }
     }
     public void OnMouseDown()
     { 
