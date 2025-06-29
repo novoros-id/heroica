@@ -10368,6 +10368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2062366958636785609, guid: 9e5a818a4056a4f419fe8e3701b07f91,
         type: 3}
+      propertyPath: computerMoveDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062366958636785609, guid: 9e5a818a4056a4f419fe8e3701b07f91,
+        type: 3}
       propertyPath: sound_proigr_battle
       value: 
       objectReference: {fileID: 8300000, guid: 84f2a597f15f447ea87fc5128d31a8e3, type: 3}
