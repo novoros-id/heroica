@@ -1,71 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &4851632696692727340
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303399520345050449}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019, y: 0.026999997, z: 0.011000005}
-  m_Center: {x: -0.00038004256, y: -0.0027885055, z: 0.0003672441}
---- !u!114 &1024423587589989349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303399520345050449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfd90705279d754889b8db26649b81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  step_move: 2
-  key: 0
-  battle_mode: 0
-  comp: 0
-  leaves: 4
-  blood: 0
-  luck: 0
-  speed: 0
-  power: 0
-  gold: 0
-  axe: 0
-  baton: 0
-  scythe: 0
-  bow: 0
-  dagger: 0
-  sword: 0
-  move: 0
-  startMarker: {fileID: 0}
-  endMarker: {x: 0, y: 0, z: 0}
-  switch_battle_move: 0
-  goal: {fileID: 0}
-  recovery_mode: 0
-  CubeButton: {fileID: 0}
-  floor_g: []
-  speed_: 1
-  startTime: 0
-  journeyLength: 0
-  open: {fileID: 0}
-  step: {fileID: 8300000, guid: 3c372e900278840cabc964381533ee5d, type: 3}
-  Battle_mode: {fileID: 8300000, guid: 40316963507184eea9476e3583d5e0cd, type: 3}
-  Use_crystal: {fileID: 8300000, guid: fbb918b2778e1423cb01e80747b9a006, type: 3}
-  CrystalButton_: {fileID: 0}
-  CrossedSwords: {fileID: 1524996914856487658, guid: 8beef934a0982c640bf69f1387f4960e,
-    type: 3}
-  CurWeapon: 
-  mCube: {fileID: 0}
 --- !u!1001 &4996774650272411648
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 90b49ff32982b164289f7b62c391bfb0,
@@ -154,6 +94,21 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90b49ff32982b164289f7b62c391bfb0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4851632696692727340}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90b49ff32982b164289f7b62c391bfb0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1024423587589989349}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90b49ff32982b164289f7b62c391bfb0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2544033212338379648}
   m_SourcePrefab: {fileID: 100100000, guid: 90b49ff32982b164289f7b62c391bfb0, type: 3}
 --- !u!1 &5303399520345050449 stripped
 GameObject:
@@ -161,3 +116,169 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4996774650272411648}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &4851632696692727340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303399520345050449}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.019, y: 0.026999997, z: 0.011000005}
+  m_Center: {x: -0.00038004256, y: -0.0027885055, z: 0.0003672441}
+--- !u!114 &1024423587589989349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303399520345050449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfd90705279d754889b8db26649b81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  step_move: 2
+  key: 0
+  battle_mode: 0
+  comp: 0
+  leaves: 4
+  blood: 0
+  luck: 0
+  speed: 0
+  power: 0
+  gold: 0
+  axe: 0
+  baton: 0
+  scythe: 0
+  bow: 0
+  dagger: 0
+  sword: 0
+  move: 0
+  startMarker: {fileID: 0}
+  endMarker: {x: 0, y: 0, z: 0}
+  switch_battle_move: 0
+  goal: {fileID: 0}
+  recovery_mode: 0
+  CubeButton: {fileID: 0}
+  floor_g: []
+  speed_: 1
+  startTime: 0
+  journeyLength: 0
+  open: {fileID: 0}
+  step: {fileID: 8300000, guid: 3c372e900278840cabc964381533ee5d, type: 3}
+  Battle_mode: {fileID: 8300000, guid: 40316963507184eea9476e3583d5e0cd, type: 3}
+  Use_crystal: {fileID: 8300000, guid: fbb918b2778e1423cb01e80747b9a006, type: 3}
+  CrystalButton_: {fileID: 0}
+  CrossedSwords: {fileID: 1524996914856487658, guid: 8beef934a0982c640bf69f1387f4960e,
+    type: 3}
+  CurWeapon: 
+  mCube: {fileID: 0}
+--- !u!82 &-2544033212338379648
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303399520345050449}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c2999a41dda9049d4a186d996eb70d62,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

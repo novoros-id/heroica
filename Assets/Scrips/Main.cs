@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Main : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Main : MonoBehaviour
     public GameObject cam_focus;
     public bool Pc;
     public string lang;
+    public int ChatBox;
+    public float volume;
     public Text TextComment;
 
     public int max_player;
@@ -25,7 +28,7 @@ public class Main : MonoBehaviour
     public bool Barbarian_aviable;
     public bool Mage_aviable;
     public bool Priest_aviable;
-    
+
     public bool Shop_aviable;
     public bool Crystal_aviable;
 
@@ -44,8 +47,36 @@ public class Main : MonoBehaviour
 
     public Dictionary<string, string> chapter_1_levels_name = new Dictionary<string, string>();
 
+    [ContextMenu("Найти все AudioSources на сцене")]
+    void FindAndLogAllAudioSources()
+    {
+        // Получаем все AudioSources на активных объектах сцены
+        AudioSource[] allSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        Debug.Log($"Найдено {allSources.Length} источников звука:");
+
+        foreach (AudioSource source in allSources)
+        {
+            Debug.Log($"- {source.gameObject.name} ({source.gameObject.transform.position})", source.gameObject);
+        }
+    }
+    public AudioMixerGroup outputGroup; // Укажи нужную группу из миксера
+
+    [ContextMenu("Применить Output ко всем AudioSource'ам")]
+    void ApplyOutputToAllSources()
+    {
+        AudioSource[] sources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach (AudioSource source in sources)
+        {
+            source.outputAudioMixerGroup = outputGroup;
+        }
+
+        Debug.Log($"Применено к {sources.Length} источникам");
+    }
     private void Awake()
     {
+
 
         if (SceneManager.GetActiveScene().name != "Start")
         {
@@ -76,7 +107,7 @@ public class Main : MonoBehaviour
 
 
         if (chapter_1_levels_name.ContainsKey(active_scene_name))
-        { 
+        {
             if (PlayerPrefs.HasKey(chapter_1_levels_name[active_scene_name]))
             {
                 int level_save = PlayerPrefs.GetInt(chapter_1_levels_name[active_scene_name]);
@@ -147,11 +178,26 @@ public class Main : MonoBehaviour
             "Отомстите за меня| Avenge me",
             "Еще сдеремся! | We'll get together again!"};
 
-
+        if (PlayerPrefs.HasKey("ChatBox"))
+        {
+            ChatBox = PlayerPrefs.GetInt("ChatBox");
+        }
+        else
+        {
+            ChatBox = 1;
+        }
+        if (PlayerPrefs.HasKey("volume"))
+        {
+            volume = PlayerPrefs.GetInt("volume");
+        }
+        else
+        {
+            volume = 0.5f;
+        }
     }
     public void Start()
     {
-     
+
         // Определим платформу   
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -169,8 +215,10 @@ public class Main : MonoBehaviour
         }
         else
         {
-           lang = "en";
+            lang = "en";
         }
+
+
 
         // Установим видимость выбора игроков
 
@@ -199,7 +247,7 @@ public class Main : MonoBehaviour
         {
             return "------";
         }
-        
+
     }
 
     public void set_player_aviable()
@@ -269,7 +317,7 @@ public class Main : MonoBehaviour
 
     public void SetLang()
     {
-        if(lang == "ru")
+        if (lang == "ru")
         {
             lang = "en";
             PlayerPrefs.SetString("lang", lang);
@@ -282,6 +330,14 @@ public class Main : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+
+    public void SetChatbox()
+    {
+        ChatBox = 1 - ChatBox;
+        PlayerPrefs.SetInt("ChatBox", ChatBox);
+        PlayerPrefs.Save();
+    }
+    
 
     public int get_current_move()
     {
