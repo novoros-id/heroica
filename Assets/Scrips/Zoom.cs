@@ -58,10 +58,8 @@ public class Zoom : MonoBehaviour
     /// </summary>
 
     void Start()
-	{
-
+    {
         CameraCenter = GameObject.Find("CameraCenter");
-
     }
 
     private void FixedUpdate()
@@ -93,14 +91,8 @@ public class Zoom : MonoBehaviour
                 else if (t1.phase == TouchPhase.Moved || t2.phase == TouchPhase.Moved)
                 {
                     var currentFingersDistance = Vector2.Distance(t1.position, t2.position);
-                    //   Debug.Log(currentFingersDistance);
-                    ////if (currentFingersDistance != initialFingersDistance) 
-                    //{
-                    var scaleFactor = currentFingersDistance / initialFingersDistance;
-                   // Debug.Log(scaleFactor);
-
+                    var scaleFactor = initialFingersDistance / currentFingersDistance; // инвертировали
                     CameraCenter.transform.localScale = initialScale * scaleFactor;
-                    //} 
 
                     float Dx = t1.position.x - transform.position.x;
                     float Dy = t1.position.y - transform.position.y;

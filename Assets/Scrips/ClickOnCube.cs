@@ -44,6 +44,9 @@ public class ClickOnCube : MonoBehaviour
     public Sprite ImageEndWin;
     public Sprite ImageEndLoose;
 
+    public float computerMoveDelay = 2f; // Время ожидания хода компьютера (секунды)
+    private bool waitingForComputerMove = false;
+
 
     private void Awake()
     {
@@ -1103,5 +1106,37 @@ public class ClickOnCube : MonoBehaviour
     public void play_chat()
     {
         audiosrc.PlayOneShot(sound_chat);
+    }
+
+    void Update()
+    {
+        if (!waitingForComputerMove)
+        {
+            GameObject cam = GameObject.Find("Directional Light");
+            Main mScript = cam.GetComponent<Main>();
+            if (mScript == null) return;
+
+            GameObject currentPlayer = mScript.return_curent_player();
+            if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == true)
+            {
+                GameObject cube_button = GameObject.Find("CubeButton");
+                cube_button_script mCube = cube_button.GetComponent<cube_button_script>();
+                if (mCube.cube_is_available && computerMoveDelay > 0f)
+                {
+                    waitingForComputerMove = true;
+                    StartCoroutine(ComputerMoveCoroutine());
+                }
+            }
+        }
+    }
+
+    private IEnumerator ComputerMoveCoroutine()
+    {
+        yield return new WaitForSeconds(computerMoveDelay);
+
+        // Здесь разместите код, который должен выполниться после задержки
+        make_move();
+
+        waitingForComputerMove = false;
     }
 }
