@@ -3792,11 +3792,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6791226477495271116, guid: 90241f7b125f08b4298e938512cf55fa,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 467921456}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90241f7b125f08b4298e938512cf55fa, type: 3}
 --- !u!114 &467921454 stripped
 MonoBehaviour:
@@ -6254,70 +6250,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c4a529d16d25064f9849903eba07b41, type: 3}
---- !u!850595691 &714287768
-LightingSettings:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Settings.lighting
-  serializedVersion: 6
-  m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 1
-  m_EnableRealtimeLightmaps: 0
-  m_RealtimeEnvironmentLighting: 1
-  m_BounceScale: 1
-  m_AlbedoBoost: 1
-  m_IndirectOutputScale: 1
-  m_UsingShadowmask: 1
-  m_BakeBackend: 1
-  m_LightmapMaxSize: 1024
-  m_BakeResolution: 40
-  m_Padding: 2
-  m_LightmapCompression: 3
-  m_AO: 0
-  m_AOMaxDistance: 1
-  m_CompAOExponent: 1
-  m_CompAOExponentDirect: 0
-  m_ExtractAO: 0
-  m_MixedBakeMode: 2
-  m_LightmapsBakeMode: 1
-  m_FilterMode: 1
-  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
-  m_ExportTrainingData: 0
-  m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 2
-  m_ForceWhiteAlbedo: 0
-  m_ForceUpdates: 0
-  m_FinalGather: 0
-  m_FinalGatherRayCount: 256
-  m_FinalGatherFiltering: 1
-  m_PVRCulling: 1
-  m_PVRSampling: 1
-  m_PVRDirectSampleCount: 32
-  m_PVRSampleCount: 512
-  m_PVREnvironmentSampleCount: 256
-  m_PVREnvironmentReferencePointCount: 2048
-  m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 2
-  m_PVRMinBounces: 2
-  m_PVREnvironmentImportanceSampling: 1
-  m_PVRFilteringMode: 1
-  m_PVRDenoiserTypeDirect: 1
-  m_PVRDenoiserTypeIndirect: 1
-  m_PVRDenoiserTypeAO: 1
-  m_PVRFilterTypeDirect: 0
-  m_PVRFilterTypeIndirect: 0
-  m_PVRFilterTypeAO: 0
-  m_PVRFilteringGaussRadiusDirect: 1
-  m_PVRFilteringGaussRadiusIndirect: 5
-  m_PVRFilteringGaussRadiusAO: 2
-  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-  m_PVRFilteringAtrousPositionSigmaIndirect: 2
-  m_PVRFilteringAtrousPositionSigmaAO: 1
-  m_PVRTiledBaking: 0
-  m_NumRaysToShootPerTexel: -1
-  m_RespectSceneVisibilityWhenBakingGI: 0
 --- !u!1 &717876862
 GameObject:
   m_ObjectHideFlags: 0
@@ -7638,11 +7570,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5303399520345050449, guid: 0d80f15e53974b744a26b4390e63385a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 868840407}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d80f15e53974b744a26b4390e63385a, type: 3}
 --- !u!114 &868840405 stripped
 MonoBehaviour:
@@ -11121,11 +11049,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4047867408199463072, guid: 3228eff52351c8d46ae5285576372387,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1298897625}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3228eff52351c8d46ae5285576372387, type: 3}
 --- !u!114 &1298897626 stripped
 MonoBehaviour:
@@ -14976,11 +14900,7 @@ PrefabInstance:
     - {fileID: 2062366958636785610, guid: 9e5a818a4056a4f419fe8e3701b07f91, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2062366958636785608, guid: 9e5a818a4056a4f419fe8e3701b07f91,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1846811290}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a818a4056a4f419fe8e3701b07f91, type: 3}
 --- !u!114 &1846811291 stripped
 MonoBehaviour:
@@ -16801,11 +16721,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4332456647470493726, guid: 6f07c13e121fa944e8eb97846c7c72a6,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2022123959}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f07c13e121fa944e8eb97846c7c72a6, type: 3}
 --- !u!114 &2022123960 stripped
