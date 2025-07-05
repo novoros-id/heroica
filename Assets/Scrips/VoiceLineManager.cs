@@ -10,6 +10,10 @@ public class VoiceLineManager : MonoBehaviour
     public int minMatchesToTrigger = 3;
 
     private List<VoiceLine> voiceLines = new List<VoiceLine>();
+    private HashSet<string> usedVoiceLines = new HashSet<string>();
+
+    private int checkCallCounter = 0;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -23,6 +27,9 @@ public class VoiceLineManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadVoiceLines();
+
+        // Создаем AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void LoadVoiceLines()
@@ -50,42 +57,69 @@ public class VoiceLineManager : MonoBehaviour
     /// </summary>
     public void CheckForMatchingVoiceLine(List<string> currentTags)
     {
-        if (voiceLines == null || voiceLines.Count == 0 || currentTags == null || currentTags.Count == 0)
-        {
+        checkCallCounter++;
+        if (checkCallCounter % 5 != 0)
             return;
-        }
 
-        var currentTagsSet = new HashSet<string>(currentTags);
-        const int MIN_MATCHES = 3;
+        if (voiceLines == null || voiceLines.Count == 0 || currentTags == null || currentTags.Count == 0)
+            return;
+
+        const int MIN_MATCHES = 4;
 
         foreach (var line in voiceLines)
         {
-            // Пропускаем заведомо неподходящие фразы
-            if (line.tagCount < MIN_MATCHES)
+            if (line.tagCount < MIN_MATCHES || currentTags.Count < MIN_MATCHES)
                 continue;
 
-            int matches = 0;
-
-            foreach (var tag in line.tags)
+            for (int i = 0; i <= line.tags.Count - MIN_MATCHES; i++)
             {
-                if (currentTagsSet.Contains(tag))
+                for (int j = 0; j <= currentTags.Count - MIN_MATCHES; j++)
                 {
-                    matches++;
+                    bool sequenceMatch = true;
+                    List<string> matchedTags = new List<string>();
+                    for (int k = 0; k < MIN_MATCHES; k++)
+                    {
+                        if (line.tags[i + k] == currentTags[j + k])
+                            matchedTags.Add(line.tags[i + k]);
+                        else
+                        {
+                            sequenceMatch = false;
+                            break;
+                        }
+                    }
+                    if (sequenceMatch)
+                    {
+                        if (usedVoiceLines.Contains(line.text))
+                            continue;
 
-                    // Early exit: если уже набрано достаточно совпадений
-                    if (matches >= MIN_MATCHES)
-                        break;
+                        Debug.Log($"[VoiceLine] {line.text} | Совпавшие теги по порядку: [{string.Join(", ", matchedTags)}]");
+                        PlayVoiceLine(line);
+                        usedVoiceLines.Add(line.text);
+                        return;
+                    }
                 }
             }
-
-            if (matches >= MIN_MATCHES)
-            {
-                Debug.Log($"[VoiceLine] {line.text}");
-                return;
-            }
         }
+    }
 
-        // Необязательно: логгирование отсутствия фразы
-        // Debug.Log("[VoiceLine] ...");
+    public void PlayVoiceLine(VoiceLine line)
+    {
+        if (line == null || string.IsNullOrEmpty(line.audioClipName))
+            return;
+        AudioClip clip = Resources.Load<AudioClip>("Audio/" + "test");
+        //AudioClip clip = Resources.Load<AudioClip>("Audio/" + line.audioClipName);
+        if (clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.LogWarning($"Аудиофайл {line.audioClipName} не найден!");
+        }
+    }
+
+    public void ClearUsedVoiceLines()
+    {
+        usedVoiceLines.Clear();
     }
 }
