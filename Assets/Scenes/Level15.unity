@@ -9171,6 +9171,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 152882577280129062, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -37.9
+      objectReference: {fileID: 0}
     - target: {fileID: 254352291548647722, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_Text
@@ -9453,6 +9458,22 @@ PrefabInstance:
       propertyPath: pl
       value: 
       objectReference: {fileID: 1628254755}
+    - target: {fileID: 2822703087722697392, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 59dddc5a6a8d75e4182f0cb5372275cf,
+        type: 3}
+    - target: {fileID: 2827370393147484871, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -36.30988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827370393147484871, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18.155062
+      objectReference: {fileID: 0}
     - target: {fileID: 3008053331031128341, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9517,6 +9538,11 @@ PrefabInstance:
         you must restore health by throwing a die. But there are special levels where
         if you die, the mission is failed. This is just such a level. Be careful!
         Get the crystal, the boss is guarding it!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881700528951163817, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -61
       objectReference: {fileID: 0}
     - target: {fileID: 4228725844033117422, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -9598,7 +9624,7 @@ PrefabInstance:
     - target: {fileID: 4920285711816229902, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00017857575
+      value: 16.999996
       objectReference: {fileID: 0}
     - target: {fileID: 5019184031333439752, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}

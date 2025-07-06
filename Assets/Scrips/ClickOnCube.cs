@@ -54,6 +54,14 @@ public class ClickOnCube : MonoBehaviour
         UI = GameObject.Find("UI");
         TextEndGame = GameObject.Find("TextEnd").GetComponent<Text>();
         CrystalButton_ = GameObject.Find("CrystalButton");
+        if (PlayerPrefs.HasKey("Delay"))
+        {
+            computerMoveDelay = PlayerPrefs.GetFloat("Delay");
+        }
+        else
+        {
+            computerMoveDelay = 0;
+        }
     }
 
     void Start()
