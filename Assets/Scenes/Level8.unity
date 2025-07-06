@@ -678,6 +678,16 @@ PrefabInstance:
         you will get a crystal and you will quickly restore your health. In the future,
         you can choose a player and use their superpowers.
       objectReference: {fileID: 0}
+    - target: {fileID: 3881700528951163817, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 291.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881700528951163817, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -19.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4228725844033117422, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -733,7 +743,7 @@ PrefabInstance:
     - target: {fileID: 4920285711816229902, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0069999695
+      value: 16.999983
       objectReference: {fileID: 0}
     - target: {fileID: 5019184031333439752, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -749,6 +759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Single challenge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5115342394718890635, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6988324804374960502, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
