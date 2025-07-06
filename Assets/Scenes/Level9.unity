@@ -5528,6 +5528,16 @@ PrefabInstance:
         if you die, the mission is failed. This is just such a level. Be careful!
         Get the crystal, the boss is guarding it!'
       objectReference: {fileID: 0}
+    - target: {fileID: 3881700528951163817, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 223.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881700528951163817, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -47.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4228725844033117422, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -5603,7 +5613,7 @@ PrefabInstance:
     - target: {fileID: 4920285711816229902, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.006998062
+      value: 16.999983
       objectReference: {fileID: 0}
     - target: {fileID: 5019184031333439752, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}

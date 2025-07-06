@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using System;
 
 public class Main : MonoBehaviour
 {
@@ -217,8 +218,9 @@ public class Main : MonoBehaviour
         {
             lang = "en";
         }
-
-
+        #if UNITY_EDITOR
+            Pc = true;
+        #endif
 
         // Установим видимость выбора игроков
 
@@ -315,26 +317,22 @@ public class Main : MonoBehaviour
     /// управление ходом
     /// </summary>
 
-    public void SetLang()
+    public void SetLang(Int32 language)
     {
-        if (lang == "ru")
+        if (language == 0)
         {
-            lang = "en";
-            PlayerPrefs.SetString("lang", lang);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetString("lang", "ru");
         }
-        else if (lang == "en")
+        else
         {
-            lang = "ru";
-            PlayerPrefs.SetString("lang", lang);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetString("lang", "en");
         }
+        PlayerPrefs.Save();
     }
 
-    public void SetChatbox()
+    public void SetChatbox(bool cb)
     {
-        ChatBox = 1 - ChatBox;
-        PlayerPrefs.SetInt("ChatBox", ChatBox);
+        PlayerPrefs.SetInt("ChatBox", cb ? 1 : 0);
         PlayerPrefs.Save();
     }
     
@@ -603,7 +601,7 @@ public class Main : MonoBehaviour
             tag_colour = "<color=darkblue><b>";
         }
 
-        if (Random.Range(1, 4) != 1) // ничего не пишем
+        if (UnityEngine.Random.Range(1, 4) != 1) // ничего не пишем
         {
             return;
         }
@@ -611,22 +609,22 @@ public class Main : MonoBehaviour
 
         if (incident == "Waiting_cube_before_the_move")
         {
-            int range_el = Random.Range(0, Waiting_cube_before_the_move.Length);
+            int range_el = UnityEngine.Random.Range(0, Waiting_cube_before_the_move.Length);
             subs = Waiting_cube_before_the_move[range_el].Split('|');
         }
         else if (incident == "Waiting_cube_before_the_fight") 
         {
-            int range_el = Random.Range(0, Waiting_cube_before_the_fight.Length);
+            int range_el = UnityEngine.Random.Range(0, Waiting_cube_before_the_fight.Length);
             subs = Waiting_cube_before_the_fight[range_el].Split('|');
         }
         else if (incident == "Cube_fight_victory") 
         {
-            int range_el = Random.Range(0, Cube_fight_victory.Length);
+            int range_el = UnityEngine.Random.Range(0, Cube_fight_victory.Length);
             subs = Cube_fight_victory[range_el].Split('|');
         }
         else if (incident == "Cube_fight_loss") 
         {
-            int range_el = Random.Range(0, Cube_fight_loss.Length);
+            int range_el = UnityEngine.Random.Range(0, Cube_fight_loss.Length);
             subs = Cube_fight_loss[range_el].Split('|');
         }
         else
