@@ -29,7 +29,7 @@ public class VoiceLineManager : MonoBehaviour
         LoadVoiceLines();
 
         // Создаем AudioSource
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void LoadVoiceLines()
