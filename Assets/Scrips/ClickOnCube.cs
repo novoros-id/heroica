@@ -119,11 +119,23 @@ public class ClickOnCube : MonoBehaviour
 
         //cube_step = throw_a_bone(); // кинули кубик
         Curent_player = mScript.return_curent_player(); // нашли текущего игркока
+        string currentPlayerName = Curent_player.name;
+
+        //GameLogger.Instance.Log($"Текущий ход: {currentPlayerName}"); // Логируем игрока
+        GameLogger.Instance.Log(new List<string> { "текущий ход", currentPlayerName });
+        //GameLogger.Instance.Log($"Игрок {currentPlayerName} бросил кубик и у него выпало {cube_step}");
+        GameLogger.Instance.Log(new List<string> { "бросил кубик", currentPlayerName, $"выпало{cube_step}"});
+
         bool current_player_mode_battle = return_current_player_mode(Curent_player);
+        //GameLogger.Instance.Log($"Игрок {currentPlayerName} находится в режиме боя {current_player_mode_battle}");
+        GameLogger.Instance.Log(new List<string> { "режим боя", currentPlayerName, $"{current_player_mode_battle}"});
         bool current_player_mode_recovery = return_current_mode_recovery(Curent_player);
+        //GameLogger.Instance.Log($"Игрок {currentPlayerName} находится в режиме восстановления {current_player_mode_recovery}");
+        GameLogger.Instance.Log(new List<string> { "режим восстановления", currentPlayerName, $"{current_player_mode_recovery}"});
         if (Curent_player != null && current_player_mode_battle == false && current_player_mode_recovery == false) // режим хода
         {
-
+            //GameLogger.Instance.Log($"Игрок {currentPlayerName} должен сделать ход");
+            GameLogger.Instance.Log(new List<string> { "ход", currentPlayerName});
 
             // GameObject.Find("CubeButton").SetActive(false);
             mCube.reverse_cube_aviable();
@@ -155,10 +167,14 @@ public class ClickOnCube : MonoBehaviour
         }
         else if (Curent_player != null && current_player_mode_battle == true && current_player_mode_recovery == false) // режим боя
         {
+            //GameLogger.Instance.Log($"Игрок {currentPlayerName} начинает бой с врагом");
+            GameLogger.Instance.Log(new List<string> { "бой с врагом", currentPlayerName});
             battle_whith_enemy(cube_step);
         }
         else // режим восстановления здоровья
         {
+            //GameLogger.Instance.Log($"Игрок {currentPlayerName} восстановил здоровье");
+            GameLogger.Instance.Log(new List<string> { "восстановил здоровье", currentPlayerName});
             leave_recovery(cube_step);
         }
     }
@@ -241,6 +257,8 @@ public class ClickOnCube : MonoBehaviour
             pl_script.journeyLength = Vector3.Distance(Curent_player.transform.position, new Vector3(rnd_Floor.transform.position.x, 0.7f, rnd_Floor.transform.position.z));
             pl_script.move = true;
             //audiosrc.PlayOneShot(Moving);
+            //GameLogger.Instance.Log($"Игрок {Curent_player.name} совершил ход на поле {rnd_Floor.name}");
+            GameLogger.Instance.Log(new List<string> { "сделал ход", Curent_player.name});
             Curent_player.GetComponent<Player_>().SoundStep();
             //audiosrc.PlayOneShot(Step);
             Move bScript = Blue[b].GetComponent<Move>();
@@ -506,32 +524,6 @@ public class ClickOnCube : MonoBehaviour
                         right.Add(collider);
                     }
 
-                    //if (pos1.x > 0 && pos1.z == 0)
-                    //{
-                    //    forward.Add(collider);
-                    //}
-
-                    ////if (pos1.x == 0 && pos1.z == 0)
-                    ////{
-                    ////    center.Add(collider);
-                    ////}
-
-                    //if (pos1.x < 0 && pos1.z == 0)
-                    //{
-                    //    back.Add(collider);
-                    //}
-
-                    //if (pos1.z > 0 && pos1.x == 0)
-                    //{
-                    //    left.Add(collider);
-                    //}
-
-                    //if (pos1.z < 0 && pos1.x == 0)
-                    //{
-                    //    right.Add(collider);
-                    //}
-
-
                 }
 
             }
@@ -635,6 +627,8 @@ public class ClickOnCube : MonoBehaviour
 
             if (ItemList.tag == "Enemy_1" || ItemList.tag == "Enemy_2" || ItemList.tag == "Enemy_boss") // если на кубике стоит враг
             {
+                //GameLogger.Instance.Log($"На пути игрока находится враг");
+                GameLogger.Instance.Log(new List<string> { "впереди", "враг" });
                 if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                 {
                     list_steps.Add(FloorList.name);
@@ -648,6 +642,8 @@ public class ClickOnCube : MonoBehaviour
 
             if (ItemList.tag == "Door") // если на кубике дверь
             {
+                //GameLogger.Instance.Log($"На пути игрока находится дверь");
+                GameLogger.Instance.Log(new List<string> { "впереди", "дверь" });
                 //проверим есть ли у игрока ключ
                 Player_ pl_script = Curent_player.GetComponent<Player_>();
 
@@ -659,6 +655,8 @@ public class ClickOnCube : MonoBehaviour
                 }
                 else // ключ есть, подсветим, но дальше идти нельзя
                 {
+                    //GameLogger.Instance.Log($"На пути игрока находится ключ");
+                    GameLogger.Instance.Log(new List<string> { "впереди", "ключ" });
                     if (available_floor_in_list(FloorList.name) == false) //  если подсвечивали, то вернуть надо, а подсвечивать не надо
                     {
                         list_steps.Add(FloorList.name);
@@ -816,6 +814,8 @@ public class ClickOnCube : MonoBehaviour
                             Destroy(collider.gameObject);
                             if (collider.tag == "Enemy_boss")
                             {
+                                //GameLogger.Instance.Log($"Босс побежден");
+                                GameLogger.Instance.Log(new List<string> { "босс побежден" });
                                 final(false);
                             }
                             pl_script.switch_battle_mode();
@@ -823,10 +823,13 @@ public class ClickOnCube : MonoBehaviour
 
                             if (mScript.lang == "ru")
                             {
+                                //GameLogger.Instance.Log($"Игрок победил");
+                                GameLogger.Instance.Log(new List<string> { "игрок победил" });
                                 mScript.set_current_move("Победа !!!");
                             }
                             else if (mScript.lang == "en")
                             {
+                                GameLogger.Instance.Log(new List<string> { "игрок победил" });
                                 mScript.set_current_move("Victory !!!");
                             }
                             
@@ -855,10 +858,12 @@ public class ClickOnCube : MonoBehaviour
 
                             if (mScript.lang == "ru")
                             {
+                                GameLogger.Instance.Log(new List<string> { "игрок победил" });
                                 mScript.set_current_move("Победа !!!");
                             }
                             else if (mScript.lang == "en")
                             {
+                                GameLogger.Instance.Log(new List<string> { "игрок победил" });
                                 mScript.set_current_move("Victory !!!");
                             }
 
@@ -877,15 +882,18 @@ public class ClickOnCube : MonoBehaviour
 
                             if (collider.tag == "Enemy_1")
                             {
+                                GameLogger.Instance.Log(new List<string> { "проиграл", "потерял жизнь" });
                                 pl_script.add_leaves(-1);
                             }
                             else if (collider.tag == "Enemy_2")
                             {
+                                GameLogger.Instance.Log(new List<string> { "проиграл", "потерял две жизнь" });
                                 pl_script.add_leaves(-2);
                             }
                             else if (collider.tag == "Enemy_boss")
                             {
 
+                                GameLogger.Instance.Log(new List<string> { "проиграл", "потерял три жизни" });
                                 pl_script.add_leaves(-3);
                             }
 
@@ -935,15 +943,17 @@ public class ClickOnCube : MonoBehaviour
 
                             if (collider.tag == "Enemy_1")
                             {
+                                GameLogger.Instance.Log(new List<string> { "победил", "потерял жизнь" });
                                 pl_script.add_leaves(-1);
                             }
                             else if (collider.tag == "Enemy_2")
                             {
+                                GameLogger.Instance.Log(new List<string> { "победил", "потерял две жизнь" });
                                 pl_script.add_leaves(-2);
                             }
                             else if (collider.tag == "Enemy_boss")
                             {
-
+                                GameLogger.Instance.Log(new List<string> { "победил", "потерял три жизни" });
                                 final(false);
                                 pl_script.add_leaves(-3);
                             }
@@ -1016,13 +1026,16 @@ public class ClickOnCube : MonoBehaviour
 
 
     void final(bool lose)
-    {
+    {       
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
         finalUI.SetActive(true);
         UI.SetActive(false);
         GameObject ImageEnd = GameObject.Find("ImageEnd");
         Player_ pl_script = Curent_player.GetComponent<Player_>();
+        
+        string fullGameLog = GameLogger.Instance.GetFullLog();
+        Debug.Log("История действий:\n" + fullGameLog);
 
         if (lose == false)
         {
@@ -1040,7 +1053,7 @@ public class ClickOnCube : MonoBehaviour
                     if (mScript.lang == "ru")
                     {
                         TextEndGame.text = "Проигрыш " + Curent_player.name + " вы не выполнили цель миссии!";
-                        
+
                     }
                     else if (mScript.lang == "en")
                     {
@@ -1080,10 +1093,10 @@ public class ClickOnCube : MonoBehaviour
                     TextEndGame.text = "Congratulation " + Curent_player.name + " win, but the level is not protected!";
                 }
             }
-            
 
-           
-           
+
+
+
         }
         else
         {
@@ -1121,6 +1134,8 @@ public class ClickOnCube : MonoBehaviour
         if (!waitingForComputerMove)
         {
             GameObject cam = GameObject.Find("Directional Light");
+            if (cam == null) return;
+
             Main mScript = cam.GetComponent<Main>();
             if (mScript == null) return;
 
@@ -1128,7 +1143,11 @@ public class ClickOnCube : MonoBehaviour
             if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == true)
             {
                 GameObject cube_button = GameObject.Find("CubeButton");
+                if (cube_button == null) return;
+
                 cube_button_script mCube = cube_button.GetComponent<cube_button_script>();
+                if (mCube == null) return;
+
                 if (mCube.cube_is_available && computerMoveDelay > 0f)
                 {
                     waitingForComputerMove = true;
