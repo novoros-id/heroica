@@ -215,7 +215,12 @@ public class ChangeMod : MonoBehaviour
     }
     public void start()
     {
-
+        // Остановить музыку на объекте Camera
+        AudioSource cameraAudio = Camera.GetComponent<AudioSource>();
+        if (cameraAudio != null && cameraAudio.isPlaying)
+        {
+            cameraAudio.Stop();
+        }
         //
         _main.Knight_aviable = Knight_aviable;
         _main.Barbarian_aviable = Barbarian_aviable;

@@ -341,7 +341,7 @@ public class ClickOnCube : MonoBehaviour
         max_name = "";
         max_position = 0;
 
-        audiosrc.PlayOneShot(Click);
+         audiosrc.PlayOneShot(Click);
 
         for (int i = 0; i < Cube_.Length; i++)
         {
@@ -738,7 +738,7 @@ public class ClickOnCube : MonoBehaviour
     {
         Player_ pl_script = Curent_player.GetComponent<Player_>();
         Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
-        audiosrc.PlayOneShot(Hp);
+         audiosrc.PlayOneShot(Hp);
         //Debug.Log("Hp+");
         pl_script.add_leaves(cube_s);
 
@@ -806,7 +806,12 @@ public class ClickOnCube : MonoBehaviour
                         {
                             if (collider.tag != "Enemy_boss")
                             {
-                                audiosrc.PlayOneShot(fight);
+                                AudioClip[] victoryClips = Resources.LoadAll<AudioClip>("victory");
+                                if (victoryClips != null && victoryClips.Length > 0)
+                                {
+                                    AudioClip randomvictoryClip = victoryClips[Random.Range(0, victoryClips.Length)];
+                                    audiosrc.PlayOneShot(randomvictoryClip);
+                                }
                             }
                             
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
@@ -844,7 +849,12 @@ public class ClickOnCube : MonoBehaviour
 
                             if (collider.tag != "Enemy_boss")
                             {
-                                audiosrc.PlayOneShot(fight);
+                                AudioClip[] victoryClips = Resources.LoadAll<AudioClip>("victory");
+                                if (victoryClips != null && victoryClips.Length > 0)
+                                {
+                                    AudioClip randomvictoryClip = victoryClips[Random.Range(0, victoryClips.Length)];
+                                    audiosrc.PlayOneShot(randomvictoryClip);
+                                }
                             }
 
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
@@ -876,7 +886,7 @@ public class ClickOnCube : MonoBehaviour
                         }
                         else if (cube_s == 2) // проигрышь, шаг назад 
                         {
-                            audiosrc.PlayOneShot(sound_proigr_battle);
+                            // audiosrc.PlayOneShot(sound_proigr_battle);
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
 
@@ -935,7 +945,12 @@ public class ClickOnCube : MonoBehaviour
                         {
                             if (collider.tag != "Enemy_boss")
                             {
-                                audiosrc.PlayOneShot(fight);
+                                AudioClip[] victoryClips = Resources.LoadAll<AudioClip>("victory");
+                                if (victoryClips != null && victoryClips.Length > 0)
+                                {
+                                    AudioClip randomvictoryClip = victoryClips[Random.Range(0, victoryClips.Length)];
+                                    audiosrc.PlayOneShot(randomvictoryClip);
+                                }
                             }
 
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
@@ -1037,6 +1052,9 @@ public class ClickOnCube : MonoBehaviour
         string fullGameLog = GameLogger.Instance.GetFullLog();
         Debug.Log("История действий:\n" + fullGameLog);
 
+        // Вывод использованных voice lines
+        Debug.Log("Использованные voice lines:\n" + VoiceLineManager.Instance.GetUsedVoiceLinesAsString());
+
         if (lose == false)
         {
             // проверим, а выполнил ли он уровень
@@ -1126,7 +1144,7 @@ public class ClickOnCube : MonoBehaviour
 
     public void play_chat()
     {
-        audiosrc.PlayOneShot(sound_chat);
+        // audiosrc.PlayOneShot(sound_chat);
     }
 
     void Update()

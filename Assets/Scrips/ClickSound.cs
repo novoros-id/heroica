@@ -22,7 +22,7 @@ public class ClickSound : MonoBehaviour
         //{
         if (mCube_.cube_is_available == true)
         {
-            audiosrc.PlayOneShot(click);
+            // audiosrc.PlayOneShot(click);
         }
         
         //}
