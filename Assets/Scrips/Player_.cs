@@ -243,7 +243,7 @@ public class Player_ : MonoBehaviour
 
     public void SoundStep()
     {
-        audiosrc.PlayOneShot(step);
+        // audiosrc.PlayOneShot(step);
     }
 
     public string get_CurWeapon()
@@ -354,7 +354,7 @@ public class Player_ : MonoBehaviour
                     }
                     else
                     {
-                        audiosrc.PlayOneShot(Battle_mode);
+                        // audiosrc.PlayOneShot(Battle_mode);
                         Instantiate(CrossedSwords, new Vector3(transform.position.x - 0.4f, 1.4f,transform.position.z), Quaternion.identity);
                     }
 
@@ -615,6 +615,12 @@ public class Player_ : MonoBehaviour
         else
         {
             //audiosrc.PlayOneShot(Battle_mode);
+            AudioClip[] battleClips = Resources.LoadAll<AudioClip>("battle");
+            if (battleClips != null && battleClips.Length > 0)
+            {
+                AudioClip randomBattleClip = battleClips[Random.Range(0, battleClips.Length)];
+                audiosrc.PlayOneShot(randomBattleClip);
+            }
             battle_mode = true;
         }
     }
