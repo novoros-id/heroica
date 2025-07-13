@@ -46,6 +46,9 @@ public class Main : MonoBehaviour
     private string[] Cube_fight_victory;
     private string[] Cube_fight_loss;
 
+    public int MusicOn;
+    public int VoiceOn;
+
     public Dictionary<string, string> chapter_1_levels_name = new Dictionary<string, string>();
 
     [ContextMenu("Найти все AudioSources на сцене")]
@@ -195,6 +198,26 @@ public class Main : MonoBehaviour
         {
             volume = 0.5f;
         }
+
+
+        if (PlayerPrefs.HasKey("MusicOn"))
+        {
+            MusicOn = PlayerPrefs.GetInt("MusicOn");
+        }
+        else
+        {
+            MusicOn = 1;
+        }
+        if (PlayerPrefs.HasKey("VoiceOn"))
+        {
+            VoiceOn = PlayerPrefs.GetInt("VoiceOn");
+        }
+        else
+        {
+            VoiceOn = 1;
+        }
+        AudioSource music = GameObject.Find("Camera").GetComponent<AudioSource>();
+        music.volume = MusicOn;
     }
     public void Start()
     {
@@ -332,6 +355,7 @@ public class Main : MonoBehaviour
 
     public void SetChatbox(bool cb)
     {
+        ChatBox = cb ? 1 : 0;
         PlayerPrefs.SetInt("ChatBox", cb ? 1 : 0);
         PlayerPrefs.Save();
     }

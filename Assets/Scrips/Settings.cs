@@ -20,6 +20,8 @@ public class Settings : MonoBehaviour
     public float delay;
     public Toggle AutoPlay;
     public InputField delayfield;
+    public Toggle MusicTog;
+    public Toggle VoiceTog;
 
     void Start()
     {
@@ -37,6 +39,21 @@ public class Settings : MonoBehaviour
         SetVolume(savedVolume);
 
         SettingsUI.SetActive(false);
+
+        if (PlayerPrefs.HasKey("Delay"))
+        {
+            delay = PlayerPrefs.GetFloat("Delay");
+        }
+        else
+        {
+            delay = 0;
+        }
+        if (SceneManager.GetActiveScene().name != "Start")
+        {
+            GameObject cb = GameObject.Find("Cube");
+            ClickOnCube cbScript = cb.GetComponent<ClickOnCube>();
+            cbScript.computerMoveDelay = delay;
+        }
     }
 
 
@@ -69,7 +86,6 @@ public class Settings : MonoBehaviour
     }
     public void ChangeIcon()
     {
-        Debug.Log(PlayerPrefs.GetFloat("Delay"));
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
         ChatBoxButton.isOn = mScript.ChatBox == 1 ? true : false;
@@ -81,6 +97,7 @@ public class Settings : MonoBehaviour
         {
             LanButton.value = 1;
         }
+        
         if (PlayerPrefs.GetFloat("Delay") == 0f)
         {
             Delay.SetActive(false);
@@ -92,8 +109,9 @@ public class Settings : MonoBehaviour
             Delay.SetActive(true);
             AutoPlay.isOn = true;
             delayfield.text = PlayerPrefs.GetFloat("Delay").ToString();
-            delay = PlayerPrefs.GetFloat("Delay");
         }
+        MusicTog.isOn = mScript.MusicOn == 1 ? true : false;
+        VoiceTog.isOn = mScript.VoiceOn == 1 ? true : false;
     }
     public void ChangeLang(Int32 val)
     {
@@ -105,21 +123,21 @@ public class Settings : MonoBehaviour
     {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
+        mScript.SetChatbox(cb);
         if (mScript.ChatBox == 1)
-        {
-            if (Chatbox != null)
-            {
-                Chatbox.SetActive(false);
-            }
-        }
-        else if (mScript.ChatBox == 0)
         {
             if (Chatbox != null)
             {
                 Chatbox.SetActive(true);
             }
         }
-        mScript.SetChatbox(cb);
+        else if (mScript.ChatBox == 0)
+        {
+            if (Chatbox != null)
+            {
+                Chatbox.SetActive(false);
+            }
+        }
     }
     public void SettingsOff()
     {
@@ -165,12 +183,9 @@ public class Settings : MonoBehaviour
         Delay.SetActive(ap);
         if (ap == false)
         {
-            PlayerPrefs.SetFloat("Delay", 0);
+            delay = 0;
         }
-        else
-        {
-            PlayerPrefs.SetFloat("Delay", delay);
-        }
+        PlayerPrefs.SetFloat("Delay", delay);
         if (SceneManager.GetActiveScene().name != "Start")
         {
             GameObject cb = GameObject.Find("Cube");
@@ -195,5 +210,24 @@ public class Settings : MonoBehaviour
     public void ExitLvl()
     {
         SceneManager.LoadScene("Start");
+    }
+    public void MusicOnChange(bool moc)
+    {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        mScript.MusicOn = moc ? 1 : 0;
+        AudioSource music = GameObject.Find("Camera").GetComponent<AudioSource>();
+        music.volume = moc ? 1 : 0;
+        PlayerPrefs.SetInt("MusicOn", moc ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+    public void VoiceOnChange(bool voc)
+    {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        mScript.VoiceOn = voc ? 1 : 0;
+        
+        PlayerPrefs.SetInt("VoiceOn", voc ? 1 : 0);
+        PlayerPrefs.Save();
     }
 }
