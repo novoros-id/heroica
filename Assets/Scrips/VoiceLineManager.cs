@@ -24,10 +24,9 @@ public class VoiceLineManager : MonoBehaviour
         }
 
         _instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         LoadVoiceLines();
-
         // Создаем AudioSource
         audioSource = gameObject.AddComponent<AudioSource>();
     }
