@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using System;
 
 public class Main : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class Main : MonoBehaviour
     public GameObject cam_focus;
     public bool Pc;
     public string lang;
+    public int ChatBox;
+    public float volume;
     public Text TextComment;
 
     public int max_player;
@@ -25,7 +29,7 @@ public class Main : MonoBehaviour
     public bool Barbarian_aviable;
     public bool Mage_aviable;
     public bool Priest_aviable;
-    
+
     public bool Shop_aviable;
     public bool Crystal_aviable;
 
@@ -42,10 +46,41 @@ public class Main : MonoBehaviour
     private string[] Cube_fight_victory;
     private string[] Cube_fight_loss;
 
+    public int MusicOn;
+    public int VoiceOn;
+
     public Dictionary<string, string> chapter_1_levels_name = new Dictionary<string, string>();
 
+    [ContextMenu("Найти все AudioSources на сцене")]
+    void FindAndLogAllAudioSources()
+    {
+        // Получаем все AudioSources на активных объектах сцены
+        AudioSource[] allSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        Debug.Log($"Найдено {allSources.Length} источников звука:");
+
+        foreach (AudioSource source in allSources)
+        {
+            Debug.Log($"- {source.gameObject.name} ({source.gameObject.transform.position})", source.gameObject);
+        }
+    }
+    public AudioMixerGroup outputGroup; // Укажи нужную группу из миксера
+
+    [ContextMenu("Применить Output ко всем AudioSource'ам")]
+    void ApplyOutputToAllSources()
+    {
+        AudioSource[] sources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach (AudioSource source in sources)
+        {
+            source.outputAudioMixerGroup = outputGroup;
+        }
+
+        Debug.Log($"Применено к {sources.Length} источникам");
+    }
     private void Awake()
     {
+
 
         if (SceneManager.GetActiveScene().name != "Start")
         {
@@ -76,7 +111,7 @@ public class Main : MonoBehaviour
 
 
         if (chapter_1_levels_name.ContainsKey(active_scene_name))
-        { 
+        {
             if (PlayerPrefs.HasKey(chapter_1_levels_name[active_scene_name]))
             {
                 int level_save = PlayerPrefs.GetInt(chapter_1_levels_name[active_scene_name]);
@@ -147,11 +182,46 @@ public class Main : MonoBehaviour
             "Отомстите за меня| Avenge me",
             "Еще сдеремся! | We'll get together again!"};
 
+        if (PlayerPrefs.HasKey("ChatBox"))
+        {
+            ChatBox = PlayerPrefs.GetInt("ChatBox");
+        }
+        else
+        {
+            ChatBox = 1;
+        }
+        if (PlayerPrefs.HasKey("volume"))
+        {
+            volume = PlayerPrefs.GetInt("volume");
+        }
+        else
+        {
+            volume = 0.5f;
+        }
 
+
+        if (PlayerPrefs.HasKey("MusicOn"))
+        {
+            MusicOn = PlayerPrefs.GetInt("MusicOn");
+        }
+        else
+        {
+            MusicOn = 1;
+        }
+        if (PlayerPrefs.HasKey("VoiceOn"))
+        {
+            VoiceOn = PlayerPrefs.GetInt("VoiceOn");
+        }
+        else
+        {
+            VoiceOn = 1;
+        }
+        AudioSource music = GameObject.Find("Camera").GetComponent<AudioSource>();
+        music.volume = MusicOn;
     }
     public void Start()
     {
-     
+
         // Определим платформу   
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -169,8 +239,11 @@ public class Main : MonoBehaviour
         }
         else
         {
-           lang = "en";
+            lang = "en";
         }
+        #if UNITY_EDITOR
+            Pc = true;
+        #endif
 
         // Установим видимость выбора игроков
 
@@ -199,7 +272,7 @@ public class Main : MonoBehaviour
         {
             return "------";
         }
-        
+
     }
 
     public void set_player_aviable()
@@ -267,21 +340,26 @@ public class Main : MonoBehaviour
     /// управление ходом
     /// </summary>
 
-    public void SetLang()
+    public void SetLang(Int32 language)
     {
-        if(lang == "ru")
+        if (language == 0)
         {
-            lang = "en";
-            PlayerPrefs.SetString("lang", lang);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetString("lang", "ru");
         }
-        else if (lang == "en")
+        else
         {
-            lang = "ru";
-            PlayerPrefs.SetString("lang", lang);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetString("lang", "en");
         }
+        PlayerPrefs.Save();
     }
+
+    public void SetChatbox(bool cb)
+    {
+        ChatBox = cb ? 1 : 0;
+        PlayerPrefs.SetInt("ChatBox", cb ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+    
 
     public int get_current_move()
     {
@@ -547,7 +625,7 @@ public class Main : MonoBehaviour
             tag_colour = "<color=darkblue><b>";
         }
 
-        if (Random.Range(1, 4) != 1) // ничего не пишем
+        if (UnityEngine.Random.Range(1, 4) != 1) // ничего не пишем
         {
             return;
         }
@@ -555,22 +633,22 @@ public class Main : MonoBehaviour
 
         if (incident == "Waiting_cube_before_the_move")
         {
-            int range_el = Random.Range(0, Waiting_cube_before_the_move.Length);
+            int range_el = UnityEngine.Random.Range(0, Waiting_cube_before_the_move.Length);
             subs = Waiting_cube_before_the_move[range_el].Split('|');
         }
         else if (incident == "Waiting_cube_before_the_fight") 
         {
-            int range_el = Random.Range(0, Waiting_cube_before_the_fight.Length);
+            int range_el = UnityEngine.Random.Range(0, Waiting_cube_before_the_fight.Length);
             subs = Waiting_cube_before_the_fight[range_el].Split('|');
         }
         else if (incident == "Cube_fight_victory") 
         {
-            int range_el = Random.Range(0, Cube_fight_victory.Length);
+            int range_el = UnityEngine.Random.Range(0, Cube_fight_victory.Length);
             subs = Cube_fight_victory[range_el].Split('|');
         }
         else if (incident == "Cube_fight_loss") 
         {
-            int range_el = Random.Range(0, Cube_fight_loss.Length);
+            int range_el = UnityEngine.Random.Range(0, Cube_fight_loss.Length);
             subs = Cube_fight_loss[range_el].Split('|');
         }
         else

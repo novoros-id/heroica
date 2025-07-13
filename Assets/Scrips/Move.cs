@@ -12,7 +12,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
+        //transform.Rotate(new Vector3(0, 45, 0) * Time.deltaTime);
     }
 
     void OnMouseDown()
@@ -39,6 +39,9 @@ public class Move : MonoBehaviour
         pl_script.move = true;
         pl_script.SoundStep();
         // player[i].transform.position = new Vector3(transform.position.x, 0.7f, transform.position.z);
+        // ЛОГИРУЕМ ХОД
+        //GameLogger.Instance.Log($"Игрок {Curent_player.name} совершил ход на поле ({position_blue.x}, {position_blue.z})");
+        GameLogger.Instance.Log(new List<string> { "сделал ход", Curent_player.name});
 
         ItemFromFloor(Curent_player, position_blue);
         clear_blue();
@@ -82,6 +85,8 @@ public class Move : MonoBehaviour
         {
             if (pl_script.get_key() == false)
             {
+                //GameLogger.Instance.Log($"Игрок взял ключ");
+                GameLogger.Instance.Log(new List<string> { "взял ключ"});
                 pl_script.set_key();
                 Destroy(_items);
                // pl_script.define_goal();
@@ -93,6 +98,8 @@ public class Move : MonoBehaviour
         {
             if (pl_script.get_leaves() != 4)
             {
+                //GameLogger.Instance.Log($"Игрок взял жизни");
+                GameLogger.Instance.Log(new List<string> { "взял жизнь"});
                 pl_script.add_leaves(1);
             }
             // pl_script.add_leaves(1);
@@ -101,24 +108,32 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_luck")
         {
+            //GameLogger.Instance.Log($"Игрок взял удачу");
+            GameLogger.Instance.Log(new List<string> { "взял удачу"});
             pl_script.add_item("luck", 1);
             Destroy(_items);
             //mScript.set_current_move();
         }
         else if (_items.tag == "item_speed")
         {
+            //GameLogger.Instance.Log($"Игрок взял прибавку к скорости");
+            GameLogger.Instance.Log(new List<string> { "взял скорость"});
             pl_script.add_item("speed", 1);
             Destroy(_items);
             //mScript.set_current_move();
         }
         else if (_items.tag == "item_power")
         {
+            //GameLogger.Instance.Log("Игрок взял прибавку к силе");
+            GameLogger.Instance.Log(new List<string> { "взял силу"});
             pl_script.add_item("power", 1);
             Destroy(_items);
             //mScript.set_current_move();
         }
         else if (_items.tag == "item_gold")
         {
+            //GameLogger.Instance.Log($"Игрок взял золото");
+            GameLogger.Instance.Log(new List<string> { "взял золото"});
             pl_script.add_item("gold", 1);
             pl_script.save_gold();
             Destroy(_items);
@@ -126,6 +141,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_axe")
         {
+            //GameLogger.Instance.Log($"Игрок взял топор");
+            GameLogger.Instance.Log(new List<string> { "взял топор"});
             pl_script.add_item("axe", 1);
             Destroy(_items);
             pl_script.set_CurWeapon();
@@ -133,6 +150,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_baton")
         {
+            //GameLogger.Instance.Log($"Игрок взял дубинку");
+            GameLogger.Instance.Log(new List<string> { "взял дубинку"});
             pl_script.add_item("baton", 1);
             Destroy(_items);
             pl_script.set_CurWeapon();
@@ -140,6 +159,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_scythe")
         {
+            //GameLogger.Instance.Log($"Игрок взял косу");
+            GameLogger.Instance.Log(new List<string> { "взял косу"});
             pl_script.add_item("scythe", 1);
             Destroy(_items);
             pl_script.set_CurWeapon();
@@ -147,6 +168,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_bow")
         {
+            //GameLogger.Instance.Log($"Игрок взял лук");
+            GameLogger.Instance.Log(new List<string> { "взял лук"});
             pl_script.add_item("bow", 1);
             Destroy(_items);
             pl_script.set_CurWeapon();
@@ -154,6 +177,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_dagger")
         {
+            //GameLogger.Instance.Log($"Игрок взял кинжал");
+            GameLogger.Instance.Log(new List<string> { "взял кинжал"});
             pl_script.add_item("dagger", 1);
             Destroy(_items);
             pl_script.set_CurWeapon();
@@ -161,6 +186,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "item_sword")
         {
+            //GameLogger.Instance.Log($"Игрок взял меч");
+            GameLogger.Instance.Log(new List<string> { "взял меч"});
             pl_script.add_item("sword", 1);
             Destroy(_items);
             pl_script.set_CurWeapon();
@@ -169,6 +196,8 @@ public class Move : MonoBehaviour
         // -------------------------------------
         else if (_items.tag == "Door")
         {
+            //GameLogger.Instance.Log($"Игрок открыл дверь");
+            GameLogger.Instance.Log(new List<string> { "открыл дверь"});
             pl_script.clear_key();
             Destroy(_items);
             //audiosrc.PlayOneShot(open);
@@ -176,6 +205,8 @@ public class Move : MonoBehaviour
         }
         else if (_items.tag == "Enemy_1" || _items.tag == "Enemy_2" || _items.tag == "Enemy_boss")
         {
+            //GameLogger.Instance.Log($"Игрок встретился с врагом");
+            GameLogger.Instance.Log(new List<string> { "встретил врага"});
             //if (pl_script.get_battle_mode() == false) // это первый раз. Сразу ДРАКА
             //{
             //    mScript.move_priznak_step();
