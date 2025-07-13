@@ -1,602 +1,3402 @@
 [
   {
-    "tags": ["текущий ход", "Knight", "бросил кубик", "Knight", "выпало3"],
-    "text": "Ну Knight, бросок — как обычно, тройка. Снова не везёт!",
+    "tags": [
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало3",
+      "режим боя"
+    ],
+    "text": "Ну Рыцарь, бросок — как обычно, тройка. Снова не везёт!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_001.wav"
+    "audioClipName": "audio_001.wav"
   },
   {
-    "tags": ["режим боя", "Knight", "False", "режим восстановления", "Knight"],
+    "tags": [
+      "ход",
+      "Mage",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
     "text": "В бой? Нет уж, сегодня не день для атаки.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_002.wav"
+    "audioClipName": "audio_002.wav"
   },
   {
-    "tags": ["ход", "Knight", "сделал ход", "Knight", "текущий ход"],
-    "text": "Knight снова на подъёме! Ход сделан, цель найдена.",
+    "tags": [
+      "Priest",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Рыцарь снова на подъёме! Ход сделан, цель найдена.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_003.wav"
+    "audioClipName": "audio_003.wav"
   },
   {
-    "tags": ["бросил кубик", "Knight", "выпало2", "режим боя", "Knight"],
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало2",
+      "режим боя",
+      "Knight"
+    ],
     "text": "Выпало 2... Видимо, сегодня не день для атаки.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_004.wav"
+    "audioClipName": "audio_004.wav"
   },
   {
-    "tags": ["False", "режим восстановления", "Knight", "ход", "Knight"],
-    "text": "Knight в порядке, но предпочитает пока ходить без риска.",
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Knight",
+      "ход",
+      "Knight"
+    ],
+    "text": "Рыцарь в порядке, но предпочитает пока ходить без риска.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_005.wav"
+    "audioClipName": "audio_005.wav"
   },
   {
-    "tags": ["сделал ход", "Knight", "текущий ход", "Knight", "бросил кубик"],
-    "text": "Knight всё ещё активен, и опять бросает кости, как всегда.",
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "текущий ход",
+      "Knight",
+      "бросил кубик"
+    ],
+    "text": "Рыцарь всё ещё активен, и опять бросает кости, как всегда.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_006.wav"
+    "audioClipName": "audio_006.wav"
   },
   {
-    "tags": ["выпало2", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Двойка выпала, значит Knight остаётся в режиме ожидания.",
+    "tags": [
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Двойка выпала, значит Рыцарь остаётся в режиме ожидания.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_007.wav"
+    "audioClipName": "audio_007.wav"
   },
   {
-    "tags": ["Knight", "False", "ход", "Knight", "сделал ход"],
+    "tags": [
+      "Knight",
+      "False",
+      "ход",
+      "Knight",
+      "сделал ход"
+    ],
     "text": "Ладно, ход сделан, а теперь что дальше?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_008.wav"
+    "audioClipName": "audio_008.wav"
   },
   {
-    "tags": ["текущий ход", "Knight", "взял ключ", "режим боя", "Knight"],
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "взял ключ",
+      "режим боя",
+      "Knight"
+    ],
     "text": "Ой, ключ взял! Теперь дверь точно не устоит.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_009.wav"
+    "audioClipName": "audio_009.wav"
   },
   {
-    "tags": ["False", "режим восстановления", "Knight", "впереди", "дверь"],
-    "text": "Перед Knight дверь и никакого шума… странно.",
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Knight",
+      "впереди",
+      "дверь"
+    ],
+    "text": "Перед Рыцарь дверь и никакого шума… странно.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_010.wav"
+    "audioClipName": "audio_010.wav"
   },
   {
-    "tags": ["впереди", "ключ", "ход", "Knight", "сделал ход"],
-    "text": "Ключ виднеется, и Knight уже почти его получил.",
+    "tags": [
+      "впереди",
+      "ключ",
+      "ход",
+      "Knight",
+      "сделал ход"
+    ],
+    "text": "Ключ виднеется, и Рыцарь уже почти его получил.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_011.wav"
+    "audioClipName": "audio_011.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "текущий ход"],
-    "text": "И дверь, и ключ перед ним… интересно, что выберет Knight.",
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "текущий ход"
+    ],
+    "text": "И дверь, и ключ перед ним… интересно, что выберет Рыцарь.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_012.wav"
+    "audioClipName": "audio_012.wav"
   },
   {
-    "tags": ["Knight", "открыл дверь", "бросил кубик", "Knight", "выпало2"],
+    "tags": [
+      "Knight",
+      "открыл дверь",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
     "text": "Открыл дверь с двойкой? Это же чистый лак",
     "tagCount": 5,
-    "audioClipName": "vl_knight_013.wav"
+    "audioClipName": "audio_013.wav"
   },
   {
-    "tags": ["режим боя", "Knight", "False", "режим восстановления", "Knight"],
-    "text": "Снова мирный режим. Knight, ты вообще воин?",
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Снова мирный режим. Рыцарь, ты вообще воин?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_014.wav"
+    "audioClipName": "audio_014.wav"
   },
   {
-    "tags": ["ход", "Knight", "сделал ход", "впереди", "враг"],
+    "tags": [
+      "ход",
+      "Knight",
+      "сделал ход",
+      "впереди",
+      "враг"
+    ],
     "text": "Ход сделан, и враг уже на подходе. Драка неизбежна.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_015.wav"
+    "audioClipName": "audio_015.wav"
   },
   {
-    "tags": ["встретил врага", "бросил кубик", "Knight", "выпало4", "режим боя"],
-    "text": "Выпало 4 — кажется, Knight готов к бою!",
+    "tags": [
+      "встретил врага",
+      "бросил кубик",
+      "Knight",
+      "выпало4",
+      "режим боя"
+    ],
+    "text": "Выпало 4 — ну теперь точно, Рыцарь готов к бою!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_016.wav"
+    "audioClipName": "audio_016.wav"
   },
   {
-    "tags": ["True", "бой с врагом", "Knight", "босс побежден", "текущий ход"],
-    "text": "Босс повержен! Knight сегодня в ударе!",
+    "tags": [
+      "True",
+      "бой с врагом",
+      "Knight",
+      "босс побежден",
+      "текущий ход"
+    ],
+    "text": "Босс повержен! крутой удар",
     "tagCount": 5,
-    "audioClipName": "vl_knight_017.wav"
+    "audioClipName": "audio_017.wav"
   },
   {
-    "tags": ["Knight", "бросил кубик", "выпало1", "режим боя", "False"],
-    "text": "Единичка? Лучше бы Knight вообще не выходил из укрытия.",
+    "tags": [
+      "Knight",
+      "бросил кубик",
+      "выпало1",
+      "режим боя",
+      "False"
+    ],
+    "text": "Единичка? Лучше бы Рыцарь вообще не выходил из укрытия.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_018.wav"
+    "audioClipName": "audio_018.wav"
   },
   {
-    "tags": ["текущий ход", "Barbarian", "бросил кубик", "Barbarian", "выпало2"],
-    "text": "Barbarian бросил два. Медленно, но верно.",
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2"
+    ],
+    "text": "Варвар бросил два. Медленно, но верно.",
     "tagCount": 5,
-    "audioClipName": "vl_barbarian_001.wav"
+    "audioClipName": "audio_019.wav"
   },
   {
-    "tags": ["режим боя", "Barbarian", "False", "режим восстановления", "Barbarian"],
-    "text": "Barbarian в режиме отдыха. Не каждый день он воюет.",
+    "tags": [
+      "режим боя",
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian"
+    ],
+    "text": "Варвар в режиме отдыха. Не каждый день он воюет.",
     "tagCount": 5,
-    "audioClipName": "vl_barbarian_002.wav"
+    "audioClipName": "audio_020.wav"
   },
   {
-    "tags": ["текущий ход", "Mage", "бросил кубик", "Mage", "выпало3"],
-    "text": "Mage бросает тройку — всё по науке, как обычно.",
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало3"
+    ],
+    "text": "Ну, как обычно.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_001.wav"
+    "audioClipName": "audio_021.wav"
   },
   {
-    "tags": ["режим боя", "Mage", "False", "режим восстановления", "Mage"],
-    "text": "Mage не в боевом настроении, отдыхаем.",
+    "tags": [
+      "режим боя",
+      "Mage",
+      "False",
+      "режим восстановления",
+      "Mage"
+    ],
+    "text": "Маг не в боевом настроении",
     "tagCount": 5,
-    "audioClipName": "vl_mage_002.wav"
+    "audioClipName": "audio_022.wav"
   },
   {
-    "tags": ["ход", "Mage", "сделал ход", "Mage", "текущий ход"],
-    "text": "Ход сделан, магия в действии!",
+    "tags": [
+      "ход",
+      "Mage",
+      "сделал ход",
+      "Mage",
+      "текущий ход"
+    ],
+    "text": "магия в действии!",
     "tagCount": 5,
-    "audioClipName": "vl_mage_003.wav"
+    "audioClipName": "audio_023.wav"
   },
   {
-    "tags": ["бросил кубик", "Mage", "выпало2", "режим боя", "Mage"],
-    "text": "Выпало 2... Mage явно не готов к сражению.",
+    "tags": [
+      "бросил кубик",
+      "Mage",
+      "выпало2",
+      "режим боя",
+      "Mage"
+    ],
+    "text": "Выпало 2... Маг явно не готов к сражению.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_004.wav"
+    "audioClipName": "audio_024.wav"
   },
   {
-    "tags": ["False", "режим восстановления", "Mage", "ход", "Mage"],
-    "text": "Восстанавливается силы… пока что просто идёт.",
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Mage",
+      "ход",
+      "Mage"
+    ],
+    "text": "ну не повезло",
     "tagCount": 5,
-    "audioClipName": "vl_mage_005.wav"
+    "audioClipName": "audio_025.wav"
   },
   {
-    "tags": ["текущий ход", "Priest", "бросил кубик", "Priest", "выпало1"],
-    "text": "Priest бросает единицу... видимо, сегодня день медитации.",
+    "tags": [
+      "текущий ход",
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало1"
+    ],
+    "text": "Жрец бросает единицу... видимо, сегодня день медитации.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_001.wav"
+    "audioClipName": "audio_026.wav"
   },
   {
-    "tags": ["режим боя", "Priest", "False", "режим восстановления", "Priest"],
-    "text": "Priest в режиме мира — исцеляет, а не воюет.",
+    "tags": [
+      "режим боя",
+      "Priest",
+      "False",
+      "режим восстановления",
+      "Priest"
+    ],
+    "text": "Жрец в режиме мира — исцеляет, а не воюет.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_002.wav"
+    "audioClipName": "audio_027.wav"
   },
   {
-    "tags": ["ход", "Priest", "сделал ход", "Priest", "текущий ход"],
-    "text": "Priest сделал шаг, но без лишнего шума.",
+    "tags": [
+      "ход",
+      "Priest",
+      "сделал ход",
+      "Priest",
+      "текущий ход"
+    ],
+    "text": "Жрец сделал шаг, но без лишнего шума.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_003.wav"
+    "audioClipName": "audio_028.wav"
   },
   {
-    "tags": ["взял ключ", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Ключ взят, Knight снова в деле!",
+    "tags": [
+      "взял ключ",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Ключ взят",
     "tagCount": 5,
-    "audioClipName": "vl_knight_019.wav"
+    "audioClipName": "audio_029.wav"
   },
   {
-    "tags": ["выпало3", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Тройка выпала, Knight всё ещё в ожидании.",
+    "tags": [
+      "выпало3",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Тройка выпала, Рыцарь всё ещё в ожидании.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_020.wav"
+    "audioClipName": "audio_030.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "текущий ход"],
-    "text": "Дверь и ключ перед ним... интересно, что выберет Knight?",
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "текущий ход"
+    ],
+    "text": "Дверь и ключ перед ним... интересно, что выберет Рыцарь?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_021.wav"
+    "audioClipName": "audio_031.wav"
   },
   {
-    "tags": ["впереди", "ключ", "ход", "Knight", "сделал ход"],
-    "text": "Ключ на пути — Knight уже почти его получил.",
+    "tags": [
+      "впереди",
+      "ключ",
+      "ход",
+      "Knight",
+      "сделал ход"
+    ],
+    "text": "Ключ на пути — Рыцарь уже почти его получил.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_022.wav"
+    "audioClipName": "audio_032.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "впереди", "дверь"],
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "впереди",
+      "дверь"
+    ],
     "text": "Ещё одна дверь? Надоело уже открывать...",
     "tagCount": 5,
-    "audioClipName": "vl_knight_023.wav"
+    "audioClipName": "audio_033.wav"
   },
   {
-    "tags": ["открыл дверь", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Открыл дверь — и сразу же бросок кубика.",
+    "tags": [
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Очень круто",
     "tagCount": 5,
-    "audioClipName": "vl_knight_024.wav"
+    "audioClipName": "audio_034.wav"
   },
   {
-    "tags": ["выпало2", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Двойка выпала — Knight остаётся в безопасности.",
+    "tags": [
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Двойка выпала — ну густо",
     "tagCount": 5,
-    "audioClipName": "vl_knight_025.wav"
+    "audioClipName": "audio_035.wav"
   },
   {
-    "tags": ["ход", "Knight", "сделал ход", "впереди", "враг"],
-    "text": "Ход сделан — и враг уже рядом.",
+    "tags": [
+      "ход",
+      "Knight",
+      "сделал ход",
+      "впереди",
+      "враг"
+    ],
+    "text": "все вперед",
     "tagCount": 5,
-    "audioClipName": "vl_knight_026.wav"
+    "audioClipName": "audio_036.wav"
   },
   {
-    "tags": ["встретил врага", "бросил кубик", "Knight", "выпало4", "режим боя"],
-    "text": "Выпало 4 — кажется, Knight готов к бою!",
+    "tags": [
+      "встретил врага",
+      "бросил кубик",
+      "Knight",
+      "выпало4",
+      "режим боя"
+    ],
+    "text": "Выпало 4 — кажется, Рыцарь так и не готов к бою!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_027.wav"
+    "audioClipName": "audio_037.wav"
   },
   {
-    "tags": ["True", "бой с врагом", "Knight", "босс побежден", "текущий ход"],
-    "text": "Босс повержен! Knight сегодня в ударе!",
+    "tags": [
+      "True",
+      "бой с врагом",
+      "Knight",
+      "босс побежден",
+      "текущий ход"
+    ],
+    "text": "Босс повержен! Ты сегодня в ударе!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_028.wav"
+    "audioClipName": "audio_038.wav"
   },
   {
-    "tags": ["бросил кубик", "Knight", "выпало1", "режим боя", "False"],
-    "text": "Единичка? Лучше бы Knight вообще не выходил из укрытия.",
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "False"
+    ],
+    "text": "Лучше бы Рыцарь вообще не кидал кубик.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_029.wav"
+    "audioClipName": "audio_039.wav"
   },
   {
-    "tags": ["текущий ход", "Barbarian", "бросил кубик", "Barbarian", "выпало2"],
-    "text": "Barbarian бросил двойку — не громко, но уверенно.",
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2"
+    ],
+    "text": "мне кажется, что я уже это видел",
     "tagCount": 5,
-    "audioClipName": "vl_barbarian_003.wav"
+    "audioClipName": "audio_040.wav"
   },
   {
-    "tags": ["текущий ход", "Mage", "бросил кубик", "Mage", "выпало3"],
-    "text": "Mage бросает тройку — всё по науке, как обычно.",
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало3"
+    ],
+    "text": "Маг бросает тройку",
     "tagCount": 5,
-    "audioClipName": "vl_mage_006.wav"
+    "audioClipName": "audio_041.wav"
   },
   {
-    "tags": ["режим боя", "Mage", "False", "режим восстановления", "Mage"],
-    "text": "Mage не в боевом настроении, отдыхаем.",
+    "tags": [
+      "режим боя",
+      "Mage",
+      "False",
+      "режим восстановления",
+      "Mage"
+    ],
+    "text": "Отдыхаем.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_007.wav"
+    "audioClipName": "audio_042.wav"
   },
   {
-    "tags": ["ход", "Mage", "сделал ход", "Mage", "текущий ход"],
+    "tags": [
+      "ход",
+      "Mage",
+      "сделал ход",
+      "Mage",
+      "текущий ход"
+    ],
     "text": "Ход сделан, магия в действии!",
     "tagCount": 5,
-    "audioClipName": "vl_mage_008.wav"
+    "audioClipName": "audio_043.wav"
   },
   {
-    "tags": ["бросил кубик", "Mage", "выпало2", "режим боя", "Mage"],
-    "text": "Выпало 2... Mage явно не готов к сражению.",
+    "tags": [
+      "бросил кубик",
+      "Mage",
+      "выпало2",
+      "режим боя",
+      "Mage"
+    ],
+    "text": "Выпало 2... не густо.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_009.wav"
+    "audioClipName": "audio_044.wav"
   },
   {
-    "tags": ["False", "режим восстановления", "Mage", "ход", "Mage"],
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Mage",
+      "ход",
+      "Mage"
+    ],
     "text": "Восстанавливается силы… пока что просто идёт.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_010.wav"
+    "audioClipName": "audio_045.wav"
   },
   {
-    "tags": ["текущий ход", "Priest", "бросил кубик", "Priest", "выпало1"],
-    "text": "Priest бросает единицу... видимо, сегодня день медитации.",
+    "tags": [
+      "текущий ход",
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало1"
+    ],
+    "text": "Жрец бросает единицу... все так медленно.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_004.wav"
+    "audioClipName": "audio_046.wav"
   },
   {
-    "tags": ["режим боя", "Priest", "False", "режим восстановления", "Priest"],
-    "text": "Priest в режиме мира — исцеляет, а не воюет.",
+    "tags": [
+      "режим боя",
+      "Priest",
+      "False",
+      "режим восстановления",
+      "Priest"
+    ],
+    "text": "мир о мир.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_005.wav"
+    "audioClipName": "audio_047.wav"
   },
   {
-    "tags": ["ход", "Priest", "сделал ход", "Priest", "текущий ход"],
-    "text": "Priest сделал шаг, но без лишнего шума.",
+    "tags": [
+      "ход",
+      "Priest",
+      "сделал ход",
+      "Priest",
+      "текущий ход"
+    ],
+    "text": "Жрец сделал шаг, но без лишнего шума.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_006.wav"
+    "audioClipName": "audio_048.wav"
   },
   {
-    "tags": ["взял ключ", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Ключ взят, Knight снова в деле!",
+    "tags": [
+      "взял ключ",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "И Рыцарь снова в деле!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_030.wav"
+    "audioClipName": "audio_049.wav"
   },
   {
-    "tags": ["выпало3", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Тройка выпала, Knight всё ещё в ожидании.",
+    "tags": [
+      "выпало3",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Тройка выпала, Рыцарь всё ещё в ожидании.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_031.wav"
+    "audioClipName": "audio_050.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "текущий ход"],
-    "text": "Дверь и ключ перед ним... интересно, что выберет Knight?",
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "текущий ход"
+    ],
+    "text": "Куда походит Рыцарь?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_032.wav"
+    "audioClipName": "audio_051.wav"
   },
   {
-    "tags": ["впереди", "ключ", "ход", "Knight", "сделал ход"],
-    "text": "Ключ на пути — Knight уже почти его получил.",
+    "tags": [
+      "впереди",
+      "ключ",
+      "ход",
+      "Knight",
+      "сделал ход"
+    ],
+    "text": "ну давай быстрее",
     "tagCount": 5,
-    "audioClipName": "vl_knight_033.wav"
+    "audioClipName": "audio_052.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "впереди", "дверь"],
-    "text": "Ещё одна дверь? Надоело уже открывать...",
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "впереди",
+      "дверь"
+    ],
+    "text": "все одно и тоже",
     "tagCount": 5,
-    "audioClipName": "vl_knight_034.wav"
+    "audioClipName": "audio_053.wav"
   },
   {
-    "tags": ["открыл дверь", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Открыл дверь — и сразу же бросок кубика.",
+    "tags": [
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Кубик, кубик",
     "tagCount": 5,
-    "audioClipName": "vl_knight_035.wav"
+    "audioClipName": "audio_054.wav"
   },
   {
-    "tags": ["выпало2", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Двойка выпала — Knight остаётся в безопасности.",
+    "tags": [
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Рыцарь остаётся в безопасности.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_036.wav"
+    "audioClipName": "audio_055.wav"
   },
   {
-    "tags": ["ход", "Knight", "сделал ход", "впереди", "враг"],
-    "text": "Ход сделан — и враг уже рядом.",
+    "tags": [
+      "ход",
+      "Knight",
+      "сделал ход",
+      "впереди",
+      "враг"
+    ],
+    "text": "враг уже рядом.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_037.wav"
+    "audioClipName": "audio_056.wav"
   },
   {
-    "tags": ["встретил врага", "бросил кубик", "Knight", "выпало4", "режим боя"],
-    "text": "Выпало 4 — кажется, Knight готов к бою!",
+    "tags": [
+      "встретил врага",
+      "бросил кубик",
+      "Knight",
+      "выпало4",
+      "режим боя"
+    ],
+    "text": "вроде, Выпало 4 ",
     "tagCount": 5,
-    "audioClipName": "vl_knight_038.wav"
+    "audioClipName": "audio_057.wav"
   },
   {
-    "tags": ["True", "бой с врагом", "Knight", "босс побежден", "текущий ход"],
-    "text": "Босс повержен! Knight сегодня в ударе!",
+    "tags": [
+      "True",
+      "бой с врагом",
+      "Knight",
+      "босс побежден",
+      "текущий ход"
+    ],
+    "text": "Босс повержен! Ура!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_039.wav"
+    "audioClipName": "audio_058.wav"
   },
   {
-    "tags": ["бросил кубик", "Knight", "выпало1", "режим боя", "False"],
-    "text": "Единичка? Лучше бы Knight вообще не выходил из укрытия.",
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "False"
+    ],
+    "text": "Единичка? Это просто кол",
     "tagCount": 5,
-    "audioClipName": "vl_knight_040.wav"
+    "audioClipName": "audio_059.wav"
   },
   {
-    "tags": ["текущий ход", "Barbarian", "бросил кубик", "Barbarian", "выпало2"],
-    "text": "Barbarian бросил двойку — не громко, но уверенно.",
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2"
+    ],
+    "text": "Отличный ход.",
     "tagCount": 5,
-    "audioClipName": "vl_barbarian_004.wav"
+    "audioClipName": "audio_060.wav"
   },
   {
-    "tags": ["текущий ход", "Mage", "бросил кубик", "Mage", "выпало3"],
-    "text": "Mage бросает тройку — всё по науке, как обычно.",
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало3"
+    ],
+    "text": "Маг бросает тройку — это тройка с бубенцами.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_011.wav"
+    "audioClipName": "audio_061.wav"
   },
   {
-    "tags": ["режим боя", "Mage", "False", "режим восстановления", "Mage"],
-    "text": "Mage не в боевом настроении, отдыхаем.",
+    "tags": [
+      "режим боя",
+      "Mage",
+      "False",
+      "режим восстановления",
+      "Mage"
+    ],
+    "text": "Маг не в боевом настроении.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_012.wav"
+    "audioClipName": "audio_062.wav"
   },
   {
-    "tags": ["ход", "Mage", "сделал ход", "Mage", "текущий ход"],
+    "tags": [
+      "ход",
+      "Mage",
+      "сделал ход",
+      "Mage",
+      "текущий ход"
+    ],
     "text": "Ход сделан, магия в действии!",
     "tagCount": 5,
-    "audioClipName": "vl_mage_013.wav"
+    "audioClipName": "audio_063.wav"
   },
   {
-    "tags": ["бросил кубик", "Mage", "выпало2", "режим боя", "Mage"],
-    "text": "Выпало 2... Mage явно не готов к сражению.",
+    "tags": [
+      "бросил кубик",
+      "Mage",
+      "выпало2",
+      "режим боя",
+      "Mage"
+    ],
+    "text": "Маг опять не готов к сражению.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_014.wav"
+    "audioClipName": "audio_064.wav"
   },
   {
-    "tags": ["False", "режим восстановления", "Mage", "ход", "Mage"],
-    "text": "Восстанавливается силы… пока что просто идёт.",
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Mage",
+      "ход",
+      "Mage"
+    ],
+    "text": "Восстанавливается силы…",
     "tagCount": 5,
-    "audioClipName": "vl_mage_015.wav"
+    "audioClipName": "audio_065.wav"
   },
   {
-    "tags": ["текущий ход", "Priest", "бросил кубик", "Priest", "выпало1"],
-    "text": "Priest бросает единицу... видимо, сегодня день медитации.",
+    "tags": [
+      "текущий ход",
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало1"
+    ],
+    "text": "Похоже, сегодня день медитации.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_007.wav"
+    "audioClipName": "audio_066.wav"
   },
   {
-    "tags": ["режим боя", "Priest", "False", "режим восстановления", "Priest"],
-    "text": "Priest в режиме мира — исцеляет, а не воюет.",
+    "tags": [
+      "режим боя",
+      "Priest",
+      "False",
+      "режим восстановления",
+      "Priest"
+    ],
+    "text": "Жрец в режиме мира — исцеляет, а не воюет.",
     "tagCount": 5,
-    "audioClipName": "vl_priest_008.wav"
+    "audioClipName": "audio_067.wav"
   },
   {
-    "tags": ["ход", "Priest", "сделал ход", "Priest", "текущий ход"],
-    "text": "Priest сделал шаг, но без лишнего шума.",
+    "tags": [
+      "ход",
+      "Priest",
+      "сделал ход",
+      "Priest",
+      "текущий ход"
+    ],
+    "text": "Жрец сделал шаг, очень осторожный",
     "tagCount": 5,
-    "audioClipName": "vl_priest_009.wav"
+    "audioClipName": "audio_068.wav"
   },
   {
-    "tags": ["взял ключ", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Ключ взят, Knight снова в деле!",
+    "tags": [
+      "взял ключ",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "ну просто повезло",
     "tagCount": 5,
-    "audioClipName": "vl_knight_041.wav"
+    "audioClipName": "audio_069.wav"
   },
   {
-    "tags": ["выпало3", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Тройка выпала, Knight всё ещё в ожидании.",
+    "tags": [
+      "выпало3",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Тройка выпала",
     "tagCount": 5,
-    "audioClipName": "vl_knight_042.wav"
+    "audioClipName": "audio_070.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "текущий ход"],
-    "text": "Дверь и ключ перед ним... интересно, что выберет Knight?",
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "текущий ход"
+    ],
+    "text": "Дверь и ключ перед ним...",
     "tagCount": 5,
-    "audioClipName": "vl_knight_043.wav"
+    "audioClipName": "audio_071.wav"
   },
   {
-    "tags": ["впереди", "ключ", "ход", "Knight", "сделал ход"],
-    "text": "Ключ на пути — Knight уже почти его получил.",
+    "tags": [
+      "впереди",
+      "ключ",
+      "ход",
+      "Knight",
+      "сделал ход"
+    ],
+    "text": "уже почти получил ключ",
     "tagCount": 5,
-    "audioClipName": "vl_knight_044.wav"
+    "audioClipName": "audio_072.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "впереди", "дверь"],
-    "text": "Ещё одна дверь? Надоело уже открывать...",
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "впереди",
+      "дверь"
+    ],
+    "text": "Ещё одна дверь?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_045.wav"
+    "audioClipName": "audio_073.wav"
   },
   {
-    "tags": ["открыл дверь", "текущий ход", "Knight", "бросил кубик", "Knight"],
+    "tags": [
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Открыл дверь — круто.",
+    "tagCount": 5,
+    "audioClipName": "audio_074.wav"
+  },
+  {
+    "tags": [
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Хорошо, что не заболел",
+    "tagCount": 5,
+    "audioClipName": "audio_075.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Knight",
+      "сделал ход",
+      "впереди",
+      "враг"
+    ],
+    "text": "Ход сделан — все уже",
+    "tagCount": 5,
+    "audioClipName": "audio_076.wav"
+  },
+  {
+    "tags": [
+      "встретил врага",
+      "бросил кубик",
+      "Knight",
+      "выпало4",
+      "режим боя"
+    ],
+    "text": "Выпало 4 — кажется, Рыцарь готов к бою!",
+    "tagCount": 5,
+    "audioClipName": "audio_077.wav"
+  },
+  {
+    "tags": [
+      "True",
+      "бой с врагом",
+      "Knight",
+      "босс побежден",
+      "текущий ход"
+    ],
+    "text": "Босс повержен! Рыцарь сегодня в ударе!",
+    "tagCount": 5,
+    "audioClipName": "audio_078.wav"
+  },
+  {
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "False"
+    ],
+    "text": "Единичка? Немного не повезло.",
+    "tagCount": 5,
+    "audioClipName": "audio_079.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2"
+    ],
+    "text": "нормальный ход.",
+    "tagCount": 5,
+    "audioClipName": "audio_080.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало3"
+    ],
+    "text": "Маг бросает тройку — тоже неплохо.",
+    "tagCount": 5,
+    "audioClipName": "audio_081.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Mage",
+      "False",
+      "режим восстановления",
+      "Mage"
+    ],
+    "text": "ну нормалально, че",
+    "tagCount": 5,
+    "audioClipName": "audio_082.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Mage",
+      "сделал ход",
+      "Mage",
+      "текущий ход"
+    ],
+    "text": "Ход сделан",
+    "tagCount": 5,
+    "audioClipName": "audio_083.wav"
+  },
+  {
+    "tags": [
+      "бросил кубик",
+      "Mage",
+      "выпало2",
+      "режим боя",
+      "Mage"
+    ],
+    "text": "Выпало 2... Маг явно не готов к сражению.",
+    "tagCount": 5,
+    "audioClipName": "audio_084.wav"
+  },
+  {
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Mage",
+      "ход",
+      "Mage"
+    ],
+    "text": "Давай Маг, мы в тебя верим.",
+    "tagCount": 5,
+    "audioClipName": "audio_085.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало1"
+    ],
+    "text": "Жрец бросает единицу... видимо, сегодня день медитации.",
+    "tagCount": 5,
+    "audioClipName": "audio_086.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Priest",
+      "False",
+      "режим восстановления",
+      "Priest"
+    ],
+    "text": "Жрец все еще в режиме мира.",
+    "tagCount": 5,
+    "audioClipName": "audio_087.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Priest",
+      "сделал ход",
+      "Priest",
+      "текущий ход"
+    ],
+    "text": "Играем без лишнего шума.",
+    "tagCount": 5,
+    "audioClipName": "audio_088.wav"
+  },
+  {
+    "tags": [
+      "взял ключ",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Ключ взят, Рыцарь снова в деле!",
+    "tagCount": 5,
+    "audioClipName": "audio_089.wav"
+  },
+  {
+    "tags": [
+      "выпало3",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Тройка выпала, опять троечка",
+    "tagCount": 5,
+    "audioClipName": "audio_090.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "текущий ход"
+    ],
+    "text": "Дверь и ключ перед ним... интересно, что выберет Рыцарь?",
+    "tagCount": 5,
+    "audioClipName": "audio_091.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "ключ",
+      "ход",
+      "Knight",
+      "сделал ход"
+    ],
+    "text": "давай уже ходи",
+    "tagCount": 5,
+    "audioClipName": "audio_092.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "впереди",
+      "дверь"
+    ],
+    "text": "Надоело уже открывать...",
+    "tagCount": 5,
+    "audioClipName": "audio_093.wav"
+  },
+  {
+    "tags": [
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
     "text": "Открыл дверь — и сразу же бросок кубика.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_046.wav"
+    "audioClipName": "audio_094.wav"
   },
   {
-    "tags": ["выпало2", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Двойка выпала — Knight остаётся в безопасности.",
+    "tags": [
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления"
+    ],
+    "text": "Двойка выпала — Рыцарь остаётся в безопасности.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_047.wav"
+    "audioClipName": "audio_095.wav"
   },
   {
-    "tags": ["ход", "Knight", "сделал ход", "впереди", "враг"],
+    "tags": [
+      "ход",
+      "Knight",
+      "сделал ход",
+      "впереди",
+      "враг"
+    ],
     "text": "Ход сделан — и враг уже рядом.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_048.wav"
+    "audioClipName": "audio_096.wav"
   },
   {
-    "tags": ["встретил врага", "бросил кубик", "Knight", "выпало4", "режим боя"],
-    "text": "Выпало 4 — кажется, Knight готов к бою!",
+    "tags": [
+      "встретил врага",
+      "бросил кубик",
+      "Knight",
+      "выпало4",
+      "режим боя"
+    ],
+    "text": "Выпало 4 — кажется, Рыцарь готов к бою!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_049.wav"
+    "audioClipName": "audio_097.wav"
   },
   {
-    "tags": ["True", "бой с врагом", "Knight", "босс побежден", "текущий ход"],
-    "text": "Босс повержен! Knight сегодня в ударе!",
+    "tags": [
+      "True",
+      "бой с врагом",
+      "Knight",
+      "босс побежден",
+      "текущий ход"
+    ],
+    "text": "Рыцарь сегодня в ударе!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_050.wav"
+    "audioClipName": "audio_098.wav"
   },
   {
-    "tags": ["бросил кубик", "Knight", "выпало1", "режим боя", "False"],
-    "text": "Единичка? Лучше бы Knight вообще не выходил из укрытия.",
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "False"
+    ],
+    "text": "Единичка? Лучше бы Рыцарь вообще не выходил из укрытия.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_051.wav"
+    "audioClipName": "audio_099.wav"
   },
   {
-    "tags": ["текущий ход", "Barbarian", "бросил кубик", "Barbarian", "выпало2"],
-    "text": "Barbarian бросил двойку — не громко, но уверенно.",
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2"
+    ],
+    "text": "Варвар бросил двойку — не громко, но уверенно.",
     "tagCount": 5,
-    "audioClipName": "vl_barbarian_005.wav"
+    "audioClipName": "audio_100.wav"
   },
   {
-    "tags": ["текущий ход", "Mage", "бросил кубик", "Mage", "выпало3"],
-    "text": "Mage бросает тройку — всё по науке, как обычно.",
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Ну ты хоть раз брось что-нибудь посерьёзнее!",
     "tagCount": 5,
-    "audioClipName": "vl_mage_016.wav"
+    "audioClipName": "audio_101.wav"
   },
   {
-    "tags": ["режим боя", "Mage", "False", "режим восстановления", "Mage"],
-    "text": "Mage не в боевом настроении, отдыхаем.",
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Отдыхаем, значит? А враг где? Или он сам боится подойти?",
     "tagCount": 5,
-    "audioClipName": "vl_mage_017.wav"
+    "audioClipName": "audio_102.wav"
   },
   {
-    "tags": ["ход", "Mage", "сделал ход", "Mage", "текущий ход"],
-    "text": "Ход сделан, магия в действии!",
+    "tags": [
+      "False",
+      "ход",
+      "Knight",
+      "впереди",
+      "враг"
+    ],
+    "text": "Только начал двигаться — сразу враг! Ну кто так расставляет ловушки?!",
     "tagCount": 5,
-    "audioClipName": "vl_mage_018.wav"
+    "audioClipName": "audio_103.wav"
   },
   {
-    "tags": ["бросил кубик", "Mage", "выпало2", "режим боя", "Mage"],
-    "text": "Выпало 2... Mage явно не готов к сражению.",
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Опять ты, старый знакомый! Только вышел — уже на тебя напали.",
     "tagCount": 5,
-    "audioClipName": "vl_mage_019.wav"
+    "audioClipName": "audio_104.wav"
   },
   {
-    "tags": ["False", "режим восстановления", "Mage", "ход", "Mage"],
-    "text": "Восстанавливается силы… пока что просто идёт.",
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало2",
+      "режим боя",
+      "Knight"
+    ],
+    "text": "Выпало 2? Да ты хоть в какую игру умеешь играть, Рыцарь?",
     "tagCount": 5,
-    "audioClipName": "vl_mage_020.wav"
+    "audioClipName": "audio_105.wav"
   },
   {
-    "tags": ["текущий ход", "Priest", "бросил кубик", "Priest", "выпало1"],
-    "text": "Priest бросает единицу... видимо, сегодня день медитации.",
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Ну Рыцарь, ты хоть раз брось что-нибудь посерьёзнее!",
     "tagCount": 5,
-    "audioClipName": "vl_priest_010.wav"
+    "audioClipName": "audio_106.wav"
   },
   {
-    "tags": ["режим боя", "Priest", "False", "режим восстановления", "Priest"],
-    "text": "Priest в режиме мира — исцеляет, а не воюет.",
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Отдыхаем, значит? А враг где? Или он сам боится подойти?",
     "tagCount": 5,
-    "audioClipName": "vl_priest_011.wav"
+    "audioClipName": "audio_107.wav"
   },
   {
-    "tags": ["ход", "Priest", "сделал ход", "Priest", "текущий ход"],
-    "text": "Priest сделал шаг, но без лишнего шума.",
+    "tags": [
+      "False",
+      "ход",
+      "Knight",
+      "впереди",
+      "враг"
+    ],
+    "text": "Только начал двигаться — сразу враг! Ну кто так расставляет ловушки?!",
     "tagCount": 5,
-    "audioClipName": "vl_priest_012.wav"
+    "audioClipName": "audio_108.wav"
   },
   {
-    "tags": ["взял ключ", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Ключ взят, Knight снова в деле!",
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Опять ты, старый знакомый! Только вышел — уже на тебя напали.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_052.wav"
+    "audioClipName": "audio_109.wav"
   },
   {
-    "tags": ["выпало3", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Тройка выпала, Knight всё ещё в ожидании.",
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало2",
+      "режим боя",
+      "Knight"
+    ],
+    "text": "Выпало 2? Да ты хоть в какую игру умеешь играть, Рыцарь?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_053.wav"
+    "audioClipName": "audio_110.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "текущий ход"],
-    "text": "Дверь и ключ перед ним... интересно, что выберет Knight?",
+    "tags": [
+      "режим восстановления",
+      "Knight",
+      "False",
+      "бой с врагом",
+      "Knight"
+    ],
+    "text": "Не успел даже передохнуть — сразу в бой. Это же не честно!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_054.wav"
+    "audioClipName": "audio_111.wav"
   },
   {
-    "tags": ["впереди", "ключ", "ход", "Knight", "сделал ход"],
-    "text": "Ключ на пути — Knight уже почти его получил.",
+    "tags": [
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик"
+    ],
+    "text": "Первое дело — проиграть. Второе дело — начать сначала.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_055.wav"
+    "audioClipName": "audio_112.wav"
   },
   {
-    "tags": ["впереди", "дверь", "впереди", "ключ", "впереди", "дверь"],
-    "text": "Ещё одна дверь? Надоело уже открывать...",
+    "tags": [
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, ты вообще заметил, что можно было пойти чуть дальше?",
     "tagCount": 5,
-    "audioClipName": "vl_knight_056.wav"
+    "audioClipName": "audio_113.wav"
   },
   {
-    "tags": ["открыл дверь", "текущий ход", "Knight", "бросил кубик", "Knight"],
-    "text": "Открыл дверь — и сразу же бросок кубика.",
+    "tags": [
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian"
+    ],
+    "text": "Если бы был режим удачи, мы бы сейчас в нём были.",
     "tagCount": 5,
-    "audioClipName": "vl_knight_057.wav"
+    "audioClipName": "audio_114.wav"
   },
   {
-    "tags": ["выпало2", "режим боя", "Knight", "False", "режим восстановления"],
-    "text": "Двойка выпала — Knight остаётся в безопасности.",
+    "tags": [
+      "впереди",
+      "враг",
+      "сделал ход",
+      "Barbarian",
+      "встретил врага"
+    ],
+    "text": "Снова враг? Да что за чертовщина! У вас тут целый лесной заповедник!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_058.wav"
+    "audioClipName": "audio_115.wav"
   },
   {
-    "tags": ["ход", "Knight", "сделал ход", "впереди", "враг"],
-    "text": "Ход сделан — и враг уже рядом.",
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало1"
+    ],
+    "text": "Выпало 1? Ты серьёзно? Даже я мог бы лучше!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_059.wav"
+    "audioClipName": "audio_116.wav"
   },
   {
-    "tags": ["встретил врага", "бросил кубик", "Knight", "выпало4", "режим боя"],
-    "text": "Выпало 4 — кажется, Knight готов к бою!",
+    "tags": [
+      "режим боя",
+      "Barbarian",
+      "True",
+      "режим восстановления",
+      "Barbarian"
+    ],
+    "text": "Вперёд, Варвар! Пора показать этим монстрам, кто здесь главный!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_060.wav"
+    "audioClipName": "audio_117.wav"
   },
   {
-    "tags": ["True", "бой с врагом", "Knight", "босс побежден", "текущий ход"],
-    "text": "Босс повержен! Knight сегодня в ударе!",
+    "tags": [
+      "False",
+      "бой с врагом",
+      "Barbarian",
+      "победил",
+      "потерял жизнь"
+    ],
+    "text": "Победа даётся ценой... хотя бы пусть будет ценой одной жизни!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_061.wav"
+    "audioClipName": "audio_118.wav"
   },
   {
-    "tags": ["бросил кубик", "Knight", "выпало1", "режим боя", "False"],
-    "text": "Единичка? Лучше бы Knight вообще не выходил из укрытия.",
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "Маг, может, попробуешь заклинание удачи? Хотя бы раз!",
     "tagCount": 5,
-    "audioClipName": "vl_knight_062.wav"
+    "audioClipName": "audio_119.wav"
   },
   {
-    "tags": ["текущий ход", "Barbarian", "бросил кубик", "Barbarian", "выпало2"],
-    "text": "Barbarian бросил двойку — не громко, но уверенно.",
+    "tags": [
+      "режим боя",
+      "Mage",
+      "False",
+      "режим восстановления",
+      "Mage"
+    ],
+    "text": "Маг, ты вообще собираешься воевать или просто тут отдыхать?",
     "tagCount": 5,
-    "audioClipName": "vl_barbarian_006.wav"
+    "audioClipName": "audio_120.wav"
+  },
+  {
+    "tags": [
+      "False",
+      "ход",
+      "Mage",
+      "сделал ход",
+      "Mage"
+    ],
+    "text": "Движется, но никуда не торопится. Настоящий философ средневековья.",
+    "tagCount": 5,
+    "audioClipName": "audio_121.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало2"
+    ],
+    "text": "Жрец, ты тоже решил проверить, насколько случайность к тебе благосклонна?",
+    "tagCount": 5,
+    "audioClipName": "audio_122.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Priest",
+      "False",
+      "режим восстановления",
+      "Priest"
+    ],
+    "text": "Мир, любовь и немного здоровья. Агрессию оставим другим.",
+    "tagCount": 5,
+    "audioClipName": "audio_123.wav"
+  },
+  {
+    "tags": [
+      "False",
+      "ход",
+      "Priest",
+      "сделал ход",
+      "Priest"
+    ],
+    "text": "Идёт уверенно, но как будто знает, что всё равно всех исцелит.",
+    "tagCount": 5,
+    "audioClipName": "audio_124.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Опять выпало 2... Рыцарь, может, стоит сменить кости?",
+    "tagCount": 5,
+    "audioClipName": "audio_125.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Рыцарь снова в режиме «не хочу драться». Странно, обычно он смелее.",
+    "tagCount": 5,
+    "audioClipName": "audio_126.wav"
+  },
+  {
+    "tags": [
+      "False",
+      "ход",
+      "Knight",
+      "впереди",
+      "враг"
+    ],
+    "text": "Враг опять впереди... Может, это не враг, а просто провидение?",
+    "tagCount": 5,
+    "audioClipName": "audio_127.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Рыцарь, ты опять встретился с судьбой лицом к лицу!",
+    "tagCount": 5,
+    "audioClipName": "audio_128.wav"
+  },
+  {
+    "tags": [
+      "бросил кубик",
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "Knight"
+    ],
+    "text": "Выпало 1... Рыцарь, ты серьёзно? Это уже издёвка какая-то.",
+    "tagCount": 5,
+    "audioClipName": "audio_129.wav"
+  },
+  {
+    "tags": [
+      "True",
+      "режим восстановления",
+      "Knight",
+      "False",
+      "бой с врагом"
+    ],
+    "text": "Бой прошел... Вот это герой!",
+    "tagCount": 5,
+    "audioClipName": "audio_130.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "победил",
+      "потерял жизнь",
+      "текущий ход",
+      "Barbarian"
+    ],
+    "text": "Победа досталась дорогой ценой... Но Варвар уже готов к следующему раунду!",
+    "tagCount": 5,
+    "audioClipName": "audio_131.wav"
+  },
+  {
+    "tags": [
+      "бросил кубик",
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian"
+    ],
+    "text": "Варвар, ты хоть иногда попадаешь выше двойки?",
+    "tagCount": 5,
+    "audioClipName": "audio_132.wav"
+  },
+  {
+    "tags": [
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход"
+    ],
+    "text": "Варвар, ты вообще планируешь двигаться или будешь стоять весь день?",
+    "tagCount": 5,
+    "audioClipName": "audio_133.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "сделал ход",
+      "текущий ход",
+      "Mage",
+      "бросил кубик"
+    ],
+    "text": "Варвар пошёл... Маг бросает кубик. Ждём чуда.",
+    "tagCount": 5,
+    "audioClipName": "audio_134.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "выпало4",
+      "режим боя",
+      "Mage",
+      "False"
+    ],
+    "text": "Наконец-то 4! Может, Маг всё-таки решится на что-то большее?",
+    "tagCount": 5,
+    "audioClipName": "audio_135.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Mage",
+      "False",
+      "ход",
+      "Mage"
+    ],
+    "text": "Маг вроде бы и в порядке, но почему-то не спешит в бой.",
+    "tagCount": 5,
+    "audioClipName": "audio_136.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Mage",
+      "текущий ход",
+      "Priest",
+      "бросил кубик"
+    ],
+    "text": "Маг продвинулся... Жрец бросает кубик. Интересно, что будет дальше?",
+    "tagCount": 5,
+    "audioClipName": "audio_137.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "выпало3",
+      "режим боя",
+      "Priest",
+      "False"
+    ],
+    "text": "Жрец бросил 3... Не очень, но и не плохо. Как будто всё под контролем.",
+    "tagCount": 5,
+    "audioClipName": "audio_138.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Priest",
+      "False",
+      "ход",
+      "Priest"
+    ],
+    "text": "Жрец медленно движется, словно каждый шаг — священный ритуал.",
+    "tagCount": 5,
+    "audioClipName": "audio_139.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Priest",
+      "текущий ход",
+      "Knight",
+      "бросил кубик"
+    ],
+    "text": "Жрец сделал ход... Рыцарь бросает кубик. Ждём следующего поворота событий.",
+    "tagCount": 5,
+    "audioClipName": "audio_140.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "False"
+    ],
+    "text": "Рыцарь снова выпало 2... Похоже, сегодня его день не задался.",
+    "tagCount": 5,
+    "audioClipName": "audio_141.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Knight",
+      "True",
+      "восстановил здоровье",
+      "Knight"
+    ],
+    "text": "Рыцарь восстановил здоровье... Теперь точно можно идти вперёд!",
+    "tagCount": 5,
+    "audioClipName": "audio_142.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало1"
+    ],
+    "text": "Варвар, ты опять выбросил 1? Серьёзно? Мы же все смотрим!",
+    "tagCount": 5,
+    "audioClipName": "audio_143.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian"
+    ],
+    "text": "Варвар не в бою и не отдыхает... Он просто существует.",
+    "tagCount": 5,
+    "audioClipName": "audio_144.wav"
+  },
+  {
+    "tags": [
+      "False",
+      "ход",
+      "Barbarian",
+      "сделал ход",
+      "Barbarian"
+    ],
+    "text": "Варвар пошёл... Медленно, но верно. Или наоборот?",
+    "tagCount": 5,
+    "audioClipName": "audio_145.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "Маг бросил 2... Видимо, сегодня не день удачи для всех.",
+    "tagCount": 5,
+    "audioClipName": "audio_146.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Mage",
+      "False",
+      "режим восстановления",
+      "Mage"
+    ],
+    "text": "Маг не в бою и не восстанавливается... Что он тогда делает?",
+    "tagCount": 5,
+    "audioClipName": "audio_147.wav"
+  },
+  {
+    "tags": [
+      "True",
+      "восстановил здоровье",
+      "Mage",
+      "текущий ход",
+      "Priest"
+    ],
+    "text": "Маг восстановил здоровье... Жрец, теперь твой ход!",
+    "tagCount": 5,
+    "audioClipName": "audio_148.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало3",
+      "режим боя"
+    ],
+    "text": "Жрец бросил 3... Видимо, он в золотой середине между боем и отдыхом.",
+    "tagCount": 5,
+    "audioClipName": "audio_149.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "False",
+      "ход",
+      "Priest",
+      "сделал ход"
+    ],
+    "text": "Жрец сделал ход... Осторожно, как будто за каждым шагом наблюдает бог.",
+    "tagCount": 5,
+    "audioClipName": "audio_150.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало1"
+    ],
+    "text": "Рыцарь, ты опять бросил еденичку? Может, стоит сменить кости или просто удачу?",
+    "tagCount": 5,
+    "audioClipName": "audio_151.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Рыцарь снова в режиме «подумать о жизни» вместо боя.",
+    "tagCount": 5,
+    "audioClipName": "audio_152.wav"
+  },
+  {
+    "tags": [
+      "True",
+      "восстановил здоровье",
+      "Knight",
+      "текущий ход",
+      "Barbarian"
+    ],
+    "text": "Рыцарь восстановил здоровье... Теперь очередь Варвар.",
+    "tagCount": 5,
+    "audioClipName": "audio_153.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2",
+      "режим боя"
+    ],
+    "text": "Варвар снова выпало 2... Может, стоит попробовать другие кости?",
+    "tagCount": 5,
+    "audioClipName": "audio_154.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian",
+      "сделал ход"
+    ],
+    "text": "Варвар пошёл... Не сильно быстро, но с характером.",
+    "tagCount": 5,
+    "audioClipName": "audio_155.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Опять двойка! Рыцарь, может, сменить кубик?",
+    "tagCount": 5,
+    "audioClipName": "audio_156.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Рыцарь сегодня явно не в настроении драться. Отдыхает, видимо!",
+    "tagCount": 5,
+    "audioClipName": "audio_157.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Knight",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
+    "text": "Рыцарь смело шагает навстречу опасности! Или не очень смело...",
+    "tagCount": 5,
+    "audioClipName": "audio_158.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight",
+      "бросил кубик"
+    ],
+    "text": "Встретил врага и... снова бросает кубик. Надежда умирает последней!",
+    "tagCount": 5,
+    "audioClipName": "audio_159.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало2",
+      "режим боя",
+      "Knight",
+      "True"
+    ],
+    "text": "Двойка, но бой всё равно начинается! Это будет эпично... или нет.",
+    "tagCount": 5,
+    "audioClipName": "audio_160.wav"
+  },
+  {
+    "tags": [
+      "бой с врагом",
+      "Knight",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход"
+    ],
+    "text": "Рыцарь пал в бою! Но ненадолго — он же бессмертный, правда?",
+    "tagCount": 5,
+    "audioClipName": "audio_161.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "бросил кубик",
+      "Barbarian",
+      "выпало2",
+      "режим боя"
+    ],
+    "text": "Варвар кидает кубик... Двойка! Ну хоть не единица!",
+    "tagCount": 5,
+    "audioClipName": "audio_162.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар даже не поцарапан!",
+    "tagCount": 5,
+    "audioClipName": "audio_163.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Barbarian",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
+    "text": "Варвар видит врага и... идёт напролом! Классика.",
+    "tagCount": 5,
+    "audioClipName": "audio_164.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "встретил врага",
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик"
+    ],
+    "text": "Варвар встретил врага и уже тянется за кубиком. Держим кулачки!",
+    "tagCount": 5,
+    "audioClipName": "audio_165.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало1",
+      "режим боя",
+      "Barbarian",
+      "True"
+    ],
+    "text": "О, великий варвар кидает кубик... И выпадает ЕДИНИЦА. Ну конечно, ведь кому нужна удача?",
+    "tagCount": 5,
+    "audioClipName": "audio_166.wav"
+  },
+  {
+    "tags": [
+      "бой с врагом",
+      "Barbarian",
+      "победил",
+      "потерял жизнь",
+      "текущий ход"
+    ],
+    "text": "Победил, но потерял жизнь. Типичный варварский стиль — победа любой ценой, даже ценой здравого смысла.",
+    "tagCount": 5,
+    "audioClipName": "audio_167.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало4",
+      "режим боя"
+    ],
+    "text": "Маг кидает кубик и получает 4! Видимо, сегодня его заклинания работают... или нет, это же просто кубик.",
+    "tagCount": 5,
+    "audioClipName": "audio_168.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Mage",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
+    "text": "Маг видит врага и решает... сделать шаг вперёд. Гениальная тактика, ничего не скажешь.",
+    "tagCount": 5,
+    "audioClipName": "audio_169.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "встретил врага",
+      "текущий ход",
+      "Mage",
+      "бросил кубик"
+    ],
+    "text": "Маг встретил врага. Надеемся, кубик решит за него, ведь думать в бою — это слишком сложно.",
+    "tagCount": 5,
+    "audioClipName": "audio_170.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "выпало1",
+      "режим боя",
+      "Mage",
+      "True"
+    ],
+    "text": "Единица! Видимо, маг сегодня заряжал кубик антимагией. Или просто невезучий.",
+    "tagCount": 5,
+    "audioClipName": "audio_171.wav"
+  },
+  {
+    "tags": [
+      "бой с врагом",
+      "Mage",
+      "победил",
+      "потерял две жизнь",
+      "текущий ход"
+    ],
+    "text": "Маг победил, но потерял ДВЕ жизни. Пиррова победа? Нет, просто стандартный рабочий день.",
+    "tagCount": 5,
+    "audioClipName": "audio_172.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "бросил кубик",
+      "Priest",
+      "выпало3",
+      "режим боя"
+    ],
+    "text": "Жрец кидает кубик... Тройка! Ну хоть не двойка, а то пришлось бы молиться о лучшем результате.",
+    "tagCount": 5,
+    "audioClipName": "audio_173.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Priest",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
+    "text": "Жрец идёт на врага. Надеюсь, он взял с собой святую воду... или хотя бы кубик получше.",
+    "tagCount": 5,
+    "audioClipName": "audio_174.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "встретил врага",
+      "текущий ход",
+      "Priest",
+      "бросил кубик"
+    ],
+    "text": "Жрец встретил врага. Сейчас он либо помолится, либо кинет кубик. Ставлю на кубик.",
+    "tagCount": 5,
+    "audioClipName": "audio_175.wav"
+  },
+  {
+    "tags": [
+      "взял ключ",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Кто-то взял ключ! Теперь можно открыть дверь... если, конечно, кубик позволит. А он не позволит.",
+    "tagCount": 5,
+    "audioClipName": "audio_176.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало4",
+      "режим боя",
+      "Knight",
+      "False"
+    ],
+    "text": "Четвёрка! Рыцарь мог бы пойти в бой, но... нет, режим боя выключен. Как удобно.",
+    "tagCount": 5,
+    "audioClipName": "audio_177.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Knight",
+      "впереди",
+      "дверь",
+      "сделал ход"
+    ],
+    "text": "Рыцарь подошёл к двери. Теперь осталось только найти ключ... который он, конечно, уже потерял.",
+    "tagCount": 5,
+    "audioClipName": "audio_178.wav"
+  },
+  {
+    "tags": [
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight"
+    ],
+    "text": "Дверь открыта! Теперь можно... о, опять кубик. Ну конечно, ведь без него никак.",
+    "tagCount": 5,
+    "audioClipName": "audio_179.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "Knight",
+      "False"
+    ],
+    "text": "Единица! Рыцарь мог бы драться, но, к счастью для него, режим боя выключен. Совпадение? Не думаю.",
+    "tagCount": 5,
+    "audioClipName": "audio_180.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало3",
+      "режим восстановления",
+      "Barbarian",
+      "True"
+    ],
+    "text": "Варвар исцеляется... Ирония в том, что его раны заживают быстрее, чем его решения. Может, в этом мудрость?",
+    "tagCount": 5,
+    "audioClipName": "audio_181.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2",
+      "режим боя"
+    ],
+    "text": "Маг бросает кубик, словно судьбу. Двойка — напоминание: даже знания не спасут от капризов случая.",
+    "tagCount": 5,
+    "audioClipName": "audio_182.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Priest",
+      "впереди",
+      "ключ",
+      "сделал ход"
+    ],
+    "text": "Жрец идёт за ключом. Но что есть ключ? Символ выбора или иллюзия контроля над лабиринтом судьбы?",
+    "tagCount": 5,
+    "audioClipName": "audio_183.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Barbarian"
+    ],
+    "text": "Рыцарь пал. Варвар смеётся. Но разве не в поражениях мы познаём цену победы?.. Хотя варвар явно не философ.",
+    "tagCount": 5,
+    "audioClipName": "audio_184.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "победил",
+      "потерял две жизнь",
+      "режим восстановления",
+      "False"
+    ],
+    "text": "Победа ценой двух жизней... Не напоминает ли это нам, что любая слава — лишь тень на стене пещеры?",
+    "tagCount": 5,
+    "audioClipName": "audio_185.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "открыл дверь"
+    ],
+    "text": "Дверь и ключ. Столько дверей мы открываем, лишь чтобы понять: самые важные — те, что внутри нас. (Но эту-то вы открыли!)",
+    "tagCount": 5,
+    "audioClipName": "audio_186.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "бросил кубик",
+      "выпало4",
+      "игрок победил",
+      "текущий ход"
+    ],
+    "text": "Жрец побеждает. Случайность? Или боги действительно благосклонны к тем, кто верит в кубики?",
+    "tagCount": 5,
+    "audioClipName": "audio_187.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "True",
+      "потерял жизнь"
+    ],
+    "text": "Единица. Поражение. Но разве не в таких моментах рыцарь понимает: даже броня не защитит от ударов судьбы?",
+    "tagCount": 5,
+    "audioClipName": "audio_188.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "восстановил здоровье",
+      "ход",
+      "впереди",
+      "враг"
+    ],
+    "text": "Варвар исцелился, чтобы снова ринуться в бой. Вечный цикл: разрушение, исцеление, снова разрушение... Метафора бытия?",
+    "tagCount": 5,
+    "audioClipName": "audio_189.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье",
+      "текущий ход"
+    ],
+    "text": "Маг восстанавливает силы. Как часто мы, подобно ему, тратим энергию на то, чтобы просто продолжить путь?",
+    "tagCount": 5,
+    "audioClipName": "audio_190.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало1",
+      "режим боя",
+      "True",
+      "потерял жизнь"
+    ],
+    "text": "О нет, рыцарь, не везёт сегодня... Но ты же знаешь - следующая попытка будет удачнее! Мы в тебя верим!",
+    "tagCount": 5,
+    "audioClipName": "audio_191.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "победил",
+      "потерял две жизнь",
+      "режим восстановления",
+      "False"
+    ],
+    "text": "Ты победил, хоть и дорогой ценой... Отдохни немного, волшебник, ты заслужил передышку.",
+    "tagCount": 5,
+    "audioClipName": "audio_192.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Mage"
+    ],
+    "text": "Не расстраивайся, могучий воин! Даже самые сильные иногда проигрывают. Ты ещё покажешь, на что способен!",
+    "tagCount": 5,
+    "audioClipName": "audio_193.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "бросил кубик",
+      "выпало2",
+      "режим боя",
+      "True"
+    ],
+    "text": "Небольшой результат, но мы знаем - твоя вера сильнее любых кубиков! Держись, жрец!",
+    "tagCount": 5,
+    "audioClipName": "audio_194.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "открыл дверь"
+    ],
+    "text": "Ты нашёл ключ! Как приятно видеть, когда упорство вознаграждается. Ты молодец!",
+    "tagCount": 5,
+    "audioClipName": "audio_195.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало4",
+      "режим боя",
+      "False",
+      "ход"
+    ],
+    "text": "Отличный бросок, благородный рыцарь! Видно, что сегодня удача на твоей стороне.",
+    "tagCount": 5,
+    "audioClipName": "audio_196.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье",
+      "текущий ход"
+    ],
+    "text": "Ты хорошо поработал, маг. Теперь отдохни и наберись сил - впереди ещё много интересного!",
+    "tagCount": 5,
+    "audioClipName": "audio_197.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "встретил врага",
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик"
+    ],
+    "text": "Спокойно, великий воин! Соберись - мы знаем, ты сможешь победить этого противника!",
+    "tagCount": 5,
+    "audioClipName": "audio_198.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Не переживай, святой отец. Даже самые мудрые иногда ошибаются. Ты обязательно справишься в следующий раз!",
+    "tagCount": 5,
+    "audioClipName": "audio_199.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Mage",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
+    "text": "Осторожнее, мудрый маг! Помни - иногда лучше обойти опасность, чем бросаться в бой.",
+    "tagCount": 5,
+    "audioClipName": "audio_200.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало3",
+      "режим боя"
+    ],
+    "text": "Хороший бросок, доблестный рыцарь! Твоё упорство достойно восхищения!",
+    "tagCount": 5,
+    "audioClipName": "audio_201.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "потерял две жизнь",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье"
+    ],
+    "text": "Ты пережил трудное испытание... Но посмотри - ты уже восстанавливаешься! Так держать!",
+    "tagCount": 5,
+    "audioClipName": "audio_202.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало1",
+      "режим боя",
+      "True",
+      "победил"
+    ],
+    "text": "Ты победил, несмотря на плохой бросок! Вот она - настоящая сила духа! Мы тобой гордимся!",
+    "tagCount": 5,
+    "audioClipName": "audio_203.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ"
+    ],
+    "text": "Ты близок к цели, святой отец! Мы верим - ты найдёшь нужный ключ и откроешь эту дверь!",
+    "tagCount": 5,
+    "audioClipName": "audio_204.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик"
+    ],
+    "text": "Ты открыл дверь! Какой важный шаг вперёд! Теперь новые возможности ждут тебя!",
+    "tagCount": 5,
+    "audioClipName": "audio_205.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало2",
+      "дверь",
+      "ключ",
+      "ход"
+    ],
+    "text": "Прекрасный день для поиска ключей, не находите? Хотя бы солнце светит!",
+    "tagCount": 5,
+    "audioClipName": "audio_206.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "бросил кубик",
+      "выпало3",
+      "режим боя",
+      "False"
+    ],
+    "text": "Кстати, как ваши дела? А то мы тут всё о кубиках да о битвах...",
+    "tagCount": 5,
+    "audioClipName": "audio_207.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "впереди",
+      "враг",
+      "сделал ход",
+      "встретил врага"
+    ],
+    "text": "О, смотрите-ка, враг! Кстати, вы не видели, куда я чайник поставил?",
+    "tagCount": 5,
+    "audioClipName": "audio_208.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье",
+      "текущий ход"
+    ],
+    "text": "Прекрасная сегодня погода для восстановления здоровья, вам не кажется?",
+    "tagCount": 5,
+    "audioClipName": "audio_209.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Barbarian"
+    ],
+    "text": "Не везёт сегодня... Может, чаю горячего? Отлично поднимает настроение!",
+    "tagCount": 5,
+    "audioClipName": "audio_210.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "победил",
+      "потерял две жизнь",
+      "режим восстановления",
+      "False"
+    ],
+    "text": "Победа! Кстати, у вас есть планы на выходные?",
+    "tagCount": 5,
+    "audioClipName": "audio_211.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "открыл дверь"
+    ],
+    "text": "Дверь открыта! Кстати, вы не знаете, почему у меня в холодильнике молоко так быстро пропадает?",
+    "tagCount": 5,
+    "audioClipName": "audio_212.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало1",
+      "режим боя",
+      "True",
+      "победил"
+    ],
+    "text": "Единица... Зато какое красивое сегодня небо! Видели эти облака?",
+    "tagCount": 5,
+    "audioClipName": "audio_213.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ"
+    ],
+    "text": "Ищем ключ... Кстати, как вам новая серия того сериала? Я в восторге!",
+    "tagCount": 5,
+    "audioClipName": "audio_214.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик"
+    ],
+    "text": "Дверь открыта! О, кстати, вы не подскажете, где тут ближайшее кафе? Что-то проголодался...",
+    "tagCount": 5,
+    "audioClipName": "audio_215.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "потерял две жизнь",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье"
+    ],
+    "text": "Тяжёлый бой... Кстати, у вас есть любимый рецепт печенья? Хочу испечь что-нибудь вкусное.",
+    "tagCount": 5,
+    "audioClipName": "audio_216.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "встретил врага",
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик"
+    ],
+    "text": "Враг! Ой, извините, что перебиваю драку, но вы не видели мои очки? Куда-то запропастились...",
+    "tagCount": 5,
+    "audioClipName": "audio_217.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Не повезло... Кстати, как вам нынешняя мода на плащи? Мне кажется, они стали короче.",
+    "tagCount": 5,
+    "audioClipName": "audio_218.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Mage",
+      "впереди",
+      "враг",
+      "сделал ход"
+    ],
+    "text": "Осторожно, маг! Кстати, вы не знаете, почему кот постоянно спит на моей мантии?",
+    "tagCount": 5,
+    "audioClipName": "audio_219.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало3",
+      "режим боя"
+    ],
+    "text": "Неплохой бросок! Кстати, у вас есть хобби кроме спасения королевств?",
+    "tagCount": 5,
+    "audioClipName": "audio_220.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "выпало2",
+      "дверь",
+      "ключ",
+      "ход"
+    ],
+    "text": "Мой кот Сырник только что принёс мне ключ в зубах! Жаль, не тот... Но попытка милая!",
+    "tagCount": 5,
+    "audioClipName": "audio_221.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "бросил кубик",
+      "выпало3",
+      "режим боя",
+      "False"
+    ],
+    "text": "Сырник улёгся прямо на кубик. Говорит, тройка - его любимое число. Ну что ж, доверяем коту!",
+    "tagCount": 5,
+    "audioClipName": "audio_222.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "впереди",
+      "враг",
+      "сделал ход",
+      "встретил врага"
+    ],
+    "text": "Сырник шипит на врага! Кажется, он готов вступить в бой. Держите его, а то наломает дров!",
+    "tagCount": 5,
+    "audioClipName": "audio_223.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье",
+      "текущий ход"
+    ],
+    "text": "Сырник мурлычет вам на коленях - лучший лекарь! +10 к восстановлению здоровья.",
+    "tagCount": 5,
+    "audioClipName": "audio_224.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "проиграл",
+      "потерял жизнь",
+      "текущий ход",
+      "Barbarian"
+    ],
+    "text": "Сырник лижет вам руку. Не переживайте, рыцарь, даже он проигрывает, когда гоняется за солнечным зайчиком.",
+    "tagCount": 5,
+    "audioClipName": "audio_225.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "победил",
+      "потерял две жизнь",
+      "режим восстановления",
+      "False"
+    ],
+    "text": "Победа! Сырник празднует - опрокинул чернильницу. Ну хоть не на свиток заклинаний...",
+    "tagCount": 5,
+    "audioClipName": "audio_226.wav"
+  },
+  {
+    "tags": [
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ",
+      "открыл дверь"
+    ],
+    "text": "Сырник нашёл ключ! ...и утащил его под диван. Придётся доставать удочкой для рыцарей.",
+    "tagCount": 5,
+    "audioClipName": "audio_227.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало1",
+      "режим боя",
+      "True",
+      "победил"
+    ],
+    "text": "Сырник смотрит на вашу единицу с презрением. Он вчера поймал мышь с первой попытки!",
+    "tagCount": 5,
+    "audioClipName": "audio_228.wav"
+  },
+  {
+    "tags": [
+      "Priest",
+      "впереди",
+      "дверь",
+      "впереди",
+      "ключ"
+    ],
+    "text": "Сырник уселся перед дверью и умывается. Народная примета - скоро найдёте ключ!",
+    "tagCount": 5,
+    "audioClipName": "audio_229.wav"
+  },
+  {
+    "tags": [
+      "Knight",
+      "открыл дверь",
+      "текущий ход",
+      "Knight",
+      "бросил кубик"
+    ],
+    "text": "Дверь открыта! Сырник первым влетает внутрь. Кажется, он там что-то разбил... Опять.",
+    "tagCount": 5,
+    "audioClipName": "audio_230.wav"
+  },
+  {
+    "tags": [
+      "Mage",
+      "потерял две жизнь",
+      "режим восстановления",
+      "True",
+      "восстановил здоровье"
+    ],
+    "text": "Сырник принёс вам мёртвого паука. Это его способ сказать 'выздоравливай'!",
+    "tagCount": 5,
+    "audioClipName": "audio_231.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "встретил врага",
+      "текущий ход",
+      "Barbarian",
+      "бросил кубик"
+    ],
+    "text": "Сырник внезапно вцепился врагу в штанину! Кажется, у нас новый союзник.",
+    "tagCount": 5,
+    "audioClipName": "audio_232.wav"
+  },
+  {
+    "tags": [
+      "ход",
+      "Knight",
+      "сделал ход",
+      "Knight",
+      "текущий ход"
+    ],
+    "text": "Сырник трётся о ваши ноги. Он точно знает - следующая попытка будет удачнее!",
+    "tagCount": 5,
+    "audioClipName": "audio_233.wav"
+  },
+  {
+    "tags": [
+      "режим боя",
+      "Knight",
+      "False",
+      "режим восстановления",
+      "Knight"
+    ],
+    "text": "Сырник бежит впереди, размахивая хвостом. Отличный отвлекающий манёвр!",
+    "tagCount": 5,
+    "audioClipName": "audio_234.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало3"
+    ],
+    "text": "Сырник пытается поймать кубик лапой. Тройка! Видимо, он у нас талисман удачи.",
+    "tagCount": 5,
+    "audioClipName": "audio_235.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Вот и двоечка, неплохо рыцарь!",
+    "tagCount": 5,
+    "audioClipName": "audio_236.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало3"
+    ],
+    "text": "Три рыцаря, как на картине",
+    "tagCount": 5,
+    "audioClipName": "audio_237.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало4"
+    ],
+    "text": "Четыры это просто супер",
+    "tagCount": 5,
+    "audioClipName": "audio_238.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Видимо два это была твоя любимая оценка!",
+    "tagCount": 5,
+    "audioClipName": "audio_239.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Пара, пара, парадуемся )",
+    "tagCount": 5,
+    "audioClipName": "audio_240.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Рыцарь получил два очка, это лучше чем ничего!",
+    "tagCount": 5,
+    "audioClipName": "audio_241.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Knight",
+      "бросил кубик",
+      "Knight",
+      "выпало2"
+    ],
+    "text": "Ну ты двоечник!",
+    "tagCount": 5,
+    "audioClipName": "audio_242.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Где-то прячется враг, но ты его не нашёл.",
+    "tagCount": 5,
+    "audioClipName": "audio_243.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "А вот и враг, но ты его не заметил.",
+    "tagCount": 5,
+    "audioClipName": "audio_244.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Рыцарь поступает по рыцарски, враг будет разбит",
+    "tagCount": 5,
+    "audioClipName": "audio_245.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Рыцарю только бы драться",
+    "tagCount": 5,
+    "audioClipName": "audio_246.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Попахивает рыцарским поединком",
+    "tagCount": 5,
+    "audioClipName": "audio_247.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Рыцарь заскочит на коня и всех победит",
+    "tagCount": 5,
+    "audioClipName": "audio_248.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Рыцарь явно ищет драки",
+    "tagCount": 5,
+    "audioClipName": "audio_249.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Попахивает мордобоем",
+    "tagCount": 5,
+    "audioClipName": "audio_250.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Скоро опять будет битва",
+    "tagCount": 5,
+    "audioClipName": "audio_251.wav"
+  },
+  {
+    "tags": [
+      "сделал ход",
+      "Knight",
+      "встретил врага",
+      "текущий ход",
+      "Knight"
+    ],
+    "text": "Враг не дремлет",
+    "tagCount": 5,
+    "audioClipName": "audio_252.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, тебе два как раз",
+    "tagCount": 5,
+    "audioClipName": "audio_253.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало3",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, тебе три-три-три до дырки",
+    "tagCount": 5,
+    "audioClipName": "audio_254.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, варвар, что так мало?",
+    "tagCount": 5,
+    "audioClipName": "audio_255.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, ну мог бы и лучше выкинуть",
+    "tagCount": 5,
+    "audioClipName": "audio_256.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, двоечка? это слабовато",
+    "tagCount": 5,
+    "audioClipName": "audio_257.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "выпало2",
+      "режим боя",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, надо было прорываться",
+    "tagCount": 5,
+    "audioClipName": "audio_258.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian"
+    ],
+    "text": "Варвар похоже на отдыхе",
+    "tagCount": 5,
+    "audioClipName": "audio_259.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian"
+    ],
+    "text": "Варвар, не богато?",
+    "tagCount": 5,
+    "audioClipName": "audio_260.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian"
+    ],
+    "text": "А кто играет за варвара? неповезло",
+    "tagCount": 5,
+    "audioClipName": "audio_261.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian"
+    ],
+    "text": "Варвар лучше бы и не ходил",
+    "tagCount": 5,
+    "audioClipName": "audio_262.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Barbarian",
+      "False",
+      "ход",
+      "Barbarian"
+    ],
+    "text": "Удача отвернулась от варвара",
+    "tagCount": 5,
+    "audioClipName": "audio_263.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "Маг, у тебя выпало два, это не так уж и плохо.",
+    "tagCount": 5,
+    "audioClipName": "audio_264.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "Маг, выпало два, но это лучше, чем ничего.",
+    "tagCount": 5,
+    "audioClipName": "audio_265.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "Маг, лушче бы ты колодовал в лесу!",
+    "tagCount": 5,
+    "audioClipName": "audio_266.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "два для Мага, ну такое",
+    "tagCount": 5,
+    "audioClipName": "audio_267.wav"
+  },
+  {
+    "tags": [
+      "текущий ход",
+      "Mage",
+      "бросил кубик",
+      "Mage",
+      "выпало2"
+    ],
+    "text": "Маг, медленно движется, но это не значит, что он слаб.",
+    "tagCount": 5,
+    "audioClipName": "audio_268.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Mage",
+      "False",
+      "ход",
+      "Mage"
+    ],
+    "text": "Маг что-то тебе не везет",
+    "tagCount": 5,
+    "audioClipName": "audio_269.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Mage",
+      "False",
+      "ход",
+      "Mage"
+    ],
+    "text": "Кто молодец? Маг молодец",
+    "tagCount": 5,
+    "audioClipName": "audio_270.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Mage",
+      "False",
+      "ход",
+      "Mage"
+    ],
+    "text": "Маг надо бы тебе отдохнуть",
+    "tagCount": 5,
+    "audioClipName": "audio_271.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Mage",
+      "False",
+      "ход",
+      "Mage"
+    ],
+    "text": "Маг все в порядке, без паники",
+    "tagCount": 5,
+    "audioClipName": "audio_272.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Mage",
+      "False",
+      "ход",
+      "Mage"
+    ],
+    "text": "Маг, а теперь можно паниковать",
+    "tagCount": 5,
+    "audioClipName": "audio_273.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Priest",
+      "False",
+      "ход",
+      "Priest"
+    ],
+    "text": "Жрец сегодня как черепаха",
+    "tagCount": 5,
+    "audioClipName": "audio_274.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Priest",
+      "False",
+      "ход",
+      "Priest"
+    ],
+    "text": "Жрец побежал как ненормальный.",
+    "tagCount": 5,
+    "audioClipName": "audio_275.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Priest",
+      "False",
+      "ход",
+      "Priest"
+    ],
+    "text": "Жрец меденно движется, а это уже хорошо.",
+    "tagCount": 5,
+    "audioClipName": "audio_276.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Priest",
+      "False",
+      "ход",
+      "Priest"
+    ],
+    "text": "Жрец в режиме восстановления? а нет",
+    "tagCount": 5,
+    "audioClipName": "audio_277.wav"
+  },
+  {
+    "tags": [
+      "режим восстановления",
+      "Priest",
+      "False",
+      "ход",
+      "Priest"
+    ],
+    "text": "Жрец ну ты пошел уже?",
+    "tagCount": 5,
+    "audioClipName": "audio_278.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар сегодня отдыхает",
+    "tagCount": 5,
+    "audioClipName": "audio_279.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар ну давай покажи какой-то крутой",
+    "tagCount": 5,
+    "audioClipName": "audio_280.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар, ходи, ходи, беги, беги",
+    "tagCount": 5,
+    "audioClipName": "audio_281.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар просто идет вперед.",
+    "tagCount": 5,
+    "audioClipName": "audio_282.wav"
+  },
+  {
+    "tags": [
+      "Barbarian",
+      "False",
+      "режим восстановления",
+      "Barbarian",
+      "False"
+    ],
+    "text": "Варвар не видит препятствий, он просто идет вперед.",
+    "tagCount": 5,
+    "audioClipName": "audio_283.wav"
   }
 ]

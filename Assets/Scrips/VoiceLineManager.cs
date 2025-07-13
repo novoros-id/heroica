@@ -15,6 +15,8 @@ public class VoiceLineManager : MonoBehaviour
     private int checkCallCounter = 0;
     private AudioSource audioSource;
 
+    private bool isVoiceLinePlaying = false;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -28,7 +30,7 @@ public class VoiceLineManager : MonoBehaviour
 
         LoadVoiceLines();
         // Создаем AudioSource
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void LoadVoiceLines()
@@ -56,6 +58,9 @@ public class VoiceLineManager : MonoBehaviour
     /// </summary>
     public void CheckForMatchingVoiceLine(List<string> currentTags)
     {
+        if (isVoiceLinePlaying)
+            return;
+
         checkCallCounter++;
         if (checkCallCounter % 5 != 0)
             return;
@@ -63,7 +68,8 @@ public class VoiceLineManager : MonoBehaviour
         if (voiceLines == null || voiceLines.Count == 0 || currentTags == null || currentTags.Count == 0)
             return;
 
-        const int MIN_MATCHES = 4;
+        const int MIN_MATCHES = 5;
+        var candidates = new List<(VoiceLine line, List<string> matchedTags)>();
 
         foreach (var line in voiceLines)
         {
@@ -88,25 +94,35 @@ public class VoiceLineManager : MonoBehaviour
                     }
                     if (sequenceMatch)
                     {
-                        if (usedVoiceLines.Contains(line.text))
-                            continue;
-
-                        Debug.Log($"[VoiceLine] {line.text} | Совпавшие теги по порядку: [{string.Join(", ", matchedTags)}]");
-                        PlayVoiceLine(line);
-                        usedVoiceLines.Add(line.text);
-                        return;
+                        candidates.Add((line, matchedTags));
                     }
                 }
             }
         }
+
+        // Исключаем уже использованные фразы
+        var unusedCandidates = candidates.FindAll(c => !usedVoiceLines.Contains(c.line.text));
+
+        if (unusedCandidates.Count > 0)
+        {
+            // Выбираем случайную фразу из оставшихся
+            var chosen = unusedCandidates[Random.Range(0, unusedCandidates.Count)];
+            Debug.Log($"[VoiceLine] {chosen.line.text} | Совпавшие теги по порядку: [{string.Join(", ", chosen.matchedTags)}]");
+            StartCoroutine(PlayVoiceLineWithBlock(chosen.line));
+            usedVoiceLines.Add(chosen.line.text);
+        }
+        // Если нет новых подходящих фраз — ничего не делаем
     }
 
     public void PlayVoiceLine(VoiceLine line)
     {
         if (line == null || string.IsNullOrEmpty(line.audioClipName))
             return;
-        AudioClip clip = Resources.Load<AudioClip>("Audio/" + "test");
-        //AudioClip clip = Resources.Load<AudioClip>("Audio/" + line.audioClipName);
+        // Удаляем расширение, если оно есть
+        string clipName = System.IO.Path.GetFileNameWithoutExtension(line.audioClipName);
+
+        //AudioClip clip = Resources.Load<AudioClip>("Audio/" + "test");
+        AudioClip clip = Resources.Load<AudioClip>("Audio/" + clipName);
         if (clip != null)
         {
             audioSource.PlayOneShot(clip);
@@ -117,8 +133,30 @@ public class VoiceLineManager : MonoBehaviour
         }
     }
 
+    private System.Collections.IEnumerator PlayVoiceLineWithBlock(VoiceLine line)
+    {
+        isVoiceLinePlaying = true;
+        PlayVoiceLine(line);
+        yield return new WaitForSecondsRealtime(6f); // 4 секунды блокировки
+        isVoiceLinePlaying = false;
+    }
+
     public void ClearUsedVoiceLines()
     {
         usedVoiceLines.Clear();
     }
+
+    public string GetUsedVoiceLinesAsString()
+    {
+        if (usedVoiceLines.Count == 0)
+            return "(пусто)";
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        foreach (var line in usedVoiceLines)
+        {
+            sb.AppendLine(line);
+        }
+        return sb.ToString();
+    }
 }
+

@@ -24,7 +24,7 @@ public class AnimCrossedSwords : MonoBehaviour
     }
     public void Sound()
     {
-        audiosrc.PlayOneShot(fight);
+        // audiosrc.PlayOneShot(fight);
     }
 
     public void OnMouseDown()
