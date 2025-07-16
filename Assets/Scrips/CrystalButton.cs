@@ -20,9 +20,19 @@ public class CrystalButton : MonoBehaviour
 
     void Start()
     {
-        //audiosrc = GetComponent<AudioSource>();
         CubeButton = GameObject.Find("Button");
-        cube_button_script mCube = CubeButton.GetComponent<cube_button_script>();
+        if (CubeButton == null)
+        {
+            Debug.LogError("Не найден объект с именем 'Button' на сцене!");
+        }
+        else
+        {
+            mCube = CubeButton.GetComponent<cube_button_script>();
+            if (mCube == null)
+            {
+                Debug.LogError("На объекте 'Button' не найден компонент cube_button_script!");
+            }
+        }
         CrystalButton_ = GameObject.Find("CrystalButton");
     }
 

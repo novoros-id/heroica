@@ -1180,6 +1180,7 @@ public class ClickOnCube : MonoBehaviour
                     {
                         playerWaitTimer = 0f;
                         isWaitingForPlayer = true;
+
                     }
                     else
                     {
