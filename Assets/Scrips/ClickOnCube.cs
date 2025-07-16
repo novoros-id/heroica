@@ -47,6 +47,11 @@ public class ClickOnCube : MonoBehaviour
     public float computerMoveDelay = 2f; // Время ожидания хода компьютера (секунды)
     private bool waitingForComputerMove = false;
 
+    // ожидание игрока
+    private float playerWaitTimer = 0f;
+    public float maxWaitTime = 10f; // Время ожидания в секундах
+    private bool isWaitingForPlayer = false;
+
 
     private void Awake()
     {
@@ -83,6 +88,10 @@ public class ClickOnCube : MonoBehaviour
 
     public void make_move()
     {
+
+        isWaitingForPlayer = false;
+        playerWaitTimer = 0f;
+
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
 
@@ -879,6 +888,12 @@ public class ClickOnCube : MonoBehaviour
                         else if (cube_s == 2) // проигрышь, шаг назад 
                         {
                             // audiosrc.PlayOneShot(sound_proigr_battle);
+                            AudioClip[] lostClips = Resources.LoadAll<AudioClip>("lost");
+                            if (lostClips != null && lostClips.Length > 0)
+                            {
+                                AudioClip randomlostClip = lostClips[Random.Range(0, lostClips.Length)];
+                                audiosrc.PlayOneShot(randomlostClip);
+                            }
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
 
@@ -1150,7 +1165,46 @@ public class ClickOnCube : MonoBehaviour
             if (mScript == null) return;
 
             GameObject currentPlayer = mScript.return_curent_player();
-            if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == true)
+            if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == false)
+            {
+                GameObject cube_button = GameObject.Find("CubeButton");
+                if (cube_button == null) return;
+
+                cube_button_script mCube = cube_button.GetComponent<cube_button_script>();
+                if (mCube == null) return;
+
+                // Если кубик доступен, начинаем отсчет ожидания
+                if (mCube.cube_is_available)
+                {
+                    if (!isWaitingForPlayer)
+                    {
+                        playerWaitTimer = 0f;
+                        isWaitingForPlayer = true;
+                    }
+                    else
+                    {
+                        playerWaitTimer += Time.deltaTime;
+                        if (playerWaitTimer > maxWaitTime)
+                        {
+                            // Показываем предупреждение
+                            AudioClip[] podgonClips = Resources.LoadAll<AudioClip>("podgon");
+                            if (podgonClips != null && podgonClips.Length > 0)
+                            {
+                                AudioClip randomlostClip = podgonClips[Random.Range(0, podgonClips.Length)];
+                                audiosrc.PlayOneShot(randomlostClip);
+                            }
+                            // Можно добавить UI-предупреждение здесь
+                            isWaitingForPlayer = false; // чтобы не спамить
+                        }
+                    }
+                }
+                else
+                {
+                    isWaitingForPlayer = false;
+                    playerWaitTimer = 0f;
+                }
+            }
+            else if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == true)
             {
                 GameObject cube_button = GameObject.Find("CubeButton");
                 if (cube_button == null) return;

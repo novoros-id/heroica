@@ -123,7 +123,7 @@ public class VoiceLineManager : MonoBehaviour
         string clipName = System.IO.Path.GetFileNameWithoutExtension(line.audioClipName);
 
         // Список подпапок
-        string[] subfolders = new string[] { "mama", "papa" };
+        string[] subfolders = new string[] { "mama", "papa", "volya"};
         string randomSubfolder = subfolders[Random.Range(0, subfolders.Length)];
 
         // Формируем путь
