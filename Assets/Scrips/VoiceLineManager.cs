@@ -118,18 +118,25 @@ public class VoiceLineManager : MonoBehaviour
     {
         if (line == null || string.IsNullOrEmpty(line.audioClipName))
             return;
+
         // Удаляем расширение, если оно есть
         string clipName = System.IO.Path.GetFileNameWithoutExtension(line.audioClipName);
 
-        //AudioClip clip = Resources.Load<AudioClip>("Audio/" + "test");
-        AudioClip clip = Resources.Load<AudioClip>("Audio/" + clipName);
+        // Список подпапок
+        string[] subfolders = new string[] { "mama", "papa", "volya"};
+        string randomSubfolder = subfolders[Random.Range(0, subfolders.Length)];
+
+        // Формируем путь
+        string path = $"Audio/{randomSubfolder}/{clipName}";
+
+        AudioClip clip = Resources.Load<AudioClip>(path);
         if (clip != null)
         {
             audioSource.PlayOneShot(clip);
         }
         else
         {
-            Debug.LogWarning($"Аудиофайл {line.audioClipName} не найден!");
+            Debug.LogWarning($"Аудиофайл {clipName} не найден в {path}!");
         }
     }
 
