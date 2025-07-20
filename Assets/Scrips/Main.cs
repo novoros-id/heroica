@@ -80,7 +80,7 @@ public class Main : MonoBehaviour
     }
     private void Awake()
     {
-
+        
 
         if (SceneManager.GetActiveScene().name != "Start")
         {
@@ -378,6 +378,21 @@ public class Main : MonoBehaviour
         // передвинем знак хода
         move_priznak_step(text_add);
 
+        GameObject cube_button = GameObject.Find("Cube");
+        ClickOnCube cubeScript = cube_button.GetComponent<ClickOnCube>();
+        GameObject curPlayer = return_curent_player();
+        Player_ pl_script = curPlayer.GetComponent<Player_>();
+        
+        bool isPlayer = !pl_script.get_comp();
+        //bool notInBattle = !is_battle; // замените на вашу переменную состояния боя
+        bool delayNotZero = cubeScript.computerMoveDelay == 0;
+        if (isPlayer == true)
+        {
+            cubeScript.SetCubeHighlight(true);
+        }
+        else if (cubeScript.computerMoveDelay == 0) {
+            cubeScript.SetCubeHighlight(true);
+        }
     }
 
     public void move_priznak_step(string text_add = "")
@@ -554,7 +569,7 @@ public class Main : MonoBehaviour
                 add_text("Battle Mode " + curPlayer.name + " click on the cube and find out the outcome of the battle");
             }
 
-            if (pl_script.comp == true)
+            if(pl_script.comp == true)
             {
                 write_to_the_chat(curPlayer, "Waiting_cube_before_the_fight");
             }
