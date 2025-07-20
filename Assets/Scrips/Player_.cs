@@ -621,6 +621,13 @@ public class Player_ : MonoBehaviour
                 AudioClip randomBattleClip = battleClips[Random.Range(0, battleClips.Length)];
                 audiosrc.PlayOneShot(randomBattleClip);
             }
+
+            ClickOnCube cs = GameObject.Find("Cube").GetComponent<ClickOnCube>();
+            if (comp == false || cs.computerMoveDelay == 0)
+            {
+                cs.SetCubeHighlight(true);
+            }
+
             battle_mode = true;
         }
     }

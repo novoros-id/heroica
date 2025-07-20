@@ -21,6 +21,15 @@ public class ControllerButtons : MonoBehaviour
     }
     public void ChoozeLvl()
     {
+        GameObject cam = GameObject.Find("Directional Light");
+        Main mScript = cam.GetComponent<Main>();
+        Dictionary <string, string> level_1_name = mScript.chapter_1_levels_name;
+
+        foreach (var item in level_1_name)
+        {
+            mScript.save_level_complete(item.Key);
+        }
+        
         ButtonsMenu.SetActive(false);
         Levels.SetActive(true);
         Back.SetActive(true);

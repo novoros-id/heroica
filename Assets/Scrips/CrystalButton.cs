@@ -21,7 +21,7 @@ public class CrystalButton : MonoBehaviour
     void Start()
     {
         //audiosrc = GetComponent<AudioSource>();
-        CubeButton = GameObject.Find("Button");
+        CubeButton = GameObject.Find("CubeButton");
         cube_button_script mCube = CubeButton.GetComponent<cube_button_script>();
         CrystalButton_ = GameObject.Find("CrystalButton");
     }
