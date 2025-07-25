@@ -6644,6 +6644,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 458234616550407670, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 677128780644447511, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7186,7 +7191,7 @@ PrefabInstance:
     - target: {fileID: 4920285711816229902, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000051836123
+      value: 0.00002861023
       objectReference: {fileID: 0}
     - target: {fileID: 5019184031333439752, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
         type: 3}
@@ -7243,6 +7248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 'Chapter 1: Level 1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187946391487554050, guid: 20a6c7e676ad1704ab38e30a8cc8af06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7946668289515759634, guid: 20a6c7e676ad1704ab38e30a8cc8af06, type: 3}
@@ -10693,7 +10703,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.07e-43, y: 2.3973e-41, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: 6e-44, y: 2.27e-43, z: 1.0564e-41, w: 4e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
