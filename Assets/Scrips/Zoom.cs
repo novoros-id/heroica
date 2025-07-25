@@ -91,8 +91,15 @@ public class Zoom : MonoBehaviour
                 else if (t1.phase == TouchPhase.Moved || t2.phase == TouchPhase.Moved)
                 {
                     var currentFingersDistance = Vector2.Distance(t1.position, t2.position);
-                    var scaleFactor = initialFingersDistance / currentFingersDistance; // инвертировали
-                    CameraCenter.transform.localScale = initialScale * scaleFactor;
+                    var scaleFactor = initialFingersDistance / currentFingersDistance;
+
+                    float minScale = 0.5f;
+                    float maxScale = 3f;
+                    float targetScale = Mathf.Clamp(initialScale.x * scaleFactor, minScale, maxScale);
+                    float smoothSpeed = 5f; // уменьшите для большей плавности
+                    float currentScale = CameraCenter.transform.localScale.x;
+                    float newScale = Mathf.Lerp(currentScale, targetScale, Time.deltaTime * smoothSpeed);
+                    CameraCenter.transform.localScale = new Vector3(newScale, newScale, newScale);
 
                     float Dx = t1.position.x - transform.position.x;
                     float Dy = t1.position.y - transform.position.y;
