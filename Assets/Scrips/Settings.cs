@@ -46,7 +46,7 @@ public class Settings : MonoBehaviour
         }
         else
         {
-            delay = 0;
+            delay = 1.5f;
         }
         if (SceneManager.GetActiveScene().name != "Start")
         {
@@ -146,7 +146,7 @@ public class Settings : MonoBehaviour
         {
             MainMenu.SetActive(true);
         }
-
+        
     }
     public void SettingsOn()
     {
@@ -155,6 +155,7 @@ public class Settings : MonoBehaviour
         {
             MainMenu.SetActive(false);
         }
+        
         ChangeIcon();
     }
     public void CreateLevel()

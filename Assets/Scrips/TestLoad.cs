@@ -39,14 +39,14 @@ public class TestLoad : MonoBehaviour
             {
                 if (ferst_window == true)
                 {
-                    previous = Instantiate(LevelButton, new Vector2(450, 725), Quaternion.identity);
+                    previous = Instantiate(LevelButton, new Vector2(625, 725), Quaternion.identity);
                     previous.transform.SetParent(this.transform);
                     previous.GetComponent<LevelButton>().SetNumberLevel(ln);
                     ferst_window = false;
                 }
                 else
                 {
-                    previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 45), Quaternion.identity);
+                    previous = Instantiate(LevelButton, new Vector2(625, previous.transform.position.y - 135), Quaternion.identity);
                     previous.transform.SetParent(this.transform);
                     previous.GetComponent<LevelButton>().SetNumberLevel(ln);
                 }
