@@ -344,13 +344,16 @@ public class Main : MonoBehaviour
     {
         if (language == 0)
         {
+            lang = "ru";
             PlayerPrefs.SetString("lang", "ru");
         }
         else
         {
+            lang = "en";
             PlayerPrefs.SetString("lang", "en");
         }
         PlayerPrefs.Save();
+        
     }
 
     public void SetChatbox(bool cb)

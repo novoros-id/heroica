@@ -146,7 +146,7 @@ public class Settings : MonoBehaviour
         {
             MainMenu.SetActive(true);
         }
-
+        
     }
     public void SettingsOn()
     {
@@ -155,6 +155,7 @@ public class Settings : MonoBehaviour
         {
             MainMenu.SetActive(false);
         }
+        
         ChangeIcon();
     }
     public void CreateLevel()
