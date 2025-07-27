@@ -188,7 +188,7 @@ public class Main : MonoBehaviour
         }
         else
         {
-            ChatBox = 1;
+            ChatBox = 0;
         }
         if (PlayerPrefs.HasKey("volume"))
         {
@@ -239,7 +239,7 @@ public class Main : MonoBehaviour
         }
         else
         {
-            lang = "en";
+            lang = "ru";
         }
         #if UNITY_EDITOR
             Pc = true;

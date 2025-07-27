@@ -46,7 +46,7 @@ public class Settings : MonoBehaviour
         }
         else
         {
-            delay = 0;
+            delay = 1.5f;
         }
         if (SceneManager.GetActiveScene().name != "Start")
         {
