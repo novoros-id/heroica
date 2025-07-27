@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class TestLoad : MonoBehaviour
 {
@@ -22,9 +24,9 @@ public class TestLoad : MonoBehaviour
         //    //Debug.Log(bcd.prefab);
         //    Instantiate(Resources.Load(bcd.prefab), bcd.position_, bcd.rotation_);
         //}
-        
+
     }
-   
+
     public void Awake()
     {
         GameObject previous = null;
@@ -39,14 +41,14 @@ public class TestLoad : MonoBehaviour
             {
                 if (ferst_window == true)
                 {
-                    previous = Instantiate(LevelButton, new Vector2(450, 725), Quaternion.identity);
+                    previous = Instantiate(LevelButton, new Vector2(625, 725), Quaternion.identity);
                     previous.transform.SetParent(this.transform);
                     previous.GetComponent<LevelButton>().SetNumberLevel(ln);
                     ferst_window = false;
                 }
                 else
                 {
-                    previous = Instantiate(LevelButton, new Vector2(450, previous.transform.position.y - 45), Quaternion.identity);
+                    previous = Instantiate(LevelButton, new Vector2(625, previous.transform.position.y - 135), Quaternion.identity);
                     previous.transform.SetParent(this.transform);
                     previous.GetComponent<LevelButton>().SetNumberLevel(ln);
                 }
@@ -71,7 +73,7 @@ public class TestLoad : MonoBehaviour
         //}
     }
 
-    
+
     //public void LoadLevel()
     //{
     //    Instantiate(ConstantObjects, new Vector3(0f, 0f, 0f), Quaternion.identity);
@@ -183,4 +185,8 @@ public class TestLoad : MonoBehaviour
     //        DLight.survival = false;
     //    }
     //}
+    public void Exit()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }

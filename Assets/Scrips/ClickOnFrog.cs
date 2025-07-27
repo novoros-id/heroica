@@ -7,7 +7,7 @@ public class ClickOnFrog : MonoBehaviour
 {
     static AudioSource audiosrc;
     public AudioClip Click;
-    private bool click_frog;
+    public bool click_frog;
     
     void Start()
     {

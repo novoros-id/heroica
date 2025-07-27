@@ -58,6 +58,16 @@ public class Move : MonoBehaviour
             Destroy(Blue[b]);
 
         }
+
+        //ClickOnCube cb = GameObject.Find("Cube").GetComponent<ClickOnCube>();
+        //cb.Remove_Outline();
+        //GameObject cam = GameObject.Find("Directional Light");
+        //Main mScript = cam.GetComponent<Main>();
+        //Curent_player = mScript.return_curent_player();
+        //if (Curent_player.GetComponent<Player_>().comp == false & computerMoveDelay != 0)
+        //{
+        //    GO_Outline.SetActive(true);
+        //}
     }
 
     public void ItemFromFloor(GameObject player_, Vector3 position_)

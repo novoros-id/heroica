@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class ClickOnCube : MonoBehaviour
@@ -14,7 +15,7 @@ public class ClickOnCube : MonoBehaviour
     public int cube_step;
     public List<string> list_steps = new List<string>();
     public int count_magic_crystall;
-    public int cube_step_crystall =0;
+    public int cube_step_crystall = 0;
 
 
     public Instantiant massive;
@@ -38,7 +39,7 @@ public class ClickOnCube : MonoBehaviour
     public AudioClip sound_final;
     public AudioClip sound_final_loss;
     public GameObject UI;
-    public Text TextEndGame;
+    public TextMeshProUGUI TextEndGame;
     public GameObject CrystalButton_;
 
     public Sprite ImageEndWin;
@@ -46,19 +47,29 @@ public class ClickOnCube : MonoBehaviour
 
     public float computerMoveDelay = 2f; // Время ожидания хода компьютера (секунды)
     private bool waitingForComputerMove = false;
+    public GameObject GO_Outline;
+    public GameObject CubeButton_;
+
+    // ожидание игрока
+    private float playerWaitTimer = 0f;
+    public float maxWaitTime = 10f; // Время ожидания в секундах
+    private bool isWaitingForPlayer = false;
 
 
     private void Awake()
     {
         finalUI = GameObject.Find("EndGame");
         UI = GameObject.Find("UI");
-        TextEndGame = GameObject.Find("TextEnd").GetComponent<Text>();
+        TextEndGame = GameObject.Find("TextEnd").GetComponent<TextMeshProUGUI>();
         CrystalButton_ = GameObject.Find("CrystalButton");
+        GO_Outline = GameObject.Find("Outline");
+        GO_Outline.SetActive(false);
+        CubeButton_ = GameObject.Find("CubeButton");
     }
 
     void Start()
     {
-        
+
         audiosrc = GetComponent<AudioSource>();
         CrystalButton_.SetActive(false);
 
@@ -83,6 +94,12 @@ public class ClickOnCube : MonoBehaviour
 
     public void make_move()
     {
+
+        SetCubeHighlight(false);
+
+        isWaitingForPlayer = false;
+        playerWaitTimer = 0f;
+
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
 
@@ -96,7 +113,7 @@ public class ClickOnCube : MonoBehaviour
         }
 
         list_steps.Clear(); // очистили  технический list куда можно идти
-       
+
         clear_blue(); // убрали голубые
 
         if (cube_step_crystall == 0)
@@ -116,18 +133,18 @@ public class ClickOnCube : MonoBehaviour
         //GameLogger.Instance.Log($"Текущий ход: {currentPlayerName}"); // Логируем игрока
         GameLogger.Instance.Log(new List<string> { "текущий ход", currentPlayerName });
         //GameLogger.Instance.Log($"Игрок {currentPlayerName} бросил кубик и у него выпало {cube_step}");
-        GameLogger.Instance.Log(new List<string> { "бросил кубик", currentPlayerName, $"выпало{cube_step}"});
+        GameLogger.Instance.Log(new List<string> { "бросил кубик", currentPlayerName, $"выпало{cube_step}" });
 
         bool current_player_mode_battle = return_current_player_mode(Curent_player);
         //GameLogger.Instance.Log($"Игрок {currentPlayerName} находится в режиме боя {current_player_mode_battle}");
-        GameLogger.Instance.Log(new List<string> { "режим боя", currentPlayerName, $"{current_player_mode_battle}"});
+        GameLogger.Instance.Log(new List<string> { "режим боя", currentPlayerName, $"{current_player_mode_battle}" });
         bool current_player_mode_recovery = return_current_mode_recovery(Curent_player);
         //GameLogger.Instance.Log($"Игрок {currentPlayerName} находится в режиме восстановления {current_player_mode_recovery}");
-        GameLogger.Instance.Log(new List<string> { "режим восстановления", currentPlayerName, $"{current_player_mode_recovery}"});
+        GameLogger.Instance.Log(new List<string> { "режим восстановления", currentPlayerName, $"{current_player_mode_recovery}" });
         if (Curent_player != null && current_player_mode_battle == false && current_player_mode_recovery == false) // режим хода
         {
             //GameLogger.Instance.Log($"Игрок {currentPlayerName} должен сделать ход");
-            GameLogger.Instance.Log(new List<string> { "ход", currentPlayerName});
+            GameLogger.Instance.Log(new List<string> { "ход", currentPlayerName });
 
             // GameObject.Find("CubeButton").SetActive(false);
             mCube.reverse_cube_aviable();
@@ -160,13 +177,13 @@ public class ClickOnCube : MonoBehaviour
         else if (Curent_player != null && current_player_mode_battle == true && current_player_mode_recovery == false) // режим боя
         {
             //GameLogger.Instance.Log($"Игрок {currentPlayerName} начинает бой с врагом");
-            GameLogger.Instance.Log(new List<string> { "бой с врагом", currentPlayerName});
+            GameLogger.Instance.Log(new List<string> { "бой с врагом", currentPlayerName });
             battle_whith_enemy(cube_step);
         }
         else // режим восстановления здоровья
         {
             //GameLogger.Instance.Log($"Игрок {currentPlayerName} восстановил здоровье");
-            GameLogger.Instance.Log(new List<string> { "восстановил здоровье", currentPlayerName});
+            GameLogger.Instance.Log(new List<string> { "восстановил здоровье", currentPlayerName });
             leave_recovery(cube_step);
         }
     }
@@ -203,7 +220,7 @@ public class ClickOnCube : MonoBehaviour
         int index_max_distance = 0;
 
         //// выбор самого близкого объекта
-        
+
 
         int index_ls = 0;
         foreach (var lst in list_steps)
@@ -250,12 +267,12 @@ public class ClickOnCube : MonoBehaviour
             pl_script.move = true;
             //audiosrc.PlayOneShot(Moving);
             //GameLogger.Instance.Log($"Игрок {Curent_player.name} совершил ход на поле {rnd_Floor.name}");
-            GameLogger.Instance.Log(new List<string> { "сделал ход", Curent_player.name});
+            GameLogger.Instance.Log(new List<string> { "сделал ход", Curent_player.name });
             Curent_player.GetComponent<Player_>().SoundStep();
             //audiosrc.PlayOneShot(Step);
             Move bScript = Blue[b].GetComponent<Move>();
             bScript.ItemFromFloor(Curent_player, rnd_Floor_Pos);
-            
+
             bScript.clear_blue();
             break;
         }
@@ -268,7 +285,7 @@ public class ClickOnCube : MonoBehaviour
     /// <returns></returns>
     ///
 
-    bool item_on_the_field (string name_field)
+    bool item_on_the_field(string name_field)
     {
         GameObject _Floor = GameObject.Find(name_field);
         Vector3 position_ = _Floor.transform.position;
@@ -333,7 +350,7 @@ public class ClickOnCube : MonoBehaviour
         max_name = "";
         max_position = 0;
 
-         audiosrc.PlayOneShot(Click);
+        audiosrc.PlayOneShot(Click);
 
         for (int i = 0; i < Cube_.Length; i++)
         {
@@ -433,7 +450,7 @@ public class ClickOnCube : MonoBehaviour
         Vector3 CurFloorPos;
         Collider[] colliders;
         Collider[] s_step;
-        float x,z;
+        float x, z;
 
 
         steps_ -= 1; // уменьшим шаг на 1
@@ -721,7 +738,7 @@ public class ClickOnCube : MonoBehaviour
 
         //if (player_in_floor == false)
         //{
-            Instantiate(selected1, new Vector3(floor_.transform.position.x, 1.05f, floor_.transform.position.z), Quaternion.identity);
+        Instantiate(selected1, new Vector3(floor_.transform.position.x, 1.05f, floor_.transform.position.z), Quaternion.identity);
 
         //}
     }
@@ -730,7 +747,7 @@ public class ClickOnCube : MonoBehaviour
     {
         Player_ pl_script = Curent_player.GetComponent<Player_>();
         Main mScript = GameObject.Find("Directional Light").GetComponent<Main>();
-         audiosrc.PlayOneShot(Hp);
+        audiosrc.PlayOneShot(Hp);
         //Debug.Log("Hp+");
         pl_script.add_leaves(cube_s);
 
@@ -740,10 +757,10 @@ public class ClickOnCube : MonoBehaviour
         //}
         //else if (mScript.lang == "en")
         //{
-            mScript.set_current_move("Restored " + cube_s + " lives");
+        mScript.set_current_move("Restored " + cube_s + " lives");
         //}
 
-        
+
     }
 
     void battle_whith_enemy(int cube_s)
@@ -767,8 +784,8 @@ public class ClickOnCube : MonoBehaviour
 
         // найдем монстра
 
-        
-        
+
+
 
         CurFloorPos = new Vector3(Curent_player.transform.position.x, Curent_player.transform.position.y, Curent_player.transform.position.z);
 
@@ -790,7 +807,7 @@ public class ClickOnCube : MonoBehaviour
 
                     // Vector3 pos1 = collider.transform.position; Mathf.Abs(float f)
                     // if (collider.transform.position.x == Curent_player.transform.position.x && collider.transform.position.z == Curent_player.transform.position.z)
-                    if (Mathf.Abs(collider.transform.position.x -Curent_player.transform.position.x) < 0.01 && Mathf.Abs(collider.transform.position.z - Curent_player.transform.position.z) < 0.01)
+                    if (Mathf.Abs(collider.transform.position.x - Curent_player.transform.position.x) < 0.01 && Mathf.Abs(collider.transform.position.z - Curent_player.transform.position.z) < 0.01)
                     {
                         // Debug.Log("battlle");
 
@@ -805,7 +822,7 @@ public class ClickOnCube : MonoBehaviour
                                     audiosrc.PlayOneShot(randomvictoryClip);
                                 }
                             }
-                            
+
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
                             Destroy(collider.gameObject);
@@ -829,12 +846,12 @@ public class ClickOnCube : MonoBehaviour
                                 GameLogger.Instance.Log(new List<string> { "игрок победил" });
                                 mScript.set_current_move("Victory !!!");
                             }
-                            
+
                             if (pl_script.comp == true)
                             {
-                                mScript.write_to_the_chat(Curent_player, "Cube_fight_victory"); 
+                                mScript.write_to_the_chat(Curent_player, "Cube_fight_victory");
                             }
-                            
+
                         }
                         else if (cube_s == 3) // победа
                         {
@@ -879,6 +896,12 @@ public class ClickOnCube : MonoBehaviour
                         else if (cube_s == 2) // проигрышь, шаг назад 
                         {
                             // audiosrc.PlayOneShot(sound_proigr_battle);
+                            AudioClip[] lostClips = Resources.LoadAll<AudioClip>("lost");
+                            if (lostClips != null && lostClips.Length > 0)
+                            {
+                                AudioClip randomlostClip = lostClips[Random.Range(0, lostClips.Length)];
+                                audiosrc.PlayOneShot(randomlostClip);
+                            }
                             GameObject Swords = GameObject.Find("crossed sword(Clone)");
                             Destroy(Swords);
 
@@ -905,7 +928,7 @@ public class ClickOnCube : MonoBehaviour
                             {
 
                                 final(true);
-                   
+
                             }
 
 
@@ -929,7 +952,7 @@ public class ClickOnCube : MonoBehaviour
 
                             if (pl_script.comp == true)
                             {
-                                mScript.write_to_the_chat(Curent_player, "Cube_fight_loss"); 
+                                mScript.write_to_the_chat(Curent_player, "Cube_fight_loss");
                             }
 
                         }
@@ -1023,7 +1046,7 @@ public class ClickOnCube : MonoBehaviour
         Main mScript = cam.GetComponent<Main>();
         Player_ pl_script = Curent_player.GetComponent<Player_>();
 
-        if (mScript.survival == true && mScript.level_complete == false &&  pl_script.comp == false)
+        if (mScript.survival == true && mScript.level_complete == false && pl_script.comp == false)
         {
             return true;
         }
@@ -1033,14 +1056,14 @@ public class ClickOnCube : MonoBehaviour
 
 
     void final(bool lose)
-    {       
+    {
         GameObject cam = GameObject.Find("Directional Light");
         Main mScript = cam.GetComponent<Main>();
         finalUI.SetActive(true);
         UI.SetActive(false);
         GameObject ImageEnd = GameObject.Find("ImageEnd");
         Player_ pl_script = Curent_player.GetComponent<Player_>();
-        
+
         string fullGameLog = GameLogger.Instance.GetFullLog();
         Debug.Log("История действий:\n" + fullGameLog);
 
@@ -1124,7 +1147,7 @@ public class ClickOnCube : MonoBehaviour
             }
         }
 
-   
+
 
     }
 
@@ -1150,7 +1173,47 @@ public class ClickOnCube : MonoBehaviour
             if (mScript == null) return;
 
             GameObject currentPlayer = mScript.return_curent_player();
-            if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == true)
+            if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == false)
+            {
+                GameObject cube_button = GameObject.Find("CubeButton");
+                if (cube_button == null) return;
+
+                cube_button_script mCube = cube_button.GetComponent<cube_button_script>();
+                if (mCube == null) return;
+
+                // Если кубик доступен, начинаем отсчет ожидания
+                if (mCube.cube_is_available)
+                {
+                    if (!isWaitingForPlayer)
+                    {
+                        playerWaitTimer = 0f;
+                        isWaitingForPlayer = true;
+
+                    }
+                    else
+                    {
+                        playerWaitTimer += Time.deltaTime;
+                        if (playerWaitTimer > maxWaitTime)
+                        {
+                            // Показываем предупреждение
+                            AudioClip[] podgonClips = Resources.LoadAll<AudioClip>("podgon");
+                            if (podgonClips != null && podgonClips.Length > 0)
+                            {
+                                AudioClip randomlostClip = podgonClips[Random.Range(0, podgonClips.Length)];
+                                audiosrc.PlayOneShot(randomlostClip);
+                            }
+                            // Можно добавить UI-предупреждение здесь
+                            isWaitingForPlayer = false; // чтобы не спамить
+                        }
+                    }
+                }
+                else
+                {
+                    isWaitingForPlayer = false;
+                    playerWaitTimer = 0f;
+                }
+            }
+            else if (currentPlayer != null && currentPlayer.GetComponent<Player_>().get_comp() == true)
             {
                 GameObject cube_button = GameObject.Find("CubeButton");
                 if (cube_button == null) return;
@@ -1176,4 +1239,18 @@ public class ClickOnCube : MonoBehaviour
 
         waitingForComputerMove = false;
     }
+
+    public void SetCubeHighlight(bool active)
+    {
+        GO_Outline.SetActive(active);
+        if (active == true)
+        {
+            CubeButton_.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            CubeButton_.GetComponent<Image>().color = new Color(128/255f, 128/255f, 128/255f, 1);
+        }
+    }
+    
 }
